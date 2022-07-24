@@ -1,0 +1,6 @@
+{
+  "indentRainbow.errorColor": "rgba(128,32,32,0.3)",
+  "files.exclude": {
+    "**/.git": false
+  }
+}

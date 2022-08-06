@@ -6,6 +6,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+          shortname: `yangdongs-blog`
+      }
+    },
+    {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {

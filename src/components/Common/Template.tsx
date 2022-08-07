@@ -16,6 +16,7 @@ const Container = styled.main`
   display: flex;
   flex-direction: column;
   height: 100%;
+  overflow-x: hidden;
 `
 
 const Template: FunctionComponent<TemplateProps> = function ({

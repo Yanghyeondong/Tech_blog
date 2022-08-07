@@ -3,6 +3,20 @@ import styled from '@emotion/styled'
 import PostItem from 'components/Main/PostItem'
 import { PostListItemType } from 'types/PostItem.types'
 import useInfiniteScroll, { useInfiniteScrollType } from 'hooks/useInfiniteScroll'
+import { Link } from 'gatsby'
+
+const GoToMainButton = styled(Link)`
+  margin: auto auto;
+  font-size: 30px;
+  height: 200px;
+  &:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 1200px) {
+    margin: auto auto;
+    height: 30px;
+  }
+`
 
 type PostListProps = {
   selectedCategory: string
@@ -17,15 +31,15 @@ const PostListWrapper = styled.div`
   width: 1080px;
   margin: 0 auto;
   padding: 50px 0;
-
+  
   @media (max-width: 1200px) {
     grid-template-columns: 1fr 1fr;
-    width: 90%;
+    width: 70%;
     padding: 50px 20px;
   }
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
-    width: 80%;
+    width: 70%;
     padding: 50px 20px;
   }
 `

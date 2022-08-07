@@ -27,11 +27,11 @@ const CategoryListWrapper = styled.div`
   margin: 50px auto 0;
 
   @media (max-width: 1200px) {
-    width: 90%;
+    width: 70%;
     padding: 0 20px;
   }
   @media (max-width: 768px) {
-    width: 80%;
+    width: 70%;
     padding: 0 20px;
   }
 `
@@ -63,7 +63,7 @@ const CategoryList: FunctionComponent<CategoryListProps> = function ({
     <CategoryListWrapper>
       {Object.entries(categoryList).map(([name, count]) => (
         <CategoryItem
-          to={`/?category=${name}`}
+          to={`/post/?category=${name}`}
           active={name === selectedCategory}
           key={name}
         >

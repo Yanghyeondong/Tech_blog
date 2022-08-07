@@ -13,6 +13,7 @@ const PostItemWrapper = styled(Link)`
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   transition: 0.3s box-shadow;
   cursor: pointer;
+  background-color: #ffffff;
 
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -20,8 +21,8 @@ const PostItemWrapper = styled(Link)`
 `
 
 const ThumbnailImage = styled(GatsbyImage)`
-  width: 100%;
-  height: 200px;
+  width: 100.2%;
+  height: 220px;
   border-radius: 0 0 10px 10px;
   -webkit-mask-image: url("/wave.png");
   -webkit-mask-repeat: no-repeat;
@@ -65,7 +66,7 @@ const CategoryItem = styled.div`
   margin: 2.5px 5px;
   padding: 3px 5px;
   border-radius: 3px;
-  background: black;
+  background: #928490;
   font-size: 14px;
   font-weight: 700;
   color: white;

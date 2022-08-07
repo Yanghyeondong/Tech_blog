@@ -1,42 +1,13 @@
-import React, { FunctionComponent } from 'react'
-import styled from '@emotion/styled'
-import Introduction from 'components/Main/Introduction'
+import React, { FunctionComponent, useMemo } from 'react'
+import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
 import { PostListItemType } from 'types/PostItem.types'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
+import queryString, { ParsedQuery } from 'query-string'
 import Template from 'components/Common/Template'
-import { Link } from 'gatsby'
 
-const GoToMainButton = styled(Link)`
-  margin: 50px auto;
-  font-size: 35px;
-  padding: 10px;
-  font-weight: 800;
-  height: auto;
-  margin-bottom: 100px;
-  color: #433E49;
-  border-bottom-style: dotted;
-  &:hover {
-
-    background-color: #433E49;
-    color: #ffffff;
-    border-radius: 10px;
-    border-bottom-style: solid;
-  }
-  @media (max-width: 1200px) {
-  }
-`
-
-const Title = styled.div`
-  margin: auto;
-  margin-top: 100px;
-  margin-bottom: 10px;
-  font-size: 45px;
-  font-weight: 800;
-`
-
-type IndexPageProps = {
+type PostPageProps = {
   location: {
     search: string
   }
@@ -60,7 +31,7 @@ type IndexPageProps = {
   }
 }
 
-const IndexPage: FunctionComponent<IndexPageProps> = function ({
+const PostPage: FunctionComponent<PostPageProps> = function ({
   location: { search },
   data: {
     site: {
@@ -68,11 +39,40 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
     allMarkdownRemark: { edges },
     file: {
-      childImageSharp: { gatsbyImageData },
       publicURL,
     },
   },
 }) {
+  const parsed: ParsedQuery<string> = queryString.parse(search)
+  const selectedCategory: string =
+    ( typeof parsed.category !== 'string' || !parsed.category )
+      ? 'All' : parsed.category
+
+  const categoryList = useMemo(
+    () =>
+      edges.reduce(
+        (
+          list: CategoryListProps['categoryList'],
+          {
+            node: {
+              frontmatter: { categories },
+            },
+          }: PostListItemType,
+        ) => {
+          categories.forEach(category => {
+            if (list[category] === undefined) list[category] = 1;
+            else list[category]++;
+          });
+
+          list['All']++;
+
+          return list;
+        },
+        { All: 0 },
+      ),
+    [],
+  )
+  
 
   return (
     <Template
@@ -81,18 +81,19 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      <Introduction profileImage={gatsbyImageData} />
-      <Title>New drinks!</Title>
-      <PostList selectedCategory={'all'} posts={edges} maxPostNum={6} />
-      <GoToMainButton to="/post">Order more drinks?</GoToMainButton>
+      <CategoryList
+        selectedCategory={selectedCategory}
+        categoryList={categoryList}
+      />
+      <PostList selectedCategory={selectedCategory} posts={edges} maxPostNum={0} />
     </Template>
   )
 }
 
-export default IndexPage
+export default PostPage
 
-export const getShortPostList = graphql`
-  query getShortPostList {
+export const getPostList = graphql`
+  query getPostList {
     site {
       siteMetadata {
         title

@@ -32,7 +32,6 @@ const NotFoundDescription = styled.div`
 const GoToMainButton = styled(Link)`
   margin-top: 30px;
   font-size: 20px;
-  text-decoration: underline;
 
   &:hover {
     text-decoration: underline;

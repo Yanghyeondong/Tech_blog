@@ -5,14 +5,18 @@ import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import DisqusCommentBox from'components/Post/DisqusCommentBox'
+import styled from '@emotion/styled'
+
+const PostWrapper = styled.div`
+  height: 140vh;
+
+  @media (max-width: 768px) {
+    height: 160vh;
+  }
+`
 
 type PostTemplateProps = {
   data: {
-    site: {
-      siteMetadata: {
-        siteUrl: string
-      },
-    },
     allMarkdownRemark: {
       edges: PostPageItemType[]
     }
@@ -24,17 +28,14 @@ type PostTemplateProps = {
 
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
-    site: {
-      siteMetadata: { siteUrl },
-    },
     allMarkdownRemark: { edges },
   },
   location: { href },
 }) {
   const {
     node: {
-      id,
       html,
+      id,
       frontmatter: {
         title,
         summary,
@@ -42,21 +43,24 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         categories,
         thumbnail: {
           childImageSharp: { gatsbyImageData },
+          publicURL,
         },
       },
     },
-  } = edges[0]
+  } = edges[0];
 
   return (
-    <Template>
-      <PostHead
-        title={title}
-        date={date}
-        categories={categories}
-        thumbnail={gatsbyImageData}
-      />
-      <PostContent html={html} />
-      <DisqusCommentBox url={href} identifier={id} title={title}/>
+    <Template title={title} description={summary} url={href} image={publicURL}>
+      <PostWrapper>
+        <PostHead
+          title={title}
+          date={date}
+          categories={categories}
+          thumbnail={gatsbyImageData}
+        />
+        <PostContent html={html} />
+        <DisqusCommentBox url={href} identifier={id} title={title}/>
+      </PostWrapper>
     </Template>
   )
 }
@@ -65,14 +69,11 @@ export default PostTemplate
 
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataBySlug($slug: String) {
-    site {
-      siteMetadata { siteUrl }
-    }
     allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
       edges {
         node {
-          id
           html
+          id
           frontmatter {
             title
             summary
@@ -82,6 +83,7 @@ export const queryMarkdownDataBySlug = graphql`
               childImageSharp {
                 gatsbyImageData
               }
+              publicURL
             }
           }
         }

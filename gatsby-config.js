@@ -1,11 +1,19 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `프로그래밍에서 컴퓨터 한잔`,
+    description: `leetcode 풀이, 논문리뷰 등의 활동 히스토리입니다`,
+    author: `@Yanghyeondong`,
     siteUrl: `http://localhost:8000/`
   },
   plugins: [
+    'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'http://localhost:8000/',
+        stripQueryString: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-disqus`,
       options: {

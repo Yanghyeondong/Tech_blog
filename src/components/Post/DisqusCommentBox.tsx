@@ -11,6 +11,11 @@ type DisqusCommentBoxProps = {
 const Wrapper = styled.div`
     width: 768px;
     margin: auto auto;
+    padding: 0 10px;
+    @media (max-width: 768px) {
+        width: 100%;
+        padding: 0 20px;
+    }
 `
 
 const DisqusCommentBox: FunctionComponent<DisqusCommentBoxProps> = function({

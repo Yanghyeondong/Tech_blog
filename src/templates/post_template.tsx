@@ -5,15 +5,6 @@ import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import DisqusCommentBox from'components/Post/DisqusCommentBox'
-import styled from '@emotion/styled'
-
-const PostWrapper = styled.div`
-  height: 140vh;
-
-  @media (max-width: 768px) {
-    height: 160vh;
-  }
-`
 
 type PostTemplateProps = {
   data: {
@@ -51,7 +42,6 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
 
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
-      <PostWrapper>
         <PostHead
           title={title}
           date={date}
@@ -60,7 +50,6 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         />
         <PostContent html={html} />
         <DisqusCommentBox url={href} identifier={id} title={title}/>
-      </PostWrapper>
     </Template>
   )
 }

@@ -11,11 +11,20 @@ const NUMBER_OF_ITEMS_PER_PAGE = 10
 const useInfiniteScroll = function (
   selectedCategory: string,
   posts: PostListItemType[],
+  maxPostNum: number,
 ): useInfiniteScrollType {
+
   const containerRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null)
   const observer: MutableRefObject<IntersectionObserver | null> =
     useRef<IntersectionObserver>(null)
   const [count, setCount] = useState<number>(1)
+
+  if (maxPostNum !== 0){
+    return {
+      containerRef,
+      postList: posts.slice(0, maxPostNum)
+    }
+  }
 
   const postListByCategory = useMemo<PostListItemType[]>(
     () =>

@@ -8,6 +8,7 @@ type IntroductionProps = {
 }
 
 const Background = styled.div`
+  height: 100vh;
   width: 100%;
   background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
   color: #ffffff;
@@ -19,7 +20,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 768px;
-  height: 400px;
+  height: 100vh;
   margin: 0 auto;
 `
 

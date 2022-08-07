@@ -88,7 +88,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
         selectedCategory={selectedCategory}
         categoryList={categoryList}
       />
-      <PostList selectedCategory={selectedCategory} posts={edges} />
+      <PostList selectedCategory={selectedCategory} posts={edges} maxPostNum={9} />
     </Template>
   )
 }

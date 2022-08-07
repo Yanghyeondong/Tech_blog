@@ -10,7 +10,7 @@ const PostItemWrapper = styled(Link)`
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
   transition: 0.3s box-shadow;
   cursor: pointer;
 
@@ -20,9 +20,12 @@ const PostItemWrapper = styled(Link)`
 `
 
 const ThumbnailImage = styled(GatsbyImage)`
-width: 100%;
-height: 200px;
-border-radius: 10px 10px 0 0;
+  width: 100%;
+  height: 200px;
+  border-radius: 0 0 10px 10px;
+  -webkit-mask-image: url("/wave.png");
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
 `
 
 const PostItemContent = styled.div`
@@ -93,8 +96,6 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
 }) {
   return (
     <PostItemWrapper to={link}>
-      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
-
       <PostItemContent>
         <Title>{title}</Title>
         <Date>{date}</Date>
@@ -105,6 +106,7 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
         </Category>
         <Summary>{summary}</Summary>
       </PostItemContent>
+      <ThumbnailImage image={gatsbyImageData} alt="Post Item Image" />
     </PostItemWrapper>
   )
 }

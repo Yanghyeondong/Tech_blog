@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: http://localhost:8000/sitemap/sitemap-index.xml
-Host: localhost:8000
+Sitemap: https://yangdongs.web.app/sitemap/sitemap-index.xml
+Host: https://yangdongs.web.app

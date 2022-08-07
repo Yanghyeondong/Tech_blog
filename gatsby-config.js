@@ -3,7 +3,7 @@ module.exports = {
     title: `프로그래밍에서 컴퓨터 한잔`,
     description: `leetcode 풀이, 논문리뷰 등의 활동 히스토리입니다`,
     author: `@Yanghyeondong`,
-    siteUrl: `http://localhost:8000/`
+    siteUrl: `https://yangdongs.web.app/`
   },
   plugins: [
     {
@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'http://localhost:8000/',
+        siteUrl: 'https://yangdongs.web.app/',
         stripQueryString: true,
       },
     },

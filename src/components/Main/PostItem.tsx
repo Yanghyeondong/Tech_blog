@@ -47,6 +47,7 @@ const Title = styled.div`
   -webkit-box-orient: vertical;
   font-size: 20px;
   font-weight: 700;
+  height: 46px;
 `
 
 const Date = styled.div`

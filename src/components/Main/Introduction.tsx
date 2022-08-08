@@ -34,12 +34,13 @@ const Wave = styled.div`
   .wave {
     position: absolute;
     background: #3CB371;
-    width: 27vh;
-    height: 27vh;
+    width: 37vh;
+    height: 37vh;
     top: 250vh;
+    left: -5vh;
     transform-origin: 50% 50%;
-    border-radius: 40% 43% 40% 43% / 43% 40% 43% 40%;
-    animation: up 4000ms 1500ms 1 linear forwards, rotate 2000ms infinite linear;
+    border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
+    animation: up 6000ms 1500ms 1 linear forwards, rotate 2000ms infinite linear;
   }
 
   @keyframes rotate {
@@ -48,7 +49,7 @@ const Wave = styled.div`
   }
 
   @keyframes up {
-    0% { top: 50vh; }
+    0% { top: 35vh; }
     100% { top: 9vh; }
 
 `
@@ -70,8 +71,10 @@ const Wrapper = styled.div`
 const SubTitle = styled.div`
   font-size: 20px;
   font-weight: 400;
+  margin-right: 3vh;
   @media (max-width: 768px) {
     margin-top: 5vh;
+    margin-right: 3vh;
   }
 `
 
@@ -79,6 +82,7 @@ const Title = styled.div`
   margin-top: 5px;
   font-size: 35px;
   font-weight: 700;
+  margin-right: 3vh;
   @media (max-width: 768px) {
     margin-bottom: 5vh;
   }

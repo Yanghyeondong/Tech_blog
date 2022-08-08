@@ -18,7 +18,7 @@ const FooterWrapper = styled.footer`
 const Footer: FunctionComponent = function () {
   return (
     <FooterWrapper>
-      Just an developer with nothing to do
+      Just an developer with drinks
       <br />2022 HyeonDong, Powered By Gatsby.
     </FooterWrapper>
   )

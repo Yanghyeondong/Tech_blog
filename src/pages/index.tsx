@@ -8,13 +8,12 @@ import { IGatsbyImageData } from 'gatsby-plugin-image'
 import Template from 'components/Common/Template'
 import { Link } from 'gatsby'
 
-const GoToMainButton = styled(Link)`
+const GoToPostButton = styled(Link)`
   margin: 50px auto;
   font-size: 35px;
   padding: 10px;
   font-weight: 800;
   height: auto;
-  margin-bottom: 100px;
   color: #433E49;
   border-bottom-style: dotted;
   &:hover {
@@ -34,6 +33,14 @@ const Title = styled.div`
   margin-bottom: 10px;
   font-size: 45px;
   font-weight: 800;
+`
+
+const OrderIcon = styled.div`
+  width: 100px;
+  height: 100px;
+  background-image: url('bartender.png');
+  background-size: contain;
+  margin: 0 auto;
 `
 
 type IndexPageProps = {
@@ -84,7 +91,8 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       <Introduction profileImage={gatsbyImageData} />
       <Title>New drinks!</Title>
       <PostList selectedCategory={'all'} posts={edges} maxPostNum={6} />
-      <GoToMainButton to="/post">Order more drinks?</GoToMainButton>
+      <GoToPostButton to="/post">Order more drinks?</GoToPostButton>
+      <OrderIcon></OrderIcon>
     </Template>
   )
 }

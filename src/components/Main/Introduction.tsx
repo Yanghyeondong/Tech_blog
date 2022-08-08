@@ -15,30 +15,31 @@ const Background = styled.div`
 
 `
 const Cocktail = styled.div`
-  width: 50.1vh;
-  height: 50.1vh;
+  width: 40.1vh;
+  height: 40.1vh;
   background-image: url('cocktail_empty_ice.png');
-  background-size: cover;
+  background-size: contain;
   overflow: hidden;
   position: relative;
   z-index: 2;
 `
 const Wave = styled.div`
 
-  width: 50vh;
-  height: 50vh;
+  width: 40vh;
+  height: 40vh;
   z-index: 1;
   position: relative;
   overflow: hidden;
-
+  
   .wave {
     position: absolute;
     background: #3CB371;
-    width: 35vh;
-    height: 35vh;
+    width: 27vh;
+    height: 27vh;
+    top: 250vh;
     transform-origin: 50% 50%;
     border-radius: 40% 43% 40% 43% / 43% 40% 43% 40%;
-    animation: up 4000ms 1 linear forwards, rotate 2000ms infinite linear;
+    animation: up 4000ms 1500ms 1 linear forwards, rotate 2000ms infinite linear;
   }
 
   @keyframes rotate {
@@ -48,10 +49,8 @@ const Wave = styled.div`
 
   @keyframes up {
     0% { top: 50vh; }
-    100% { top: 10vh; }
+    100% { top: 9vh; }
 
-  @media (max-width: 768px) {
-  }
 `
 
 

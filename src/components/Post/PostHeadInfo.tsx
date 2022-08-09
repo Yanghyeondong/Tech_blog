@@ -25,6 +25,7 @@ const PostHeadInfoWrapper = styled.div`
 `
 
 const PrevPageIcon = styled.div`
+  margin-left: 95%;
   display: grid;
   place-items: center;
   width: 40px;

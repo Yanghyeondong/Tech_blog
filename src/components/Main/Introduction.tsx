@@ -15,16 +15,15 @@ const Background = styled.div`
 const Cocktail = styled.div`
   width: 35.2vh;
   height: 35.2vh;
-  background-image: url('cocktail_empty_ice.png');
+  background-image: url('cocktail_ice.png');
   background-size: contain;
-  overflow: hidden;
   position: relative;
   z-index: 2;
 `
 const Wave = styled.div`
 
-  width: 35vh;
-  height: 35vh;
+  width: 35.2vh;
+  height: 35.2vh;
   z-index: 1;
   position: relative;
   overflow: hidden;
@@ -32,8 +31,8 @@ const Wave = styled.div`
   .wave {
     position: absolute;
     background: #4ccd97;
-    width: 37vh;
-    height: 37vh;
+    width: 35vh;
+    height: 35vh;
     top: 250vh;
     left: -8vh;
     transform-origin: 50% 50%;
@@ -49,9 +48,7 @@ const Wave = styled.div`
   @keyframes up {
     0% { top: 35vh; }
     100% { top: 7vh; }
-
 `
-
 
 const Wrapper = styled.div`
   display: flex;
@@ -60,7 +57,6 @@ const Wrapper = styled.div`
   align-items: center;
   width: auto;
   height: 55vh;
-  margin: 0 auto;
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top:50px;
@@ -70,11 +66,9 @@ const Wrapper = styled.div`
 const SubTitle = styled.div`
   font-size: 20px;
   font-weight: 400;
-  margin-right: 3vh;
   background-color:transparent;
   @media (max-width: 768px) {
     margin-top: 1vh;
-    margin-right: 3vh;
   }
 `
 
@@ -82,7 +76,6 @@ const Title = styled.div`
   margin-top: 5px;
   font-size: 35px;
   font-weight: 700;
-  margin-right: 3vh;
   background-color:transparent;
   @media (max-width: 768px) {
     margin-bottom: 50px;
@@ -94,15 +87,15 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
   return (
     <Background>
       <Wrapper>
-      <Wave>
-        <Cocktail>
-        </Cocktail>
-        <span className="wave"></span>
-      </Wave>
-      <div>
-        <SubTitle>프로그래밍에서 컴퓨터 한잔</SubTitle>
-        <Title>Hyeondong Yang</Title>
-      </div>
+        <Wave>
+          <Cocktail>
+          </Cocktail>
+          <span className="wave"></span>
+        </Wave>
+        <div>
+          <SubTitle>프로그래밍에서 컴퓨터 한잔</SubTitle>
+          <Title>Hyeondong Yang</Title>
+        </div>
       </Wrapper>
     </Background>
   )

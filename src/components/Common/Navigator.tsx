@@ -1,13 +1,13 @@
 import React, { FunctionComponent, useState } from "react"
 import SideBar from "components/Common/SideMenu"
 import styled from "@emotion/styled"
+import keyframes from '@emotion/react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompass, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 const SideMenuButton = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    place-items: center;
     width: 50px;
     height: 50px;
     font-size: 30px;
@@ -28,13 +28,13 @@ const Navigator: FunctionComponent = function () {
   
   const [active, setActive] = useState(false)
 
-  const toggleSideMenu = () => {
+  const OpenSideBar = () => {
     setActive(!active)
   }
 
   return (
       <NavigatorWrapper>
-        <SideMenuButton onClick={toggleSideMenu}>
+        <SideMenuButton onClick={OpenSideBar}>
           { active 
           ? <FontAwesomeIcon icon={faChevronLeft} /> 
           : <FontAwesomeIcon icon={faCompass} />

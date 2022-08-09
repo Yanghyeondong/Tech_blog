@@ -35,10 +35,7 @@ const Navigator: FunctionComponent = function () {
   return (
       <NavigatorWrapper>
         <SideMenuButton onClick={OpenSideBar}>
-          { active 
-          ? <FontAwesomeIcon icon={faChevronLeft} /> 
-          : <FontAwesomeIcon icon={faCompass} />
-          }
+          <FontAwesomeIcon icon={faCompass} />
         </SideMenuButton>
         <SideBar active={active} />
       </NavigatorWrapper>

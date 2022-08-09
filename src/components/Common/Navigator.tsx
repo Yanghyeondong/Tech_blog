@@ -1,9 +1,12 @@
 import React, { FunctionComponent, useState } from "react"
 import SideBar from "components/Common/SideMenu"
 import styled from "@emotion/styled"
-import keyframes from '@emotion/react'
+import '@fortawesome/fontawesome-svg-core/styles.css';
+import { config } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompass, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+
+config.autoAddCss = false;
 
 const SideMenuButton = styled.div`
   display: grid;
@@ -35,7 +38,10 @@ const Navigator: FunctionComponent = function () {
   return (
       <NavigatorWrapper>
         <SideMenuButton onClick={OpenSideBar}>
-          <FontAwesomeIcon icon={faCompass} />
+          { active 
+          ? <FontAwesomeIcon icon={faChevronLeft} /> 
+          : <FontAwesomeIcon icon={faCompass} />
+          }
         </SideMenuButton>
         <SideBar active={active} />
       </NavigatorWrapper>

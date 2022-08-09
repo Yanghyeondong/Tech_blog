@@ -7,14 +7,14 @@ type IntroductionProps = {
 }
 
 const Background = styled.div`
-  height: 60vh;
+  height: 55vh;
   width: 100%;
   color: #ffffff;
   background-color: #433E49;
 `
 const Cocktail = styled.div`
-  width: 40.1vh;
-  height: 40.1vh;
+  width: 35.2vh;
+  height: 35.2vh;
   background-image: url('cocktail_empty_ice.png');
   background-size: contain;
   overflow: hidden;
@@ -23,8 +23,8 @@ const Cocktail = styled.div`
 `
 const Wave = styled.div`
 
-  width: 40vh;
-  height: 40vh;
+  width: 35vh;
+  height: 35vh;
   z-index: 1;
   position: relative;
   overflow: hidden;
@@ -35,7 +35,7 @@ const Wave = styled.div`
     width: 37vh;
     height: 37vh;
     top: 250vh;
-    left: -5vh;
+    left: -8vh;
     transform-origin: 50% 50%;
     border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
     animation: up 4500ms 1500ms 1 linear forwards, rotate 2000ms infinite linear;
@@ -48,7 +48,7 @@ const Wave = styled.div`
 
   @keyframes up {
     0% { top: 35vh; }
-    100% { top: 9vh; }
+    100% { top: 7vh; }
 
 `
 
@@ -59,10 +59,11 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 60vh;
+  height: 55vh;
   margin: 0 auto;
   @media (max-width: 768px) {
     flex-direction: column;
+    margin-top:50px;
   }
 `
 
@@ -70,8 +71,9 @@ const SubTitle = styled.div`
   font-size: 20px;
   font-weight: 400;
   margin-right: 3vh;
+  background-color:transparent;
   @media (max-width: 768px) {
-    margin-top: 5vh;
+    margin-top: 1vh;
     margin-right: 3vh;
   }
 `
@@ -81,8 +83,9 @@ const Title = styled.div`
   font-size: 35px;
   font-weight: 700;
   margin-right: 3vh;
+  background-color:transparent;
   @media (max-width: 768px) {
-    margin-bottom: 5vh;
+    margin-bottom: 50px;
   }
 `
 

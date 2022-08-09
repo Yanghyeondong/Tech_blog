@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 import GlobalStyle from 'components/Common/GlobalStyle'
 import Footer from 'components/Common/Footer'
 import { Helmet } from 'react-helmet'
+import Navigator from 'components/Common/Navigator'
 
 type TemplateProps = {
   title: string
@@ -29,6 +30,7 @@ const Template: FunctionComponent<TemplateProps> = function ({
 }) {
   return (
     <Container>
+      <Navigator/>
       <Helmet>
         <title>{title}</title>
 

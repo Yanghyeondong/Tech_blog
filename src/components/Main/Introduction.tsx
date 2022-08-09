@@ -7,12 +7,10 @@ type IntroductionProps = {
 }
 
 const Background = styled.div`
-  height: 70vh;
+  height: 60vh;
   width: 100%;
   color: #ffffff;
   background-color: #433E49;
-
-
 `
 const Cocktail = styled.div`
   width: 40.1vh;
@@ -33,14 +31,14 @@ const Wave = styled.div`
   
   .wave {
     position: absolute;
-    background: #3CB371;
+    background: #4ccd97;
     width: 37vh;
     height: 37vh;
     top: 250vh;
     left: -5vh;
     transform-origin: 50% 50%;
     border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
-    animation: up 6000ms 1500ms 1 linear forwards, rotate 2000ms infinite linear;
+    animation: up 4500ms 1500ms 1 linear forwards, rotate 2000ms infinite linear;
   }
 
   @keyframes rotate {
@@ -61,7 +59,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 70vh;
+  height: 60vh;
   margin: 0 auto;
   @media (max-width: 768px) {
     flex-direction: column;

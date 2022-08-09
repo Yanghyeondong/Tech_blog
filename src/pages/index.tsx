@@ -10,7 +10,7 @@ import { Link } from 'gatsby'
 
 const GoToPostButton = styled(Link)`
   margin: 50px auto;
-  font-size: 35px;
+  font-size: 30px;
   padding: 10px;
   font-weight: 800;
   height: auto;

@@ -6,16 +6,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompass, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 
 const SideMenuButton = styled.div`
-    display: grid;
-    place-items: center;
-    width: 50px;
-    height: 50px;
-    font-size: 30px;
-    border-radius: 20px;
-    color: #ffffff;
-    background-color: #4ccd97;
-    cursor: pointer;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  background-color: #4ccd97;
+  color: #ffffff;
+  font-size: 30px;
+  cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 `
 
 const NavigatorWrapper = styled.div`

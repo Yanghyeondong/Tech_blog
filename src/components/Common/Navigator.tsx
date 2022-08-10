@@ -11,12 +11,12 @@ config.autoAddCss = false;
 const SideMenuButton = styled.div`
   display: grid;
   place-items: center;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 20px;
   background-color: #4ccd97;
   color: #ffffff;
-  font-size: 30px;
+  font-size: 40px;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 `

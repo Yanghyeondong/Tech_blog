@@ -7,7 +7,7 @@ type IntroductionProps = {
 }
 
 const Background = styled.div`
-  height: 55vh;
+  height: 60vh;
   width: 100%;
   color: #ffffff;
   background-color: #433E49;
@@ -22,19 +22,23 @@ const Cocktail = styled.div`
 `
 const Wave = styled.div`
 
-  width: 35.2vh;
-  height: 35.2vh;
+  width: 35vh;
+  height: 35vh;
   z-index: 1;
   position: relative;
   overflow: hidden;
-  
+
+  @media (max-width: 768px) {
+    margin-left:3vh;
+  }
+
   .wave {
     position: absolute;
     background: #4ccd97;
     width: 35vh;
     height: 35vh;
     top: 250vh;
-    left: -8vh;
+    left: -6vh;
     transform-origin: 50% 50%;
     border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
     animation: up 4500ms 1500ms 1 linear forwards, rotate 2000ms infinite linear;
@@ -56,7 +60,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 55vh;
+  height: 60vh;
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top:50px;
@@ -68,7 +72,8 @@ const SubTitle = styled.div`
   font-weight: 400;
   background-color:transparent;
   @media (max-width: 768px) {
-    margin-top: 1vh;
+    margin-top: 2vh;
+    font-size: 18px;
   }
 `
 
@@ -79,6 +84,7 @@ const Title = styled.div`
   background-color:transparent;
   @media (max-width: 768px) {
     margin-bottom: 50px;
+    font-size: 30px;
   }
 `
 

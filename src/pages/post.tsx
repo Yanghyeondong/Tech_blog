@@ -6,6 +6,15 @@ import { PostListItemType } from 'types/PostItem.types'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import queryString, { ParsedQuery } from 'query-string'
 import Template from 'components/Common/Template'
+import styled from '@emotion/styled'
+
+const Title = styled.div`
+  font-size: 65px;
+  font-weight: 800;
+  margin: auto;
+  margin-top: 80px;
+  color: #433E49;
+`
 
 type PostPageProps = {
   location: {
@@ -81,6 +90,7 @@ const PostPage: FunctionComponent<PostPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
+      <Title>Post</Title>
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}

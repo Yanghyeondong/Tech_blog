@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react'
-import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
+import { Disqus } from 'gatsby-plugin-disqus'
 import styled from '@emotion/styled'
 
 type DisqusCommentBoxProps = {
@@ -30,9 +30,6 @@ const config = {
     title: title,
 
 }
-console.log(url)
-console.log(identifier)
-console.log(title)
 
     return(
         <Wrapper>

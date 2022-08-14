@@ -15,8 +15,8 @@ const MarkdownRenderer = styled.div`
   word-break: break-all;
 
   // Markdown Style
-  line-height: 1.8;
-  font-size: 16px;
+  line-height: 2.5;
+  font-size: 18px;
   font-weight: 400;
 
   // Apply Padding Attribute to All Elements
@@ -35,7 +35,7 @@ const MarkdownRenderer = styled.div`
   * + h1,
   * + h2,
   * + h3 {
-    margin-top: 80px;
+    margin-top: 50px;
   }
 
   hr + h1,
@@ -45,22 +45,23 @@ const MarkdownRenderer = styled.div`
   }
 
   h1 {
-    font-size: 30px;
+    font-size: 40px;
   }
 
   h2 {
-    font-size: 25px;
+    font-size: 35px;
   }
 
   h3 {
-    font-size: 20px;
+    font-size: 23px;
+    color: #433E49;
   }
 
   // Adjust Quotation Element Style
   blockquote {
     margin: 30px 0;
     padding: 5px 15px;
-    border-left: 2px solid #000000;
+    border-left: 2px solid #4ccd97;
     font-weight: 800;
   }
 
@@ -88,10 +89,9 @@ const MarkdownRenderer = styled.div`
     margin: 30px 0;
     padding: 15px;
     font-size: 15px;
-
+    border-radius: 5px;
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
-      border-radius: 3px;
     }
   }
 
@@ -104,19 +104,19 @@ const MarkdownRenderer = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     padding: 80px 20px;
-    line-height: 1.6;
-    font-size: 14px;
+    line-height: 2.0;
+    font-size: 16px;
 
     h1 {
-      font-size: 23px;
+      font-size: 26px;
     }
 
     h2 {
-      font-size: 20px;
+      font-size: 23px;
     }
 
     h3 {
-      font-size: 17px;
+      font-size: 20px;
     }
 
     img {

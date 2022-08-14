@@ -5,11 +5,9 @@ categories: ['web','react']
 summary: 'Gatsby Disqus 설치, 설정 및 url, identifier, title 인수에 대해서 알아본다'
 thumbnail: './gatsby.png'
 ---
-## 0. 왜 이런 글을 썼나요?
-
-Gatsby 블로그를 만들면서 겪게 된 어려움 중 하나를 공유하기 위해서입니다.  
-다른 블로그에도 Gatsby + Disqus 소개 글이 있긴 하지만, 
-조금 더 구체적인 코드와 사용법을 담아내기 위해 노력했습니다. 주의할 점은 Gatsby 와 graphql 에 맞추어서 작성된 코드이기 때문에 다른 환경에서는 작동하지 않을 수도 있습니다.
+Gatsby 블로그를 만들면서 겪은 어려움 중 하나를 공유하기 위해 이 글을 썼습니다.
+다른 블로그에도 Gatsby + Disqus 소개 글이 여럿 있지만, 
+조금 더 구체적인 코드와 사용법을 담아내기 위해 노력했습니다. Gatsby 와 graphql 에 맞춘 코드이기 때문에 다른 환경에서는 작동하지 않을 수 있습니다.
 
 ## 1. 왜 Disqus 인가요?
 

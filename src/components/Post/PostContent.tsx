@@ -24,6 +24,11 @@ const MarkdownRenderer = styled.div`
     padding: 3px 0;
   }
 
+  strong {
+    margin: 0px 3px;
+    font-weight: 800;
+  }
+
   // Adjust Heading Element Style
   h1,
   h2,

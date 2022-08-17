@@ -88,6 +88,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
+      <meta name="naver-site-verification" content="7727e68f404d4c7be584f2b673b9943ab5c6b9ab" />
       <Introduction profileImage={gatsbyImageData} />
       <Title>New drinks!</Title>
       <PostList selectedCategory={'all'} posts={edges} maxPostNum={6} />

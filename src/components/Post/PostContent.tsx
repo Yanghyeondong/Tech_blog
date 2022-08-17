@@ -67,6 +67,7 @@ const MarkdownRenderer = styled.div`
     margin: 30px 0;
     padding: 5px 15px;
     border-left: 2px solid #4ccd97;
+    background-color: #f9f9f9; 
     font-weight: 800;
   }
 

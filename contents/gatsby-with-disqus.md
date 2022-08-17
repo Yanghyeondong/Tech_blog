@@ -201,9 +201,9 @@ export default DisqusCommentBox
 
 Disqus 가입 및 플러그인 설치, gatsby-config.js 수정하기.  
 Disqus 태그 인수는 다음과 같이 쿼리에서 받아와서 적용해 주면 사용이 가능하다.
-- **url** => `location: { href }`
-- **id** => `edges: { node: { id } }`
-- **title** => `edges: { node: { frontmatter: { title } } }`
+> **url** => `location: { href }`  
+> **id** => `edges: { node: { id } }`  
+> **title** => `edges: { node: { frontmatter: { title } } }`
 
 ## Source
 

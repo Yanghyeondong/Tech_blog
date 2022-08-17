@@ -2,7 +2,7 @@
 date: '2022-08-16'
 title: 'Leetcode 125번 풀이'
 categories: ['algorithm','leetcode']
-summary: 'Leetcode 125번 문제 풀이 및 문자열 알고리즘 속도 개선'
+summary: 'Leetcode 125번 유효한 팰린드롬 문제 풀이, 문자열 연산 속도 개선 방법'
 thumbnail: './leetcode.png'
 ---
 앞으로 leetcode 문제 풀이를 블로그에 기록할 계획입니다.

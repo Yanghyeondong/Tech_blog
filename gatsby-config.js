@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `프로그래밍에서 컴퓨터 한잔`,
-    description: `leetcode 풀이, 논문리뷰 등의 활동 히스토리입니다`,
+    description: `알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다`,
     author: `@Yanghyeondong`,
     siteUrl: `https://yangdongs.web.app/`
   },

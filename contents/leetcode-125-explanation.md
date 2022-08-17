@@ -2,7 +2,7 @@
 date: '2022-08-16'
 title: 'Leetcode 125번 풀이'
 categories: ['algorithm','leetcode']
-summary: 'Gatsby Disqus 설치, 설정 및 url, identifier, title 인수에 대해서 알아본다'
+summary: 'Leetcode 125번 문제 풀이 및 문자열 알고리즘 속도 개선'
 thumbnail: './leetcode.png'
 ---
 앞으로 leetcode 문제 풀이를 블로그에 기록할 계획입니다.

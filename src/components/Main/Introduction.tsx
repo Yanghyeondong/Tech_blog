@@ -15,7 +15,7 @@ const Background = styled.div`
 const Cocktail = styled.div`
   width: 35.2vh;
   height: 35.2vh;
-  background-image: url('cocktail_ice.png');
+  background-image: url('cocktail_ice_low.png');
   background-size: contain;
   position: relative;
   z-index: 2;

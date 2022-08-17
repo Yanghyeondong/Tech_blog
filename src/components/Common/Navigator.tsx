@@ -19,6 +19,13 @@ const SideMenuButton = styled.div`
   font-size: 40px;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+    font-size: 30px;
+    border-radius: 15px;
+  }
 `
 
 const NavigatorWrapper = styled.div`

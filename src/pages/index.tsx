@@ -18,10 +18,10 @@ const GoToPostButton = styled(Link)`
   border-bottom-style: dotted;
   &:hover {
 
-    background-color: #433E49;
-    color: #ffffff;
-    border-radius: 10px;
-    border-bottom-style: solid;
+  background-color: #433E49;
+  color: #ffffff;
+  border-radius: 10px;
+  border-bottom-style: solid;
   }
   @media (max-width: 1200px) {
   }
@@ -68,7 +68,6 @@ type IndexPageProps = {
 }
 
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
-  location: { search },
   data: {
     site: {
       siteMetadata: { title, description, siteUrl },

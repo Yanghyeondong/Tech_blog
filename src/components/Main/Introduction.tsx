@@ -41,7 +41,22 @@ const Wave = styled.div`
     left: -6vh;
     transform-origin: 50% 50%;
     border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
-    animation: up 4500ms 1500ms 1 linear forwards, rotate 2000ms infinite linear;
+    animation: 
+    fix 6000ms 1 step-end forwards,
+    up 4500ms 1500ms 1 linear forwards, 
+    rotate 2000ms 3 linear;
+  }
+
+  @keyframes fix {
+    0% { 
+      width: 35vh; 
+      height: 35vh;
+    }
+    100% { 
+      width: 25vh; 
+      height: 25vh;
+      left: 1vh;
+    }
   }
 
   @keyframes rotate {
@@ -52,6 +67,7 @@ const Wave = styled.div`
   @keyframes up {
     0% { top: 35vh; }
     100% { top: 7vh; }
+  }
 `
 
 const Wrapper = styled.div`

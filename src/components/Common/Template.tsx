@@ -53,7 +53,6 @@ const Template: FunctionComponent<TemplateProps> = function ({
         <meta name="naver-site-verification" content="7727e68f404d4c7be584f2b673b9943ab5c6b9ab" />
         {/* <meta name="twitter:site" content="@사용자이름" />
         <meta name="twitter:creator" content="@사용자이름" /> */}
-
         <html lang="ko" />
       </Helmet>
 

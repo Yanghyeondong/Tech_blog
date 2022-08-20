@@ -68,7 +68,7 @@ const MarkdownRenderer = styled.div`
     padding: 5px 15px;
     border-left: 2px solid #4ccd97;
     background-color: #f9f9f9; 
-    font-weight: 800;
+    font-weight: 400;
   }
 
   // Adjust List Element Style
@@ -93,6 +93,7 @@ const MarkdownRenderer = styled.div`
   // Adjust Code Style
   pre[class*='language-'] {
     padding: 15px;
+    margin-bottom: 25px;
     font-size: 15px;
     border-radius: 5px;
     ::-webkit-scrollbar-thumb {

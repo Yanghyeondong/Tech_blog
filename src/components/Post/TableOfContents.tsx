@@ -19,12 +19,16 @@ const TOC = styled.div`
   width: 200px;
   font-size: 14.5px;
   border-left: 3px solid #4ccd97;
+  
 
   @media (max-width: 1200px) {
     display: none;
   }
 
-  li {  
+  li {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     padding: 5px;
     color: gray;
   }

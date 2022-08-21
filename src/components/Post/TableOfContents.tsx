@@ -14,9 +14,10 @@ const TOC = styled.div`
   top: 50px;
   display: inline-block;
   margin: 120px 40px;
+  margin-right: 0px;
   height: auto;
-  width: auto;
-  font-size: 14px;
+  width: 200px;
+  font-size: 14.5px;
   border-left: 3px solid #4ccd97;
 
   @media (max-width: 1200px) {
@@ -25,7 +26,6 @@ const TOC = styled.div`
 
   li {  
     padding: 5px;
-    padding-left: 5px;
     color: gray;
   }
 

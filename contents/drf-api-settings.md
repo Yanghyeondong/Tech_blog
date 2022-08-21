@@ -5,7 +5,7 @@ categories: ['web', 'back-end']
 summary: 'DRF API 설정 중 read_only, required, permission에 대해서 알아본다'
 thumbnail: './drf-api-settings/main.jpg'
 ---
-*해당 글은 과거 **velog**에 쓴 글을 다듬어서 이전한 글입니다. 원본은 [**링크**](https://velog.io/write?id=9b7a8384-74c9-4df9-bced-9e87ce8f01c5)를 참조하시기 바랍니다.*  
+*해당 글은 과거 **velog**에 쓴 글을 다듬어서 이전한 글입니다. 원본은 [**링크**](https://velog.io/@hdyang0686/DRF-API-%EC%84%A4%EC%A0%95-3%EC%A2%85-%EC%84%B8%ED%8A%B8-readonlyrequiredpermission)를 참조하시기 바랍니다.*  
 \
 이번 국방부 해커톤 대회를 진행하며 **Django**를 다루게 되었는데, 그 과정 중 모델의 요청이나 변경 권한을 두고 여러 공부를 하였습니다. 그중 자주 쓰이는 **readonly, required, permission** 3개의 설정에 대해 정리해보았습니다.
 

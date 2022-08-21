@@ -27,6 +27,7 @@ export type PostPageItemType = {
   node: {
     id: string
     html: string
+    tableOfContents: any
     frontmatter: PostFrontmatterType
   }
 }

@@ -5,6 +5,8 @@ import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import DisqusCommentBox from'components/Post/DisqusCommentBox'
+import TableOfContents from "../components/Post/TableOfContents"
+import styled from "@emotion/styled"
 
 type PostTemplateProps = {
   data: {
@@ -17,6 +19,16 @@ type PostTemplateProps = {
   }
 }
 
+const PostContainer = styled.div`
+  margin: auto auto;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  @media (min-width: 1200px) {
+    margin-left: calc( 50% - 384px );
+  }
+`
+
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
     allMarkdownRemark: { edges },
@@ -27,6 +39,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
     node: {
       html,
       id,
+      tableOfContents,
       frontmatter: {
         title,
         summary,
@@ -48,7 +61,10 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
           categories={categories}
           thumbnail={gatsbyImageData}
         />
-        <PostContent html={html} />
+        <PostContainer>
+          <PostContent html={html} />
+          <TableOfContents content={tableOfContents} />
+        </PostContainer>
         <DisqusCommentBox url={href} identifier={id} title={title}/>
     </Template>
   )
@@ -63,6 +79,7 @@ export const queryMarkdownDataBySlug = graphql`
         node {
           html
           id
+          tableOfContents
           frontmatter {
             title
             summary

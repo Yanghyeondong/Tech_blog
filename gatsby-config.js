@@ -73,6 +73,13 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
+            {
+            resolve: `gatsby-remark-autolink-headers`,
+            options: {
+              maintainCase: true,
+              removeAccents: true,
+            },
+          },
           {
             resolve: 'gatsby-remark-smartypants',
             options: {

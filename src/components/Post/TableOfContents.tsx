@@ -13,10 +13,10 @@ const TOC = styled.div`
   position: sticky;
   top: 50px;
   display: inline-block;
-  margin: 120px 50px;
+  margin: 120px 40px;
   height: auto;
-  width: 300px;
-  font-size: 18px;
+  width: auto;
+  font-size: 14px;
   border-left: 3px solid #4ccd97;
 
   @media (max-width: 1200px) {
@@ -25,7 +25,7 @@ const TOC = styled.div`
 
   li {  
     padding: 5px;
-    padding-left: 15px;
+    padding-left: 5px;
     color: gray;
   }
 
@@ -36,7 +36,7 @@ const TOC = styled.div`
 
   a:hover {
     transition: 0.3s;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: 700;
     color: #433E49;
   }

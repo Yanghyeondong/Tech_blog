@@ -22,10 +22,12 @@ type PostTemplateProps = {
 const PostContainer = styled.div`
   margin: auto auto;
   display: flex;
-  flex-wrap: nowrap;
   flex-direction: row;
   @media (min-width: 1200px) {
     margin-left: calc( 50% - 384px );
+  }
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `
 

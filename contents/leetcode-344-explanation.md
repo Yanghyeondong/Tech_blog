@@ -3,7 +3,7 @@ date: '2022-08-22'
 title: 'Leetcode 344번 풀이'
 categories: ['algorithm','leetcode']
 summary: 'Leetcode 344번 문자열 뒤집기 문제 풀이, 파이썬다운 방식'
-thumbnail: './leetcode.png'
+thumbnail: './common/leetcode.png'
 ---
 이번 문제는 너무 간단한 문제라서 포스팅하지 않으려 했지만, **파이썬다운 방식**이 인상 깊어 글을 작성하게 되었습니다.
 

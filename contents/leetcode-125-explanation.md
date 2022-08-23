@@ -3,7 +3,7 @@ date: '2022-08-16'
 title: 'Leetcode 125번 풀이'
 categories: ['algorithm','leetcode']
 summary: 'Leetcode 125번 유효한 팰린드롬 문제 풀이, 문자열 연산 속도 개선 방법'
-thumbnail: './leetcode.png'
+thumbnail: './common/leetcode.png'
 ---
 앞으로 leetcode 문제 풀이를 블로그에 기록할 계획입니다.
 문제의 목록은 도서 "파이썬 알고리즘 인터뷰"에서 가져왔으며, 

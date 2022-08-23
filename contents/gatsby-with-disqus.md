@@ -3,7 +3,7 @@ date: '2022-08-14'
 title: 'Gatsby 블로그에 Disqus 를 적용해 보자'
 categories: ['web','react']
 summary: 'Gatsby Disqus 설치, 설정 및 url, identifier, title 인수에 대해서 알아본다'
-thumbnail: './gatsby.png'
+thumbnail: './common/gatsby.png'
 ---
 Gatsby 블로그를 만들면서 겪은 어려움 중 하나를 공유하기 위해 이 글을 썼습니다.
 다른 블로그에도 Gatsby + Disqus 소개 글이 여럿 있지만, 

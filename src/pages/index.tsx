@@ -10,37 +10,31 @@ import { Link } from 'gatsby'
 
 const GoToPostButton = styled(Link)`
   margin: 50px auto;
+  margin-bottom: 0px;
   font-size: 30px;
   padding: 10px;
   font-weight: 800;
   height: auto;
   color: #433E49;
   border-bottom-style: dotted;
-  &:hover {
 
-  background-color: #433E49;
-  color: #ffffff;
-  border-radius: 10px;
-  border-bottom-style: solid;
+  &:hover {
+    transition: 0.5s;
+    background-color: #433E49;
+    color: #ffffff;
+    border-radius: 10px;
+    border-bottom-style: solid;
   }
+
   @media (max-width: 1200px) {
   }
 `
-
 const Title = styled.div`
   margin: auto;
   margin-top: 100px;
   margin-bottom: 10px;
   font-size: 45px;
   font-weight: 800;
-`
-
-const OrderIcon = styled.div`
-  width: 100px;
-  height: 100px;
-  background-image: url('bartender.png');
-  background-size: contain;
-  margin: 0 auto;
 `
 
 type IndexPageProps = {
@@ -91,7 +85,6 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       <Title>New drinks!</Title>
       <PostList selectedCategory={'all'} posts={edges} maxPostNum={6} />
       <GoToPostButton to="/post">Order more drinks?</GoToPostButton>
-      <OrderIcon></OrderIcon>
     </Template>
   )
 }

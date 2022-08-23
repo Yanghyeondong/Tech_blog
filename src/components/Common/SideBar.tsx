@@ -2,11 +2,11 @@ import React, { FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
 
-type SideMenuWrapperProps = {
+type SideBarWrapperProps = {
 	active: boolean;
 };
 
-const SideBarWrapper = styled.div<SideMenuWrapperProps>`
+const SideBarWrapper = styled.div<SideBarWrapperProps>`
     margin: 10px 10px;
     border-radius: 20px;
 	z-index: 4;
@@ -35,7 +35,7 @@ const SideBarItem = styled(Link)`
 	}
 `;
 
-const SideBar: FunctionComponent<SideMenuWrapperProps> = function ({active}) {
+const SideBar: FunctionComponent<SideBarWrapperProps> = function ({active}) {
 
 	return (
 			<SideBarWrapper active={active}>

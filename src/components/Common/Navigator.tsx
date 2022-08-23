@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from "react"
-import SideBar from "components/Common/SideMenu"
+import SideBar from "components/Common/SideBar"
 import styled from "@emotion/styled"
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import { config } from '@fortawesome/fontawesome-svg-core';

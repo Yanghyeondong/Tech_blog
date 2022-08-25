@@ -59,4 +59,4 @@ class Solution:
 
 - 파이썬 알고리즘 인터뷰 *-박상길 지음*
 - leetcode  
-  [https://leetcode.com/problems/valid-palindrome/description/](https://leetcode.com/problems/valid-palindrome/description/)
+  [https://leetcode.com/problems/reverse-string/](https://leetcode.com/problems/reverse-string/)

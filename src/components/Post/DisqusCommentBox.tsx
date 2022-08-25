@@ -28,7 +28,6 @@ const config = {
     url: url,
     identifier: identifier,
     title: title,
-
 }
 
     return(

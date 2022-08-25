@@ -15,7 +15,7 @@ const FooterWrapper = styled.footer`
   }
 `
 
-const OrderIcon = styled.div`
+const BartenderIcon = styled.div`
   width: 100px;
   height: 100px;
   background-image: url('bartender.png');
@@ -26,7 +26,7 @@ const OrderIcon = styled.div`
 const Footer: FunctionComponent = function () {
   return (
     <FooterWrapper>
-      <OrderIcon></OrderIcon>
+      <BartenderIcon />
       Just an developer with drinks
       <br />2022 HyeonDong, Powered By Gatsby.
     </FooterWrapper>

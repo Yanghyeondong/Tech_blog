@@ -1,14 +1,14 @@
 import styled from "@emotion/styled"
 import React, { FunctionComponent } from 'react'
 
-type TOCProps = {
+type TocProps = {
   content: any
 }
 
-const TOCWrapper = styled.div`
+const TocWrapper = styled.div`
   height: auto;
 `
-const TOC = styled.div`
+const Toc = styled.div`
 
   position: sticky;
   top: 50px;
@@ -45,12 +45,12 @@ const TOC = styled.div`
     color: #433E49;
   }
 `
-const TableOfContents: FunctionComponent<TOCProps> = ({ content }) => {
+const TableOfContents: FunctionComponent<TocProps> = ({ content }) => {
   return (
-    <TOCWrapper>
-      <TOC dangerouslySetInnerHTML={{ __html: content } }
+    <TocWrapper>
+      <Toc dangerouslySetInnerHTML={{ __html: content } }
       />
-    </TOCWrapper>
+    </TocWrapper>
   )
 }
 

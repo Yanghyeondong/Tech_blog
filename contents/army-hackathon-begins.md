@@ -1,7 +1,7 @@
 ---
 date: '2021-10-01'
 title: '[velog 이전] 국방부 해커톤 참전기'
-categories: ['web','hackathon']
+categories: ['Web','Hackathon']
 summary: '2021 국방오픈소스아카데미 해커톤 대회 참가 후기. 코드스페이스, 깃 플로우, 협업 툴 활용법'
 thumbnail: './army-hackathon-begins/main.png'
 ---

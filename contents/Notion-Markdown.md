@@ -1,7 +1,7 @@
 ---
 date: '2021-10-02'
 title: '[velog 이전] Notion + Markdown 으로 간단한 API Docs 작성하기'
-categories: ['web']
+categories: ['Web']
 summary: 'Notion 과 Markdown 으로 API Docs 작성하는 방법. 프론트엔트 와 백엔드의 연결.'
 thumbnail: './Notion-Markdown/main.png'
 ---

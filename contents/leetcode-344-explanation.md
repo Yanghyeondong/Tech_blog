@@ -1,7 +1,7 @@
 ---
 date: '2022-08-22'
 title: 'Leetcode 344번 풀이'
-categories: ['algorithm','leetcode']
+categories: ['Algorithm','Leetcode']
 summary: 'Leetcode 344번 문자열 뒤집기 문제 풀이, 파이썬다운 방식'
 thumbnail: './common/leetcode.png'
 ---

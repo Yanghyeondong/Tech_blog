@@ -1,7 +1,7 @@
 ---
 date: '2021-10-05'
 title: '[velog 이전] DRF API 설정 3종 세트 read_only + required + permission'
-categories: ['web', 'back-end']
+categories: ['Web', 'Back-end']
 summary: 'DRF API 설정 중 read_only, required, permission에 대해서 알아본다'
 thumbnail: './drf-api-settings/main.jpg'
 ---

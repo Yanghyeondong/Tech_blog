@@ -1,8 +1,8 @@
 ---
 date: '2022-08-24'
 title: 'Leetcode 937번 풀이'
-categories: ['algorithm','leetcode']
-summary: 'Leetcode 937번 로그 파일 정렬 문제 풀이, 람다 연산자'
+categories: ['Algorithm','Leetcode']
+summary: 'Leetcode 937번 로그 파일 정렬 문제 풀이, 람다 표현식'
 thumbnail: './common/leetcode.png'
 ---
 

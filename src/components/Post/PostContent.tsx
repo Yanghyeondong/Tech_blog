@@ -93,7 +93,7 @@ const MarkdownRenderer = styled.div`
   // Adjust Code Style
   pre[class*='language-'] {
     padding: 15px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     font-size: 15px;
     border-radius: 5px;
     ::-webkit-scrollbar-thumb {
@@ -101,7 +101,11 @@ const MarkdownRenderer = styled.div`
     }
   }
 
-  code[class*='language-'],
+  code[class*='language-']{
+    font-size: 16px;
+    padding: 1px 0px 3px 0px;
+    margin-right: 4px;
+  },
   pre[class*='language-'] {
     tab-size: 2;
   }

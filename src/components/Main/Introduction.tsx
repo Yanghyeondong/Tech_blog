@@ -7,17 +7,20 @@ type IntroductionProps = {
 }
 
 const Background = styled.div`
-  height: 60vh;
+  height: 55vh;
   width: 100%;
   color: #ffffff;
-  background-color: #433F49;
-  //background-color: #433E49;
+  //background-color: #433F49;
+  background-color: #433E49;
+  @media (max-width: 768px) {
+    height: 65vh;
+  }
 `
 const Cocktail = styled.div`
   width: 35.2vh;
   height: 35.2vh;
-  background-image: url('cocktail_ice_logo.webp');
-  //background-image: url('cocktail_ice_low.png');
+  //background-image: url('cocktail_ice_logo.webp');
+  background-image: url('cocktail_ice_low.png');
   background-size: contain;
   position: relative;
   z-index: 2;
@@ -31,7 +34,7 @@ const Wave = styled.div`
   overflow: hidden;
 
   @media (max-width: 768px) {
-    margin-left:3vh;
+    margin-left: 3vh;
   }
 
   .wave {
@@ -79,11 +82,17 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   width: auto;
-  height: 60vh;
+  height: 55vh;
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top:50px;
     text-align:center;
+  }
+`
+
+const TitleWrapper = styled.div`
+  @media (max-width: 768px) {
+    margin: 10px auto;
   }
 `
 
@@ -95,11 +104,11 @@ const SubTitle = styled.div`
   background-color:transparent;
   margin-top:20px;
   margin-bottom: 10px;
-  margin-right: 20px;
   @media (max-width: 768px) {
-    font-size: 16px;
-    margin-top:5px;
+    font-size: 18px;
+    margin-top: 0px;
     margin-bottom: 5px;
+    margin-left: 0px;
   }
 `
 
@@ -108,12 +117,11 @@ const Title = styled.div`
   margin-top: 5px;
   font-size: 37px;
   font-weight: 700;
-  margin-right: 10px;
-  margin-right: 20px;
   background-color:transparent;
   @media (max-width: 768px) {
-    font-size: 22px;
+    font-size: 24px;
     margin-top: 0px;
+    margin-left: 0px;
   }
 `
 const TitleColor = styled.div`
@@ -122,12 +130,11 @@ const TitleColor = styled.div`
   font-size: 45px;
   font-weight: 800;
   color: #4ccd97;
-  margin-right: 20px;
   background-color:transparent;
   @media (max-width: 768px) {
     margin-top: 0px;
-    margin-bottom: 7vh;
-    font-size: 30px;
+    font-size: 32px;
+    margin-left: 0px;
   }
 `
 
@@ -141,13 +148,12 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
           </Cocktail>
           <span className="wave"></span>
         </Wave>
-        <div>
+        <TitleWrapper>
           <SubTitle>프로그래밍에서 컴퓨터 한잔,</SubTitle>
           <SubTitle>필요한 정보를 마음껏 주문하세요</SubTitle>
           <Title>Hyeondong</Title>
-            <TitleColor>Yang</TitleColor>
-      
-        </div>
+          <TitleColor>Yang</TitleColor>
+        </TitleWrapper>
       </Wrapper>
     </Background>
   )

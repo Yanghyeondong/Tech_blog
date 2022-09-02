@@ -92,10 +92,11 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Code Style
   pre[class*='language-'] {
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 15px;
-    font-size: 15px;
+    font-size: 16px;
     border-radius: 5px;
+    border: 1px solid #dddddd;
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
     }
@@ -103,11 +104,15 @@ const MarkdownRenderer = styled.div`
 
   code[class*='language-']{
     font-size: 16px;
-    padding: 1px 0px 3px 0px;
     margin-right: 4px;
   },
-  pre[class*='language-'] {
-    tab-size: 2;
+  :not(pre) > code[class*="language-"] {
+    font-size: 16px;
+    margin-right: 4px;
+    margin-left: 4px;
+    border: 1px solid #dddddd;
+    padding: 1px 4px 3px 4px;
+    border-radius: 5px;
   }
 
   // Markdown Responsive Design

@@ -97,7 +97,9 @@ const SubTitle = styled.div`
   margin-bottom: 10px;
   margin-right: 20px;
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 16px;
+    margin-top:5px;
+    margin-bottom: 5px;
   }
 `
 
@@ -110,7 +112,8 @@ const Title = styled.div`
   margin-right: 20px;
   background-color:transparent;
   @media (max-width: 768px) {
-    font-size: 32px;
+    font-size: 22px;
+    margin-top: 0px;
   }
 `
 const TitleColor = styled.div`
@@ -122,8 +125,9 @@ const TitleColor = styled.div`
   margin-right: 20px;
   background-color:transparent;
   @media (max-width: 768px) {
-    margin-bottom: 50px;
-    font-size: 40px;
+    margin-top: 0px;
+    margin-bottom: 7vh;
+    font-size: 30px;
   }
 `
 

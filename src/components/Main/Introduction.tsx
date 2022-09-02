@@ -7,15 +7,17 @@ type IntroductionProps = {
 }
 
 const Background = styled.div`
-  height: 60vh;
+  height: 55vh;
   width: 100%;
   color: #ffffff;
-  background-color: #433E49;
+  background-color: #433F49;
+  //background-color: #433E49;
 `
 const Cocktail = styled.div`
   width: 35.2vh;
   height: 35.2vh;
-  background-image: url('cocktail_ice_low.png');
+  background-image: url('cocktail_ice_logo.webp');
+  //background-image: url('cocktail_ice_low.png');
   background-size: contain;
   position: relative;
   z-index: 2;
@@ -43,7 +45,7 @@ const Wave = styled.div`
     border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
     animation: 
     fix 6000ms 1 step-end forwards,
-    up 4500ms 1500ms 1 linear forwards, 
+    up 4500ms 1 linear forwards, 
     rotate 2000ms 3 linear;
   }
 
@@ -86,21 +88,35 @@ const Wrapper = styled.div`
 const SubTitle = styled.div`
   font-size: 20px;
   font-weight: 400;
+  margin-left: 0px;
   background-color:transparent;
+  margin-bottom: 10px;
   @media (max-width: 768px) {
-    margin-top: 2vh;
     font-size: 18px;
   }
 `
 
 const Title = styled.div`
   margin-top: 5px;
-  font-size: 35px;
+  font-size: 37px;
   font-weight: 700;
+  margin-right: 10px;
   background-color:transparent;
   @media (max-width: 768px) {
     margin-bottom: 50px;
-    font-size: 30px;
+    font-size: 32px;
+  }
+`
+const TitleColor = styled.div`
+  margin-top: 5px;
+  font-size: 45px;
+  font-weight: 800;
+  color: #4ccd97;
+  background-color:transparent;
+  display: inline-block;
+  @media (max-width: 768px) {
+    margin-bottom: 50px;
+    font-size: 40px;
   }
 `
 
@@ -115,8 +131,11 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
           <span className="wave"></span>
         </Wave>
         <div>
-          <SubTitle>프로그래밍에서 컴퓨터 한잔</SubTitle>
-          <Title>Hyeondong Yang</Title>
+          <SubTitle>프로그래밍에서 컴퓨터 한잔,</SubTitle>
+          <SubTitle>필요한 정보를 마음껏 주문하세요</SubTitle>
+          <Title>Hyeondong
+            <TitleColor>Yang</TitleColor>
+          </Title>
         </div>
       </Wrapper>
     </Background>

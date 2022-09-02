@@ -7,7 +7,7 @@ type IntroductionProps = {
 }
 
 const Background = styled.div`
-  height: 55vh;
+  height: 60vh;
   width: 100%;
   color: #ffffff;
   background-color: #433F49;
@@ -45,7 +45,7 @@ const Wave = styled.div`
     border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
     animation: 
     fix 6000ms 1 step-end forwards,
-    up 4500ms 1 linear forwards, 
+    up 4500ms 1500ms 1 linear forwards, 
     rotate 2000ms 3 linear;
   }
 
@@ -73,6 +73,7 @@ const Wave = styled.div`
 `
 
 const Wrapper = styled.div`
+  text-align:right;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -82,38 +83,44 @@ const Wrapper = styled.div`
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top:50px;
+    text-align:center;
   }
 `
 
 const SubTitle = styled.div`
+
   font-size: 20px;
   font-weight: 400;
   margin-left: 0px;
   background-color:transparent;
+  margin-top:20px;
   margin-bottom: 10px;
+  margin-right: 20px;
   @media (max-width: 768px) {
     font-size: 18px;
   }
 `
 
 const Title = styled.div`
+
   margin-top: 5px;
   font-size: 37px;
   font-weight: 700;
   margin-right: 10px;
+  margin-right: 20px;
   background-color:transparent;
   @media (max-width: 768px) {
-    margin-bottom: 50px;
     font-size: 32px;
   }
 `
 const TitleColor = styled.div`
+
   margin-top: 5px;
   font-size: 45px;
   font-weight: 800;
   color: #4ccd97;
+  margin-right: 20px;
   background-color:transparent;
-  display: inline-block;
   @media (max-width: 768px) {
     margin-bottom: 50px;
     font-size: 40px;
@@ -133,9 +140,9 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
         <div>
           <SubTitle>프로그래밍에서 컴퓨터 한잔,</SubTitle>
           <SubTitle>필요한 정보를 마음껏 주문하세요</SubTitle>
-          <Title>Hyeondong
+          <Title>Hyeondong</Title>
             <TitleColor>Yang</TitleColor>
-          </Title>
+      
         </div>
       </Wrapper>
     </Background>

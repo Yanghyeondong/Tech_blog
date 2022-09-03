@@ -2,7 +2,7 @@
 date: '2022-09-02'
 title: 'Leetcode 49번 풀이'
 categories: ['Algorithm','Leetcode']
-summary: 'Leetcode 344번 그룹 애너그램 문제 풀이, 정렬과 딕셔너리'
+summary: 'Leetcode 49번 그룹 애너그램 문제 풀이, 정렬과 딕셔너리'
 thumbnail: './common/leetcode.png'
 ---
 ## 1. 문제 확인

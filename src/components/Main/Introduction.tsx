@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
+import { Link } from 'gatsby';
 
 type IntroductionProps = {
   profileImage: IGatsbyImageData
@@ -10,8 +11,8 @@ const Background = styled.div`
   height: 55vh;
   width: 100%;
   color: #ffffff;
-  //background-color: #433F49;
-  background-color: #433E49;
+  background-color: #433F49;
+  //background-color: #433E49;
   @media (max-width: 768px) {
     height: 65vh;
   }
@@ -19,8 +20,8 @@ const Background = styled.div`
 const Cocktail = styled.div`
   width: 35.2vh;
   height: 35.2vh;
-  //background-image: url('cocktail_ice_logo.webp');
-  background-image: url('cocktail_ice_low.png');
+  background-image: url('cocktail_ice_logo.webp');
+  //background-image: url('cocktail_ice_low.png');
   background-size: contain;
   position: relative;
   z-index: 2;
@@ -102,7 +103,7 @@ const SubTitle = styled.div`
   font-weight: 400;
   margin-left: 0px;
   background-color:transparent;
-  margin-top:20px;
+  margin-top:10px;
   margin-bottom: 10px;
   @media (max-width: 768px) {
     font-size: 18px;
@@ -131,10 +132,28 @@ const TitleColor = styled.div`
   font-weight: 800;
   color: #4ccd97;
   background-color:transparent;
+  margin-bottom: 15px;
   @media (max-width: 768px) {
     margin-top: 0px;
     font-size: 32px;
     margin-left: 0px;
+    margin-bottom: 10px;
+  }
+`
+
+const AboutMe = styled(Link)`
+  font-size: 18px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-weight: 600;
+  border: 1px solid #4ccd97;
+  transition: 500ms;
+	&:hover {
+		color: #ffffff;
+    background-color: #4ccd97;
+	}
+  @media (max-width: 768px) {
+    font-size: 14px;
   }
 `
 
@@ -153,6 +172,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
           <SubTitle>필요한 정보를 마음껏 주문하세요</SubTitle>
           <Title>Hyeondong</Title>
           <TitleColor>Yang</TitleColor>
+          <AboutMe to="/about/">About</AboutMe>
         </TitleWrapper>
       </Wrapper>
     </Background>

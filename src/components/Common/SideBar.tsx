@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 
 type SideBarWrapperProps = {
 	active: boolean;
-};
+}
 
 const SideBarWrapper = styled.div<SideBarWrapperProps>`
     margin: 10px 10px;
@@ -16,7 +16,7 @@ const SideBarWrapper = styled.div<SideBarWrapperProps>`
 	left: ${({ active }) => ( active ? '0px' : '-600px' )};
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 	background-color: white;
-`;
+`
 
 const SideBarList = styled.div`
     display: flex;
@@ -25,7 +25,7 @@ const SideBarList = styled.div`
 	margin-top: 5%;
     margin-bottom: 10%;
     margin: 10px;
-`;
+`
 
 const SideBarItem = styled(Link)`
     font-size: 20px;
@@ -33,7 +33,7 @@ const SideBarItem = styled(Link)`
 	&:hover {
 		border-bottom: 3px solid #4ccd97;
 	}
-`;
+`
 
 const SideBar: FunctionComponent<SideBarWrapperProps> = function ({active}) {
 

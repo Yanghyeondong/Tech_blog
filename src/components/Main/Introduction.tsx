@@ -12,7 +12,7 @@ const Background = styled.div`
   width: 100%;
   color: #ffffff;
   background-color: #433F49;
-  //background-color: #433E49;
+  background-color: #433E49;
   @media (max-width: 768px) {
     height: 65vh;
   }
@@ -20,7 +20,7 @@ const Background = styled.div`
 const Cocktail = styled.div`
   width: 35.2vh;
   height: 35.2vh;
-  background-image: url('cocktail_ice_logo.webp');
+  background-image: url('cocktail_ice_mini_logo.webp');
   //background-image: url('cocktail_ice_low.png');
   background-size: contain;
   position: relative;
@@ -103,31 +103,35 @@ const SubTitle = styled.div`
   font-weight: 400;
   margin-left: 0px;
   background-color:transparent;
-  margin-top:10px;
   margin-bottom: 10px;
   @media (max-width: 768px) {
-    font-size: 18px;
+    font-size: 14px;
     margin-top: 0px;
     margin-bottom: 5px;
     margin-left: 0px;
+  }
+  @media (min-width: 768px) and (max-height: 768px) {
+    font-size: 14px;
   }
 `
 
 const Title = styled.div`
 
-  margin-top: 5px;
-  font-size: 37px;
+  font-size: 34px;
   font-weight: 700;
   background-color:transparent;
   @media (max-width: 768px) {
     font-size: 24px;
     margin-top: 0px;
     margin-left: 0px;
+    display: inline-block;
+  }
+  @media (min-width: 768px) and (max-height: 768px) {
+    font-size: 24px;
   }
 `
 const TitleColor = styled.div`
 
-  margin-top: 5px;
   font-size: 45px;
   font-weight: 800;
   color: #4ccd97;
@@ -138,6 +142,10 @@ const TitleColor = styled.div`
     font-size: 32px;
     margin-left: 0px;
     margin-bottom: 10px;
+    display: inline-block;
+  }
+  @media (min-width: 768px) and (max-height: 768px) {
+    font-size: 32px;
   }
 `
 
@@ -154,6 +162,12 @@ const AboutMe = styled(Link)`
 	}
   @media (max-width: 768px) {
     font-size: 14px;
+    display: block;
+    width: 70px;
+    margin: auto;
+  }
+  @media (min-width: 768px) and (max-height: 768px) {
+    font-size: 14px;
   }
 `
 
@@ -168,8 +182,8 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
           <span className="wave"></span>
         </Wave>
         <TitleWrapper>
-          <SubTitle>프로그래밍에서 컴퓨터 한잔,</SubTitle>
-          <SubTitle>필요한 정보를 마음껏 주문하세요</SubTitle>
+          <SubTitle>프로그래밍에서 컴퓨터 한잔</SubTitle>
+          <SubTitle>부담없이 편안한 마음으로</SubTitle>
           <Title>Hyeondong</Title>
           <TitleColor>Yang</TitleColor>
           <AboutMe to="/about/">About</AboutMe>

@@ -84,6 +84,7 @@ const Wrapper = styled.div`
   align-items: center;
   width: auto;
   height: 55vh;
+  margin-bottom: 20px;
   @media (max-width: 768px) {
     flex-direction: column;
     margin-top:50px;
@@ -104,13 +105,18 @@ const SubTitle = styled.div`
   background-color:transparent;
   margin-bottom: 10px;
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 15px;
     margin-top: 0px;
     margin-bottom: 5px;
     margin-left: 0px;
   }
   @media (min-width: 768px) and (max-height: 768px) {
-    font-size: 14px;
+    font-size: 15px;
+  }
+`
+const SubTitleSmall = styled(SubTitle)`
+  @media (max-height: 650px) {
+    display: none;
   }
 `
 
@@ -118,7 +124,6 @@ const Title = styled.div`
 
   font-size: 34px;
   font-weight: 700;
-  background-color:transparent;
   @media (max-width: 768px) {
     font-size: 24px;
     margin-top: 0px;
@@ -129,19 +134,17 @@ const Title = styled.div`
     font-size: 24px;
   }
 `
-const TitleColor = styled.div`
+const TitleColor = styled(Title)`
 
   font-size: 45px;
   font-weight: 800;
   color: #4ccd97;
-  background-color:transparent;
   margin-bottom: 15px;
   @media (max-width: 768px) {
     margin-top: 0px;
     font-size: 32px;
     margin-left: 0px;
     margin-bottom: 10px;
-    display: inline-block;
   }
   @media (min-width: 768px) and (max-height: 768px) {
     font-size: 32px;
@@ -182,7 +185,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
         </Wave>
         <TitleWrapper>
           <SubTitle>프로그래밍에서 컴퓨터 한잔,</SubTitle>
-          <SubTitle>부담없이 편안한 마음으로 누구나</SubTitle>
+          <SubTitleSmall>부담없이 편안한 마음으로 누구나</SubTitleSmall>
           <Title>Hyeondong</Title>
           <TitleColor>Yang</TitleColor>
           <AboutMe to="/about/">about</AboutMe>

@@ -110,7 +110,7 @@ const MarkdownRenderer = styled.div`
     margin-right: 4px;
   },
   :not(pre) > code[class*="language-"] {
-    font-size: 17px;
+    font-size: 16px;
     margin-right: 4px;
     margin-left: 4px;
     border: 1px solid #dddddd;

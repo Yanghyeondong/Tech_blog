@@ -35,6 +35,10 @@ const Title = styled.div`
   margin-bottom: 10px;
   font-size: 45px;
   font-weight: 800;
+  @media (max-width: 768px) {
+    font-size: 30px;
+    margin-top: 50px;
+  }
 `
 
 type IndexPageProps = {

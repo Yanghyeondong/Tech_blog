@@ -48,9 +48,9 @@ const Wave = styled.div`
     transform-origin: 50% 50%;
     border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
     animation: 
-    fix 6000ms 1 step-end forwards,
-    up 4500ms 1500ms 1 linear forwards, 
-    rotate 2000ms 3 linear;
+    fix 8000ms 1 step-end forwards,
+    up 6500ms 1500ms 1 linear forwards, 
+    rotate 2500ms 3 linear;
   }
 
   @keyframes fix {
@@ -98,7 +98,6 @@ const TitleWrapper = styled.div`
 `
 
 const SubTitle = styled.div`
-
   font-size: 20px;
   font-weight: 400;
   margin-left: 0px;
@@ -182,11 +181,11 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
           <span className="wave"></span>
         </Wave>
         <TitleWrapper>
-          <SubTitle>프로그래밍에서 컴퓨터 한잔</SubTitle>
-          <SubTitle>부담없이 편안한 마음으로</SubTitle>
+          <SubTitle>프로그래밍에서 컴퓨터 한잔,</SubTitle>
+          <SubTitle>부담없이 편안한 마음으로 누구나</SubTitle>
           <Title>Hyeondong</Title>
           <TitleColor>Yang</TitleColor>
-          <AboutMe to="/about/">About</AboutMe>
+          <AboutMe to="/about/">about</AboutMe>
         </TitleWrapper>
       </Wrapper>
     </Background>

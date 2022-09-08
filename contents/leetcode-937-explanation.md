@@ -151,13 +151,18 @@ for array_log in digit_array:
     digit_array[i] = string_log
     i += 1
 ```
-위의 코드처럼 원본 배열의 값을 직접 수정한다면 다음과 같이 바꾸는 게 더 깔끔하고 직관적입니다.
+위의 코드처럼 원본 배열의 값을 직접 수정한다면 다음과 같이 바꾸는 게 더 깔끔합니다.
 ```py
 for i in range(len(digit_array)):
     string_log = " ".join(digit_array[i])
     digit_array[i] = string_log
 ```
-
+그러나, 파이썬다운 방식을 위해서는 `enumerate()`를 쓰는 것이 가장 바람직합니다.  
+```py
+for i, digit in enumerate(digit_array):
+    string_log = " ".join(digit)
+    digit_array[i] = string_log
+```
 ## 4. 요약정리
 
 파이썬 sort는 key 값을 함수의 리턴 값으로도 정할 수 있으며, 여러 개 key의 우선순위를 둘 수도 있다.

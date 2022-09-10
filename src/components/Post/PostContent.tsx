@@ -80,6 +80,10 @@ const MarkdownRenderer = styled.div`
     margin-left: 20px;
     padding: 30px 0;
   }
+  // Adjust del style
+  del{
+    text-decoration: line-through 3px solid rgba(0, 0, 0, .4);
+  }
 
   // Adjust Horizontal Rule style
   hr {

@@ -93,10 +93,15 @@ const MarkdownRenderer = styled.div`
 
   // Adjust Link Element Style
   a {
-    color: #4263eb;
-    text-decoration: underline;
+    font-weight: 800;
+    color: #4ccd97;
+    text-decoration: underline 1px;
+    text-underline-position: under;
   }
-
+  a:hover {
+    color: #ffffff;
+    background-color: #4ccd97;
+  }
   // Adjust Code Style
   pre[class*='language-'] {
     padding: 20px;

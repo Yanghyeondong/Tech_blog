@@ -188,7 +188,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
           <SubTitleSmall>부담없이 편안한 마음으로 누구나</SubTitleSmall>
           <Title>Hyeondong</Title>
           <TitleColor>Yang</TitleColor>
-          <AboutMe to="/about/">about</AboutMe>
+          {/* <AboutMe to="/about/">about</AboutMe> */}
         </TitleWrapper>
       </Wrapper>
     </Background>

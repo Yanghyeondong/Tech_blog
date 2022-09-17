@@ -1,5 +1,5 @@
 ---
-date: '2022-12-30'
+date: '2022-09-16'
 title: 'Leetcode 121번 풀이'
 categories: ['Algorithm','Leetcode']
 summary: 'Leetcode 121번 주식을 사고팔기 가장 좋은 시점 문제 풀이, 시간 복잡도 O(n)'

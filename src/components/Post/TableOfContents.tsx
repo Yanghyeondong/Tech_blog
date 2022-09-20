@@ -35,6 +35,7 @@ const Toc = styled.div`
 
   ul {
     margin-left: 10px;
+    padding: 7px 5px;
     list-style: none;
   }
 

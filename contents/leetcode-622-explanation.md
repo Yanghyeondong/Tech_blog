@@ -118,8 +118,8 @@ class MyCircularQueue:
 이번 피드백에서 각 코드의 자세한 풀이는 생략하고 차이점만 짚어보겠습니다. **원형 큐** 라는 **ADT**가 이미 정의되어있기 때문입니다(세부사항 및 언어만 다를 뿐). 개념 설명은 링크로 대체하겠습니다. [https://www.programiz.com/dsa/circular-queue](https://www.programiz.com/dsa/circular-queue)  
 \
 **코드 1**과 **코드 2**의 가장 큰 차이점은 다음 2개로 요약이 가능합니다.
-> 1. is_full, is_empty flag 유무  
-> 2. 큐의 비어있는 칸 None 데이터 갱신  
+> 1. `is_full`, `is_empty flag` 유무  
+> 2. 큐의 비어있는 칸 `None` 데이터 갱신  
 우선 **코드 1**에서 `is_full`, `is_empty`를 사용한 이유는 다음과 같습니다.
 - `isEmpty()`, `isFull()` 판정은 `enQueue()`, `deQueue()`, `Front()`, `Rear()`에도 필요하기에, 클래스 변수로 재활용  
 하지만 만들고 보니 `isEmpty()`, `isFull()` 함수를 구현하고  나머지 함수에서 이를 호출하는 것이 더 직관적이겠다는 결론에 도달했습니다. 😓 ex.) `deQueue()`에서 `if isEmpty(): return -1`  

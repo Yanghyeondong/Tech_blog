@@ -64,11 +64,23 @@ typings/
 yarn-error.log
 .pnp/
 .pnp.js
+
 # Yarn Integrity file
 .yarn-integrity
 
+# vscode file
 .vscode/
 
+# gatsby plugin file
 @types/
 
+# temp post content file
 temp_content/
+
+# eslint ignore file
+.eslintignore
+.eslintrc.json
+
+# prettier ignore file
+.prettierignore
+.prettierrc

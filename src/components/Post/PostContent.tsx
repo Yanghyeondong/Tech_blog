@@ -71,6 +71,12 @@ const MarkdownRenderer = styled.div`
     font-weight: 400;
   }
 
+  // Adjust italic Element Style
+  em{
+    padding-right: 8px;
+    padding-left: 3px;
+  }
+
   // Adjust List Element Style
   ol{
     margin-left: 20px;

@@ -1,13 +1,7 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/browser-apis/
- */
-
-// You can delete this file if you're not using it
-
-
+/*
+Code viewer themes options
+    'prismjs/themes/prism.css';
+    'prismjs/themes/prism-material-light.css';
+    'prismjs/themes/prism-coldark-cold.css';
+*/
 import 'prismjs/themes/prism-one-light.css';
-//import 'prismjs/themes/prism.css';
-//import 'prismjs/themes/prism-material-light.css';
-//import 'prismjs/themes/prism-coldark-cold.css';

@@ -1,3 +1,4 @@
+<br>
 <p align="center">
     <a href="https://yangdongs.web.app/">
         <img style="border-radius: 10px;" width="auto" height="auto" src="https://user-images.githubusercontent.com/37038105/202439323-35317d2a-2964-40ea-9d4b-88eb6d8dc4ea.gif">
@@ -7,23 +8,30 @@
 <div align=center>
 
 ### ☝ Click to go!  
-<br/>
+<br>
+
+<img src="https://img.shields.io/badge/Gatsby-663399?style=for-the-badge&logo=Gatsby&logoColor=white">  
+<img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=black">  
+<img src="https://img.shields.io/badge/typescript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">  
+<img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white">  
 
 ![version](https://img.shields.io/badge/version-1.0-white)
 [![CodeFactor](https://www.codefactor.io/repository/github/yanghyeondong/tech_blog/badge)](https://www.codefactor.io/repository/github/yanghyeondong/tech_blog)
 [![GitHub commit](https://img.shields.io/github/last-commit/Yanghyeondong/tech_blog.svg)](https://github.com/Yanghyeondong/tech_blog/pulse)
-[![licence](https://img.shields.io/github/license/Yanghyeondong/tech_blog.svg)](https://github.com/Yanghyeondong/tech_blog/LICENSE)
+[![licence](https://img.shields.io/github/license/Yanghyeondong/tech_blog.svg)](https://github.com/Yanghyeondong/tech_blog/blob/master/LICENSE)
+
+
 
 </div>
 
-<br/>
+<br>
 
 ## 📌 블로그 소개
 모히또를 좋아하는 개발자가 이것저것 모아서 꾸린 기술 블로그입니다.  
 가벼운 마음으로 정보를 가져가세요. 필요한 누군가에게 도움이 되었으면 합니다.  
 👉 [yangdongs.web.app](https://yangdongs.web.app/)
-<br/>
-<br/>
+<br>
+<br>
 ### 📜 메뉴 목록  
 
 - #### 알고리즘 문제 풀이 [Go!](https://yangdongs.web.app/post/?category=Algorithm)

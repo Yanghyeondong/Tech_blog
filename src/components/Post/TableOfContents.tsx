@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import React, { FunctionComponent } from 'react'
 
 type TocProps = {
-  content: any
+  content: string
 }
 
 const TocWrapper = styled.div`

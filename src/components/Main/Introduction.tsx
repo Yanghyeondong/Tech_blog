@@ -150,7 +150,7 @@ const TitleColor = styled(Title)`
     font-size: 32px;
   }
 `
-
+/*
 const AboutMe = styled(Link)`
   font-size: 18px;
   padding: 3px 6px;
@@ -172,9 +172,9 @@ const AboutMe = styled(Link)`
     font-size: 14px;
   }
 `
+*/
 
-const Introduction: FunctionComponent<IntroductionProps> = function ({
-}) {
+const Introduction: FunctionComponent<IntroductionProps> = function () {
   return (
     <Background>
       <Wrapper>

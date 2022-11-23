@@ -92,6 +92,9 @@ const MarkdownRenderer = styled.div`
     border-radius: 10px;
     list-style: decimal;
   }
+  li::marker{
+    font-weight: 800;
+  }
   // Adjust del style
   del{
     text-decoration: line-through 3px solid rgba(0, 0, 0, .4);

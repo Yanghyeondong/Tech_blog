@@ -83,12 +83,10 @@ const MarkdownRenderer = styled.div`
     padding: 5px 0;
   }
   ul {
-    margin-left: 40px;
-    padding: 30px 0;
+    margin: 30px;
   }
   li{
-    margin: 10px 0px;
-    margin-right: 40px;
+    margin: 5px;
     padding-left: 10px;
     background-color: #f9f9f9;
     border-radius: 10px;

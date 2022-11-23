@@ -83,8 +83,16 @@ const MarkdownRenderer = styled.div`
     padding: 5px 0;
   }
   ul {
-    margin-left: 20px;
+    margin-left: 40px;
     padding: 30px 0;
+  }
+  li{
+    margin: 10px 0px;
+    margin-right: 40px;
+    padding-left: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    list-style: decimal;
   }
   // Adjust del style
   del{

@@ -70,6 +70,13 @@ const MarkdownRenderer = styled.div`
     background-color: #f9f9f9; 
     font-weight: 400;
   }
+  blockquote li{
+    font-size: 18px;
+    margin: 5px;
+    padding: 0px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+  }
 
   // Adjust italic Element Style
   em{
@@ -78,25 +85,31 @@ const MarkdownRenderer = styled.div`
   }
 
   // Adjust List Element Style
-  ol{
+  ol {
     margin-left: 20px;
     padding: 5px 0;
+  }
+  ol li::Marker{
+    font-weight: 800;
   }
   ul {
     margin: 20px;
     margin-right: 0px;
   }
+  ul li::Marker{
+    content: "▶ ";
+    font-weight: 800;
+    color: #4ccd97;
+  }
   li{
-    margin: 7px;
+    font-size: 17px;
+    margin: 10px 20px;
     padding-left: 10px;
     padding-right: 10px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    //list-style: decimal;
   }
-  li::Marker{
-    font-weight: 800;
-  }
+
   // Adjust del style
   del{
     text-decoration: line-through 3px solid rgba(0, 0, 0, .4);

@@ -83,12 +83,13 @@ const MarkdownRenderer = styled.div`
     padding: 5px 0;
   }
   ul {
-    margin: 30px;
+    margin: 20px;
     margin-right: 0px;
   }
   li{
-    margin: 5px;
+    margin: 7px;
     padding-left: 10px;
+    padding-right: 10px;
     background-color: #f9f9f9;
     border-radius: 10px;
     //list-style: decimal;

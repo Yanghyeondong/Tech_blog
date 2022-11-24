@@ -84,13 +84,17 @@ const MarkdownRenderer = styled.div`
   }
   ul {
     margin: 30px;
+    margin-right: 0px;
   }
   li{
     margin: 5px;
     padding-left: 10px;
     background-color: #f9f9f9;
     border-radius: 10px;
-    list-style: decimal;
+    //list-style: decimal;
+  }
+  li::Marker{
+    font-weight: 800;
   }
   // Adjust del style
   del{

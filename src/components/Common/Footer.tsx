@@ -16,11 +16,11 @@ const FooterWrapper = styled.footer`
 `
 
 const BartenderIcon = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background-image: url('bartender.png');
   background-size: contain;
-  margin: 20px auto;
+  margin: 20px auto 0px auto;
 `
 
 const Footer: FunctionComponent = function () {

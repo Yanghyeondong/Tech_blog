@@ -90,7 +90,7 @@ const PostPage: FunctionComponent<PostPageProps> = function ({
       url={siteUrl}
       image={publicURL}
     >
-      <Title>Post</Title>
+      <Title>Post 🍸</Title>
       <CategoryList
         selectedCategory={selectedCategory}
         categoryList={categoryList}

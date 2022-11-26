@@ -135,7 +135,7 @@ const MarkdownRenderer = styled.div`
   // Adjust Code Style
   pre[class*='language-'] {
     font-weight: 300;
-    padding: 20px;
+    padding: 20px 30px;
     margin-bottom: 15px;
     font-size: 20px;
     border-radius: 5px;
@@ -144,14 +144,15 @@ const MarkdownRenderer = styled.div`
       background: rgba(255, 255, 255, 0.5);
     }
   }
-
+  pre[class*='language-'] * {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 400;
+  }
   code[class*='language-'] {
-    font-weight: 300;
     font-size: 16px;
     margin-right: 4px;
   },
   :not(pre) > code[class*="language-"] {
-    font-weight: 400;
     font-size: 15px;
     margin-right: 4px;
     margin-left: 4px;
@@ -160,9 +161,9 @@ const MarkdownRenderer = styled.div`
     border: 1px solid #dddddd;
     padding: 1px 4px 3px 4px;
     border-radius: 5px;
-  }
-  code[class*='language-']::selection{
-    background-color: #dadada;
+    ::selection{
+      background-color: #dadada;
+    }
   }
 
   // Markdown Responsive Design

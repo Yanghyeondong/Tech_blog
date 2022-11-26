@@ -152,7 +152,7 @@ const MarkdownRenderer = styled.div`
   },
   :not(pre) > code[class*="language-"] {
     font-weight: 400;
-    font-size: 16px;
+    font-size: 15px;
     margin-right: 4px;
     margin-left: 4px;
     color: #000000;
@@ -160,6 +160,9 @@ const MarkdownRenderer = styled.div`
     border: 1px solid #dddddd;
     padding: 1px 4px 3px 4px;
     border-radius: 5px;
+  }
+  code[class*='language-']::selection{
+    background-color: #dadada;
   }
 
   // Markdown Responsive Design
@@ -187,6 +190,10 @@ const MarkdownRenderer = styled.div`
 
     hr {
       margin: 50px 0;
+    }
+
+    li{
+      font-size: 16px;
     }
   }
 `

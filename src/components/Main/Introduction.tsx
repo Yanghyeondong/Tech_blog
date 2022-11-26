@@ -93,6 +93,7 @@ const Wrapper = styled.div`
 `
 
 const TitleWrapper = styled.div`
+  margin-right: 30px;
   @media (max-width: 768px) {
     margin: 10px auto;
   }

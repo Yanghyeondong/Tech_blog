@@ -99,15 +99,15 @@ const TitleWrapper = styled.div`
 `
 
 const SubTitle = styled.div`
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: 300;
   margin-left: 0px;
   background-color:transparent;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   @media (max-width: 768px) {
     font-size: 15px;
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
     margin-left: 0px;
   }
   @media (min-width: 768px) and (max-height: 768px) {
@@ -121,7 +121,6 @@ const SubTitleSmall = styled(SubTitle)`
 `
 
 const Title = styled.div`
-
   font-size: 34px;
   font-weight: 700;
   @media (max-width: 768px) {
@@ -135,15 +134,17 @@ const Title = styled.div`
   }
 `
 const TitleColor = styled(Title)`
-
+  position: relative;
+  top: -10px;
   font-size: 45px;
   font-weight: 800;
   color: #4ccd97;
   margin-bottom: 15px;
   @media (max-width: 768px) {
+    top: -0px;
     margin-top: 0px;
     font-size: 32px;
-    margin-left: 0px;
+    margin-left: 5px;
     margin-bottom: 10px;
   }
   @media (min-width: 768px) and (max-height: 768px) {

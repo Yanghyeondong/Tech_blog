@@ -138,7 +138,7 @@ const MarkdownRenderer = styled.div`
     padding: 20px 30px;
     margin-bottom: 15px;
     font-size: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid #dddddd;
     ::-webkit-scrollbar-thumb {
       background: rgba(255, 255, 255, 0.5);
@@ -160,7 +160,7 @@ const MarkdownRenderer = styled.div`
     background-color: #fafafa;
     border: 1px solid #dddddd;
     padding: 1px 4px 3px 4px;
-    border-radius: 10px;
+    border-radius: 5px;
     ::selection{
       background-color: #dadada;
     }

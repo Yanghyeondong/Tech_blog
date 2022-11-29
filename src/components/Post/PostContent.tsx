@@ -25,7 +25,8 @@ const MarkdownRenderer = styled.div`
   }
 
   strong {
-    margin: 0px 3px;
+    margin: 0px 1px;
+    font-size: 19px;
     font-weight: 800;
   }
 
@@ -183,6 +184,12 @@ const MarkdownRenderer = styled.div`
 
     h3 {
       font-size: 20px;
+    }
+
+    strong {
+      margin: 0px 3px;
+      font-size: 17px;
+      font-weight: 800;
     }
 
     img {

@@ -2,6 +2,7 @@ import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faCalendarDays } from '@fortawesome/free-solid-svg-icons'
 
 export type PostHeadInfoProps = {
   title: string
@@ -76,6 +77,25 @@ const PostData = styled.div`
     font-weight: 400;
   }
 `
+const Categories = styled.div`
+  display: flex;
+  justify-content: start;
+`
+const CategoryItem = styled.div`
+  margin: 2px 5px;
+  padding: 1px 7px 4px 7px;
+  border-radius: 6px;
+  background-color: #4ccd97;
+  font-size: 16px;
+  font-weight: 800;
+  color: white;
+`
+const DateWrapper = styled.div`
+  display: flex;
+`
+const DateIcon = styled.div`
+  margin-right: 10px;
+`
 
 const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
   title,
@@ -86,13 +106,22 @@ const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
 
   return (
     <PostHeadInfoWrapper>
-      <PrevPageIcon onClick={goBackPage}>
+      {/* <PrevPageIcon onClick={goBackPage}>
         <FontAwesomeIcon icon={faArrowLeft} />
-      </PrevPageIcon>
+      </PrevPageIcon> */}
       <Title>{title}</Title>
       <PostData>
-        <div>{categories.join(' . ')}</div>
-        <div>{date}</div>
+        <Categories>
+          {categories.map(category => (
+            <CategoryItem key={category}>{category}</CategoryItem>
+          ))}
+        </Categories>
+        <DateWrapper>
+          <DateIcon>
+            <FontAwesomeIcon icon={faCalendarDays}/> 
+          </DateIcon>
+            {date}
+        </DateWrapper>
       </PostData>
     </PostHeadInfoWrapper>
   )

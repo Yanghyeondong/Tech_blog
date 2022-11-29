@@ -160,7 +160,7 @@ const MarkdownRenderer = styled.div`
     background-color: #fafafa;
     border: 1px solid #dddddd;
     padding: 1px 4px 3px 4px;
-    border-radius: 5px;
+    border-radius: 10px;
     ::selection{
       background-color: #dadada;
     }

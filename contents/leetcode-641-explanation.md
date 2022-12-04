@@ -204,11 +204,14 @@ class MyCircularDeque:
 
 따라서 `_add`, `_del`처럼 `_two_way_link` 로 정의하는 것이 좋습니다.  
 \
-마지막으로 `del`함수입니다. **코드 1**에서는 삭제 연산에서 메모리 누수를 줄이기 위해 `del`연산으로 노드 메모리를 해제합니다. 물론 짧은 테스트 케이스에서는 큰 차이가 없겠지만, 점점 연산이 많아질수록 메모리를 효율적으로 사용합니다. ~~드디어 책의 코드를 이겼다. 😂~~  
+마지막으로 `del`함수입니다. **코드 1**에서는 삭제 연산에서 메모리 누수를 줄이기 위해 파이썬의 `del`을 도입했습니다. 그러나 여기에는 큰 함정이 있습니다. `del`이 개체 자체를 지우는 것이 아니라 접근만 불가능하게 만든다는 것입니다 [참조](https://www.pythonpool.com/python-clear-memory/). 결국 파이썬의 가비지 콜렉터가 작동해야지 메모리가 해제됩니다.  
+\
+이러한 측면에서 보면 **코드 2**도 삭제할 노드가 **코드 1**과 비슷한 시점에서 메모리 해제됩니다. 삭제할 노드는 결국 모든 연결(참조)이 끊어지는 순간 **레퍼런스 카운트**가 **0**이 되므로, `del` 함수 없이도 가비지 콜렉터에서 해제됩니다. 해당 내용은 다른 글에서 좀 더 자세히 다루어 볼 예정입니다.
 
 ## 4. 요약정리
 **이중 연결 리스트**로 ADT를 구현할 때는, **인덱스 노드**의 역할과 **내부 함수** 사용을 고민해 보자.  
 클래스 **내부 함수**를 사용할 때는 **[PEP8](https://peps.python.org/pep-0008/#method-names-and-instance-variables)** 의 규칙에 따라 함수명 앞에 `_`를 붙이자.  
+파이썬의 `del`은 메모리 자체를 지우지 않고, **가비지 콜렉터**가 작동해야만 한다. 
 
 ## Source
 
@@ -216,3 +219,5 @@ class MyCircularDeque:
   [https://github.com/onlybooks/algorithm-interview](https://github.com/onlybooks/algorithm-interview)
 - leetcode  
   [https://leetcode.com/problems/design-circular-deque/submissions/](https://leetcode.com/problems/design-circular-deque/submissions/)
+- pythonpool.com 'python-clear-memory'  
+  [https://www.pythonpool.com/python-clear-memory/](https://www.pythonpool.com/python-clear-memory/)

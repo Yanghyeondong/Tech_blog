@@ -109,7 +109,9 @@ const MarkdownRenderer = styled.div`
     background-color: #f9f9f9;
     border-radius: 10px;
   }
-
+  li strong{
+    font-size: 17.5px;
+  }
   // Adjust del style
   del{
     text-decoration: line-through 3px solid rgba(0, 0, 0, .4);

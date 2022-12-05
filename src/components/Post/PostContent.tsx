@@ -26,7 +26,7 @@ const MarkdownRenderer = styled.div`
 
   strong {
     margin: 0px 1px;
-    font-size: 19px;
+    font-size: 18.3px;
     font-weight: 800;
   }
 
@@ -73,10 +73,9 @@ const MarkdownRenderer = styled.div`
   }
   blockquote li{
     font-size: 18px;
-    margin: 5px;
-    padding: 0px;
+    margin: 0px 15px;
+    padding: 0px 10px;
     background-color: #f9f9f9;
-    border-radius: 10px;
   }
 
   // Adjust italic Element Style

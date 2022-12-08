@@ -74,12 +74,11 @@ const MarkdownRenderer = styled.div`
   blockquote li{
     font-size: 18px;
     margin: 0px 15px;
-    padding: 0px 10px;
+    padding: 0px 10px 0px 5px;
     background-color: #f9f9f9;
   }
   blockquote ol li::Marker{
     font-weight: 800;
-    font-size: 17px;
     color: #000;
   }
 

@@ -42,7 +42,7 @@ const SideBar: FunctionComponent<SideBarWrapperProps> = function ({active}) {
 				<SideBarList>
 					<SideBarItem to="/">Home</SideBarItem>
                     <SideBarItem to="/post/">Post</SideBarItem>
-					<SideBarItem to="/about/">About</SideBarItem>
+					<SideBarItem to="https://github.com/Yanghyeondong/tech_blog#readme">About</SideBarItem>
 				</SideBarList>
 			</SideBarWrapper>
 	);

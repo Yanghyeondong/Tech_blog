@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react'
 import styled from '@emotion/styled'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
-//import { Link } from 'gatsby';
+import { Link } from 'gatsby';
 
 type IntroductionProps = {
   profileImage: IGatsbyImageData
@@ -14,7 +14,7 @@ const Background = styled.div`
   background-color: #433F49;
   background-color: #433E49;
   @media (max-width: 768px) {
-    height: 65vh;
+    height: 62vh;
   }
 `
 const Cocktail = styled.div`
@@ -140,7 +140,7 @@ const TitleColor = styled(Title)`
   font-size: 45px;
   font-weight: 800;
   color: #4ccd97;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   @media (max-width: 768px) {
     top: -0px;
     margin-top: 0px;
@@ -152,29 +152,29 @@ const TitleColor = styled(Title)`
     font-size: 32px;
   }
 `
-/*
+
 const AboutMe = styled(Link)`
-  font-size: 18px;
+  font-size: 17px;
   padding: 3px 6px;
   border-radius: 5px;
   font-weight: 600;
-  border: 1px solid #4ccd97;
+  border: 1.5px solid #4ccd97;
   transition: 500ms;
 	&:hover {
 		color: #ffffff;
     background-color: #4ccd97;
 	}
   @media (max-width: 768px) {
-    font-size: 14px;
+    font-size: 15px;
     display: block;
-    width: 70px;
+    padding: 2px 2px;
+    width: 58px;
     margin: auto;
   }
   @media (min-width: 768px) and (max-height: 768px) {
     font-size: 14px;
   }
 `
-*/
 
 const Introduction: FunctionComponent<IntroductionProps> = function () {
   return (
@@ -190,7 +190,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function () {
           <SubTitleSmall>부담없이 편안한 마음으로 누구나</SubTitleSmall>
           <Title>Hyeondong</Title>
           <TitleColor>Yang</TitleColor>
-          {/* <AboutMe to="/about/">about</AboutMe> */}
+          <AboutMe to="https://github.com/Yanghyeondong/tech_blog#readme">about</AboutMe>
         </TitleWrapper>
       </Wrapper>
     </Background>

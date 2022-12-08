@@ -77,6 +77,11 @@ const MarkdownRenderer = styled.div`
     padding: 0px 10px;
     background-color: #f9f9f9;
   }
+  blockquote ol li::Marker{
+    font-weight: 800;
+    font-size: 17px;
+    color: #000;
+  }
 
   // Adjust italic Element Style
   em{
@@ -91,6 +96,8 @@ const MarkdownRenderer = styled.div`
   }
   ol li::Marker{
     font-weight: 800;
+    font-size: 19px;
+    color: #4ccd97;
   }
   ul {
     margin: 20px;

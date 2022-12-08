@@ -7,7 +7,7 @@ thumbnail: './common/leetcode.png'
 ---
 ## 1. 문제 확인
 
-[https://leetcode.com/problems/design-hashmap/](https://leetcode.com/problems/design-hashmap/)
+[706. Design HashMap](https://leetcode.com/problems/design-hashmap/)
 \
 자료의 저장과 열람을 지원하는 **Hash Map(table)** 을 구현하는 문제입니다. 파이썬의 딕셔너리와 유사하며, 내장된 해시 테이블 기능을 사용하지 않는 것이 포인트입니다. 
 > **leetcode 설명**  

@@ -18,7 +18,6 @@
 ![version](https://img.shields.io/badge/version-1.0-white)
 [![CodeFactor](https://www.codefactor.io/repository/github/yanghyeondong/tech_blog/badge)](https://www.codefactor.io/repository/github/yanghyeondong/tech_blog)
 [![GitHub commit](https://img.shields.io/github/last-commit/Yanghyeondong/tech_blog.svg)](https://github.com/Yanghyeondong/tech_blog/pulse)
-[![licence](https://img.shields.io/github/license/Yanghyeondong/tech_blog.svg)](https://github.com/Yanghyeondong/tech_blog/blob/master/LICENSE)
 
 
 

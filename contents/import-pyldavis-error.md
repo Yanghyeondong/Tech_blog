@@ -1,5 +1,5 @@
 ---
-date: '2023-02-12'
+date: '2023-02-11'
 title: "Colab import pyLDAvis No module named 'pyLDAvis' error"
 categories: ['Colab','Python']
 summary: "import pyLDAvis No module named 'pyLDAvis' 설치 에러 해결하기"

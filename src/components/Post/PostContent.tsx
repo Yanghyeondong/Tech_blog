@@ -34,7 +34,7 @@ const MarkdownRenderer = styled.div`
   h1,
   h2 {
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
   h3 {
     margin-bottom: 0px;
@@ -46,10 +46,18 @@ const MarkdownRenderer = styled.div`
     margin-top: 50px;
   }
 
+  * + h4 {
+    margin-top: 25px;
+  }
+
   hr + h1,
   hr + h2,
   hr + h3 {
     margin-top: 0;
+  }
+
+  hr + h4 {
+  margin-top: 25px;
   }
 
   h1 {

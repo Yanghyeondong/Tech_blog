@@ -1,0 +1,2022 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="naver-site-verification" content="7727e68f404d4c7be584f2b673b9943ab5c6b9ab"/><meta data-react-helmet="true" name="google-site-verification" content="fygLmB3YoAnXWkSTMHoemYurOt8ZBEdT2K5M1qZQL5E"/><meta data-react-helmet="true" name="twitter:image" content="/static/5e3e112afb9c9c7bd4c291006dba33a4/book2.png"/><meta data-react-helmet="true" name="twitter:description" content="교재 Operating Systems: Three Easy Pieces [Remzi] 속 Homework 문제 풀이"/><meta data-react-helmet="true" name="twitter:title" content="OS: Three Easy Pieces [Remzi] &lt;21.vmstat, 22.paging&gt; 풀이"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" property="og:site_name" content="OS: Three Easy Pieces [Remzi] &lt;21.vmstat, 22.paging&gt; 풀이"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:image" content="/static/5e3e112afb9c9c7bd4c291006dba33a4/book2.png"/><meta data-react-helmet="true" property="og:description" content="교재 Operating Systems: Three Easy Pieces [Remzi] 속 Homework 문제 풀이"/><meta data-react-helmet="true" property="og:title" content="OS: Three Easy Pieces [Remzi] &lt;21.vmstat, 22.paging&gt; 풀이"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" name="description" content="교재 Operating Systems: Three Easy Pieces [Remzi] 속 Homework 문제 풀이"/><meta name="generator" content="Gatsby 4.19.2"/><style data-href="/styles.69a4e1e9c4403d061256.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#2f2f2f;color:#eee;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5em;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#363636}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#fd9170}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#c792ea}.token.attr-name{color:#ffcb6b}.token.attr-value,.token.attribute{color:#a5e844}.token.boolean{color:#c792ea}.token.builtin{color:#ffcb6b}.token.cdata,.token.char{color:#80cbc4}.token.class{color:#ffcb6b}.token.class-name{color:#f2ff00}.token.comment{color:#616161}.token.constant{color:#c792ea}.token.deleted{color:#f66}.token.doctype{color:#616161}.token.entity{color:#f66}.token.function{color:#c792ea}.token.hexcode{color:#f2ff00}.token.id,.token.important{color:#c792ea;font-weight:700}.token.inserted{color:#80cbc4}.token.keyword{color:#c792ea}.token.number{color:#fd9170}.token.operator{color:#89ddff}.token.prolog{color:#616161}.token.property{color:#80cbc4}.token.pseudo-class,.token.pseudo-element{color:#a5e844}.token.punctuation{color:#89ddff}.token.regex{color:#f2ff00}.token.selector{color:#f66}.token.string{color:#a5e844}.token.symbol{color:#c792ea}.token.tag{color:#f66}.token.unit{color:#fd9170}.token.url,.token.variable{color:#f66}:host,:root{--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1 "Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1 "Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1 "Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{box-sizing:content-box;overflow:visible}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.07143em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{top:.25em;width:var(--fa-li-width,2em)}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:var(--fa-right,0);top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.08333em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.07143em;vertical-align:.05357em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.04167em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width, 2em)*-1);line-height:inherit;position:absolute;text-align:center;width:var(--fa-li-width,2em)}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade,.fa-fade{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s)}.fa-beat-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-shake,.fa-spin{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal)}.fa-spin{-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scaleX(-1);transform:scaleX(-1)}.fa-flip-vertical{-webkit-transform:scaleY(-1);transform:scaleY(-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1);transform:scale(-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;height:2em;position:relative;vertical-align:middle;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-only,.sr-only-focusable:not(:focus){clip:rect(0,0,0,0);border-width:0;height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor)}.svg-inline--fa .fa-secondary,.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}</style><link rel="icon" href="/favicon-32x32.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="canonical" href="https://yangdongs.web.app/os_hw_4/" data-baseprotocol="https:" data-basehost="yangdongs.web.app"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><title data-react-helmet="true">OS: Three Easy Pieces [Remzi] &lt;21.vmstat, 22.paging&gt; 풀이</title><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css vbubbu">.css-vbubbu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100vh;overflow-x:hidden;width:100%;}</style><main class="css-vbubbu e1strnqo0"><style data-emotion="css 1pe8cy1">.css-1pe8cy1{position:fixed;margin:10px 10px;z-index:5;}</style><div class="css-1pe8cy1 e1md2nih0"><style data-emotion="css ivf4mb">.css-ivf4mb{display:grid;place-items:center;width:60px;height:60px;border-radius:20px;background-color:#4ccd97;color:#ffffff;font-size:40px;cursor:pointer;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);}@media (max-width: 768px){.css-ivf4mb{width:45px;height:45px;font-size:30px;border-radius:15px;}}</style><div class="css-ivf4mb e1md2nih1"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM325.1 306.7L380.6 162.4C388.1 142.1 369 123.9 349.6 131.4L205.3 186.9C196.8 190.1 190.1 196.8 186.9 205.3L131.4 349.6C123.9 369 142.1 388.1 162.4 380.6L306.7 325.1C315.2 321.9 321.9 315.2 325.1 306.7V306.7z"></path></svg></div><style data-emotion="css 12ua5r7">.css-12ua5r7{margin:10px 10px;border-radius:20px;z-index:4;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-transition:500ms;transition:500ms;left:-600px;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);background-color:white;}</style><div class="css-12ua5r7 ee3oskm2"><style data-emotion="css x68nae">.css-x68nae{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;text-align:center;margin-top:5%;margin-bottom:10%;margin:10px;}</style><div class="css-x68nae ee3oskm1"><style data-emotion="css 58nrwj">.css-58nrwj{font-size:20px;margin:15px;}.css-58nrwj:hover{border-bottom:3px solid #4ccd97;}</style><a class="css-58nrwj ee3oskm0" href="/">Home</a><a class="css-58nrwj ee3oskm0" href="/post/">Post</a><a href="https://github.com/Yanghyeondong/tech_blog#readme" class="css-58nrwj ee3oskm0">About</a></div></div></div><style data-emotion="css-global gyifnl">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:565px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;306&#x27; width=&#x27;565&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAABESAAAREgEAwpvaAAABrklEQVQozzWSPa/qMAyG08RN4iRNvxADGwL1qiBoqaAduiAhMfADGEAV450Y2BD8+atTn/sMUeTYsvO+ZlEUOeeUUgCgtZZSGmMQ0VqrlPLex3EMAFEUAQAiAoBSii5MSqlG4ji21mZZhohJkiBilmXWWmNMFEVCCMr03mutAUBKyYQQnPMgCIQQv6ERzrmUEgAoQY4EQcAYU0pxzn87c86ttcfjcbvdFkWxXq/7vu+6bj6fV1V1Op2apun7vqqqpmkWiwVNEYYhc85xzrMsu9/v7/d7GIbb7fZ6vYZh+H6/5/P58/n8HXk+n4/H43q9MsZghGmtnXPee6VUnueHw6Esy9Vqtd/v+74vy7Jt2z8jk8lECEFyIqIQgiEi1ZPaZVnWdb3ZbOq67rpuvV4XRbHb7dq2nc1mxhgSIk1T5xwjqYMgoAt9hoQVQmithRD0pLXO89w5J6X8LQYAspROmsI5lyQJ+a+1NsZQkAy31iKiMebHKkQk6eM4FiNku9Y6DEP/H5rZWhtFUZqmy+XypzNV0pIBQBiGAOC9R0SayHtP24KI0+m0LMumaS6Xyz8ykDVBPPlfZQAAAABJRU5ErkJggg==" alt=""/><picture><source type="image/webp" data-srcset="/static/5e3e112afb9c9c7bd4c291006dba33a4/cdf2b/book2.webp 141w,/static/5e3e112afb9c9c7bd4c291006dba33a4/d9fe4/book2.webp 283w,/static/5e3e112afb9c9c7bd4c291006dba33a4/8b8b9/book2.webp 565w" sizes="(min-width: 565px) 565px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 565px) 565px, 100vw" decoding="async" loading="lazy" data-src="/static/5e3e112afb9c9c7bd4c291006dba33a4/3739d/book2.png" data-srcset="/static/5e3e112afb9c9c7bd4c291006dba33a4/da853/book2.png 141w,/static/5e3e112afb9c9c7bd4c291006dba33a4/9f0de/book2.png 283w,/static/5e3e112afb9c9c7bd4c291006dba33a4/3739d/book2.png 565w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/5e3e112afb9c9c7bd4c291006dba33a4/cdf2b/book2.webp 141w,/static/5e3e112afb9c9c7bd4c291006dba33a4/d9fe4/book2.webp 283w,/static/5e3e112afb9c9c7bd4c291006dba33a4/8b8b9/book2.webp 565w" sizes="(min-width: 565px) 565px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 565px) 565px, 100vw" decoding="async" loading="lazy" src="/static/5e3e112afb9c9c7bd4c291006dba33a4/3739d/book2.png" srcSet="/static/5e3e112afb9c9c7bd4c291006dba33a4/da853/book2.png 141w,/static/5e3e112afb9c9c7bd4c291006dba33a4/9f0de/book2.png 283w,/static/5e3e112afb9c9c7bd4c291006dba33a4/3739d/book2.png 565w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css lzjgtp">.css-lzjgtp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:400px;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-lzjgtp{height:330px;width:100%;padding:40px 20px;}}</style><div class="css-lzjgtp e1st1jau7"><style data-emotion="css 10qqw1">.css-10qqw1{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin:auto 0;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:42px;font-weight:800;}@media (max-width: 768px){.css-10qqw1{font-size:30px;}}</style><div class="css-10qqw1 e1st1jau5">OS: Three Easy Pieces [Remzi] &lt;21.vmstat, 22.paging&gt; 풀이</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau4"><style data-emotion="css 5yjeco">.css-5yjeco{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:start;justify-content:start;}@media (max-width: 768px){.css-5yjeco{-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-5yjeco e1st1jau3"><style data-emotion="css bfqpi6">.css-bfqpi6{margin:2px 5px;padding:1px 7px 4px 7px;border-radius:6px;background-color:#4ccd97;font-size:16px;font-weight:800;color:white;}@media (max-width: 768px){.css-bfqpi6{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-bfqpi6 e1st1jau2">Operating System</div></div><style data-emotion="css 14b4j72">.css-14b4j72{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}@media (max-width: 768px){.css-14b4j72{margin:7px 7px;}}</style><div class="css-14b4j72 e1st1jau1"><style data-emotion="css nkt64x">.css-nkt64x{margin-right:10px;}</style><div class="css-nkt64x e1st1jau0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-days" class="svg-inline--fa fa-calendar-days " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"></path></svg></div>2023.08.23.</div></div></div></div><style data-emotion="css hn6e83">.css-hn6e83{margin:auto auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}@media (min-width: 1200px){.css-hn6e83{margin-left:calc( 50% - 384px );}}@media (max-width: 768px){.css-hn6e83{width:100%;}}</style><div class="css-hn6e83 e6b6ljm0"><style data-emotion="css 54p2is">.css-54p2is{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:2.5;font-size:18px;font-weight:400;}.css-54p2is p{padding:3px 0;}.css-54p2is strong{margin:0px 1px;font-size:18.3px;font-weight:800;}.css-54p2is h1,.css-54p2is h2{font-weight:800;margin-bottom:20px;}.css-54p2is h3{margin-bottom:0px;}.css-54p2is *+h1,.css-54p2is *+h2,.css-54p2is *+h3{margin-top:50px;}.css-54p2is *+h4{margin-top:25px;}.css-54p2is hr+h1,.css-54p2is hr+h2,.css-54p2is hr+h3{margin-top:0;}.css-54p2is hr+h4{margin-top:25px;}.css-54p2is h1{font-size:40px;}.css-54p2is h2{font-size:35px;}.css-54p2is h3{font-size:23px;color:#8dc123;}.css-54p2is blockquote{margin:30px 10px;padding:5px 15px;border-left:2px solid #4ccd97;background-color:#f9f9f9;font-weight:400;}.css-54p2is blockquote li{font-size:18px;margin:0px 15px;padding:0px 10px 0px 5px;background-color:#f9f9f9;}.css-54p2is blockquote ol li::Marker{font-weight:800;color:#000;}.css-54p2is em{padding-right:8px;padding-left:3px;}.css-54p2is ol{margin-left:20px;padding:5px 0;}.css-54p2is ol li::Marker{font-weight:800;font-size:19px;color:#4ccd97;}.css-54p2is ul{margin:20px;margin-right:0px;}.css-54p2is ul li::Marker{content:"▶ ";font-weight:800;color:#4ccd97;}.css-54p2is li{font-size:17px;margin:10px 20px;padding-left:10px;padding-right:10px;background-color:#f9f9f9;border-radius:10px;}.css-54p2is li strong{font-size:17.5px;}.css-54p2is del{-webkit-text-decoration:line-through 3px solid rgba(0, 0, 0, .4);text-decoration:line-through 3px solid rgba(0, 0, 0, .4);}.css-54p2is hr{border:1px solid #000000;margin:100px 0;}.css-54p2is a{font-weight:800;color:#4ccd97;-webkit-text-decoration:underline 1px;text-decoration:underline 1px;text-underline-position:under;}.css-54p2is a:hover{color:#ffffff;background-color:#4ccd97;}.css-54p2is pre[class*='language-']{font-weight:300;padding:20px 30px;margin-bottom:15px;font-size:20px;border-radius:10px;border:1px solid #dddddd;}.css-54p2is pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);}.css-54p2is pre[class*='language-'] *{font-family:'Roboto Mono',monospace;font-weight:400;}.css-54p2is code[class*='language-']{font-size:16px;margin-right:4px;}.css-54p2is :not(pre)>code[class*="language-"]{font-size:15px;margin-right:4px;margin-left:4px;color:#000000;background-color:#fafafa;border:1px solid #dddddd;padding:1px 4px 3px 4px;border-radius:5px;}.css-54p2is :not(pre)>code[class*="language-"]::selection{background-color:#dadada;}@media (max-width: 768px){.css-54p2is{width:100%;padding:80px 20px;line-height:2.0;font-size:16px;}.css-54p2is h1{font-size:26px;}.css-54p2is h2{font-size:23px;}.css-54p2is h3{font-size:20px;}.css-54p2is strong{margin:0px 3px;font-size:17px;font-weight:800;}.css-54p2is img{width:100%;}.css-54p2is hr{margin:50px 0;}.css-54p2is li{font-size:16px;}}</style><div class="css-54p2is e1ijh0y10"><p><em>해당 포스트는 필자가 직접 풀이한 것으로 오답이나 잘못된 해석이 있을 수도 있습니다.</em><br>
+<em>혹시나 지적할 부분이 있다면 항상 환영입니다!</em> 😏</p>
+<p><em>해당 포스트는 코드가 너무 길고 줄맞춤의 문제가 있어 사진으로 대체합니다</em> 😓</p>
+<h2 id="문제-및-풀이" style="position:relative;"><a href="#%EB%AC%B8%EC%A0%9C-%EB%B0%8F-%ED%92%80%EC%9D%B4" aria-label="문제 및 풀이 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>문제 및 풀이</h2>
+<h4 id="1-first-open-two-separate-terminal-connections-to-the-same-machine-so-that-you-can-easily-run-something-in-one-window-and-the-other-now-in-one-window-run-vmstat-1-which-shows-statistics-about-machine-usage-every-second-read-the-man-page-the-associated-readme-and-any-other-information-you-need-so-that-you-can-understand-its-output-leave-this-window-running-vmstat-for-the-rest-of-the-exercises-below-now-we-will-run-the-program-memc-but-with-very-little-memory-usage-this-can-be-accomplished-by-typing-mem-1-which-uses-only-1-mb-of-memory-how-do-the-cpu-usage-statistics-change-when-running-mem-do-the-numbers-in-the-user-time-column-make-sense--how-does-this-change-when-running-more-than-one-instance-of-mem-at-once" style="position:relative;"><a href="#1-first-open-two-separate-terminal-connections-to-the-same-machine-so-that-you-can-easily-run-something-in-one-window-and-the-other-now-in-one-window-run-vmstat-1-which-shows-statistics-about-machine-usage-every-second-read-the-man-page-the-associated-readme-and-any-other-information-you-need-so-that-you-can-understand-its-output-leave-this-window-running-vmstat-for-the-rest-of-the-exercises-below-now-we-will-run-the-program-memc-but-with-very-little-memory-usage-this-can-be-accomplished-by-typing-mem-1-which-uses-only-1-mb-of-memory-how-do-the-cpu-usage-statistics-change-when-running-mem-do-the-numbers-in-the-user-time-column-make-sense--how-does-this-change-when-running-more-than-one-instance-of-mem-at-once" aria-label="1 first open two separate terminal connections to the same machine so that you can easily run something in one window and the other now in one window run vmstat 1 which shows statistics about machine usage every second read the man page the associated readme and any other information you need so that you can understand its output leave this window running vmstat for the rest of the exercises below now we will run the program memc but with very little memory usage this can be accomplished by typing mem 1 which uses only 1 mb of memory how do the cpu usage statistics change when running mem do the numbers in the user time column make sense  how does this change when running more than one instance of mem at once permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. First, open two separate terminal connections to the same machine, so that you can easily run something in one window and the other. Now, in one window, run vmstat 1, which shows statistics about machine usage every second. Read the man page, the associated README, and any other information you need so that you can understand its output. Leave this window running vmstat for the rest of the exercises below. Now, we will run the program mem.c but with very little memory usage. This can be accomplished by typing ./mem 1 (which uses only 1 MB of memory). How do the CPU usage statistics change when running mem? Do the numbers in the user time column make sense?  How does this change when running more than one instance of mem at once?</h4>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2f43ea3d736e06157884fb920600b8b8/439d5/4_1.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 90.10416666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACR0lEQVQ4y62U+W6bQBDGeYfExK4ixZxufQQWE4w5FhbMYXzEjZP0UCu17/8QX7WbxLElt3Gk/vHTMOzwMTO7O1KUUGQFRZzGyIsZKCsxnFZw/AJBWKHf96CoFnTDwcdPHoajAJpuYziaYjD00fnQg3yh46JtCCTT9KAoBNcWRVE+wHVz0GiOKKqh6QS93g0MgyAMKxCHYjCawrZjhGGNKJpD0whasvYqaJgOut0RCKG43/7GjZuBpWukbA1VswW6RlBVWxAnhk2oEPQnhbCG4RwK6gbBVXcEy46xXH6H46SIowZJuhRiPANVtcDYGmM3heumsOwInpejP/ChafahYLtjih5w+IKwz/4xXmL24UIvVto19MLY/WU/YN+X24fvjsVKxwLey38X3Ec6b6ngtGRV9OfJV3Auq0+01KN9+xuSolhQVRvd7jWurq7Fs26M0VUsgaY7uLzso93uodN5GykIKuT5Bt6kwHjMQOkC1fwB/rQUh7euH2GaLmRZFx+030BibIXF4gvCeA7fL1GWd9g+/gJNl+Brm81PmL0xzs6V193+V8lBUCLLbuF6GQhJQBOe4T0m0wK+P0NRbMEPP+/lSZuScIHyDkFYixKzbI315x/PGa7RNF8xHPo4O1WQX3qaNLjxMkThHFE8R714RBjXSNIVGLuFZYWnZ8inSp7fwvNnSOgSPONm9Q00XaAo71BV9+Lunr2nZC448WeI4wYpWz2VnDTIZxvRQ/s9grxUPkj5tHFdJqZIwlZwPbY7Ov3B5OSS/wBtuRP3JEykBAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2f43ea3d736e06157884fb920600b8b8/a59e9/4_1.webp 192w,
+/static/2f43ea3d736e06157884fb920600b8b8/0ca9f/4_1.webp 384w,
+/static/2f43ea3d736e06157884fb920600b8b8/52634/4_1.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2f43ea3d736e06157884fb920600b8b8/3b721/4_1.png 192w,
+/static/2f43ea3d736e06157884fb920600b8b8/66595/4_1.png 384w,
+/static/2f43ea3d736e06157884fb920600b8b8/439d5/4_1.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2f43ea3d736e06157884fb920600b8b8/439d5/4_1.png"
+            alt="1"
+            title="1"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+mem을 시작하자 cpu항목에서 idle이 감소하고 user time이 증가하는 모습을 보인다.
+만약에 mem을 하나 더 작동시키면 아래와 같이 user time이 약 2배가 되는 모습을 보인다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/531605e5092e0029f6b33fa0026b2cba/439d5/4_2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 123.4375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAZCAYAAAAxFw7TAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADNUlEQVQ4y5VV6XLaSBjkHWyMcVJ2jCQksDkkdKD7GN0Sl4Ek9m4q+/4v0VvzuYpNUrVl+NElzZTU09/R33TcwEcQe1i6DqIkge0xKHqCmR5jaWdQRga+PE4hDTXIIwNPzzYeBzOMxxahfyfjpieidysROpJkYCBo0I0Mdf0G36sQ+iXieA1BUqGMTEiShudnG5OpQ9C0EB7/LmwwHOro3gj/EYqSivuHJ+hGgrZ9xXKZwvMKJMmGlAwGcwjCHPcPE8iyjrkaYDZzYZqM1Iqihu6vCofDBR6+TIhw1b7CcTIizLI9BEEliKJK30wmDmw7h2HEMAyGydR9J/xV4W1/eFpw8PWfexynPPWk33L2JzrX3QFOuHl/Xl0/nvb4e7cnEMk56IjiAopiQRA1CAOVkqwovBA6ZNnAeGzj/n6Cfl/B3d3oQ3TybIem+QbXr+E4JarqiP3XfxBELaJohfX6b8iKTmr/L8zfQnacAoxtsDASqGqIIKiRFi8wlymWdoq8OEAQ5yfCD0NO0w3q+itst4DrVsjyF+wOPxFEDdJsh7Z9w9Pz8nyFtp0hCCpoixCuU8JxcrD8BbaTIQgbhGGL6dQ5nzBJVijLA9mMu4OxLSmMkhZleUTbvGGueri6PpPQdQtSstAjUuh6JfLyANvNEYTvhZlcojCKGhTFHpadUXicYLX9C0FUg6U7FMUR87mHq3MJucFZuqWq+n5FpM36FV5QIYxaJMkWs7l3vkLLYhQm/8k0GEyLIWYb6GYM28kRBA1V+ar7iN7tGU6RpAVkxQB/KiML72sTimJAEFX07xR8+jRCvy+TWz5Ch4fIqxuEK4ThCmV1pKLwamfZC/Xm589j9G750JA/RCeOW6TpltqGj6Qs22K1faNG5z1ZN99pWvMhcZZTPK8k65lWCl1PEEUtyvpIhJ5foaq+QZS0Sxp7TQPB8SpYVoai3GO7/wHXL8nX3Hpc4QXDIafeW+gxjXXeOlm5pxRw+zG2o4vqIoW8sTkBv0cStiHrhXGLojxQY6uaf4n1crB0A8Nk4KOM32Y5T4Gb0wEp2102HPgtxzFTfRhGAstKEdMBMWybH1BjNDbPJvwX/jH2gOJPpxEAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/531605e5092e0029f6b33fa0026b2cba/a59e9/4_2.webp 192w,
+/static/531605e5092e0029f6b33fa0026b2cba/0ca9f/4_2.webp 384w,
+/static/531605e5092e0029f6b33fa0026b2cba/52634/4_2.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/531605e5092e0029f6b33fa0026b2cba/3b721/4_2.png 192w,
+/static/531605e5092e0029f6b33fa0026b2cba/66595/4_2.png 384w,
+/static/531605e5092e0029f6b33fa0026b2cba/439d5/4_2.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/531605e5092e0029f6b33fa0026b2cba/439d5/4_2.png"
+            alt="2"
+            title="2"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h4 id="2-lets-now-start-looking-at-some-of-the-memory-statistics-while-running-mem-well-focus-on-two-columns-swpd-the-amount-of-virtual-memory-used-and-free-the-amount-of-idle-memory-run-mem-1024-which-allocates-1024-mb-and-watch-how-these-values-change-then-kill-the-running-program-by-typing-control-c-and-watch-again-how-the-values-change-what-do-you-notice-about-the-values-in-particular-how-does-the-free-column-change-when-the-program-exits-does-the-amount-of-free-memory-increase-by-the-expected-amount-when-mem-exits" style="position:relative;"><a href="#2-lets-now-start-looking-at-some-of-the-memory-statistics-while-running-mem-well-focus-on-two-columns-swpd-the-amount-of-virtual-memory-used-and-free-the-amount-of-idle-memory-run-mem-1024-which-allocates-1024-mb-and-watch-how-these-values-change-then-kill-the-running-program-by-typing-control-c-and-watch-again-how-the-values-change-what-do-you-notice-about-the-values-in-particular-how-does-the-free-column-change-when-the-program-exits-does-the-amount-of-free-memory-increase-by-the-expected-amount-when-mem-exits" aria-label="2 lets now start looking at some of the memory statistics while running mem well focus on two columns swpd the amount of virtual memory used and free the amount of idle memory run mem 1024 which allocates 1024 mb and watch how these values change then kill the running program by typing control c and watch again how the values change what do you notice about the values in particular how does the free column change when the program exits does the amount of free memory increase by the expected amount when mem exits permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Let’s now start looking at some of the memory statistics while running mem. We’ll focus on two columns: swpd (the amount of virtual memory used) and free (the amount of idle memory). Run ./mem 1024 (which allocates 1024 MB) and watch how these values change. Then kill the running program (by typing control-c) and watch again how the values change. What do you notice about the values? In particular, how does the free column change when the program exits? Does the amount of free memory increase by the expected amount when mem exits?</h4>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c0f0daddbe13ac29d0dd289e7060442d/439d5/4_3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 103.125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACuElEQVQ4y62U6XLaWBCFeYcYbPBgIwktYCPQAjKgHYTEIvBCknFl5se8/0N8U7pZnVQ5ZCY/TrVu1dXp0327Ty1eBGRFgB9NSZcRnp+gjpeMJgvm8wJNt7m6vkVWhiiqhW6MxVnVHFTN5qKp0Tjvcn6hCtR03aPbdZl4OUXxJ75fEPo5cVyi6S79voemOZjmHMsOsZ2IkRWIZL6/pqva1BvKV0KlO6J9dcN4klKWz0ynGfN5Tpoe6EgmkjxEUUZcXQ+EKnPoc3Pj4bgJt7czVNX+XuGYTsdk7q95e/yHMNyQpiWbzXu6XRtVdYRCSR4Jta6bMBr5zOdrRlZI9f8LQk1zabf72E5CujjgOBGetxDlVIkkaYgsD7nuDITaXt8TCi0rxLYjkfBFyVVTq48qti4Nmk2dZlOj2dK/XPqCc5XGp7sXn+788CjV4f+iIvocaz+o+A94ofB3EH6L2lld4c3ZV9TrCo2GTL0uc1bFhvJL5de66gCjZ2L0huiGiaSYXEoWHdlCli060pBm06DVMmiegFqWF+z2Jfl6x3Z3IIjXeOk9i9UT2817DOPjnH2chp+j5nkZlh2LuZtO1wThhkV2L1YwincEwVps0udZ+2nJi7TkbpaRpnuiqGSzfcf+8W8Wy3tWq7fk+RMdaUDV65MeZTpdYruxWL27uxVhtCFZHpjNcoJwRxhuhbt8uw2vEqZJpXBFlj0Qx3uK9ZHy4S/ipCRfHSnyo1BYP1VhEBTClioC101F37L8keksF31cZo9UjnRWl08jTJId7iQmL46i5NXqkfLhA1FSkiZ7yvKDMNLTCeMS24lJ0gOuuxSE+8MzfrBhkR7Ybp9/jdCdzLBcl8ndDMseY1pT+k5CbzATtl9Z/uUfvRf7+iphV+uhGX06so4k61y2dc6vTVrtvlBV4XtHeY3wX1VEabKicOlgAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c0f0daddbe13ac29d0dd289e7060442d/a59e9/4_3.webp 192w,
+/static/c0f0daddbe13ac29d0dd289e7060442d/0ca9f/4_3.webp 384w,
+/static/c0f0daddbe13ac29d0dd289e7060442d/52634/4_3.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c0f0daddbe13ac29d0dd289e7060442d/3b721/4_3.png 192w,
+/static/c0f0daddbe13ac29d0dd289e7060442d/66595/4_3.png 384w,
+/static/c0f0daddbe13ac29d0dd289e7060442d/439d5/4_3.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c0f0daddbe13ac29d0dd289e7060442d/439d5/4_3.png"
+            alt="3"
+            title="3"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+mem 1024가 실행되자 마자 free가 줄어드는 모습을 볼 수 있다. mem을 종료할 경우, free가 원래대로 돌아오는 모습을 볼 수 있다. 다만, 작은 일부는 조금 늦게 돌아오는 모습을 보인다.</p>
+<h4 id="3-well-next-look-at-the-swap-columns-si-and-so-which-indicate-how-much-swapping-is-taking-place-to-and-from-the-disk-of-course-to-activate-these-youll-need-to-run-mem-with-large-amounts-of-memory-first-examine-how-much-free-memory-is-on-your-linux-system-for-example-by-typing-cat-procmeminfo-type-man-proc-for-details-on-the-proc-file-system-and-the-types-of-information-you-can-find-there-one-of-the-first-entries-in-procmeminfo-is-the-total-amount-of-memory-in-your-system-lets-assume-its-something-like-8-gb-of-memory-if-so-start-by-running-mem-4000-about-4-gb-and-watching-the-swap-inout-columns-do-they-ever-give-non-zero-values-then-try-with-5000-6000-etc-what-happens-to-these-values-as-the-program-enters-the-second-loop-and-beyond-as-compared-to-the-first-loop-how-much-data-total-are-swapped-in-and-out-during-the-second-third-and-subsequent-loops-do-the-numbers-make-sense" style="position:relative;"><a href="#3-well-next-look-at-the-swap-columns-si-and-so-which-indicate-how-much-swapping-is-taking-place-to-and-from-the-disk-of-course-to-activate-these-youll-need-to-run-mem-with-large-amounts-of-memory-first-examine-how-much-free-memory-is-on-your-linux-system-for-example-by-typing-cat-procmeminfo-type-man-proc-for-details-on-the-proc-file-system-and-the-types-of-information-you-can-find-there-one-of-the-first-entries-in-procmeminfo-is-the-total-amount-of-memory-in-your-system-lets-assume-its-something-like-8-gb-of-memory-if-so-start-by-running-mem-4000-about-4-gb-and-watching-the-swap-inout-columns-do-they-ever-give-non-zero-values-then-try-with-5000-6000-etc-what-happens-to-these-values-as-the-program-enters-the-second-loop-and-beyond-as-compared-to-the-first-loop-how-much-data-total-are-swapped-in-and-out-during-the-second-third-and-subsequent-loops-do-the-numbers-make-sense" aria-label="3 well next look at the swap columns si and so which indicate how much swapping is taking place to and from the disk of course to activate these youll need to run mem with large amounts of memory first examine how much free memory is on your linux system for example by typing cat procmeminfo type man proc for details on the proc file system and the types of information you can find there one of the first entries in procmeminfo is the total amount of memory in your system lets assume its something like 8 gb of memory if so start by running mem 4000 about 4 gb and watching the swap inout columns do they ever give non zero values then try with 5000 6000 etc what happens to these values as the program enters the second loop and beyond as compared to the first loop how much data total are swapped in and out during the second third and subsequent loops do the numbers make sense permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. We’ll next look at the swap columns (si and so), which indicate how much swapping is taking place to and from the disk. Of course, to activate these, you’ll need to run mem with large amounts of memory. First, examine how much free memory is on your Linux system (for example, by typing cat /proc/meminfo; type man proc for details on the /proc file system and the types of information you can find there). One of the first entries in /proc/meminfo is the total amount of memory in your system. Let’s assume it’s something like 8 GB of memory; if so, start by running mem 4000 (about 4 GB) and watching the swap in/out columns. Do they ever give non-zero values? Then, try with 5000, 6000, etc. What happens to these values as the program enters the second loop (and beyond), as compared to the first loop? How much data (total) are swapped in and out during the second, third, and subsequent loops? (do the numbers make sense?)</h4>
+<p>메모리는 4기가를 가지고 있다. 그래서 2048부터 시작하였다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 697px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5ba74e19f1ec26fa1807b30816e70256/11663/4_4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 103.125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAC2ElEQVQ4y41UaXPaMBTkPxRzBGKwjY0xhy+MMT7whQ/uHE06nc70//8JtiOlJKGZNHzYeZIlrfdJb18lTHysCh/e0kGchrC9CKKVQpslcL0ComSA7Y7B8RP0RAPyYAa2M4IomXTeaEqo1XunekNEvSGeKv2+jV5vCnueI8+f4HkFfDdDGO4g9adQFBuiaEAZzqEbATQ9gK4H8P0NPK+kpExNeCMkCm7ZIWZ2gvXmGfY8gevmiOMDutwEHK+C51U6FgQNw9EcytCGaUbQtQCSZIJ5r1CSDHDcBI6T4f7uN4JgjSjaIi8eIfR0iKJJFfK8RtUaxhIT1YPrFlAJoWhcpsxxGm5aCnQ9xGr1CNtOsZin8P01/REvaBTd7gT9/hSa5lOVlpVgNHap6gtCfTqDqmuYOwsEYQTVWECZxlDNEK2WjPatgnZ7gFZ7AJYd0ivodEdUPbkGsn5ByPcGECUFbFfCbUfETbuPOjtCoyWjVhPI5lcwNeEDyHdCdI6VKtNDlSGL5ID4suFt41W4UEgGjaZ49eFP8EZI1H2rvoFhBNRqPBiGR5XEf9L+BKdzrPTEMeTB5AWyCk6YoMXp4AQdPK+DVEGzKePmRkbzc5zOsbLKC2z2O+TlBtv9HfyohB0fkeaP2Kx/QJYtqoJYrN74FKdzrJC6M8wIfrCFsyjhByWS9IAFdcsRvl/illVo6n8f4P8px/EOjpshTY+Ioj3Wmyfs734hSY9YZQ/Iswd0uuNXwi8fxXFSGNOQ+nfuZFRhlBzgLDJ4/ppake0MryckviXprVZ3WC53KMoHbA8/EUY7lOUzsuyeOuNqQt8raUuK4gPMaYIo3iMvH7BwCyyXWxTFd2qzKsNfRxgsM5iWiyguYc0CuH6OID3CslNYVkz7Xpcb0/q8inCsqdBMFcPxCMpoBF4aoy3PwJIu8q6ozy/8JeF7lxAQ59QY/sOdfeHtSy9f2QCuIvwDecllZiSusRAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/5ba74e19f1ec26fa1807b30816e70256/a59e9/4_4.webp 192w,
+/static/5ba74e19f1ec26fa1807b30816e70256/0ca9f/4_4.webp 384w,
+/static/5ba74e19f1ec26fa1807b30816e70256/dc6fe/4_4.webp 697w"
+              sizes="(max-width: 697px) 100vw, 697px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/5ba74e19f1ec26fa1807b30816e70256/3b721/4_4.png 192w,
+/static/5ba74e19f1ec26fa1807b30816e70256/66595/4_4.png 384w,
+/static/5ba74e19f1ec26fa1807b30816e70256/11663/4_4.png 697w"
+            sizes="(max-width: 697px) 100vw, 697px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/5ba74e19f1ec26fa1807b30816e70256/11663/4_4.png"
+            alt="4"
+            title="4"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+2048은 큰 변화가 없었다. swap in/out columns 이 여전히 0이여서 4096으로 시도했다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/406c39488055973121717db489f139a5/439d5/4_5.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 129.16666666666669%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAEgklEQVRIx31V11YbWRDUR6wjaxtQQpZGEyWNJuesAEgIsPf/P6P2VI/NHr/sw2XEDXW7q6r7DvzIR1H7CGIHtrtGXqZQDR/mKsFkamJ6t8JorOPL1zluh5p854strq8VfP22wHRq4du1gvcfRvjwcYzBdLrGzY2Ou5kNP9jDtks4ToHNJsVqnWA8MTGZ9MALxcZSdaGoLnQjgG6ECMJWvje3Kt69H2LAKBaLrYy2uyAMGxTFI6K4Q5LuMZ2usFw6Aui6JfL8HnezFUwzhKr52G5zGEYklwrgaGQgSQ9omifkxQMMM4RtF0jTA7LsHm17Qd2cEScH7LoXVNUZWf6AON6hrp+wVB2YZgRNCzAaGxjwTxh1AtjtXiQlVfNkLk72KMp7AW/aC/LiiCjeYX/4iSjq0HUvEj0jNYwQd3drDIZDTcLmoaI8QVEczBc27G0O368lRa4lyQFZfo843kuEciY7YrGwoSxdaKovfAsgiS3LR0mHNypLB0HQSMp1fRZOy+qEujrJHCPz/UZSVhQbmh5I2uR7MBrpEkHbPKHdPUPX/V8pt3LBfv+KujoLyPH4D7LsKHNxfEDXPUPVXOh6AMtKMJttMBiOdBFlt3vBfv8DhhFA0z1RmYfr5glNfRbByCP3ch855BlV7Tk0zbgHvB2qiOK9iNJ2L8Khojrwg1rmq+qEqnxEmvbgTLkoHxGGLar6DE1zsVAcCUQ4pPsdtxSySfJ8bvei2Bk8ipLdy2EC5fkDXK8WcVyvFCfM52sBZCBim+sbBUHYIc16a2iaJ84nCKOiIFV5Qt1cRHGCUgxSQu5ZPdzPcXurkkNNbEA1aWCKYpgR4riTgzQ2x27/Q77ktWkuSJL9mysMMbYPCiy2EX7qM9ruWRQjySxB8rfbvaKuTwJOMYriAYfDD8QshvaC5XILTffl3GRi9aIEwtERbfssKS9VT0zN8iIo0yzLkwjH6qEng6CW/YqyFR8ys8nUwuDmZikmZQqs1+/f19KePL9CFO2EJxEsPQqwH/TNY2vnMjefb6RSCPxfLdMC1ektZRLM6Og9RsHos/wo6yzB3z6k2elD8schEY7HhhR82z0JX0zZslKJLBUaLm+XdV0vCpsIM+KaqroiCn0opUeV6aful5IENK1YACspuedfSj9LZfRCvfTNpHgQUUwBjECBBTAQz/VkL5eupExTk1NahFFJ6TVPUnriw3CHonzom4MWyLnx2KSxl/C8Cll6lGpgN1ZVX54BXkQByCerg0pTIM75Xi2UzGaWuOKNQyJv7FT6XxC0cJxS3ovfb0qSHeRCWQ9brDeZ1PB6k2KzzWGtImnK1IKP1oAFzZA3m0y4Ixes5dUqkd/8WlYsZueXLuBeXQ+xsfO3teFQx5cvcwzYcrZOBU0nby0skxsCaenOtkLgd/Kiff58h6u/v+Pqaia/ZVzN8OHjBJ8+Tfv5qxkGrAg2U1qHDZSebLoLusOrGL6sHpGlBwzHOv56dyvv7x/j45//C6Bu+FIBdL6zLZHmRwG0VjE8rxalWT0E5GP+f+NfuQB1zDRqKA0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/406c39488055973121717db489f139a5/a59e9/4_5.webp 192w,
+/static/406c39488055973121717db489f139a5/0ca9f/4_5.webp 384w,
+/static/406c39488055973121717db489f139a5/52634/4_5.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/406c39488055973121717db489f139a5/3b721/4_5.png 192w,
+/static/406c39488055973121717db489f139a5/66595/4_5.png 384w,
+/static/406c39488055973121717db489f139a5/439d5/4_5.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/406c39488055973121717db489f139a5/439d5/4_5.png"
+            alt="5"
+            title="5"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+실험값이 4096이 되자  mem이 실행되고 초반에 swpd 값이 크게 올라간다. 여기서 first loop에서는 메모리 할당이 점점 증가하다가 일정 메모리를 가진 이후부터는 swpd가 약간의 변동은 있지만 더이상 크게 증가하지 않는 모습을 보여준다.</p>
+<h4 id="4-do-the-same-experiments-as-above-but-now-watch-the-other-statistics-such-as-cpu-utilization-and-block-io-statistics-how-do-they-change-when-mem-is-running" style="position:relative;"><a href="#4-do-the-same-experiments-as-above-but-now-watch-the-other-statistics-such-as-cpu-utilization-and-block-io-statistics-how-do-they-change-when-mem-is-running" aria-label="4 do the same experiments as above but now watch the other statistics such as cpu utilization and block io statistics how do they change when mem is running permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Do the same experiments as above, but now watch the other statistics (such as CPU utilization, and block I/O statistics). How do they change when mem is running?</h4>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/406c39488055973121717db489f139a5/439d5/4_6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 129.16666666666669%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAaCAYAAAC3g3x9AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAEgklEQVRIx31V11YbWRDUR6wjaxtQQpZGEyWNJuesAEgIsPf/P6P2VI/NHr/sw2XEDXW7q6r7DvzIR1H7CGIHtrtGXqZQDR/mKsFkamJ6t8JorOPL1zluh5p854strq8VfP22wHRq4du1gvcfRvjwcYzBdLrGzY2Ou5kNP9jDtks4ToHNJsVqnWA8MTGZ9MALxcZSdaGoLnQjgG6ECMJWvje3Kt69H2LAKBaLrYy2uyAMGxTFI6K4Q5LuMZ2usFw6Aui6JfL8HnezFUwzhKr52G5zGEYklwrgaGQgSQ9omifkxQMMM4RtF0jTA7LsHm17Qd2cEScH7LoXVNUZWf6AON6hrp+wVB2YZgRNCzAaGxjwTxh1AtjtXiQlVfNkLk72KMp7AW/aC/LiiCjeYX/4iSjq0HUvEj0jNYwQd3drDIZDTcLmoaI8QVEczBc27G0O368lRa4lyQFZfo843kuEciY7YrGwoSxdaKovfAsgiS3LR0mHNypLB0HQSMp1fRZOy+qEujrJHCPz/UZSVhQbmh5I2uR7MBrpEkHbPKHdPUPX/V8pt3LBfv+KujoLyPH4D7LsKHNxfEDXPUPVXOh6AMtKMJttMBiOdBFlt3vBfv8DhhFA0z1RmYfr5glNfRbByCP3ch855BlV7Tk0zbgHvB2qiOK9iNJ2L8Khojrwg1rmq+qEqnxEmvbgTLkoHxGGLar6DE1zsVAcCUQ4pPsdtxSySfJ8bvei2Bk8ipLdy2EC5fkDXK8WcVyvFCfM52sBZCBim+sbBUHYIc16a2iaJ84nCKOiIFV5Qt1cRHGCUgxSQu5ZPdzPcXurkkNNbEA1aWCKYpgR4riTgzQ2x27/Q77ktWkuSJL9mysMMbYPCiy2EX7qM9ruWRQjySxB8rfbvaKuTwJOMYriAYfDD8QshvaC5XILTffl3GRi9aIEwtERbfssKS9VT0zN8iIo0yzLkwjH6qEng6CW/YqyFR8ys8nUwuDmZikmZQqs1+/f19KePL9CFO2EJxEsPQqwH/TNY2vnMjefb6RSCPxfLdMC1ektZRLM6Og9RsHos/wo6yzB3z6k2elD8schEY7HhhR82z0JX0zZslKJLBUaLm+XdV0vCpsIM+KaqroiCn0opUeV6aful5IENK1YACspuedfSj9LZfRCvfTNpHgQUUwBjECBBTAQz/VkL5eupExTk1NahFFJ6TVPUnriw3CHonzom4MWyLnx2KSxl/C8Cll6lGpgN1ZVX54BXkQByCerg0pTIM75Xi2UzGaWuOKNQyJv7FT6XxC0cJxS3ovfb0qSHeRCWQ9brDeZ1PB6k2KzzWGtImnK1IKP1oAFzZA3m0y4Ixes5dUqkd/8WlYsZueXLuBeXQ+xsfO3teFQx5cvcwzYcrZOBU0nby0skxsCaenOtkLgd/Kiff58h6u/v+Pqaia/ZVzN8OHjBJ8+Tfv5qxkGrAg2U1qHDZSebLoLusOrGL6sHpGlBwzHOv56dyvv7x/j45//C6Bu+FIBdL6zLZHmRwG0VjE8rxalWT0E5GP+f+NfuQB1zDRqKA0AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/406c39488055973121717db489f139a5/a59e9/4_6.webp 192w,
+/static/406c39488055973121717db489f139a5/0ca9f/4_6.webp 384w,
+/static/406c39488055973121717db489f139a5/52634/4_6.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/406c39488055973121717db489f139a5/3b721/4_6.png 192w,
+/static/406c39488055973121717db489f139a5/66595/4_6.png 384w,
+/static/406c39488055973121717db489f139a5/439d5/4_6.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/406c39488055973121717db489f139a5/439d5/4_6.png"
+            alt="6"
+            title="6"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+CPU utilization의 경우 user time이 증가했다가 다시 낮아진 상태로 유지되는 모습을 보인다. block I/O statistics의 경우, 초반에는 크게 증가했다가 이후로는 적당히 유지되는 모습을 보인다.</p>
+<h4 id="5-now-lets-examine-performance-pick-an-input-for-mem-that-comfortably-fits-in-memory-say-4000-if-the-amount-of-memory-on-the-system-is-8-gbhow-long-does-loop-0-take-and-subsequent-loops-1-2-etc--now-pick-a-size-comfortably-beyond-the-size-of-memory-say-12000-again-assuming-8-gb-of-memory-how-long-do-the-loops-take-here-how-do-the-bandwidth-numbers-compare-how-different-is-performance-when-constantly-swapping-versus-fitting-everything-comfortably-in-memory-can-you-make-a-graph-with-the-size-of-memory-used-by-mem-on-the-x-axis-and-the-bandwidth-of-accessing-said-memory-on-the-y-axis-finally-how-does-the-performance-of-the-first-loop-compare-to-that-of-subsequent-loops-for-both-the-case-where-everything-fits-in-memory-and-where-it-doesnt" style="position:relative;"><a href="#5-now-lets-examine-performance-pick-an-input-for-mem-that-comfortably-fits-in-memory-say-4000-if-the-amount-of-memory-on-the-system-is-8-gbhow-long-does-loop-0-take-and-subsequent-loops-1-2-etc--now-pick-a-size-comfortably-beyond-the-size-of-memory-say-12000-again-assuming-8-gb-of-memory-how-long-do-the-loops-take-here-how-do-the-bandwidth-numbers-compare-how-different-is-performance-when-constantly-swapping-versus-fitting-everything-comfortably-in-memory-can-you-make-a-graph-with-the-size-of-memory-used-by-mem-on-the-x-axis-and-the-bandwidth-of-accessing-said-memory-on-the-y-axis-finally-how-does-the-performance-of-the-first-loop-compare-to-that-of-subsequent-loops-for-both-the-case-where-everything-fits-in-memory-and-where-it-doesnt" aria-label="5 now lets examine performance pick an input for mem that comfortably fits in memory say 4000 if the amount of memory on the system is 8 gbhow long does loop 0 take and subsequent loops 1 2 etc  now pick a size comfortably beyond the size of memory say 12000 again assuming 8 gb of memory how long do the loops take here how do the bandwidth numbers compare how different is performance when constantly swapping versus fitting everything comfortably in memory can you make a graph with the size of memory used by mem on the x axis and the bandwidth of accessing said memory on the y axis finally how does the performance of the first loop compare to that of subsequent loops for both the case where everything fits in memory and where it doesnt permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Now let’s examine performance. Pick an input for mem that comfortably fits in memory (say 4000 if the amount of memory on the system is 8 GB).How long does loop 0 take (and subsequent loops 1, 2, etc.)?  Now pick a size comfortably beyond the size of memory (say 12000 again assuming 8 GB of memory). How long do the loops take here? How do the bandwidth numbers compare? How different is performance when constantly swapping versus fitting everything comfortably in memory? Can you make a graph, with the size of memory used by mem on the x-axis, and the bandwidth of accessing said memory on the y-axis? Finally, how does the performance of the first loop compare to that of subsequent loops, for both the case where everything fits in memory and where it doesn’t?</h4>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c88c1b37cbc9f3c1ec9a3611a5e86a54/439d5/4_7.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA80lEQVQY043Qy1LCMACFYR5CwJUIqCsdFaGXpLFN2pKkV0VQN874/i/xO3bhTobFmbP75swZBZGk7TtSramajq31rKKCTdqQ6g673XNz88TZeMH0/JrJ9Gro/zIKw5I4dsTCYe07Qnqq5gOtG/K8p64/kdJyMbtlPFkexQbQmJb1JsPkHcZ0KOXZHb4x5Qta/y5+w7s98+X938qjYJrWBGFOohzG9CSJp999oYuONGtw7kBZvDJfnAgKYXlcPRPFJUJawqjAVgek8gjhyHSP1i2zy7vTwFhsWW80kShRqiII8gFUWY1MPFnWDlcslg+MTwB/ABhfutnYMJOOAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c88c1b37cbc9f3c1ec9a3611a5e86a54/a59e9/4_7.webp 192w,
+/static/c88c1b37cbc9f3c1ec9a3611a5e86a54/0ca9f/4_7.webp 384w,
+/static/c88c1b37cbc9f3c1ec9a3611a5e86a54/52634/4_7.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c88c1b37cbc9f3c1ec9a3611a5e86a54/3b721/4_7.png 192w,
+/static/c88c1b37cbc9f3c1ec9a3611a5e86a54/66595/4_7.png 384w,
+/static/c88c1b37cbc9f3c1ec9a3611a5e86a54/439d5/4_7.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c88c1b37cbc9f3c1ec9a3611a5e86a54/439d5/4_7.png"
+            alt="7"
+            title="7"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+2048로 설정했을 때는 처음에는 846ms 에 2417MB/s가 나왔지만 이후로는 대부분 약400ms에 약5000MB/s가 나온다. 첫번째 loop의 경우 첫 할당이다 보니 느린 속도를 보여준다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/123fed69ead8ff746124cf91eda60d2d/439d5/4_8.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 31.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA8UlEQVQY043Py07CQBjFcR5CwLVCVGChlOmU3ju9TWfsBQLBRBe+/0v8jZiwk7D4cnI2v5xv5HoBbd+SKIVte7S2ONuSTWyJkhbTnFgsJHfjB6b3cybT2Tn/u5GUFd5WE4SGxnzw22t9oK73RLHB2hMq65jN14wnj1exM6hUhyMS8qKnLAfCsKExR3bHb4TMiWND332yWG0vK6+CSWIRbobKB7Q+nMGq3tPtvnC9gjT9e/tlKW8Dfb/i9S0iCBuyrEXKgjR7p2oOrDcpQaApyz1Pz+J20Nmk+GFNng8IoUhSizZHHJHh+zVFvmO58m4CfwCt/rtqzDa0NQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/123fed69ead8ff746124cf91eda60d2d/a59e9/4_8.webp 192w,
+/static/123fed69ead8ff746124cf91eda60d2d/0ca9f/4_8.webp 384w,
+/static/123fed69ead8ff746124cf91eda60d2d/52634/4_8.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/123fed69ead8ff746124cf91eda60d2d/3b721/4_8.png 192w,
+/static/123fed69ead8ff746124cf91eda60d2d/66595/4_8.png 384w,
+/static/123fed69ead8ff746124cf91eda60d2d/439d5/4_8.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/123fed69ead8ff746124cf91eda60d2d/439d5/4_8.png"
+            alt="8"
+            title="8"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+4500로 설정했을 때는 처음에는 2488ms에 1808MB/s가 나왔지만 이후로는 대부분 약20000ms에 약250MB/s가 나오며, 가면 갈수록 속도가 느려지는 모습으 보인다. 첫번째 loop의 경우 대부분 메모리에 할당이 되다 보니 빠른 속도를 보여준다. 나머지 루프는 확연히 느려지는 모습을 보인다.
+스왑을 하지않고 메모리에 모든 데이터가 있는 경우가 훨씬 빠른 모습을 보인다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5e49153ed619b37709ffb873f5093e1b/53e1c/4_9.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 34.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAADLAAAAywAEoZFrbAAAA0ElEQVQoz41QAYrDMAzr/5/ao8tuSRPbcaxD6dob4zgWEAI5lmUv7h45Z6hI9O5o0iH6GcYYcHciTl5qrdi2LcwUVRzbt+D2UCQi/417NqxJUKoBiGk8xggyDSOlBFUNFj9FxMCaGtx/zchLKYUJYWaIuKb9Cx9jmjLhvSiOd/QuZhZcW1Wvm/Tez9tcOGuvf4Y71lTxlRoeRQ5DpqI9mSkpttZmk4hMbd/3qXEwmRprNK21oTZDLvvsWbg3zeJ4eAcH0IinOcHGZ4qXu2Im/AHa+CW8f7wnmgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/5e49153ed619b37709ffb873f5093e1b/a59e9/4_9.webp 192w,
+/static/5e49153ed619b37709ffb873f5093e1b/0ca9f/4_9.webp 384w,
+/static/5e49153ed619b37709ffb873f5093e1b/dc9b9/4_9.webp 768w,
+/static/5e49153ed619b37709ffb873f5093e1b/e2c2f/4_9.webp 1152w,
+/static/5e49153ed619b37709ffb873f5093e1b/f3efb/4_9.webp 1536w,
+/static/5e49153ed619b37709ffb873f5093e1b/41513/4_9.webp 2200w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/5e49153ed619b37709ffb873f5093e1b/3b721/4_9.png 192w,
+/static/5e49153ed619b37709ffb873f5093e1b/66595/4_9.png 384w,
+/static/5e49153ed619b37709ffb873f5093e1b/fe486/4_9.png 768w,
+/static/5e49153ed619b37709ffb873f5093e1b/d2d74/4_9.png 1152w,
+/static/5e49153ed619b37709ffb873f5093e1b/e8464/4_9.png 1536w,
+/static/5e49153ed619b37709ffb873f5093e1b/53e1c/4_9.png 2200w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/5e49153ed619b37709ffb873f5093e1b/fe486/4_9.png"
+            alt="9"
+            title="9"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h4 id="6-swap-space-isnt-infinite-you-can-use-the-tool-swapon-with-the--s-flag-to-see-how-much-swap-space-is-available-what-happens-if-you-try-to-run-mem-with-increasingly-large-values-beyond-what-seems-to-be-available-in-swap-at-what-point-does-the-memory-allocation-fail" style="position:relative;"><a href="#6-swap-space-isnt-infinite-you-can-use-the-tool-swapon-with-the--s-flag-to-see-how-much-swap-space-is-available-what-happens-if-you-try-to-run-mem-with-increasingly-large-values-beyond-what-seems-to-be-available-in-swap-at-what-point-does-the-memory-allocation-fail" aria-label="6 swap space isnt infinite you can use the tool swapon with the  s flag to see how much swap space is available what happens if you try to run mem with increasingly large values beyond what seems to be available in swap at what point does the memory allocation fail permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>6. Swap space isn’t infinite. You can use the tool swapon with the -s flag to see how much swap space is available. What happens if you try to run mem with increasingly large values, beyond what seems to be available in swap? At what point does the memory allocation fail?</h4>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 440px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6f46901c38aa2250514b4ed8071abdc7/7c5f7/4_10.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 9.375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAACCAYAAABYBvyLAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAkUlEQVQI1z3MvQqCUACAUd8gzasGpaXXhtQowv6uRSlmDkGQBbY19P6v8AUODWc92v1V8Gxz8kvK8bzmcEopqw3RMsVbFQT7mnhbolTFZluQzBVSLrBsiTOYYjshQzfCHcf0zQnao/lQlg0jN0E3fIQIMUyJEBLbCjpC+F3Q0z1UVpPnt39oCp9ZvKN9f8nUlR+qbj0HExIsywAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/6f46901c38aa2250514b4ed8071abdc7/a59e9/4_10.webp 192w,
+/static/6f46901c38aa2250514b4ed8071abdc7/0ca9f/4_10.webp 384w,
+/static/6f46901c38aa2250514b4ed8071abdc7/0218a/4_10.webp 440w"
+              sizes="(max-width: 440px) 100vw, 440px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/6f46901c38aa2250514b4ed8071abdc7/3b721/4_10.png 192w,
+/static/6f46901c38aa2250514b4ed8071abdc7/66595/4_10.png 384w,
+/static/6f46901c38aa2250514b4ed8071abdc7/7c5f7/4_10.png 440w"
+            sizes="(max-width: 440px) 100vw, 440px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/6f46901c38aa2250514b4ed8071abdc7/7c5f7/4_10.png"
+            alt="10"
+            title="10"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+약 1기가 정도 사용이 가능하다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 439px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fec37dfdf2b55a868c6cf29e4c8d59ce/54b61/4_11.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 16.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAp0lEQVQI123OywqCYBRF4Z4huqFhFAXqsTuYaQ200vrNW9n7P8qKgkY22MP1sVte4KPymKxKOMch8TUhzRRKJay9E45/w49rgoMiCkuisMCyXDrdCf3BrLHW+XKner5I84yirCgeNcktpXrUHE85E9tDtiGWvcMYOWi6Sbsz/sa9/rQJmiJs3CXufsVyPccSQRaCMxf08QLNdDFkz9Cwv69+yD/sA74BK2pc+xWewRUAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/fec37dfdf2b55a868c6cf29e4c8d59ce/a59e9/4_11.webp 192w,
+/static/fec37dfdf2b55a868c6cf29e4c8d59ce/0ca9f/4_11.webp 384w,
+/static/fec37dfdf2b55a868c6cf29e4c8d59ce/5aee8/4_11.webp 439w"
+              sizes="(max-width: 439px) 100vw, 439px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/fec37dfdf2b55a868c6cf29e4c8d59ce/3b721/4_11.png 192w,
+/static/fec37dfdf2b55a868c6cf29e4c8d59ce/66595/4_11.png 384w,
+/static/fec37dfdf2b55a868c6cf29e4c8d59ce/54b61/4_11.png 439w"
+            sizes="(max-width: 439px) 100vw, 439px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/fec37dfdf2b55a868c6cf29e4c8d59ce/54b61/4_11.png"
+            alt="11"
+            title="11"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+많이 사용하려 하면 에러가 발생한다. 전체 메모리 4기가 일때 5기가 전후로 더 이상 할당이 불가능한 실패가 발생한다.</p>
+<h4 id="7-finally-if-youre-advanced-you-can-configure-your-system-to-use-different-swap-devices-using-swapon-and-swapoff-read-the-man-pages-for-details-if-you-have-access-to-different-hardware-see-how-the-performance-of-swapping-changes-when-swapping-to-a-classic-hard-drive-a-flash-based-ssd-and-even-a-raid-array-how-much-can-swapping-performance-be-improved-via-newer-devices-how-close-can-you-get-to-in-memory-performance" style="position:relative;"><a href="#7-finally-if-youre-advanced-you-can-configure-your-system-to-use-different-swap-devices-using-swapon-and-swapoff-read-the-man-pages-for-details-if-you-have-access-to-different-hardware-see-how-the-performance-of-swapping-changes-when-swapping-to-a-classic-hard-drive-a-flash-based-ssd-and-even-a-raid-array-how-much-can-swapping-performance-be-improved-via-newer-devices-how-close-can-you-get-to-in-memory-performance" aria-label="7 finally if youre advanced you can configure your system to use different swap devices using swapon and swapoff read the man pages for details if you have access to different hardware see how the performance of swapping changes when swapping to a classic hard drive a flash based ssd and even a raid array how much can swapping performance be improved via newer devices how close can you get to in memory performance permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>7. Finally, if you’re advanced, you can configure your system to use different swap devices using swapon and swapoff. Read the man pages for details. If you have access to different hardware, see how the performance of swapping changes when swapping to a classic hard drive, a flash-based SSD, and even a RAID array. How much can swapping performance be improved via newer devices? How close can you get to in-memory performance?</h4>
+<p>본인이 테스트한 환경은 SSD 밖에 없어서 HDD와의 비교는 불가능 하지만, SSD가 기존 HDD보다는 5~6배 혹은 그 이상 빠르다는 점을 감안하면 스왑시 속도와 bandwidth 가 훨씬 더 우월하다는 점을 알 수있다. 다만, 이렇게 하더라도 메모리보다는 훨씬 느리다. 듀얼 채널로 구성된 본인의 메모리 대역폭은 5000 MB/s를 넘어가기 때문이다.</p>
+<ol>
+<li>Generate random addresses with the following arguments: -s 0 -n 10, -s 1 -n 10, and -s 2 -n 10. Change the policy from FIFO, to LRU, to OPT. Compute whether each access in said address traces are hits or misses.</li>
+</ol>
+<p>-s 0 -n 10 일때
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 539px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9af016b6dbf5a15d01c012e1808c412b/4eee8/4_12.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABo0lEQVQoz5WS6W7aQBSFeYYGQ5uWxtiAzeIFj+04xrtNsIBEZFPf/0m+ytMi1LT9kR9Ho7sd3XPu9OK4papfqJpnLDvh05XGYKCjKGMURaP/G0qXe4dzbTCcMPw8lW8vTfe07SuH4w8cN2Ew1GXxoziT9sKwoSgfiTc79Mn6r4YPE65Wd6xFLsnGmiPldjLOTWe5/Xfyr/rjf0s25yGWs0HX18xmAsMM0HQXZaDx5dpgMvVkPDV+1eaLUMaLRSRjcx5w/dW8bOgHFX5YIkRJXZ/IiiOOk/BttMBxU1w3w/NyovieLD9QVA90Nm23L6TZgbw4oqq23FoSxpuWNN/j+xVF8UB9/4QnLfAIghLHSYmiLWlxoGmeaPdvJMmBXftGVZ/Yta+oqnUh9MOa26iRg2m2JyuPWFYs/RQix7I2CFEQJzvy/EizPdF9tbJ8ZJPuqZvTnxs6nSSRYzsJ4W2DCEqWy4gb1cayYxbLSFpgu4kkDsIK180Rfom7zgjCmtFoeSHsrruyYmaGjzZx+X6zYrm6kx7OTF8abxi+HOiM/x/OV/4J0dMrDLx87jwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9af016b6dbf5a15d01c012e1808c412b/a59e9/4_12.webp 192w,
+/static/9af016b6dbf5a15d01c012e1808c412b/0ca9f/4_12.webp 384w,
+/static/9af016b6dbf5a15d01c012e1808c412b/994bd/4_12.webp 539w"
+              sizes="(max-width: 539px) 100vw, 539px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9af016b6dbf5a15d01c012e1808c412b/3b721/4_12.png 192w,
+/static/9af016b6dbf5a15d01c012e1808c412b/66595/4_12.png 384w,
+/static/9af016b6dbf5a15d01c012e1808c412b/4eee8/4_12.png 539w"
+            sizes="(max-width: 539px) 100vw, 539px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9af016b6dbf5a15d01c012e1808c412b/4eee8/4_12.png"
+            alt="12"
+            title="12"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 544px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c10707bd8dda4dfee734a15ca7a56eb4/cfd82/4_13.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABzUlEQVQoz5WT21baUBCGeYW2AiKC5kBOYCCQA4RTEgghclAWrXX1pu//FF9XtkKt9saLWbOzJvvL/P9MSrM4Yft4T5IuGPguutmhrjo0TR9FdTDbAZrhorb6NG86SHKXm9s7biUbTXfRtAGXNY1KVaV62aI0nW6J4gPT2Q5JcvjyVaJSUShfSFyU5TehUK4o4lzk07mIE6zIpTjek64OJIs9stKlXFVE8bNx7jBJHsk3z4TjNarqnAufBZ07NK1A+HTdsGg020LKqShkVWS+vUp7K/Pl+a/Uc4e66dHSBsJkRXFoNCxxsXZlIMs9JKkrjD8NQ1Z6YlhFLt59r6gUxXs8P2Yy2bDJn+naY3HRtie4bkI023M8/OZ+80QYrknTI9n6iXzzk3Z7KDr9BziPdvhBgu8vWSYHTNNH1z0Gg4ieM2MUZOy3v8jy7wJYDDFOHsjyH/8HDkcrur0J/X7MbLpB111arb6A3dljfHdBlh6ZR1uCICUMM0bhinm8Fx//AAyGKT1nSr8fMRnnAlh4WcBegEtWr0DPW4htKGIe7zAMj/J7YKcTYttjDMsXf0OxOobpCx/N9hDLGmKaAfVrk6u6IXIRxVbUavqHofwBktRHhIKZ6V8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c10707bd8dda4dfee734a15ca7a56eb4/a59e9/4_13.webp 192w,
+/static/c10707bd8dda4dfee734a15ca7a56eb4/0ca9f/4_13.webp 384w,
+/static/c10707bd8dda4dfee734a15ca7a56eb4/07652/4_13.webp 544w"
+              sizes="(max-width: 544px) 100vw, 544px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c10707bd8dda4dfee734a15ca7a56eb4/3b721/4_13.png 192w,
+/static/c10707bd8dda4dfee734a15ca7a56eb4/66595/4_13.png 384w,
+/static/c10707bd8dda4dfee734a15ca7a56eb4/cfd82/4_13.png 544w"
+            sizes="(max-width: 544px) 100vw, 544px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c10707bd8dda4dfee734a15ca7a56eb4/cfd82/4_13.png"
+            alt="13"
+            title="13"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 546px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/aa15d994e17ffed064ecbce0de384b14/8c78b/4_14.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB40lEQVQoz52Ta1PaQBSG/QutgFqFkBuXXCAJkAsGAiGAEFHUOrUz/f9/4+nsKshM+6X9cObsztl59n3P2T2bzubcP21ZrBaMohEdy+HaCFCsGN3wsZ2YdmeIYQY0my6q1pdZaTp0uiHt9pDLqxa1C4OLS5OzSXpPNn9imu3QNJ8vX1VqNZ1qRaVS1ahUtPdc1anWdLkWWcT5R+0AE/lsNttRLPcsikc0vU/tQpfFf42jwjzfsy3fSCdbzFZwLPwPTCq07AjbSag3LOqKLa0cDhysvVvWjnZP96cwqbDVHmK2BihNl6ba46ZucfkBU9U+9YYthyPaIeoN5X0wIjTd4/qm++lKKJxm94zCOWlasl6/4AVTFMXBNAfE8ZJ+f8LD/hebzSt3m1fieM1y+cxq9Z1y9xPTDDivqJ/AbLYjigvCUYEYUM9LpVoBCqMFrptS7t7kZdvyB0lyxzx/RPT+r8BkvCYYZPheRhwV2G5Co2HjureMwhzLSlitX8jzB+b5A8PhgjTdML69Y7l6+RMYRgWeP6HfmzAczOjaseyj4yR4/pROJyQv9mRZyTQr8YMZ4/EaISRf7DEMXw7nCLTthF7vVr563fDkj2h3RtK2Zcd0rUiGaL646OpbW64P+9NfIoC/AYb6SG9UUwskAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/aa15d994e17ffed064ecbce0de384b14/a59e9/4_14.webp 192w,
+/static/aa15d994e17ffed064ecbce0de384b14/0ca9f/4_14.webp 384w,
+/static/aa15d994e17ffed064ecbce0de384b14/8951b/4_14.webp 546w"
+              sizes="(max-width: 546px) 100vw, 546px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/aa15d994e17ffed064ecbce0de384b14/3b721/4_14.png 192w,
+/static/aa15d994e17ffed064ecbce0de384b14/66595/4_14.png 384w,
+/static/aa15d994e17ffed064ecbce0de384b14/8c78b/4_14.png 546w"
+            sizes="(max-width: 546px) 100vw, 546px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/aa15d994e17ffed064ecbce0de384b14/8c78b/4_14.png"
+            alt="14"
+            title="14"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>-s 1 -n 10 일때
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 554px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/bced39b0de6b2b92b186e000046af3e5/b4bb7/4_15.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB0UlEQVQoz52T6ZaaQBSEfYVkXMYdUFQUQXRUZBEQRXEZYybJ+7/Jl0M7Gs2/5Eed7j63qFt1u8lF64jzj5QkXTG139ANg1pvjjx06XQnmCOf/mBOT5uitEY0pSGqOkZWTAb6QtSqNY1iqU3pVSXneQeC6ILnH5Bliy9fZYoFhUJeJl9QePlcMxSKLYHb/iV/rd/EsjUXBEfC6Iq2agliqdwRhH/B3WEcX0j3v/D9FEkePnX7L8GRtcS0fGTFoCnpIs6j6C3mY9Tb/nZ+ipwNu90ZU6v1xcAz4Uq1K4iv5Q6Nhk6jqX/WTJGi2Rwiycb1LA0F7+7QXiRkLheLHVF8JlydBLHRHGCYLqPRkvk8xnYS4viM66U4zo4gOBGtznj+TjQVs88E/eWByTTCtreE0Yl1chEudd1hPAkwDBfHSXC8lM3mIjhhcCKM3llvvovLfBLMutiLDYtMcPVOsvug1bbQtDmTtxDLCsSFecs9+/Qn8fpCFJ3JjGySD9brb9Trgz+Ct8jjcYTjbgnCI7V6H02bXR9132YmIm/Fx8vwiO8fcN2dcBmGfznMohmmh9afISkGPW1GV/wVJrrhMNAdVHVCqaxSqfbEBWQoV7p3PD6b37m2So43uMDfAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/bced39b0de6b2b92b186e000046af3e5/a59e9/4_15.webp 192w,
+/static/bced39b0de6b2b92b186e000046af3e5/0ca9f/4_15.webp 384w,
+/static/bced39b0de6b2b92b186e000046af3e5/78631/4_15.webp 554w"
+              sizes="(max-width: 554px) 100vw, 554px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/bced39b0de6b2b92b186e000046af3e5/3b721/4_15.png 192w,
+/static/bced39b0de6b2b92b186e000046af3e5/66595/4_15.png 384w,
+/static/bced39b0de6b2b92b186e000046af3e5/b4bb7/4_15.png 554w"
+            sizes="(max-width: 554px) 100vw, 554px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/bced39b0de6b2b92b186e000046af3e5/b4bb7/4_15.png"
+            alt="15"
+            title="15"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 554px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e0f5b97b5253f0afba55d09de60641fc/b4bb7/4_16.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABy0lEQVQoz5WS63KiQBCFfYVdr3GJAgoIcosiOArIcNEgG9FUkq3a93+Pk5pJpLLZ/MmPr3qmZurUOd3dojlF/VRiX6bwiQfTtiHMAkjWFqq2hONGMOYBZvoK8sTFWLSgKAtIsoO5SWAYAfoDBb3+lNdWGFbY0QvCqMJYdPDjp4ReV0a3I6HTldF+r4xub8K5ntsdGe2u1Iix2trtfiOhb0iyjV5/gv5A5R++Q+Mwyy4ojy8IoxKiZDcP3xVqHLp3MZy7iLsbiSaPcn38GPEa83pmfIx6FW2xZk/VBYRbA6JoQRD0RnQ0mmM8tvgw2BBuR3OegsEMDH/N/kvUWpM9mEtC7lFkFxh6gKGgw3a2cN0I280R5eEZNKux8lLskhMSBn2Arvvc6T+CUVxhuaJYrw/IaQ3DWENVPfhBBtMk2MUnVOUfFIdHhNsSCT0jzc7IigtfmfZnQZrWWJMChAmmZ1jWBlNlAd9P+Q4mcY3Tw1+U1QviqEKcnEDTE+7L53dB6evIiwVFHB6hKEveM8+j0PUAvpejyB+R7y8gZM/3laXK8vPXgqa5ge2E0A2fN1rTVpjpPiZTF3OLwLQ20DQPgxuVczPUGtj981BeAV/oSAcn6rDJAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/e0f5b97b5253f0afba55d09de60641fc/a59e9/4_16.webp 192w,
+/static/e0f5b97b5253f0afba55d09de60641fc/0ca9f/4_16.webp 384w,
+/static/e0f5b97b5253f0afba55d09de60641fc/78631/4_16.webp 554w"
+              sizes="(max-width: 554px) 100vw, 554px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/e0f5b97b5253f0afba55d09de60641fc/3b721/4_16.png 192w,
+/static/e0f5b97b5253f0afba55d09de60641fc/66595/4_16.png 384w,
+/static/e0f5b97b5253f0afba55d09de60641fc/b4bb7/4_16.png 554w"
+            sizes="(max-width: 554px) 100vw, 554px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/e0f5b97b5253f0afba55d09de60641fc/b4bb7/4_16.png"
+            alt="16"
+            title="16"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 553px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2f6f841fa852c05a143a9ee967e36b4c/d35da/4_17.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABwElEQVQoz52T2XLaQBBF/Q9msRNbIMBg0IKQACEE2kALiDJgYqqS//+Pk9JgXCJ5Sh5udVeP5kzf6tZdfsjYHVJcz2VkDZF7BpK2QO5aqJqDojm89ie8dE2kpkq7M6Ip6/Rex+K80VCp1trUH16E7jx/T7h6R9eX3Fc6VKotqhWZarUl8vvKJRaXCl3zy5n8BavVOxdg4OfE6RHDWFB/6Hy99C+6wgQwyz5I0hOaPufhsfufsBLQtAK6PYumrPH4rXdjoWyzbLUcL9+WLPcHNs+SgiSpSA3lBipJCo2mhtwa0mobPD0rIr/Wint/dThzYkZmwHp1ZOasxQSlhoo+XGAYHp6/I05ObDY/MMyAOD7heztW8ZHxOBDAWhno+Tkj0yfw35jPE/Fyv28zMj00zSWM9qSbM3l+xnZSNtkZz8tFbTKJbgYigGH0hmWFLBfbEnAqgEWH0epAtj2z3/9iOktI0w/cRcZ29xPbXlOr/QGc2itUzWUyjrAsn+9Pfbq9MfrQZdCf4cwTAU2Sd0ZWSBQdsGcx4eqAafqflkvAobFEUR06XVN0N1Bmn3/CRNQLFcMphlWsVRGvEmtWAEt7+BsYIEawzoV45gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2f6f841fa852c05a143a9ee967e36b4c/a59e9/4_17.webp 192w,
+/static/2f6f841fa852c05a143a9ee967e36b4c/0ca9f/4_17.webp 384w,
+/static/2f6f841fa852c05a143a9ee967e36b4c/d6781/4_17.webp 553w"
+              sizes="(max-width: 553px) 100vw, 553px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2f6f841fa852c05a143a9ee967e36b4c/3b721/4_17.png 192w,
+/static/2f6f841fa852c05a143a9ee967e36b4c/66595/4_17.png 384w,
+/static/2f6f841fa852c05a143a9ee967e36b4c/d35da/4_17.png 553w"
+            sizes="(max-width: 553px) 100vw, 553px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2f6f841fa852c05a143a9ee967e36b4c/d35da/4_17.png"
+            alt="17"
+            title="17"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>-s 2 -n 10 일때</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 554px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b76365e9eba927a5178e15cd5c311b71/b4bb7/4_18.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB2UlEQVQoz51S2ZKiQBD0F3bHY3REBQVROdqDU5obBTXGIWZ2//9PcqOb1dHH3YeMarqKrMrsaiV5gutXhUOVwnJ30AwDQ9WBqO+hzLcwCcVy5UBdWJjOCMYTHbK8gSiZWGkez70NF+j2Zui9ymgFwRlRUiOgZ4jiGj9+iuh2JHTaItodCS9/I0OnO+W4nV/aTf5GxmIrii6IkwYzec0Le32FF/wL7hNmWY3y9Bs0PGEi6k/d/ouQrEOYawpRMjCeaFzOI+lN5l1q5/t8k/4kmZktKxsMhSU3nBEPBnOefO0rGI01jiZnYiIaGI91Htk3u2d19wldr8BmG8GxD9gHJZL0HdKU8M6qasPaZbDtFK5/RJ5d4QclfK9EQCvEyTsoLTEaaY33jJB5Zzs5PPcIGp1RHGpIUxOSROA4BQiJ4HkF/KBCUdQIowtocOK1WV4jis8QRqtvwiS9wnZzeF6JrKhxOH7yfdP1PSwrBSEhKK0QhGdU1S8Ux0/kWQ0asuZfyPMPCMIDoesdQNYUxAhh2SlfH0FYQlF2MM0Ai4UDx8kayfkHn2zvM8knxMkVcXx5lqxpPgz249LhUtWFjblqccM1w8dK96EoW/T6MgZvc/4ADP3B/I7HtfkDTylKMkWkGT4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/b76365e9eba927a5178e15cd5c311b71/a59e9/4_18.webp 192w,
+/static/b76365e9eba927a5178e15cd5c311b71/0ca9f/4_18.webp 384w,
+/static/b76365e9eba927a5178e15cd5c311b71/78631/4_18.webp 554w"
+              sizes="(max-width: 554px) 100vw, 554px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/b76365e9eba927a5178e15cd5c311b71/3b721/4_18.png 192w,
+/static/b76365e9eba927a5178e15cd5c311b71/66595/4_18.png 384w,
+/static/b76365e9eba927a5178e15cd5c311b71/b4bb7/4_18.png 554w"
+            sizes="(max-width: 554px) 100vw, 554px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/b76365e9eba927a5178e15cd5c311b71/b4bb7/4_18.png"
+            alt="18"
+            title="18"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span> <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 555px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/19c0a0aae4b1a34e5ab7d793becdaea0/98c96/4_19.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB0ElEQVQoz5WS63KaUBSFfYXWW0xNuBgvCILxwkW5CIKKGo1tk870/d/j63CsTpr0T36s2cA+85219qYUpzHHnzmrPMH2JhiWSbPnIA/mdLpjzKFPX3foaVNaD0MkeUC7M0ZRTHTDQ++71G/a1OoPopZ8f0cUnwiCPZJs8eWrQq2qUq0oVKoq5YpCuapSqbao1s4qvhe1XDn3L7CilqJozyLesYj3KKpJrd6i3uiIA5/R1eFyeWKzfSWMtsiKeW18FnR1OHwMsR4DFNXiXjZElEvzbcRLzMtzobdRL9BSMexiyM27PrI8oNnUrgfuJQNJGqC2hucLJUOkUBRLjOf2W+9DopLrZYxGEbadEfpbDMMTS2h3JkwnCXMvJ1+/sEgOTKdL/GBLGO2JkwOaZgun/wCDcIvtpLjumjh6YmDMuLvXcd0Vw2FIFDyxy3+xzE547pow3LNIjqTZM1rf+QhMkqMAet6GzeqHAHa7UzxvhWnOiaMjh/1v8t0ry+Qk3CXpiU3+gq674rd5F3mFWIwZ4jop3e4EWTYZjRdomoM9ScnS78Kh42T4wU5Al+nz/4GGMcO0fGFfbVkC2NNssQh9MEP/6/im0RFq3HavKt7fL+UPGDVHxd472vsAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/19c0a0aae4b1a34e5ab7d793becdaea0/a59e9/4_19.webp 192w,
+/static/19c0a0aae4b1a34e5ab7d793becdaea0/0ca9f/4_19.webp 384w,
+/static/19c0a0aae4b1a34e5ab7d793becdaea0/fac4c/4_19.webp 555w"
+              sizes="(max-width: 555px) 100vw, 555px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/19c0a0aae4b1a34e5ab7d793becdaea0/3b721/4_19.png 192w,
+/static/19c0a0aae4b1a34e5ab7d793becdaea0/66595/4_19.png 384w,
+/static/19c0a0aae4b1a34e5ab7d793becdaea0/98c96/4_19.png 555w"
+            sizes="(max-width: 555px) 100vw, 555px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/19c0a0aae4b1a34e5ab7d793becdaea0/98c96/4_19.png"
+            alt="19"
+            title="19"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span> <span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 555px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/79178d72ac079ef6f2eee704e29ddec3/98c96/4_20.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.166666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB2ElEQVQoz5WR23KiQBRF/YWZeMldQSFGuRkFBJG7iDGJGjOp+f8fWVO0FSs6T3nYdfrQzeq9T9eSPGHzsaJYpTiejWYa3PZdOvoM9WGMYQUMhi79R5tuz6Ld0VHUMZJkoOkeg4FL61Kh2eqJWguCNVGyI5i/0G6b/Pot0WzINOoS9YbMRV3ioiFTb3RpNA+qvldV7NXlI6yqtSh6IU4O6kg6zVaX1qUqDvxER4dZtqN8/iSMnulIxsltP4U1Wwo1axRijuZIskm7o4koXwe+R/zSeX9uoFYNW1GfuL0biIFX9fJKFT9W6/u2Ji6TuyaSbHB3P0SSLZGm6q+uH07S1KbegtFThOsU+H6BYfhc3/QFdDxOsO2MJNtSFO9E8ZrJOCXL3/FnJXHySq83Ek6PwHn4jOPmeNMlQbDCsgLhTNd8XHfBeJKwWO4pyz+k2RuusyBf7AnDNWm2QVGeToFpujkAvZI83wpgRzKxJ6lw6Dg5y9Un6/VfluWeOHojL/ZE8SvL8uN/4NQrsEZzTCPEthMGQ4frm0dGVoiu++jGjDh9E5GT9BV7kpFmO5Emy7covTOgpvkYZsDjwEXqmjz0bSG5a6EZPkPNo9+3xfArVbM9rNVj//1R/gHPxkjPzsrMfQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/79178d72ac079ef6f2eee704e29ddec3/a59e9/4_20.webp 192w,
+/static/79178d72ac079ef6f2eee704e29ddec3/0ca9f/4_20.webp 384w,
+/static/79178d72ac079ef6f2eee704e29ddec3/fac4c/4_20.webp 555w"
+              sizes="(max-width: 555px) 100vw, 555px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/79178d72ac079ef6f2eee704e29ddec3/3b721/4_20.png 192w,
+/static/79178d72ac079ef6f2eee704e29ddec3/66595/4_20.png 384w,
+/static/79178d72ac079ef6f2eee704e29ddec3/98c96/4_20.png 555w"
+            sizes="(max-width: 555px) 100vw, 555px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/79178d72ac079ef6f2eee704e29ddec3/98c96/4_20.png"
+            alt="20"
+            title="20"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<ol start="2">
+<li>For a cache of size 5, generate worst-case address reference streams for each of the following policies: FIFO, LRU, and MRU (worst-case reference streams cause the most misses possible. For the worst case reference streams, how much bigger of a cache is needed to improve performance dramatically and approach OPT?</li>
+</ol>
+<p>FIFO의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 477px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f552e9a5cc17e08eb7e49eab0da66438/9e707/4_21.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.77083333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABqklEQVQoz5WT23KbMBCGeYfGTtLakBZiAsaAORgwCJAAg01rcmgmff8X+TtSE0+akItc7IC07Me32pFEyC+03RPSbA9ZXkFWLMjyUjxncxPTqYrJVMXZ5IeIyfP6bbzkJMoGNLs7pFmHi8trsTk9105xfnH9qZDy/CdYNcBd57j8qn+qeOyH0spOoRshZrIpNrg6/1C08dzKl7PvIl6/8/wYVPL8EuYyguMQBCHDjbERCVVdwzQiOC6B5xfwAwrbzuD7FFHSQNPWo1CJVbcINxWy7ICmvcfaK2BZMbi55xUgeQ9K+eAekCQtKB2w7/+I3KghL+CW222Hkh3FWUZRBcPk1hmCgGKbtqjqASk5gGQHUHYLLjKfL0+W74Bx0p6AHMJbd9xMHIMAVoOwzUmPgh5B2RGKsnoPLNmAMGQgpEe9uxfwzYbBtGJ43DZukBc9uu43SjqA0QH17gHd/hGq5opB/QfkBbaT/QPFNZZWAtcl0G9CWFYC206FdRzX8AIK3y8RhBXipIFyNWKo6wF0PYS28MTt4CDlyoK28LFYBPg2Mz68IS8DeT3lv7bXSbX3HkB1AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f552e9a5cc17e08eb7e49eab0da66438/a59e9/4_21.webp 192w,
+/static/f552e9a5cc17e08eb7e49eab0da66438/0ca9f/4_21.webp 384w,
+/static/f552e9a5cc17e08eb7e49eab0da66438/d5b6a/4_21.webp 477w"
+              sizes="(max-width: 477px) 100vw, 477px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f552e9a5cc17e08eb7e49eab0da66438/3b721/4_21.png 192w,
+/static/f552e9a5cc17e08eb7e49eab0da66438/66595/4_21.png 384w,
+/static/f552e9a5cc17e08eb7e49eab0da66438/9e707/4_21.png 477w"
+            sizes="(max-width: 477px) 100vw, 477px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f552e9a5cc17e08eb7e49eab0da66438/9e707/4_21.png"
+            alt="21"
+            title="21"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 578px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9beadbb8a9a97e23c7b55ef1114849f7/8c7b4/4_22.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 98.4375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACnElEQVQ4y6VU21biQBDMP6wGdFckEMDcAwkhN8g9gKIi+v+/Unu6IywK+LIPdWZOcqa6prtqhOXTE9ZPG0xnARTDhayH0IwAuhFClifo3OuQBxN0JRP3XaOBRKt++Edrt2uiL48hpOkbimIHeeDg11UP7ZYMsSXjWuzj6rr3ZT2H43+0F6pqh/n8EX3Zhtjqo9UenKB9Mzz7/RwEw4xZ6p87lauQOlE8VXm8p4Pi501OCB03w0iZwnUzWPYcN7cjyIMxVN2HYUaYzSqMnQSOk8KblTCt6AvZd1Ihy18xcRLk+StmfgXNDGDZMezxAtNpgTR5QZK9IIrXKIot5otHSJJ5Vh0TJukGmh4gCCpWYI3nrI5ISbHr5sizLYJ4hTBcIkmfEQQ12mfUMWGavUDVA8z8khWa45gL2PacQSrzfIswXiOKV0jTZ/h+9TOhovrwvKLpkR0dFB4IMyJcIYr+ER4P5hiCaYVQVBcPigNF8yAPae9B1XxIPYunT6bufBqZjE0rWYlAQ9zvb38/QMirCllRYuJ6nJS+EUEzQp7wPgX9wbghOiLdYzB0+JskWU1SyvIdVf3Bhykp369y6WqXIOTFFkmy4aTsTfs/EGx7wUamXolHOeZkiKcZ3h+86EN3mmP0MIVpxTwEai71TNdD9iB5kV4ey4o5TTSEa1G+SCqQUSkpi0VjcNXwoZsh24X6W5RvnBJ6QJbLd4xG7o+tYUJSMPUKVmlYERtdNwLOcVnusEg28IMaYbRCXe9w9/mQnCUkY5MyCr9pE2HzwBpmeCCkon5Yc/Sq6g2djnaZkKor6gwTJ2V1uhlA0Xxous+EdfUBKhpES8TxGsv6/WdCajoNhQxKID8OR01aen0bvZ7NK5mYEkPmpcFdmvJftrJPa2thhvMAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9beadbb8a9a97e23c7b55ef1114849f7/a59e9/4_22.webp 192w,
+/static/9beadbb8a9a97e23c7b55ef1114849f7/0ca9f/4_22.webp 384w,
+/static/9beadbb8a9a97e23c7b55ef1114849f7/9cd87/4_22.webp 578w"
+              sizes="(max-width: 578px) 100vw, 578px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9beadbb8a9a97e23c7b55ef1114849f7/3b721/4_22.png 192w,
+/static/9beadbb8a9a97e23c7b55ef1114849f7/66595/4_22.png 384w,
+/static/9beadbb8a9a97e23c7b55ef1114849f7/8c7b4/4_22.png 578w"
+            sizes="(max-width: 578px) 100vw, 578px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9beadbb8a9a97e23c7b55ef1114849f7/8c7b4/4_22.png"
+            alt="22"
+            title="22"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 581px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/36fec31419026c40ebd0b2c394b62dc0/3f4f8/4_23.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABZElEQVQoz6VS7W6CQBDkGaqiTVMVEUEOuANERDhBpK1Vq1b/9P1fZJo7q2maVJv0x2Rv9zazsx/KZrdBNuOgQQSDzUBYBj+YwbYn6GoeTCtC3wig6RQ9nULrCcvQ7jgYmCPofR+drgvTGsuYUpYHEDLFXU1Dq9mHqupoqDrqjd7F1hun2E+cc76/lTxfSxXCabaMf0OxhhE6XUc6qlD4BVHgbM8451wlHJghKOVyLvcPJnTDl34cP4E4CSjLEIYFCJlcip2IfyEUCyiKrSSx7AgeTZEkL1i9fiDjK6TZElX1Ds5XeGyTm0oVoSDLVmD+DK43heMmYIyjWhxQlntMps/I8w3m8y1McySHf7Vl5nNwvobv55JMIAgLVNUR5WIvFQrCstzBtmPU6tp1hS5NpULKOIg7kYRUKjxiUR0wzZYoijfZtvi7TeilEBjaMYYkhjUcw/NSuRBx0GJZ4niNQfCnGX4CNBsj73snhBQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/36fec31419026c40ebd0b2c394b62dc0/a59e9/4_23.webp 192w,
+/static/36fec31419026c40ebd0b2c394b62dc0/0ca9f/4_23.webp 384w,
+/static/36fec31419026c40ebd0b2c394b62dc0/cf388/4_23.webp 581w"
+              sizes="(max-width: 581px) 100vw, 581px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/36fec31419026c40ebd0b2c394b62dc0/3b721/4_23.png 192w,
+/static/36fec31419026c40ebd0b2c394b62dc0/66595/4_23.png 384w,
+/static/36fec31419026c40ebd0b2c394b62dc0/3f4f8/4_23.png 581w"
+            sizes="(max-width: 581px) 100vw, 581px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/36fec31419026c40ebd0b2c394b62dc0/3f4f8/4_23.png"
+            alt="23"
+            title="23"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>캐시 사이즈를 6으로 하니 OPT와 동일해진다.</p>
+<p>LRU의 경우</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 586px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4b84d1a227f74c013c6e8697623d8129/52581/4_24.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 97.91666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACdUlEQVQ4y61U6ZKaQBjkGZKIblIrrpxyDMOhCMgNrnu57vX+j9KpmV0s94imKvnRNQNU9fT0141we3+HvKxAaACVpDCcBJRmMGYLSBMHiupDVjxMLsgeF1OCsWTvv52PLWhaiLHkQKiqB3heiW/fLzAUZYiijIEo48dgul/7/UccfutXoShuYTsxxKGC4Uj9ZwjGbA5JsjE60zhpD3ba4XN/4OH+j4SeV8AwFvj5y4CmB3DdDElyBerl8PwCUdTCD4r9IT3xl4SenyPPbxGENUw7AiEp5vMGbfuEstoiSTeoqi3qeoup7GIgHrdGIO4KflAhCCs4bgLLjuGQBItFi657RpJeYhmvwbwuipuj6jihSzN+ZUZIaArTWoK4KaKoeyPcIE4uUZR3yLPr04RMIaU5V8mUsYmTN4Xr7gXpasMVlowwv/40qI8QZtYCxiyAbgTQjBCqFnCVbGXhZWDBZSHv08DQK+r3/Xuh6VpEcQrbDaA4B00x5hhLFm/CVKacWJrY+7Z8aooe4nxsQui6J+4fS/o7P4ZfeDRUT1+ZeeOQlGfsvzTFspf8CodNGbw1hQdZPNifCDUn1I05zx7zYHSmYjyxoRshKC14nHiMSMp9lRX67iZfEQusXnl+A98v+ZSZYt8vUNc7rNcvSLMrZPkNmnaHMCwxGmmncxjOa67GIjFmZgSbJJy0qnZomgdEcYc03aCu73lGj/n92hS/4LCcGKYV8aYEQYmqfiVcJmtOWNVbUHd1nNBmufNy3hbTXmJmLjgxU9g0j2i7R8TpJbLVFepmB0r/gpAZz375DGxILEYs2KoaQNfnPNiK4vHBscYc8/A3tnpIAJfekt4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/4b84d1a227f74c013c6e8697623d8129/a59e9/4_24.webp 192w,
+/static/4b84d1a227f74c013c6e8697623d8129/0ca9f/4_24.webp 384w,
+/static/4b84d1a227f74c013c6e8697623d8129/70839/4_24.webp 586w"
+              sizes="(max-width: 586px) 100vw, 586px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/4b84d1a227f74c013c6e8697623d8129/3b721/4_24.png 192w,
+/static/4b84d1a227f74c013c6e8697623d8129/66595/4_24.png 384w,
+/static/4b84d1a227f74c013c6e8697623d8129/52581/4_24.png 586w"
+            sizes="(max-width: 586px) 100vw, 586px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/4b84d1a227f74c013c6e8697623d8129/52581/4_24.png"
+            alt="24"
+            title="24"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 586px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4b84d1a227f74c013c6e8697623d8129/52581/4_25.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 97.91666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACdUlEQVQ4y61U6ZKaQBjkGZKIblIrrpxyDMOhCMgNrnu57vX+j9KpmV0s94imKvnRNQNU9fT0141we3+HvKxAaACVpDCcBJRmMGYLSBMHiupDVjxMLsgeF1OCsWTvv52PLWhaiLHkQKiqB3heiW/fLzAUZYiijIEo48dgul/7/UccfutXoShuYTsxxKGC4Uj9ZwjGbA5JsjE60zhpD3ba4XN/4OH+j4SeV8AwFvj5y4CmB3DdDElyBerl8PwCUdTCD4r9IT3xl4SenyPPbxGENUw7AiEp5vMGbfuEstoiSTeoqi3qeoup7GIgHrdGIO4KflAhCCs4bgLLjuGQBItFi657RpJeYhmvwbwuipuj6jihSzN+ZUZIaArTWoK4KaKoeyPcIE4uUZR3yLPr04RMIaU5V8mUsYmTN4Xr7gXpasMVlowwv/40qI8QZtYCxiyAbgTQjBCqFnCVbGXhZWDBZSHv08DQK+r3/Xuh6VpEcQrbDaA4B00x5hhLFm/CVKacWJrY+7Z8aooe4nxsQui6J+4fS/o7P4ZfeDRUT1+ZeeOQlGfsvzTFspf8CodNGbw1hQdZPNifCDUn1I05zx7zYHSmYjyxoRshKC14nHiMSMp9lRX67iZfEQusXnl+A98v+ZSZYt8vUNc7rNcvSLMrZPkNmnaHMCwxGmmncxjOa67GIjFmZgSbJJy0qnZomgdEcYc03aCu73lGj/n92hS/4LCcGKYV8aYEQYmqfiVcJmtOWNVbUHd1nNBmufNy3hbTXmJmLjgxU9g0j2i7R8TpJbLVFepmB0r/gpAZz375DGxILEYs2KoaQNfnPNiK4vHBscYc8/A3tnpIAJfekt4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/4b84d1a227f74c013c6e8697623d8129/a59e9/4_25.webp 192w,
+/static/4b84d1a227f74c013c6e8697623d8129/0ca9f/4_25.webp 384w,
+/static/4b84d1a227f74c013c6e8697623d8129/70839/4_25.webp 586w"
+              sizes="(max-width: 586px) 100vw, 586px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/4b84d1a227f74c013c6e8697623d8129/3b721/4_25.png 192w,
+/static/4b84d1a227f74c013c6e8697623d8129/66595/4_25.png 384w,
+/static/4b84d1a227f74c013c6e8697623d8129/52581/4_25.png 586w"
+            sizes="(max-width: 586px) 100vw, 586px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/4b84d1a227f74c013c6e8697623d8129/52581/4_25.png"
+            alt="25"
+            title="25"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 588px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ba209d795da1acec877b60a53ebb7a4d/f81fd/4_26.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.4375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABaklEQVQoz42S7XLaMBBFeYcQDD9aEoMMjiVsZEwM8Qf2mI+SECZ0mvd/k9OxOnFpJiH9cWYlrebulXZbx9MTeZGjZxHjcIXUOVFUotQD9sBnNI4M9iBgKHTDre0zGkU4oxn9vsR17xFC0yrLE1NdcNW26VpDOtaQ686goX1tG87PPsq9xVZRHJBqQccaYHVFQ7fn0O39XZ/nLtHyvJj+jTKbc3fvq9e83THxM0HhaPNfQoRYPYehCPDkgjAsUZMlUi2ZTjN8P2nELjoMphmr1QEdFozv5vhBwvy+YrP+RVE885DsKMsj6/UL3757xvFFQT9ISZIf6FmBmiwaR2l6oKpOpNkji+WW7fYnrjvnqn37z9M/cFgL7o1DqWIjqHVOmj5RVS9k+R/BzeZkmvdfDtP0kXBW4qkYVTvUGXl+ZLd7pSifTX6/f6Uu/qXgxE+oce9iPBmbIQ6CFE8uEU5ohrgeajPAN/LLxvwGdJAlJK2hSZ4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/ba209d795da1acec877b60a53ebb7a4d/a59e9/4_26.webp 192w,
+/static/ba209d795da1acec877b60a53ebb7a4d/0ca9f/4_26.webp 384w,
+/static/ba209d795da1acec877b60a53ebb7a4d/c775b/4_26.webp 588w"
+              sizes="(max-width: 588px) 100vw, 588px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/ba209d795da1acec877b60a53ebb7a4d/3b721/4_26.png 192w,
+/static/ba209d795da1acec877b60a53ebb7a4d/66595/4_26.png 384w,
+/static/ba209d795da1acec877b60a53ebb7a4d/f81fd/4_26.png 588w"
+            sizes="(max-width: 588px) 100vw, 588px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/ba209d795da1acec877b60a53ebb7a4d/f81fd/4_26.png"
+            alt="26"
+            title="26"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>캐시 사이즈를 6으로 하니 OPT와 동일해진다.</p>
+<p>MRU의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 594px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c45ec737fd5539196da3ad3f6a406c66/d32a3/4_27.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 97.91666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACvUlEQVQ4y6VVaVfaQBTNfxABY1FJAglkmRDIvkMSWa1aPf3/v+T2zLNQi0I9px/eeZOZzJ233DsjLDc7bHYPcP0QmjHFwIyhGyEsK0FfYri9MyEPHNz1TdzeGbjrW2R8/ubWgKxM0LvR6VtRHAh5/oiyfIIsO7i46KPdlnHZltG6lMgfj4/t+D+hqp6QpmtIMkO7o6DTHfyXCboeUmrX30YE+N74qcdjvuncwYLrLTAae/C8CpJko3czhmlFcN0KWbaF7eTw/QpxsoSmzSit/ebPgIUs32LiZMizHQwrhmXHYHaKIGhQVz+QZGskyQrz+Xf4QYVeb3w+wjTfwLRizNyKgDigYUWw7RRRtELTvMALKsTxEovFIxiL0bqUTwPyCHmK09mcAJkd0wGOkyOK1gTohzWSdE1RMiumep4ETNINDDOC48wJyLRCGGYIxhKEwRJ19QzXX1CEZfkA0wypjqcaJ+imB1WbQBkwDLUp+gMHquZirAcH8nLj5OX+W28MUVQhXqu4ElViB/eiqNFYaNZrrDYbUorOPAxZCpPFmDg50YmDKAPnAM5Vwuf3auFr+3muGqEoHjFfPENWHCp2t/sn/K/YsYqEqn5Gnm8hK/aHYnevhuhcDdDh/qtKMcyYQhWvtUOB9ydftPrk39u/1CJMZyVUbUY0kWQbXXEIeWDDYinCcAm+TjydlphOC1JS63cmnyolL3bUAM4x3ll15MKyYvhBjaZ5Rd28IIyXKPIdEdswgvMpp9mGiO37Nd2DuhGQMTuB59e4b16R5lviYpauURQ7SBL7S9MflWJGmLkLIvTY8AnYnqTwgwb3zQuyYgfX55fFG6As26cBeYQ8Ig44NgKMdA8j3YfFYgThPVbLnyjoYqhRFluU84fzgFx2Q3VGPOQk5Y0ZDqfQRh4R9+0ZsA7XPH8KuDJOdfkXiBFNXbSdaFsAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c45ec737fd5539196da3ad3f6a406c66/a59e9/4_27.webp 192w,
+/static/c45ec737fd5539196da3ad3f6a406c66/0ca9f/4_27.webp 384w,
+/static/c45ec737fd5539196da3ad3f6a406c66/96755/4_27.webp 594w"
+              sizes="(max-width: 594px) 100vw, 594px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c45ec737fd5539196da3ad3f6a406c66/3b721/4_27.png 192w,
+/static/c45ec737fd5539196da3ad3f6a406c66/66595/4_27.png 384w,
+/static/c45ec737fd5539196da3ad3f6a406c66/d32a3/4_27.png 594w"
+            sizes="(max-width: 594px) 100vw, 594px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c45ec737fd5539196da3ad3f6a406c66/d32a3/4_27.png"
+            alt="27"
+            title="27"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>캐시 사이즈를 6으로 하니 OPT와 동일해진다.</p>
+<ol start="3">
+<li>Generate a random trace (use python or perl). How would you expect the different policies to perform on such a trace?</li>
+</ol>
+<p>랜덤 생성 코드:
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 346px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f384113e21a57610560c21cbfa521871/44e6f/4_28.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 36.97916666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAABL0lEQVQoz4WR207DMBBE8ysIaGvHcdLmHrvXtGkaCmrLRQge+P+vOOAoggeEeBjt7tg70s54erohCJfoaU0Yb4nihihx2OPeHD9ND/3sB5axSJnI7E94tyLhajLjRiSMRMrNKOb6dtajX/ZzJjL/XvhXMNELDsmRZbQlCReY+Z7d/kxd3yP9/wV+CU6VZTc7UIZrQmXIipr5qmM+b3ux0ST5qQNGYuBEPNS05xy8/iRd4E4XKkeqAj8o+09BZNCRQemqh9QVwvWqQvolWi8QMkOpnCCwqKDCM1XDZnNPIAvyckt3fOHx+Z3F+kjTnjl0F3bNiWX9QFxfKC8f2OKIye9o7Bt5vGJZWGx2wtoOLzItWfvKbP1AYRra7gljXaLFH/4NATl/ZYoYQnP9+MvDTx6/4JG+X+flAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f384113e21a57610560c21cbfa521871/a59e9/4_28.webp 192w,
+/static/f384113e21a57610560c21cbfa521871/4f75a/4_28.webp 346w"
+              sizes="(max-width: 346px) 100vw, 346px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f384113e21a57610560c21cbfa521871/3b721/4_28.png 192w,
+/static/f384113e21a57610560c21cbfa521871/44e6f/4_28.png 346w"
+            sizes="(max-width: 346px) 100vw, 346px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f384113e21a57610560c21cbfa521871/44e6f/4_28.png"
+            alt="28"
+            title="28"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 704px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/adaa63c07ae7b63adcc4105c2b4bc4a5/3be76/4_29.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 3.125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAARElEQVQI12PQMHX5r23t8d/I2PG/hYXrfz096/8Kinr/FZX1/ysq6YPZCkp6/5VUDMC0sorhfxkZzf9i4ir/xSVUMTAAsxodFSI3tokAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/adaa63c07ae7b63adcc4105c2b4bc4a5/a59e9/4_29.webp 192w,
+/static/adaa63c07ae7b63adcc4105c2b4bc4a5/0ca9f/4_29.webp 384w,
+/static/adaa63c07ae7b63adcc4105c2b4bc4a5/79f11/4_29.webp 704w"
+              sizes="(max-width: 704px) 100vw, 704px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/adaa63c07ae7b63adcc4105c2b4bc4a5/3b721/4_29.png 192w,
+/static/adaa63c07ae7b63adcc4105c2b4bc4a5/66595/4_29.png 384w,
+/static/adaa63c07ae7b63adcc4105c2b4bc4a5/3be76/4_29.png 704w"
+            sizes="(max-width: 704px) 100vw, 704px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/adaa63c07ae7b63adcc4105c2b4bc4a5/3be76/4_29.png"
+            alt="29"
+            title="29"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>FIFO의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 640px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5749c09213986002ee2e15b27bd69b39/0f09e/4_30.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAB5klEQVQ4y4WT63KiQBCFeYcNXmqTqMhNAgwgyn24KBpXWePm/Z/lbE2vmx8qlR9dQ3UN3zl9ZkZq3/c4dh14VcFma8ydDK5XwPM5rLcYlh2DeQWUuYeZwqDM2fXbxXTmUm8ydTCdMaiqD6lu/qBuLjAXEWR5jvFYx2ikYXhT8mD+bT3JCqRtK4Bn6MaSmoORhsFIvQOOhNBYv+vflhQEFQwzxM/nBSkMhioGVzVRP55mX6soISp+pH3De2HJDzg0PYDrZrCsiFxMZg4MI6QMmccpR8dJKUtV80mw12GzOdNGXh6Rpnu8TGw4LEMY1kizA7btJ/LigKL4hWbzAc/LIctKP7CqOrzZKaJ4i3W0haL6YF6OIOCI4x3q+gNJuiOxsurguunX2I+BdQfHzZBme8RxC9Naw/c5gqBEnOzQNBck2R5Z9o6q/k1i3wJdltPIcdLSuH5QwvMKrNYbVNUZvDwRsK7PtIqr9ehACFheRxYwUa6XU6bikESOnHco647ccn6ksV9frV6XUlmdaGQRfBT/cygc3wKTdI88P0BkriisH/g/QwEWDm03JShjOVarhg5l015QCHflCbvdJ0wzpLv5EChyEvfNdhICG+YKCysih6a5gqYtoRshvV9NX9IjeH5Z9Gb4F84Whu1aD0n/AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/5749c09213986002ee2e15b27bd69b39/a59e9/4_30.webp 192w,
+/static/5749c09213986002ee2e15b27bd69b39/0ca9f/4_30.webp 384w,
+/static/5749c09213986002ee2e15b27bd69b39/0c8fb/4_30.webp 640w"
+              sizes="(max-width: 640px) 100vw, 640px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/5749c09213986002ee2e15b27bd69b39/3b721/4_30.png 192w,
+/static/5749c09213986002ee2e15b27bd69b39/66595/4_30.png 384w,
+/static/5749c09213986002ee2e15b27bd69b39/0f09e/4_30.png 640w"
+            sizes="(max-width: 640px) 100vw, 640px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/5749c09213986002ee2e15b27bd69b39/0f09e/4_30.png"
+            alt="30"
+            title="30"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+LRU의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 651px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0005f434ac4fc22e8cc463ad3a69f2dd/b7e05/4_31.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABxElEQVQ4y6WT627aQBCFeYcmASrACQFz8d2A8f0COMYEUGmUKO//Il+12wSpagWR+uNoV7PypzNzxo1NtaOqDyz9mLE2Z6AFaLpQyHjiMZku0XQf5d6gp+hS53tPo6todHvaudYoihPF6kS/7/Dtpk+rOeCuOeD27lGen/evqrHZnMiyPUPVlYVma/hfauhGyEPfov199Iejm9v+XxJv4qPP85/AhbdmPFlgOxmd7pSuojOZerhOjrfcYFgRrpvheWs6ncnVLhrF6ohlxUTxjv6jzVT3cd2UPDtSbd8Iooo0faaqXlAU/Towy/cy1YW3YajOMe0Yy4xI4j2b8idLvyROdqzXP+gp2leAB0wrxg8qDDPCdlJsKyZNDpRPLxIoHJblSa7FdWC2x7ITwrDGEjAnxTRD5vM1VfVKlNREcY3YBjEKEc6lYGTLuhHgLUucWY5lxxhGwMwt2G7fzsCiOOJ5q4sJS2CaPcuWg7CW7kSquuEzm62onl6J0x3Jh3y/pN0eXV4b4VDMLgi3WE7yAQxw3YK6fifN94g55/leQru96cU5ysVW1RnqaM5AdRkMHYZDV/7Honb/YMrF/y2TVlu96PAXt2WBzvomMrAAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/0005f434ac4fc22e8cc463ad3a69f2dd/a59e9/4_31.webp 192w,
+/static/0005f434ac4fc22e8cc463ad3a69f2dd/0ca9f/4_31.webp 384w,
+/static/0005f434ac4fc22e8cc463ad3a69f2dd/60c7d/4_31.webp 651w"
+              sizes="(max-width: 651px) 100vw, 651px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/0005f434ac4fc22e8cc463ad3a69f2dd/3b721/4_31.png 192w,
+/static/0005f434ac4fc22e8cc463ad3a69f2dd/66595/4_31.png 384w,
+/static/0005f434ac4fc22e8cc463ad3a69f2dd/b7e05/4_31.png 651w"
+            sizes="(max-width: 651px) 100vw, 651px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/0005f434ac4fc22e8cc463ad3a69f2dd/b7e05/4_31.png"
+            alt="31"
+            title="31"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>OPT의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 635px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b1fac6b60dc87c3eb1d838dfbe535617/ee2c8/4_32.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABvUlEQVQ4y6WTaW7bQAyFdYfGcdHEcWzLsvbF2tfRYstrpCZp73+UVwxjIwHaqAX644EcAvr0yOEITXvA8dwhSRlU3YOoJ1D1GIaRQlVDyIoP3Ugwm1t4mOqYPhoX6XTmmkw1ivOFDaFpXsG1kgN8uZljPBZxOxYxul1QvOb/opvRHMJm+4KyfIK0cqk4/rr8LwmOwyBJLiYP6gdHnzvjdf7hNf4GDMINVrIPy8qwEB0qiss1TDOF7zew1wyGmWK9ZrDsDN/u5E9hBKzqnmBJsoeihpjODNh2Tudd+xNl3SFOdzSWgp1wf69gNAQsq45ukTuVlQCS7NEPoqjFZvOCgp0RxVsUxQlZdsDdB+CfnApl3cO0MoThlsCaEb8BYw58BSufKGfsjLw4YjJRacaDDs1Ly3xWppXCMBK4bomq/o6meUaSHcDYCVXVQVH8wW0gh9yZHzQENKwUmh7DdgqUVU9tJ9me2q3qjuY7DKw6AkXR9h2oRXA4sOwvDvdI0x217Xnl34F0KReHuplA1UJyWNfPaNsfSPID8vyIuukRBPUwkEOklYel5NL+XcXfMK/x98lX6XFmUs7f7NAe/gIbKIQf2vF/EQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/b1fac6b60dc87c3eb1d838dfbe535617/a59e9/4_32.webp 192w,
+/static/b1fac6b60dc87c3eb1d838dfbe535617/0ca9f/4_32.webp 384w,
+/static/b1fac6b60dc87c3eb1d838dfbe535617/99b64/4_32.webp 635w"
+              sizes="(max-width: 635px) 100vw, 635px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/b1fac6b60dc87c3eb1d838dfbe535617/3b721/4_32.png 192w,
+/static/b1fac6b60dc87c3eb1d838dfbe535617/66595/4_32.png 384w,
+/static/b1fac6b60dc87c3eb1d838dfbe535617/ee2c8/4_32.png 635w"
+            sizes="(max-width: 635px) 100vw, 635px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/b1fac6b60dc87c3eb1d838dfbe535617/ee2c8/4_32.png"
+            alt="32"
+            title="32"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+RAND의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 637px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/26fdbabc7d701f8e2842a389b260c2bd/90cda/4_33.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 65.10416666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABxElEQVQ4y6WTe3OaQBTF+Q6poZMaTQUjbxCV1/JYEBRFpTXp9/8op7M3k3Q6SWln+seZu1yW35y7e5CatsOhOyPNOCwngGolMKwYtsNgmBE0PaD1TPEwndqYPvzSZGr9JrFHqrZPqOtnWHaKm5uvkGUVt7KK0a1C9XX9L/o0mkGqmyt4ecZCW1NT/jz/L0n+qsRC2+B+Yr45Ilfyxy7EO/Hha30H3ARbAjpuCkVZUlNRPZhWgvW6grfMYTsJfL+A4zLc3S3+CCNgtf0G10uRJC1dwuTBouc4btHuf6CseiSsRVVdkBcdxmMdoyEgr3pyEAQ1dD2AuljBdVOE4Q5NfUXOT4jiHQp+Qpoe8GWsD44tCQdi3CCsYdkiMhFclyGMXoAFPxOQcxGtI8b3f3NYXggYJ3vKm+0yOA6Dv+Ioyx51/R0xawko9mraZjANEi97AkVRQ9VyEnLqeRkKfsGueUKSHpDnHZ2n6A8CaWQvBWOHN6BpRnS7nPdomitYdkSWHekcg3A7DCxoZAbGWoIZdgzDDMmJALb7Z2RFh6I4oSwvYGw/DBROxP9qGBHmjz7mjyuSboQvvbkPRV2SVHWJ2cwdzOFPIYSE/quzLPYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/26fdbabc7d701f8e2842a389b260c2bd/a59e9/4_33.webp 192w,
+/static/26fdbabc7d701f8e2842a389b260c2bd/0ca9f/4_33.webp 384w,
+/static/26fdbabc7d701f8e2842a389b260c2bd/bfe67/4_33.webp 637w"
+              sizes="(max-width: 637px) 100vw, 637px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/26fdbabc7d701f8e2842a389b260c2bd/3b721/4_33.png 192w,
+/static/26fdbabc7d701f8e2842a389b260c2bd/66595/4_33.png 384w,
+/static/26fdbabc7d701f8e2842a389b260c2bd/90cda/4_33.png 637w"
+            sizes="(max-width: 637px) 100vw, 637px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/26fdbabc7d701f8e2842a389b260c2bd/90cda/4_33.png"
+            alt="33"
+            title="33"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<ol start="4">
+<li>Now generate a trace with some locality. How can you generate such a trace? How does LRU perform on it? How much better than RAND is LRU? How does CLOCK do? How about CLOCK with different numbers of clock bits?</li>
+</ol>
+<p>locality를 고려한 랜덤 코드 – 총 4개의 구간으로 나누어서 특정 범위만 반복되게 지역성을 주었다.
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 230px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/29883bc436956cd4f6a3a5894e85b8dc/5578e/4_34.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 70.3125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAChElEQVQ4y42T6Y7jNhCE/SyZ+NQtUgcl6rRNWbLHl2YmwQJ5/8f4AskYYBEkwf4oFNkkCt3oqoUb7LG9iom98IAvOzwxsZnrnjBzzfFr1tuIzS7+XyxWu4jfNoLlLma9S/h9JXlbCVabmK2l2NkZWyud8UuCkVthxEDptQRBSVEPmO5BmrYs14LNLmKzjX5JbPqzCGxN7RsSp8LzNLHao4sTQla8LUNWG8lyLWderwWrCVs5YxJYbSaI+X3u0HIVrtCsrWnEBNfP8YIC21EEssIXJX5Y4AYFlqhwJjga1ynYWQmem+J5NY6bvzrM847TaUSGFSKs6c4j48dfHNoL5jxyOo80+wvl4Ybsv1DDF3Vypc0/UKJFxzlN9oXWF9ZbySLLDcfugQjLWfDYP7ndf9A2Zw6nB8fTYxbU7Tvy9Enaf86CWXpDyzNRGFNFHbX+wvEyFiozNO07YVgQBhV7c+Ny/YO66mnNbb7X7RndXJBmRA2fVPGVJHmnTkeisCCTGZUaSdIjC6WOmO5J6BeIoMYMT673HzT1QGOuHLobZTOQN2eC7oOoG6miOzp7UsV3olBTxQVt/iepMix0eaK/fNE0F1wvJ80MR3PD1GeMedIdJ9xp9lf2xyfm8kmheyw7x3Vfy7OsGNvJsRzFYpq/TQaSdE9ql8SiZt/fOR5u5MUJ285w/QLLzfFcTSAKbFfNHn3Z5+XRbxstIj9DiwwvbYizd1I9MByumPaKFBW2G5OEKcJXOIGavfbtuX9NihflyLJG9SOqv6L2F6SbkwYNsSyRkaZRGulneKGeN/lzav6ZoIWf9wTNg6gcCPyUINQstxHLzWucKQlva8ly8zp/C/xXFP8GPwnN6QjbPdkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/29883bc436956cd4f6a3a5894e85b8dc/a59e9/4_34.webp 192w,
+/static/29883bc436956cd4f6a3a5894e85b8dc/5f64f/4_34.webp 230w"
+              sizes="(max-width: 230px) 100vw, 230px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/29883bc436956cd4f6a3a5894e85b8dc/3b721/4_34.png 192w,
+/static/29883bc436956cd4f6a3a5894e85b8dc/5578e/4_34.png 230w"
+            sizes="(max-width: 230px) 100vw, 230px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/29883bc436956cd4f6a3a5894e85b8dc/5578e/4_34.png"
+            alt="34"
+            title="34"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f7cdc90ead905ca634993d882840fea7/439d5/4_35.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 3.125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAABCAYAAADeko4lAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAASElEQVQI12MwtnT8r2fv99/Y1vO/tZX7f0sr9//qmib/VdWN/6upG8PZ6pqmEKxh8l9Ty+y/hpYZmFbXMAWzNTRN/0vLaP4HAPUWHyNN2UMZAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f7cdc90ead905ca634993d882840fea7/a59e9/4_35.webp 192w,
+/static/f7cdc90ead905ca634993d882840fea7/0ca9f/4_35.webp 384w,
+/static/f7cdc90ead905ca634993d882840fea7/52634/4_35.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f7cdc90ead905ca634993d882840fea7/3b721/4_35.png 192w,
+/static/f7cdc90ead905ca634993d882840fea7/66595/4_35.png 384w,
+/static/f7cdc90ead905ca634993d882840fea7/439d5/4_35.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f7cdc90ead905ca634993d882840fea7/439d5/4_35.png"
+            alt="35"
+            title="35"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>LRU의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 560px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/387ffdb09ed2b43f8cf7248f8b0b60f5/6d7b8/4_36.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 89.0625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACdUlEQVQ4y52U627aQBCFeYgQAjiNuMTGTvB1bYO96xu2ATukoaVS3/9FTrUDRVEFROqPIy1e8e2ZObPbqdsa66ZCWqQIRQ6HN4jiDYRoEcVb+MEKabZDsCjxOl+S5mYMy+IwpcwYcyuGqnmYTG10smyPLN9D1QL0+xoUZYbBcIbhUIfyaGCo6CfN0B9oV3Xfm6J7P0FnVe6RF98xGpu4645p43/Ue3gmdcKwohIev72cN+RJUvKAz+vPf7wkud+RMFm7NvOhKDoe+irGUxuqyjDTA0yeHWgagzZjUB71L6EdnrQwbY6YNxiPbTxrHlhQQIg31OsDFnGNJHnDavUBVfXI6U2gSFrMzQjhooaqMViOoAQ5b1GWP+AvSnC+RZ6/Yzp1cNednMu7CrQdgeVyA9tJYNrHMWBshbo6IOKbI7B4B2M5ev+EcBloC4RhTWAJdJwErpsRkCfNGRiEqyPwq5Itm2O5XMNxU7heCssWcN2UgCJtadCTtCUNTjN3G2hx+EEF18vghwXm84hc1vUvyNAW0RpZtkNZ7TEamec+9i6ACWhaMaJoQ0DpVh7gsRyJ2KFYfVAfRdLQ2rJidG8kfQbKUJhfUCAyacdNwOMGdX1AeEpapu6x9Hg7bgJt6XBLrmxXwHYTgi4Xa+pjLLbgokGW7xDHawyG2ldjw5Gm7zQ2LkupbI9l8FmBqjxQuTJtGYoc8PHIpOt4+aaIhtxIh3+B0iHz8xPwJ/Uw5hskSUsun55erwPlW2cT8BhKuCzhSVhQIAwqNNvfSLI3pOnx+lX1j9tA6Uo3AhjGgq6e/hJCN0IYL8ff9H3GaC0fC8MI6b281sM/zHokfLW/PrkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/387ffdb09ed2b43f8cf7248f8b0b60f5/a59e9/4_36.webp 192w,
+/static/387ffdb09ed2b43f8cf7248f8b0b60f5/0ca9f/4_36.webp 384w,
+/static/387ffdb09ed2b43f8cf7248f8b0b60f5/f4853/4_36.webp 560w"
+              sizes="(max-width: 560px) 100vw, 560px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/387ffdb09ed2b43f8cf7248f8b0b60f5/3b721/4_36.png 192w,
+/static/387ffdb09ed2b43f8cf7248f8b0b60f5/66595/4_36.png 384w,
+/static/387ffdb09ed2b43f8cf7248f8b0b60f5/6d7b8/4_36.png 560w"
+            sizes="(max-width: 560px) 100vw, 560px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/387ffdb09ed2b43f8cf7248f8b0b60f5/6d7b8/4_36.png"
+            alt="36"
+            title="36"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>RAND의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 503px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e8162b27230a078f0b07b5d921dc3fdb/36069/4_37.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 89.0625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACnklEQVQ4y52U63aaQBSFfYcmahKzWqOAosAIqNyHi4DES2Jq+/5Pwu46E2O01fzoj7NgxPlmzzn7nEa5KlBUOeKUYxakYF4Fz1/CDypE0RqOW4DHa8ycBca6h5HmQtN9GCwQT033KGpJNvHUZ3Ujjl+RLfaQlRnadzI6DwPcH6LTGeLhGAPc3SvXom42+7ht9urGYrFDttih+6Tj5vYJzVb/f6JutSW02lLdsKcp1NEcnUeVTqAfxZOCDjh9pzhs/DsEkMANg0XoSRMoio3HRxXNtoQfXR2SbEFV55AUG33ZxGAwhSxb74oOIHoXwJZUt97f60YYraAbPjxvCUky8b2rgZkRfL9CWf5CxNdw/RJJsgWPVmi2ekfgMU6BtIEqNXdyyIoNVXMwHrtw3RJ5/hNBuMLczcH5GmH4fAa8rJCvwCYhHKeAbgTQWABVncGyEmTpDmn6Apds5C+R5zv0+uwzl5eApJAxAubQDF8ANc3DxORIkleQC/zwGZ5boFzuRR6/3XS/zqHBQpFDMqrOAhhGAMuKwflWXJuApJDU0m0+3HA1h8aJQgLqugc2iRDHWxTFHl5YieLE8QbTWfqp7BKQFFJRPL8SbUVA2kSVp8IQkP7jH6ARXwlb3RxUCvg/QOMdqI4cmHYM0+LQDQ/TWYY83yNOXuB6Jfxgibx4E41wZvJLPvRPgMwMMTEjAVws3pCkr3C8AkFYIc1ewFhwnsdz4LOYHJxvBHBicTArEio/gJmodCV8GCcbWBYHDYMvgKEYVQSkLplYEWw7EcAs2yHNdvCCpVDI44047KpCmnVkBR5vMRq74sqWHcOeJqJ7yvI3inIPagBSl+dv4vtVIBl4qM6FOhoIymB6XFMrDodzsaZvYq3Oxag7s84J8A/cWCZ+OgOVJwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/e8162b27230a078f0b07b5d921dc3fdb/a59e9/4_37.webp 192w,
+/static/e8162b27230a078f0b07b5d921dc3fdb/0ca9f/4_37.webp 384w,
+/static/e8162b27230a078f0b07b5d921dc3fdb/9006a/4_37.webp 503w"
+              sizes="(max-width: 503px) 100vw, 503px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/e8162b27230a078f0b07b5d921dc3fdb/3b721/4_37.png 192w,
+/static/e8162b27230a078f0b07b5d921dc3fdb/66595/4_37.png 384w,
+/static/e8162b27230a078f0b07b5d921dc3fdb/36069/4_37.png 503w"
+            sizes="(max-width: 503px) 100vw, 503px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/e8162b27230a078f0b07b5d921dc3fdb/36069/4_37.png"
+            alt="37"
+            title="37"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>LRU가 조금 더 좋은 성능을 보여준다.
+CLOCK의 경우
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 508px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cc7f2eba22d1e6fc606e5b2bbe234d7c/7c891/4_38.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 89.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACfElEQVQ4y4WU63KiQBCFfYigSSruJuKdywgKDAwMdxGjcZNU9v3f5GxNa9ytLU1+dDEUzDeHc7rp1G2L9WaDOM3ghSlYUMPnFThfI4o28P0Snl8iCGusvAKGyWGYIUxLVURlWCH0kYPHJwudonhDUb5hbkTQtCHubkfoner2bkzXbm9I68/7S9XtDqF1dXSq6hV58YLR2IXWHVzf0Bui1zteL9Xne53VqsBs7qP/wzg/VCepuukOzuvP+nfzpUM77jLDaLwkXx4fLXrwpDPM5gEYS8gftbasCHMjwP395EtoJ832sGyBSGwwnXro/zTBFjEF0jS/keUvCEWDLN1Dps94eJhBOwEvgQmokuK8xmzmYzL3KcGA16iqd8h0RwlL+Yw4adHvz8/AqwqPihpSatrHT3NciTz/BRVaKDZIki2FZ5qcvPwGmJyBhn3sMeVtlh1QVW+I5fYMVF5qmv69QiFamCeFjMVwlymk3KGu3yGSFiLeIMv2CHj5jcJ8D5vFNBkKaC9iuG4K2xZI5A5N8wEeNeSfAkZijdu7v4H8H8wp5Qgi3lI4NhNwlikpDcOGFMpsR0AVTFkeaAhutMEXbcMi8LAhoIIrT5kTww8qrOsPqHd4uEYct6jqVwrtmo8EVKqOCpWHIRauhOMmBKzrD+TFgXoxkVsU5QGMias+nkOR6R6GpdQJMCeBu0rheSX1YlH+omAUMM9fsFxlXwMXTkIKFdBZSlLo+QXUnBfFKwGjeAMptxQM59V1YCKfT6G0mBshKVOKlQrHTQmoelGcQimKAyLRXB89tUkNv6rxZIXpzMNk6tHPYjhyMdAXGI2WeBowKn24wEBnV4F/AC/4JnpMzmdSAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/cc7f2eba22d1e6fc606e5b2bbe234d7c/a59e9/4_38.webp 192w,
+/static/cc7f2eba22d1e6fc606e5b2bbe234d7c/0ca9f/4_38.webp 384w,
+/static/cc7f2eba22d1e6fc606e5b2bbe234d7c/80585/4_38.webp 508w"
+              sizes="(max-width: 508px) 100vw, 508px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/cc7f2eba22d1e6fc606e5b2bbe234d7c/3b721/4_38.png 192w,
+/static/cc7f2eba22d1e6fc606e5b2bbe234d7c/66595/4_38.png 384w,
+/static/cc7f2eba22d1e6fc606e5b2bbe234d7c/7c891/4_38.png 508w"
+            sizes="(max-width: 508px) 100vw, 508px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/cc7f2eba22d1e6fc606e5b2bbe234d7c/7c891/4_38.png"
+            alt="38"
+            title="38"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 522px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0bbfccc238cf84103a332184f6f55fb0/d15a3/4_39.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 89.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACgUlEQVQ4y41U2XLaQBDUP8SAsRNjkDAGCd1C0uq+JXAsfD3k/z+kUzsuU3YKcB66ZrWq7e2Z6Vmh6lqUdY0wTmCzHJpXw3VLMNbC82u4XglnU8DzK1h2ClnxISselLVPWKsBVoqHmajj5laBkCR7pNke87mN4VDCeHyH0eUcl+O7A/j3+GpxWB/DYCgShKLYI04eMLlVaGN44sAHhiPpKD7+C7adY7lycX29JMLRSKJ4MZjhx8WU4md8d5mgrBmkuQlZ9vHz1wqXVwuIkk6XaHqM+5WL++UG6zXDcul8UXMMQhB20PQIPIqijqmowTBjhNEOu90fhPEOftAiz3tEYfetSsFnDXXK82rMFxZWigtVDeCzFk3zBha0cL0KSfKAgDVfFB5TK/ADXFEQtNT+tcoIlp2hql6RZj3ZJ4y2qKonTGfaWZVEqBsxHeKEispgGDEsK0NZPiPPn8CzCMMOTfNCfvsPwgi+35BhNT2EYSZ0SZ7viZSFLcKgozqqWoCLgXg+ZVULsdmUNAWckE+EpoXIsp4IPcZT7pBljzQ55zpNhJyEp8xHyXIyapJpvXe6rt/IAZwwTnZI0gdMJu9DcDZlFnQHQq6UCMMt6voVYbylpkTRFlnRYzpTT9bxSw25yQ07IWLDjOB6NZr6DXH6GyxoEEUdinIPaW6crOMn23RkF92KoeoB7W3cEmX5gjTvqTFRvEVe9OSCwUA8NSktTCshNbw5hpNAN2PYTkbPWJE/kxc5Ia9hmj1is8kxOJUybwYnsp0C8tqH6aRUAosuqd4VZj15kU9Llvck4CQh99tK9rC4d+hB4HElu/QY8EdDkkyKfEJEyaD1zUQ+1O7fGv4Fh+Qk5lQzSNkAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/0bbfccc238cf84103a332184f6f55fb0/a59e9/4_39.webp 192w,
+/static/0bbfccc238cf84103a332184f6f55fb0/0ca9f/4_39.webp 384w,
+/static/0bbfccc238cf84103a332184f6f55fb0/a540d/4_39.webp 522w"
+              sizes="(max-width: 522px) 100vw, 522px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/0bbfccc238cf84103a332184f6f55fb0/3b721/4_39.png 192w,
+/static/0bbfccc238cf84103a332184f6f55fb0/66595/4_39.png 384w,
+/static/0bbfccc238cf84103a332184f6f55fb0/d15a3/4_39.png 522w"
+            sizes="(max-width: 522px) 100vw, 522px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/0bbfccc238cf84103a332184f6f55fb0/d15a3/4_39.png"
+            alt="39"
+            title="39"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 524px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/26ae1b7d648e4b86492b703849bab3a2/6d924/4_40.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 89.0625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACm0lEQVQ4y32U2W7bMBBF/Q/xEgct0HiJF+2SRWqlqM1SvMVx2pf+/3/cguOk8IOVhwEpCTyamXuHvbptULdbCCnBIgmdVeDhFknyijBqwFgJxisE0RY+K6AZIdZ6AMOMoBsRND2AboSYLzw8Tyz0iuKCvLhA0yMMhzM8Pb3gcXyN8dOC1tHjnPZfz/diOJqhP5iiV9cXlOUZqzVDfzDB8HFOMeoIdfBefH3vuZ7Ecunjx881BsMpvVSrgj/0n2m93Q9H3/+sZzsCs7mDxdLHr2eTXk6mFl6WPkwzwWrN6Zuuh1ivOR4/D45u1tvoFeUZlp0iilusVowy3fg5GK9x2P+FLN4Qxg2K4oyieMN4fB/0H5jJI3QzAg9qKl0paNkJvE2BpvmDROzBggpZdkSWHTD+FKATKOWRMgzChuS33RRrjUO1Is/PqKoLgqhBkr6irt9JvIf+pLtkmV+BPNgS0HJTGEYExxHIshPq+gNR8kq+rLcXaBongTqBqmTTSsjECqQyVCXbdkplqgzjdEfAvDhRf2+tMryboZWA85qc77gCjptRhkIcKMMgbpFme+T5CUFYkcG7+tjL5AGGGSOOWypdZagZEVxX0Ag2298Q8ohU7EkUKQ+Yz13y5L2yCahUDsItAS3n6j13k4HzClX1QcBrH1vKUs3vlzD3M7QSRFF7A2TYsByMVajKC2R+Qhi3iJMWVXWmi2Ew+AZokQAH2LaAaccwrBg+L+H7BcpSXR5n8qOyjpp71Y5ve2g5Amm6g+NkMKwItpMScLNRwPcrMN1BiD2UiIwV3bYR2Z5ESZId2UcBvU0Ox8vgeZKAVf2BROygfq4GgQdVN1Ad1vSQhn+5YjQlaq/gLwsP05lLl8NkamM2dynU5dEF/AdI5ScNhcSWFwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/26ae1b7d648e4b86492b703849bab3a2/a59e9/4_40.webp 192w,
+/static/26ae1b7d648e4b86492b703849bab3a2/0ca9f/4_40.webp 384w,
+/static/26ae1b7d648e4b86492b703849bab3a2/08739/4_40.webp 524w"
+              sizes="(max-width: 524px) 100vw, 524px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/26ae1b7d648e4b86492b703849bab3a2/3b721/4_40.png 192w,
+/static/26ae1b7d648e4b86492b703849bab3a2/66595/4_40.png 384w,
+/static/26ae1b7d648e4b86492b703849bab3a2/6d924/4_40.png 524w"
+            sizes="(max-width: 524px) 100vw, 524px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/26ae1b7d648e4b86492b703849bab3a2/6d924/4_40.png"
+            alt="40"
+            title="40"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>clock bits 0,2,4로 바꾸니 hit가 더 많아지기도 하고 적어지기도 한다.
+5. Use a program like valgrind to instrument a real application and generate a virtual page reference stream. For example, running valgrind –tool=lackey –trace-mem=yes ls will output a nearly-complete reference trace of every instruction and data reference made by the program ls. To make this useful for the simulator above, you’ll have to first transform each virtual memory reference into a virtual page-number reference (done by masking off the offset and shifting the resulting bits downward). How big of a cache is needed for your application trace in order to satisfy a large fraction of requests? Plot a graph of its working set as the size of the cache increases.</p>
+<p>마스킹에 사용한 코드 – 하위 12개 offset 비트 masking off the offset and shifting
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 365px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/75f49dd7062b97f9faca7c6d31eaa94b/dbde8/4_41.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 90.625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAA7DAAAOwwHHb6hkAAADJUlEQVQ4y5WU63KjRhCFeZfYAgSSuA0wwHBH6AaSb1lnk7z/Y3wpxuuynWxtVX6cahhmDt1nTrex8VvcXcku6DW8aGS7PIeDXveiA744sAs6bCfFWgusdfwFpv2xZtybIXerkJUVcW9GmE6CaQlMM9TRWifcm0JjZb3FhWCB3v+D7D0aebFnPD1QdxOZGnFXEZu4I+hvCDnguIK2r2mHiijOaPoKdyPZ+QmqrHE2GaYdfWTYD1dO52fyYiROOoLiQDo+I7sLedWi6pLDuaXuK7qhJlclfpSTq4okrXQFX0r2RaXJfL/AshK8diYsT6xtwc6PyUpFmhcEIiMrChxX4mxi/LDQmi5SfdbS2NgS24pxdxnuVuKsImwrYusVupyVlfDbXai1u1tFn/QLP/SzxIeGQ7RHiZ6mmxj3V1TQk4mBbrjR72eipMHdJthujOXEOBuJ7cS420zHhWj57mzeSjcCIUikpPZ7smLPcH7kcHhBJmeCTc7WlYQyRXoNybah7i5M129U9QOhX+GvC8IkJUoKracRxQlplrJLMzxZEqedvqTT5RnXjCnUiWF8oFQT8VJNc+RweqHrJ8IwJ4hz9sMruTxzb4UYkXgj9PKCrSw4XX5n6GdCX+GmA/HwwPEy0o8VWzclzwe6cdb7RFIjkxlVXrThdcnvGXpZzlYqHp/+pm8vmHchRXZkyB7I0okqv9Gkr1TxRCkG5sc/OV+eEX5P4jeEwYjjZhihiD8RFpynbxz2N0TSUOdHhvRMXsyo/IZqvpPFE01xZJ5e6doLGzdlt5Z4XqNtZMSpJFMZgSrx8or5+p3L+YXj9ELVzhT1icP5ifF0Q+2vVOrE8fzEUM1EQY25eHBp17XAdvSl5CQyx5cKT1Zc5j8Y9zeqbqJqJpp2ph2uNP1MKXrqZMQLFStbsNYmz7SVlrjeSIyF9TNW9nvzf50my/uSjc5onbB2U/59Vmcoiz1dOyGznqI60PaTtsTy16UbvoyqpRvsj2nzMxhdP/P08hfj8YmmmynrI/vjoyZejL6y/zv/fgUjjCrdXjtf4fmKrZfjhxWRqHU/m/+T8B9mW1CLpRO2HQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/75f49dd7062b97f9faca7c6d31eaa94b/a59e9/4_41.webp 192w,
+/static/75f49dd7062b97f9faca7c6d31eaa94b/3a8fd/4_41.webp 365w"
+              sizes="(max-width: 365px) 100vw, 365px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/75f49dd7062b97f9faca7c6d31eaa94b/3b721/4_41.png 192w,
+/static/75f49dd7062b97f9faca7c6d31eaa94b/dbde8/4_41.png 365w"
+            sizes="(max-width: 365px) 100vw, 365px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/75f49dd7062b97f9faca7c6d31eaa94b/dbde8/4_41.png"
+            alt="41"
+            title="41"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+테스트에 사용한 bash 코드
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 698px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/62ad78d16d0b8913b9ee7ec2b1a2074b/439d5/4_42.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30.729166666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA4UlEQVQY042RS27DMAwFfZkm/oiSZcmWZFl2EBRZdNH732YK2+mi2TSLAfmIBxIkq6FfcT4zxYWYM72LGHvSDzN1O1G34zP+TxXNhlUrbiiMoVC3gY+rf+K4NiOX+uTIG3+w569691QhJKZ+Q5uFwd+wbqWThJIFkUKnErqPiAm0KqHUgpJMqyJNd/qUzCjZPZHKh4DOhXz/Zi1flO2BsRmRFaNviGSsT8cJ9kZ7TetyDO3UjNHboUUS/ZDOhvP8iXUbncq4cabpJi7131XeXjn6Fevvx+F/i9dmevsJr0/5ATVGu7WUi9/CAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/62ad78d16d0b8913b9ee7ec2b1a2074b/a59e9/4_42.webp 192w,
+/static/62ad78d16d0b8913b9ee7ec2b1a2074b/0ca9f/4_42.webp 384w,
+/static/62ad78d16d0b8913b9ee7ec2b1a2074b/52634/4_42.webp 698w"
+              sizes="(max-width: 698px) 100vw, 698px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/62ad78d16d0b8913b9ee7ec2b1a2074b/3b721/4_42.png 192w,
+/static/62ad78d16d0b8913b9ee7ec2b1a2074b/66595/4_42.png 384w,
+/static/62ad78d16d0b8913b9ee7ec2b1a2074b/439d5/4_42.png 698w"
+            sizes="(max-width: 698px) 100vw, 698px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/62ad78d16d0b8913b9ee7ec2b1a2074b/439d5/4_42.png"
+            alt="42"
+            title="42"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>결과</p>
+<p>Plot 결과
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 433px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/22a1e1c87468b1d35714359043e7b16c/842a9/4_43.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.083333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAYAAAC0VX7mAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA3UlEQVQoz53S2W7CMBAFUL6CoLIlnnE2ipdQykso//9Vt7pTqCr1BfMwGiuKj2bx4hiuED3ByQTRDHER6ifUTUDbfcBJxLJSVCv/VCxCnOHbk2FOE5o/oGjCvj4WgukK305wkgwgSPwHzC+AcbaKCFq4aJkQv293hzJwPFwgPltljQtWGc+7/bvBzEVgyl/oh0+r5tE6l0GUs61dKG+ZgEiCav6dIVt+aYYxzej687+lPMC6KQTzdMMwXuyy+mwwM2fp78+nCOQWN9sR6w1jsDPjbd3fc4dlxZ+fQ78Bro8VLwWMtMwAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/22a1e1c87468b1d35714359043e7b16c/a59e9/4_43.webp 192w,
+/static/22a1e1c87468b1d35714359043e7b16c/0ca9f/4_43.webp 384w,
+/static/22a1e1c87468b1d35714359043e7b16c/4e573/4_43.webp 433w"
+              sizes="(max-width: 433px) 100vw, 433px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/22a1e1c87468b1d35714359043e7b16c/3b721/4_43.png 192w,
+/static/22a1e1c87468b1d35714359043e7b16c/66595/4_43.png 384w,
+/static/22a1e1c87468b1d35714359043e7b16c/842a9/4_43.png 433w"
+            sizes="(max-width: 433px) 100vw, 433px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/22a1e1c87468b1d35714359043e7b16c/842a9/4_43.png"
+            alt="43"
+            title="43"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 436px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a42a4cf1ce716b442a0e2802a15bb60e/94556/4_44.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 73.4375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABCklEQVQ4y52TS3KDMBBEfYrYropBjCT+AoF/iZ3c/1iT6pGBZBdpoZoN9WjNa+2a9s6qGNjYiTPlmLTnXDkuaORCj3w4lvy2N7w/2H+dXdt9CMSWZ4HY6vz6wczaTPHArv8UYFldBLRMwLRNALrh+QKGhFV9lYmEONHALVHYHRnPWd4zYYc0xANJjwIA9P3UCvSUdZznTiThoyggLBszy+5+XxmSkq5cNzfWepIdIuViGVJMihQkDLWZ12TFWhufJoXIS5qlf0o51tqn9RCAIKOXCUGYEIMTLWXwX5Kkbq6hj/Vlk1LOicWmrdgArS8l5cq9e/wBLVKSdzj6bxEh9ZGr39a3DfgxEvgDRMOePlPtYckAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a42a4cf1ce716b442a0e2802a15bb60e/a59e9/4_44.webp 192w,
+/static/a42a4cf1ce716b442a0e2802a15bb60e/0ca9f/4_44.webp 384w,
+/static/a42a4cf1ce716b442a0e2802a15bb60e/d5689/4_44.webp 436w"
+              sizes="(max-width: 436px) 100vw, 436px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a42a4cf1ce716b442a0e2802a15bb60e/3b721/4_44.png 192w,
+/static/a42a4cf1ce716b442a0e2802a15bb60e/66595/4_44.png 384w,
+/static/a42a4cf1ce716b442a0e2802a15bb60e/94556/4_44.png 436w"
+            sizes="(max-width: 436px) 100vw, 436px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a42a4cf1ce716b442a0e2802a15bb60e/94556/4_44.png"
+            alt="44"
+            title="44"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ed9aab241a41d2361b44027c4686f91c/17459/4_45.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.77083333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABHElEQVQoz52SAWrDMAxFc/+j7QCjjK0UUtKQ0G2NY1tyrPwipw5uG7YxgbBA1vOX5GqeZ0zTBBGBxtnVjCVcjIexDqfziGNvcOwuODQ99nWDuqnxftjj2LbpvjIqLY4xrkA9E2w02L2+4FTv0HQtzhcLRwxHBOssRjvCE6faUki1rRD4OLwhBMZvVsISkIhgjFklq51U0fdniqMs6kXuC2WWJ1gCqmSFZpi21PT9+sBW0U/+NMPua0CMstnOn4E6Qz0pRHie/q1uU+Gy6fk2t3KDZV4e7ss98BGUTW7/UTsYBgPnKa92/atZUI6rnCjN0QQmQiQLZk5L895CwgDikMbCTJtfqMryS7c+IDBj8iNCCAkYmFagoyW/VXsFSC9iOLLcIfgAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/ed9aab241a41d2361b44027c4686f91c/a59e9/4_45.webp 192w,
+/static/ed9aab241a41d2361b44027c4686f91c/0ca9f/4_45.webp 384w,
+/static/ed9aab241a41d2361b44027c4686f91c/dc9b9/4_45.webp 768w,
+/static/ed9aab241a41d2361b44027c4686f91c/d1ff0/4_45.webp 791w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/ed9aab241a41d2361b44027c4686f91c/3b721/4_45.png 192w,
+/static/ed9aab241a41d2361b44027c4686f91c/66595/4_45.png 384w,
+/static/ed9aab241a41d2361b44027c4686f91c/fe486/4_45.png 768w,
+/static/ed9aab241a41d2361b44027c4686f91c/17459/4_45.png 791w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/ed9aab241a41d2361b44027c4686f91c/fe486/4_45.png"
+            alt="45"
+            title="45"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h2 id="source" style="position:relative;"><a href="#source" aria-label="source permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source</h2>
+<ul>
+<li>『Operating Systems: Three Easy Pieces』 <em>-Remzi H. Arpaci-Dusseau 지음</em><br>
+<a href="https://pages.cs.wisc.edu/~remzi/OSTEP/" target="_blank" rel="nofollow">https://pages.cs.wisc.edu/~remzi/OSTEP/</a></li>
+</ul></div><style data-emotion="css pit38s">.css-pit38s{height:auto;}</style><div class="css-pit38s etse75s1"><style data-emotion="css v7bn0g">.css-v7bn0g{position:-webkit-sticky;position:sticky;top:50px;display:inline-block;margin:120px 40px;margin-right:0px;height:auto;width:200px;font-size:14.5px;border-left:3px solid #4ccd97;}@media (max-width: 1200px){.css-v7bn0g{display:none;}}.css-v7bn0g li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px;color:gray;}.css-v7bn0g ul{margin-left:10px;padding:7px 5px;list-style:none;}.css-v7bn0g a:hover{-webkit-transition:0.3s;transition:0.3s;font-size:15px;font-weight:700;color:#433E49;}</style><div class="css-v7bn0g etse75s0"><ul>
+<li>
+<p><a href="#%EB%AC%B8%EC%A0%9C-%EB%B0%8F-%ED%92%80%EC%9D%B4">문제 및 풀이</a></p>
+<ul>
+<li>
+<ul>
+<li><a href="#1-first-open-two-separate-terminal-connections-to-the-same-machine-so-that-you-can-easily-run-something-in-one-window-and-the-other-now-in-one-window-run-vmstat-1-which-shows-statistics-about-machine-usage-every-second-read-the-man-page-the-associated-readme-and-any-other-information-you-need-so-that-you-can-understand-its-output-leave-this-window-running-vmstat-for-the-rest-of-the-exercises-below-now-we-will-run-the-program-memc-but-with-very-little-memory-usage-this-can-be-accomplished-by-typing-mem-1-which-uses-only-1-mb-of-memory-how-do-the-cpu-usage-statistics-change-when-running-mem-do-the-numbers-in-the-user-time-column-make-sense--how-does-this-change-when-running-more-than-one-instance-of-mem-at-once">1. First, open two separate terminal connections to the same machine, so that you can easily run something in one window and the other. Now, in one window, run vmstat 1, which shows statistics about machine usage every second. Read the man page, the associated README, and any other information you need so that you can understand its output. Leave this window running vmstat for the rest of the exercises below. Now, we will run the program mem.c but with very little memory usage. This can be accomplished by typing ./mem 1 (which uses only 1 MB of memory). How do the CPU usage statistics change when running mem? Do the numbers in the user time column make sense?  How does this change when running more than one instance of mem at once?</a></li>
+<li><a href="#2-lets-now-start-looking-at-some-of-the-memory-statistics-while-running-mem-well-focus-on-two-columns-swpd-the-amount-of-virtual-memory-used-and-free-the-amount-of-idle-memory-run-mem-1024-which-allocates-1024-mb-and-watch-how-these-values-change-then-kill-the-running-program-by-typing-control-c-and-watch-again-how-the-values-change-what-do-you-notice-about-the-values-in-particular-how-does-the-free-column-change-when-the-program-exits-does-the-amount-of-free-memory-increase-by-the-expected-amount-when-mem-exits">2. Let’s now start looking at some of the memory statistics while running mem. We’ll focus on two columns: swpd (the amount of virtual memory used) and free (the amount of idle memory). Run ./mem 1024 (which allocates 1024 MB) and watch how these values change. Then kill the running program (by typing control-c) and watch again how the values change. What do you notice about the values? In particular, how does the free column change when the program exits? Does the amount of free memory increase by the expected amount when mem exits?</a></li>
+<li><a href="#3-well-next-look-at-the-swap-columns-si-and-so-which-indicate-how-much-swapping-is-taking-place-to-and-from-the-disk-of-course-to-activate-these-youll-need-to-run-mem-with-large-amounts-of-memory-first-examine-how-much-free-memory-is-on-your-linux-system-for-example-by-typing-cat-procmeminfo-type-man-proc-for-details-on-the-proc-file-system-and-the-types-of-information-you-can-find-there-one-of-the-first-entries-in-procmeminfo-is-the-total-amount-of-memory-in-your-system-lets-assume-its-something-like-8-gb-of-memory-if-so-start-by-running-mem-4000-about-4-gb-and-watching-the-swap-inout-columns-do-they-ever-give-non-zero-values-then-try-with-5000-6000-etc-what-happens-to-these-values-as-the-program-enters-the-second-loop-and-beyond-as-compared-to-the-first-loop-how-much-data-total-are-swapped-in-and-out-during-the-second-third-and-subsequent-loops-do-the-numbers-make-sense">3. We’ll next look at the swap columns (si and so), which indicate how much swapping is taking place to and from the disk. Of course, to activate these, you’ll need to run mem with large amounts of memory. First, examine how much free memory is on your Linux system (for example, by typing cat /proc/meminfo; type man proc for details on the /proc file system and the types of information you can find there). One of the first entries in /proc/meminfo is the total amount of memory in your system. Let’s assume it’s something like 8 GB of memory; if so, start by running mem 4000 (about 4 GB) and watching the swap in/out columns. Do they ever give non-zero values? Then, try with 5000, 6000, etc. What happens to these values as the program enters the second loop (and beyond), as compared to the first loop? How much data (total) are swapped in and out during the second, third, and subsequent loops? (do the numbers make sense?)</a></li>
+<li><a href="#4-do-the-same-experiments-as-above-but-now-watch-the-other-statistics-such-as-cpu-utilization-and-block-io-statistics-how-do-they-change-when-mem-is-running">4. Do the same experiments as above, but now watch the other statistics (such as CPU utilization, and block I/O statistics). How do they change when mem is running?</a></li>
+<li><a href="#5-now-lets-examine-performance-pick-an-input-for-mem-that-comfortably-fits-in-memory-say-4000-if-the-amount-of-memory-on-the-system-is-8-gbhow-long-does-loop-0-take-and-subsequent-loops-1-2-etc--now-pick-a-size-comfortably-beyond-the-size-of-memory-say-12000-again-assuming-8-gb-of-memory-how-long-do-the-loops-take-here-how-do-the-bandwidth-numbers-compare-how-different-is-performance-when-constantly-swapping-versus-fitting-everything-comfortably-in-memory-can-you-make-a-graph-with-the-size-of-memory-used-by-mem-on-the-x-axis-and-the-bandwidth-of-accessing-said-memory-on-the-y-axis-finally-how-does-the-performance-of-the-first-loop-compare-to-that-of-subsequent-loops-for-both-the-case-where-everything-fits-in-memory-and-where-it-doesnt">5. Now let’s examine performance. Pick an input for mem that comfortably fits in memory (say 4000 if the amount of memory on the system is 8 GB).How long does loop 0 take (and subsequent loops 1, 2, etc.)?  Now pick a size comfortably beyond the size of memory (say 12000 again assuming 8 GB of memory). How long do the loops take here? How do the bandwidth numbers compare? How different is performance when constantly swapping versus fitting everything comfortably in memory? Can you make a graph, with the size of memory used by mem on the x-axis, and the bandwidth of accessing said memory on the y-axis? Finally, how does the performance of the first loop compare to that of subsequent loops, for both the case where everything fits in memory and where it doesn’t?</a></li>
+<li><a href="#6-swap-space-isnt-infinite-you-can-use-the-tool-swapon-with-the--s-flag-to-see-how-much-swap-space-is-available-what-happens-if-you-try-to-run-mem-with-increasingly-large-values-beyond-what-seems-to-be-available-in-swap-at-what-point-does-the-memory-allocation-fail">6. Swap space isn’t infinite. You can use the tool swapon with the -s flag to see how much swap space is available. What happens if you try to run mem with increasingly large values, beyond what seems to be available in swap? At what point does the memory allocation fail?</a></li>
+<li><a href="#7-finally-if-youre-advanced-you-can-configure-your-system-to-use-different-swap-devices-using-swapon-and-swapoff-read-the-man-pages-for-details-if-you-have-access-to-different-hardware-see-how-the-performance-of-swapping-changes-when-swapping-to-a-classic-hard-drive-a-flash-based-ssd-and-even-a-raid-array-how-much-can-swapping-performance-be-improved-via-newer-devices-how-close-can-you-get-to-in-memory-performance">7. Finally, if you’re advanced, you can configure your system to use different swap devices using swapon and swapoff. Read the man pages for details. If you have access to different hardware, see how the performance of swapping changes when swapping to a classic hard drive, a flash-based SSD, and even a RAID array. How much can swapping performance be improved via newer devices? How close can you get to in-memory performance?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#source">Source</a></p>
+</li>
+</ul></div></div></div><style data-emotion="css qi68kj">.css-qi68kj{width:768px;margin:auto auto;padding:0 10px;}@media (max-width: 768px){.css-qi68kj{width:100%;padding:0 20px;}}</style><div class="css-qi68kj elyfc7a0"><div id="disqus_thread"></div></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v81"><style data-emotion="css chvw2h">.css-chvw2h{width:80px;height:80px;background-image:url('bartender.png');-webkit-background-size:contain;background-size:contain;margin:20px auto 0px auto;}</style><div class="css-chvw2h e1oae0v80"></div>Just an developer with drinks<br/>2022 HyeonDong, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/os_hw_4/";window.___webpackCompilationHash="39da389ad8622a7f138f";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-c9fa82aa5b1f9c65f078.js"],"app":["/app-e9f3f84a858e449c6845.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-c686bcb9fd021576da4f.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-75209af79fc065617b74.js"],"component---src-pages-post-tsx":["/component---src-pages-post-tsx-66acd32db55f17007543.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-8e139172fddb5d98de9a.js"]};/*]]>*/</script><script src="/polyfill-c9fa82aa5b1f9c65f078.js" nomodule=""></script><script src="/app-e9f3f84a858e449c6845.js" async=""></script><script src="/framework-c57a9454c0e3bef16c3b.js" async=""></script><script src="/webpack-runtime-ab35ccd275344758b36e.js" async=""></script></body></html>

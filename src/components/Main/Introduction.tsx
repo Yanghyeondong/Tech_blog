@@ -49,7 +49,7 @@ const Wave = styled.div`
     border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
     animation: 
     fix 8000ms 1 step-end forwards,
-    up 5000ms 1 linear forwards, 
+    up 5000ms 100ms 1 linear forwards, 
     rotate 2500ms 3 linear;
   }
 

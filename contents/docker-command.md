@@ -2,7 +2,7 @@
 date: '2023-09-26'
 title: '도커 실전 명령어 모음'
 categories: ['Docker','DevOps','Tip']
-summary: ''
+summary: '도커에서 자주 사용하는 명령어를 정리해봅니다.'
 thumbnail: './docker/docker.png'
 ---
 

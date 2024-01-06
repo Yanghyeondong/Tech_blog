@@ -1,5 +1,7 @@
 FROM ubuntu:22.04
 
+WORKDIR /blog
+
 Run apt update -y && \
     apt upgrade -y && \
     apt install -y \
@@ -10,7 +12,3 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | b
 
 SHELL ["/bin/bash", "-c"]
 RUN source ~/.nvm/nvm.sh && nvm install 16.16.0 && npm install -g yarn
-
-WORKDIR /root
-
-RUN git clone https://github.com/Yanghyeondong/Tech_blog

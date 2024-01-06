@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  tech_blog:
+    build:
+      context: .
+      dockerfile: ./dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/blog
+    tty: true
+    # command: >
+    #     bash -c 
+    #     "
+    #     yarn start
+    #     "

@@ -19,6 +19,12 @@ const SideMenuButton = styled.div`
   font-size: 40px;
   cursor: pointer;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.6s, color 0.6s;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #4ccd97;
+  }
 
   @media (max-width: 768px) {
     width: 45px;

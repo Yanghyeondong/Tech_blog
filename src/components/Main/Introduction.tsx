@@ -87,7 +87,8 @@ const Wrapper = styled.div`
   margin-bottom: 20px;
   @media (max-width: 768px) {
     flex-direction: column;
-    margin-top:50px;
+    margin-top:30px;
+    height: 58vh;
     text-align:center;
   }
 `
@@ -112,7 +113,7 @@ const SubTitle = styled.div`
     margin-left: 0px;
   }
   @media (min-width: 768px) and (max-height: 768px) {
-    font-size: 15px;
+    font-size: 18px;
   }
 `
 const SubTitleSmall = styled(SubTitle)`
@@ -131,7 +132,7 @@ const Title = styled.div`
     display: inline-block;
   }
   @media (min-width: 768px) and (max-height: 768px) {
-    font-size: 24px;
+    font-size: 28px;
   }
 `
 const TitleColor = styled(Title)`

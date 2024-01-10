@@ -70,14 +70,14 @@ const MarkdownRenderer = styled.div`
 
   h3 {
     font-size: 23px;
-    color: #8dc123;
+    color: #49ae8e;
   }
 
   // Adjust Quotation Element Style
   blockquote {
     margin: 30px 10px;
     padding: 5px 15px;
-    border-left: 2px solid #4ccd97;
+    border-left: 2px solid #49ae8e;
     background-color: #f9f9f9; 
     font-weight: 400;
   }
@@ -106,7 +106,7 @@ const MarkdownRenderer = styled.div`
   ol li::Marker{
     font-weight: 800;
     font-size: 19px;
-    color: #4ccd97;
+    color: #49ae8e;
   }
   ul {
     margin: 20px;
@@ -115,7 +115,7 @@ const MarkdownRenderer = styled.div`
   ul li::Marker{
     content: "▶ ";
     font-weight: 800;
-    color: #4ccd97;
+    color: #49ae8e;
   }
   li{
     font-size: 17px;
@@ -142,13 +142,13 @@ const MarkdownRenderer = styled.div`
   // Adjust Link Element Style
   a {
     font-weight: 800;
-    color: #4ccd97;
+    color: #49ae8e;
     text-decoration: underline 1px;
     text-underline-position: under;
   }
   a:hover {
     color: #ffffff;
-    background-color: #4ccd97;
+    background-color: #49ae8e;
   }
   // Adjust Code Style
   pre[class*='language-'] {

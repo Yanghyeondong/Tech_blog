@@ -88,7 +88,7 @@ const CategoryItem = styled.div`
   margin: 2px 5px;
   padding: 1px 7px 4px 7px;
   border-radius: 6px;
-  background-color: #4ccd97;
+  background-color: #49ae8e;
   font-size: 16px;
   font-weight: 800;
   color: white;

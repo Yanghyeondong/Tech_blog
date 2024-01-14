@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect } from 'react'
 import styled from '@emotion/styled'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Link } from 'gatsby';
@@ -178,6 +178,11 @@ const AboutMe = styled(Link)`
 `
 
 const Introduction: FunctionComponent<IntroductionProps> = function () {
+  useEffect(() => {
+    const image = new Image();
+    image.src = 'cocktail_ice_mini_logo.webp';
+  }, []);
+
   return (
     <Background>
       <Wrapper>

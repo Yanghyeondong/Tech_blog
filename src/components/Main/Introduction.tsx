@@ -20,7 +20,7 @@ const Background = styled.div`
 const Cocktail = styled.div`
   width: 35.2vh;
   height: 35.2vh;
-  background-image: url('cocktail_ice_mini_logo.webp');
+  background-image: url('cocktail_ice_mini_logo3.webp');
   //background-image: url('cocktail_ice_low.png');
   background-size: contain;
   position: relative;
@@ -46,23 +46,10 @@ const Wave = styled.div`
     top: 250vh;
     left: -6vh;
     transform-origin: 50% 50%;
-    border-radius: 40% 45% 40% 45% / 45% 40% 45% 40%;
+    border-radius: 40% 55% 40% 55% / 55% 40% 55% 40%;
     animation: 
-    fix 8000ms 1 step-end forwards,
-    up 5000ms 100ms 1 linear forwards, 
-    rotate 2500ms 3 linear;
-  }
-
-  @keyframes fix {
-    0% { 
-      width: 35vh; 
-      height: 35vh;
-    }
-    100% { 
-      width: 25vh; 
-      height: 25vh;
-      left: 1vh;
-    }
+    up 4000ms 0ms linear forwards, 
+    rotate 2500ms 2 linear;
   }
 
   @keyframes rotate {
@@ -180,7 +167,7 @@ const AboutMe = styled(Link)`
 const Introduction: FunctionComponent<IntroductionProps> = function () {
   useEffect(() => {
     const image = new Image();
-    image.src = 'cocktail_ice_mini_logo.webp';
+    image.src = 'cocktail_ice_mini_logo3.webp';
   }, []);
 
   return (

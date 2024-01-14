@@ -6,6 +6,7 @@ module.exports = {
     siteUrl: `https://yangdongs.web.app/`
   },
   plugins: [
+    `gatsby-plugin-advanced-sitemap`,
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
@@ -18,7 +19,6 @@ module.exports = {
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
-    'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {

@@ -21,7 +21,6 @@ const Cocktail = styled.div`
   width: 35.2vh;
   height: 35.2vh;
   background-image: url('cocktail_ice_mini_logo3.webp');
-  //background-image: url('cocktail_ice_low.png');
   background-size: contain;
   position: relative;
   z-index: 2;
@@ -48,7 +47,7 @@ const Wave = styled.div`
     transform-origin: 50% 50%;
     border-radius: 40% 55% 40% 55% / 55% 40% 55% 40%;
     animation: 
-    up 4000ms 0ms linear forwards, 
+    up 3500ms 500ms linear forwards, 
     rotate 2500ms 2 linear;
   }
 
@@ -58,7 +57,7 @@ const Wave = styled.div`
   }
 
   @keyframes up {
-    0% { top: 35vh; }
+    0% { top: 30vh; }
     100% { top: 7vh; }
   }
 `

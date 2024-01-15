@@ -26,7 +26,8 @@ const GoToPostButton = styled(Link)`
     border-bottom-style: solid;
   }
 
-  @media (max-width: 1200px) {
+  @media (max-width: 768px) {
+    font-size: 23px;
   }
 `
 const Title = styled.div`

@@ -1,0 +1,429 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="naver-site-verification" content="7727e68f404d4c7be584f2b673b9943ab5c6b9ab"/><meta data-react-helmet="true" name="google-site-verification" content="fygLmB3YoAnXWkSTMHoemYurOt8ZBEdT2K5M1qZQL5E"/><meta data-react-helmet="true" name="twitter:image" content="/static/f373038da6ea484e64532c298a220202/ssh.png"/><meta data-react-helmet="true" name="twitter:description" content="Ubuntu에서 ssh 외부 연결을 설정합니다."/><meta data-react-helmet="true" name="twitter:title" content="Mini PC Ubuntu에서 ssh 설정하기 &lt;외부 네트워크 접근 허용&gt;"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" property="og:site_name" content="Mini PC Ubuntu에서 ssh 설정하기 &lt;외부 네트워크 접근 허용&gt;"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:image" content="/static/f373038da6ea484e64532c298a220202/ssh.png"/><meta data-react-helmet="true" property="og:description" content="Ubuntu에서 ssh 외부 연결을 설정합니다."/><meta data-react-helmet="true" property="og:title" content="Mini PC Ubuntu에서 ssh 설정하기 &lt;외부 네트워크 접근 허용&gt;"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" name="description" content="Ubuntu에서 ssh 외부 연결을 설정합니다."/><meta name="generator" content="Gatsby 4.19.2"/><style data-href="/styles.69a4e1e9c4403d061256.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#2f2f2f;color:#eee;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5em;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#363636}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#fd9170}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#c792ea}.token.attr-name{color:#ffcb6b}.token.attr-value,.token.attribute{color:#a5e844}.token.boolean{color:#c792ea}.token.builtin{color:#ffcb6b}.token.cdata,.token.char{color:#80cbc4}.token.class{color:#ffcb6b}.token.class-name{color:#f2ff00}.token.comment{color:#616161}.token.constant{color:#c792ea}.token.deleted{color:#f66}.token.doctype{color:#616161}.token.entity{color:#f66}.token.function{color:#c792ea}.token.hexcode{color:#f2ff00}.token.id,.token.important{color:#c792ea;font-weight:700}.token.inserted{color:#80cbc4}.token.keyword{color:#c792ea}.token.number{color:#fd9170}.token.operator{color:#89ddff}.token.prolog{color:#616161}.token.property{color:#80cbc4}.token.pseudo-class,.token.pseudo-element{color:#a5e844}.token.punctuation{color:#89ddff}.token.regex{color:#f2ff00}.token.selector{color:#f66}.token.string{color:#a5e844}.token.symbol{color:#c792ea}.token.tag{color:#f66}.token.unit{color:#fd9170}.token.url,.token.variable{color:#f66}:host,:root{--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1 "Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1 "Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1 "Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{box-sizing:content-box;overflow:visible}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.07143em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{top:.25em;width:var(--fa-li-width,2em)}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:var(--fa-right,0);top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.08333em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.07143em;vertical-align:.05357em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.04167em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width, 2em)*-1);line-height:inherit;position:absolute;text-align:center;width:var(--fa-li-width,2em)}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade,.fa-fade{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s)}.fa-beat-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-shake,.fa-spin{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal)}.fa-spin{-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scaleX(-1);transform:scaleX(-1)}.fa-flip-vertical{-webkit-transform:scaleY(-1);transform:scaleY(-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1);transform:scale(-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;height:2em;position:relative;vertical-align:middle;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-only,.sr-only-focusable:not(:focus){clip:rect(0,0,0,0);border-width:0;height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor)}.svg-inline--fa .fa-secondary,.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="canonical" href="https://yangdongs.web.app/minipc_ssh/" data-baseprotocol="https:" data-basehost="yangdongs.web.app"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><title data-react-helmet="true">Mini PC Ubuntu에서 ssh 설정하기 &lt;외부 네트워크 접근 허용&gt;</title><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css vbubbu">.css-vbubbu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100vh;overflow-x:hidden;width:100%;}</style><main class="css-vbubbu e1strnqo0"><style data-emotion="css 1pe8cy1">.css-1pe8cy1{position:fixed;margin:10px 10px;z-index:5;}</style><div class="css-1pe8cy1 e1md2nih0"><style data-emotion="css 1qhl3ja">.css-1qhl3ja{display:grid;place-items:center;width:60px;height:60px;border-radius:20px;background-color:#4ccd97;color:#ffffff;font-size:40px;cursor:pointer;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);-webkit-transition:background-color 0.6s,color 0.6s;transition:background-color 0.6s,color 0.6s;}.css-1qhl3ja:hover{background-color:#ffffff;color:#4ccd97;}@media (max-width: 768px){.css-1qhl3ja{width:45px;height:45px;font-size:30px;border-radius:15px;}}</style><div class="css-1qhl3ja e1md2nih1"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM325.1 306.7L380.6 162.4C388.1 142.1 369 123.9 349.6 131.4L205.3 186.9C196.8 190.1 190.1 196.8 186.9 205.3L131.4 349.6C123.9 369 142.1 388.1 162.4 380.6L306.7 325.1C315.2 321.9 321.9 315.2 325.1 306.7V306.7z"></path></svg></div><style data-emotion="css 12ua5r7">.css-12ua5r7{margin:10px 10px;border-radius:20px;z-index:4;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-transition:500ms;transition:500ms;left:-600px;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);background-color:white;}</style><div class="css-12ua5r7 ee3oskm2"><style data-emotion="css x68nae">.css-x68nae{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;text-align:center;margin-top:5%;margin-bottom:10%;margin:10px;}</style><div class="css-x68nae ee3oskm1"><style data-emotion="css 58nrwj">.css-58nrwj{font-size:20px;margin:15px;}.css-58nrwj:hover{border-bottom:3px solid #4ccd97;}</style><a class="css-58nrwj ee3oskm0" href="/">Home</a><a class="css-58nrwj ee3oskm0" href="/post/">Post</a><a href="https://github.com/Yanghyeondong/tech_blog#readme" class="css-58nrwj ee3oskm0">About</a></div></div></div><style data-emotion="css-global gyifnl">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1400px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;735&#x27; width=&#x27;1400&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAABgUlEQVQoz2PI2XQDF8redCN02r7g/m1B/dsCulYlLT2Zt+V2zsbrcAUMOHVuvJ6z5ZZr3gRRy3hRy0QxfVv/rlWFOx9kb7hGQHPuphup66/PP3b74b3bqfXThKxSxE3cArrXENK8+Wbu5puZm25WbL915969N88fPX3y0DGmWkDbOrCXkObcjdey113OWncpZ/2l/j2Xp++/0rf9TNSk7b6tS5OWnMjbitXPG6/nbrmVsfKsTVKNY3qja267a06nQ3anXVaHQURpcOvikn3PcjffzNl0HdkmJM1bb6cuOaYZ1+KRWBSakh6SlBeSlB2XXWyU0OhQNjN/663sjdfRnImiOW3pcc3EDiOPMGdrcycHu+AAP2N9HWW/HLe6RQUENacsOa6e1K3lEmpqYmRpa+/o4q6lo6vgX+hct5iwzbnLjplHlej5pug6h2g7h2k5hhi4R+n6ZflXTinefge3ZnAk1Wy+WDl/a/mC7eWLdlXAUNnczTUrDpRsvZG1ET05AABLAnzzJth6vwAAAABJRU5ErkJggg==" alt=""/><picture><source type="image/webp" data-srcset="/static/f373038da6ea484e64532c298a220202/6b67d/ssh.webp 350w,/static/f373038da6ea484e64532c298a220202/ffb76/ssh.webp 700w,/static/f373038da6ea484e64532c298a220202/cd652/ssh.webp 1400w" sizes="(min-width: 1400px) 1400px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1400px) 1400px, 100vw" decoding="async" loading="lazy" data-src="/static/f373038da6ea484e64532c298a220202/72f41/ssh.png" data-srcset="/static/f373038da6ea484e64532c298a220202/2a0b0/ssh.png 350w,/static/f373038da6ea484e64532c298a220202/cf581/ssh.png 700w,/static/f373038da6ea484e64532c298a220202/72f41/ssh.png 1400w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/f373038da6ea484e64532c298a220202/6b67d/ssh.webp 350w,/static/f373038da6ea484e64532c298a220202/ffb76/ssh.webp 700w,/static/f373038da6ea484e64532c298a220202/cd652/ssh.webp 1400w" sizes="(min-width: 1400px) 1400px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1400px) 1400px, 100vw" decoding="async" loading="lazy" src="/static/f373038da6ea484e64532c298a220202/72f41/ssh.png" srcSet="/static/f373038da6ea484e64532c298a220202/2a0b0/ssh.png 350w,/static/f373038da6ea484e64532c298a220202/cf581/ssh.png 700w,/static/f373038da6ea484e64532c298a220202/72f41/ssh.png 1400w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css lzjgtp">.css-lzjgtp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:400px;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-lzjgtp{height:330px;width:100%;padding:40px 20px;}}</style><div class="css-lzjgtp e1st1jau7"><style data-emotion="css 10qqw1">.css-10qqw1{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin:auto 0;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:42px;font-weight:800;}@media (max-width: 768px){.css-10qqw1{font-size:30px;}}</style><div class="css-10qqw1 e1st1jau5">Mini PC Ubuntu에서 ssh 설정하기 &lt;외부 네트워크 접근 허용&gt;</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau4"><style data-emotion="css 5yjeco">.css-5yjeco{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:start;justify-content:start;}@media (max-width: 768px){.css-5yjeco{-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-5yjeco e1st1jau3"><style data-emotion="css 1b9df66">.css-1b9df66{margin:2px 5px;padding:1px 7px 4px 7px;border-radius:6px;background-color:#49ae8e;font-size:16px;font-weight:800;color:white;}@media (max-width: 768px){.css-1b9df66{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-1b9df66 e1st1jau2">Network</div><div class="css-1b9df66 e1st1jau2">Tip</div></div><style data-emotion="css 14b4j72">.css-14b4j72{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}@media (max-width: 768px){.css-14b4j72{margin:7px 7px;}}</style><div class="css-14b4j72 e1st1jau1"><style data-emotion="css nkt64x">.css-nkt64x{margin-right:10px;}</style><div class="css-nkt64x e1st1jau0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-days" class="svg-inline--fa fa-calendar-days " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"></path></svg></div>2024.01.16.</div></div></div></div><style data-emotion="css hn6e83">.css-hn6e83{margin:auto auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}@media (min-width: 1200px){.css-hn6e83{margin-left:calc( 50% - 384px );}}@media (max-width: 768px){.css-hn6e83{width:100%;}}</style><div class="css-hn6e83 e6b6ljm0"><style data-emotion="css aco8as">.css-aco8as{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:2.5;font-size:18px;font-weight:400;}.css-aco8as p{padding:3px 0;}.css-aco8as strong{margin:0px 1px;font-size:18.3px;font-weight:800;}.css-aco8as h1,.css-aco8as h2{font-weight:800;margin-bottom:20px;}.css-aco8as h3{margin-bottom:0px;}.css-aco8as *+h1,.css-aco8as *+h2,.css-aco8as *+h3{margin-top:50px;}.css-aco8as *+h4{margin-top:25px;}.css-aco8as hr+h1,.css-aco8as hr+h2,.css-aco8as hr+h3{margin-top:0;}.css-aco8as hr+h4{margin-top:25px;}.css-aco8as h1{font-size:40px;}.css-aco8as h2{font-size:35px;}.css-aco8as h3{font-size:23px;color:#49ae8e;}.css-aco8as blockquote{margin:30px 10px;padding:5px 15px;border-left:2px solid #49ae8e;background-color:#f9f9f9;font-weight:400;}.css-aco8as blockquote li{font-size:18px;margin:0px 15px;padding:0px 10px 0px 5px;background-color:#f9f9f9;}.css-aco8as blockquote ol li::Marker{font-weight:800;color:#000;}.css-aco8as em{padding-right:8px;padding-left:3px;}.css-aco8as ol{margin-left:20px;padding:5px 0;}.css-aco8as ol li::Marker{font-weight:800;font-size:19px;color:#49ae8e;}.css-aco8as ul{margin:20px;margin-right:0px;}.css-aco8as ul li::Marker{content:"▶ ";font-weight:800;color:#49ae8e;}.css-aco8as li{font-size:17px;margin:10px 20px;padding-left:10px;padding-right:10px;background-color:#f9f9f9;border-radius:10px;}.css-aco8as li strong{font-size:17.5px;}.css-aco8as del{-webkit-text-decoration:line-through 3px solid rgba(0, 0, 0, .4);text-decoration:line-through 3px solid rgba(0, 0, 0, .4);}.css-aco8as hr{border:1px solid #000000;margin:100px 0;}.css-aco8as a{font-weight:800;color:#49ae8e;-webkit-text-decoration:underline 1px;text-decoration:underline 1px;text-underline-position:under;}.css-aco8as a:hover{color:#ffffff;background-color:#49ae8e;}.css-aco8as pre[class*='language-']{font-weight:300;padding:20px 30px;margin-bottom:15px;font-size:20px;border-radius:10px;border:1px solid #dddddd;}.css-aco8as pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);}.css-aco8as pre[class*='language-'] *{font-family:'Roboto Mono',monospace;font-weight:400;}.css-aco8as code[class*='language-']{font-size:16px;margin-right:4px;}.css-aco8as :not(pre)>code[class*="language-"]{font-size:15px;margin-right:4px;margin-left:4px;color:#000000;background-color:#fafafa;border:1px solid #dddddd;padding:1px 4px 3px 4px;border-radius:5px;}.css-aco8as :not(pre)>code[class*="language-"]::selection{background-color:#dadada;}@media (max-width: 768px){.css-aco8as{width:100%;padding:80px 20px;line-height:2.0;font-size:16px;}.css-aco8as h1{font-size:26px;}.css-aco8as h2{font-size:23px;}.css-aco8as h3{font-size:20px;}.css-aco8as strong{margin:0px 3px;font-size:17px;font-weight:800;}.css-aco8as img{width:100%;}.css-aco8as hr{margin:50px 0;}.css-aco8as li{font-size:16px;}}</style><div class="css-aco8as e1ijh0y10"><h2 id="1-네트워크-정보-확인" style="position:relative;"><a href="#1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8" aria-label="1 네트워크 정보 확인 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. 네트워크 정보 확인</h2>
+<p>Ubuntu의 네트워크 설정에 앞서, 기본적인 네트워크 정보를 찾아놓습니다. 앞선 포스트에서 설명하였던 포트포워딩에 해당하는 IP 정보, 게이트웨이 IP, DNS 서버 IP 등을 기록합니다.<br>
+<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a685eb0bf35022feffe497007ad94429/51f47/cap2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 101.5625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAD1klEQVQ4y42US28bVRiG/RcAoYYtQiDBJpVYoAILNghUhMQGWLAgFQuEIjYFwYIiiCBNo4pWrZMCKSnlWlSBWFRJlCZRmquTOKlrJ3Hi23jiy4zHY4/tmXHs2DMPmonTpiRcRnr06UhnXr3feb9zPNu1Gqa5jZIvkcsX2UgWmVjOMhWQmAnKLIaLLG44aP8LTzK0yoIvzOzUClZZoX9E5ejJME++v07biSCPnLhDm0PHHY50BP6Vto4Ant6hFGeGM7zbt8I75xbov5FgNlRgaEFmKqiyEi3h3ywSiFdYTVYJJatu3WNvHRJMlqIGnqOfz3PcG+S53mWOfDBD32SKrKqxmpQICTK341n80RSrKZWEWiWWN+8j3qrJgglYeB49eZNnum7RfmqChzuH6L4R49clhcH5PN/OF/BO5+mbUembyXNlocBPyyV+3IezvurX+D1YxqxbeJ74aIKXv/Jx7ItpHuwc4cKYgLCVZk2QyBRNMgWDdMFA1kyqZpX/+jyPfTjOC2dmefqzWzzUOcz50QQxUWJhTSSWM4jKuktCMVA0g0aziWXbNC0by8G+V23bdloeo/3TSR7/eJwH3htyBeNbWRbXReK5XaFYTkdUDXSzTq2268R2BfbqPTzHvSHe+D7OqwNR2nvXuOxTiQgpfKuJlqDuVjFvoBR0JMWkrFfRzRrVav1gy68NxHnrWpY3f87wfL/IVX+JWDrPUkRiLV1iQzIIZ3UisoGs1tH0GiWzznbDprpjsd2i1rB2Hb7+XYS3f8vw0mWRZ/sE+ueKDM6k6R5O8uVNmZ5xhdNjObf2jBc4N1vi0mKZvtmiu9fh4mzRNeIIe170bvDKlS2OeQWeOhtnYKGIkM4RiMuEt1RicsU9x6SiU85I1CUZu1LB5uD5uQ7PjmW5OKNyelzh1EiOyZjBhpBlJZphM6MRl3VijmBWo/jnEJUffmFn0b8bjGUdPMPDZimYkPCHRaJSGUEx3NsgpguUvN+gfdJF7fofragPEXTmaQ9nluoNm2BcIuy4U0x3Bp1AhGwZfXqe2ug42/7bNCz7Ppz/3Zb3lJ2F82nVJt7JDD2jKbqGU3SPya1AFM77ynwd2Kbfb9wN5NJcEe/+UP4uuNO0CMScR0EhKOQJZ8psSrp7axTNpGLWqbfGZD9OZ4c6dKwHIimW1pN3E47JOluqSSavoWgVZ/c+/iGUPcFG02ZdzLMqKrs3Jae7oSRTKub1YczBa9hibleuAfWmxU7TdjnUoSMYEnKsp4qtx6FCRKog5kxG10ZZDM8xlfSxJK/jywYRt/IImRyJlOQ6/AvRO4N1mLVoMgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a685eb0bf35022feffe497007ad94429/a59e9/cap2.webp 192w,
+/static/a685eb0bf35022feffe497007ad94429/0ca9f/cap2.webp 384w,
+/static/a685eb0bf35022feffe497007ad94429/dc9b9/cap2.webp 768w,
+/static/a685eb0bf35022feffe497007ad94429/0ad40/cap2.webp 892w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a685eb0bf35022feffe497007ad94429/3b721/cap2.png 192w,
+/static/a685eb0bf35022feffe497007ad94429/66595/cap2.png 384w,
+/static/a685eb0bf35022feffe497007ad94429/fe486/cap2.png 768w,
+/static/a685eb0bf35022feffe497007ad94429/51f47/cap2.png 892w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a685eb0bf35022feffe497007ad94429/fe486/cap2.png"
+            alt="1"
+            title="1"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7e057ceacd09e31450530f9e5dc6e9d5/a4588/cap9.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.729166666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACI0lEQVQoz32P204TURhG+1IoxhhjgpErudL4Aj6AJqKXxgvvIGBCSAwiGkCCtBguPEUkImgboCcM0wOWdmDadGi7h2Fm6Bw6y9CmFvDwJyv7z97Jt9cX2M7kCUdSLH2JI+f2uDsuc+1Rlu4HKc7fT9HVv0XXvf9zrr9D4PaLLHeCMn0DcXofr7GYUMntCjKFKmpFRzdsDMvBMP+C5XBoOohDB2G4TQI9T9LcmFToe1mk55lCKClYiJV4vV5kOlJkPikIJTXmEoJg8iStu/lNDb3u0p7A1cEEtyay9I6muDwsEYpXmAkrTIVLzEarjH9T+SQJirpHXrgUfuOQrznIwsH2fHzfp+H7BB7OSYwu5hh+n2XgXYZITpBWNH7IGqmSweauTu2wDvjge0CjtZ+Z48CmYc9ggpvPs1walrg4JLGUqrKVlckoNQoVk7Jm4th1DNPCth1c18PzvKZNm3bY8Rm4MpTi+sQuF0YKdI8U+JwWZPIlcqrRRK4YVKqCo7qN6zVo+OD5Pl6jw6nAsVWVyQ3B0+9VxiKCuKyzLJUJbwvC2Rrpog78u+oflc8+5Gs2U+s1gpsHTMc05uIaq/kjlncslnPmKb7uWKzsmBh2o2PY1na91g+FisUHSfBxY4+FlZ+83dKYiSiEoirBaJlQTGV2rUQwqvIqvMeb+D6a5XYCTzi3Cnku2CakJYitN3d/vwRaBQwNLB0OqqDXcMsK4J6q/Asuvg4aq9gVLQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/7e057ceacd09e31450530f9e5dc6e9d5/a59e9/cap9.webp 192w,
+/static/7e057ceacd09e31450530f9e5dc6e9d5/0ca9f/cap9.webp 384w,
+/static/7e057ceacd09e31450530f9e5dc6e9d5/dc9b9/cap9.webp 768w,
+/static/7e057ceacd09e31450530f9e5dc6e9d5/e2c2f/cap9.webp 1152w,
+/static/7e057ceacd09e31450530f9e5dc6e9d5/88a49/cap9.webp 1254w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/7e057ceacd09e31450530f9e5dc6e9d5/3b721/cap9.png 192w,
+/static/7e057ceacd09e31450530f9e5dc6e9d5/66595/cap9.png 384w,
+/static/7e057ceacd09e31450530f9e5dc6e9d5/fe486/cap9.png 768w,
+/static/7e057ceacd09e31450530f9e5dc6e9d5/d2d74/cap9.png 1152w,
+/static/7e057ceacd09e31450530f9e5dc6e9d5/a4588/cap9.png 1254w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/7e057ceacd09e31450530f9e5dc6e9d5/fe486/cap9.png"
+            alt="2"
+            title="2"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span>
+<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 650px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/78e2e33b14abb25f659a8936bf0e3943/663f3/cap4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 13.541666666666666%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAkUlEQVQI133HQQqCQBiGYU8ZoXWBNl0qnWWdoG2LEFwkQRqmzDSOxNDMP7jR+gKlRVAtHl5eb7GWWG5qTEMOP+Lww09BJDBjAgEb+8ucCUxWHN42KZBUBnFpEZfvjvYXg1QQjtwgre7IJKFxPRrqvlLUwdsdCpykxVk55IqQD3XDZzXhqlsoTZA3grYt+sfzrxfBQNCbJxC3VgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/78e2e33b14abb25f659a8936bf0e3943/a59e9/cap4.webp 192w,
+/static/78e2e33b14abb25f659a8936bf0e3943/0ca9f/cap4.webp 384w,
+/static/78e2e33b14abb25f659a8936bf0e3943/309d5/cap4.webp 650w"
+              sizes="(max-width: 650px) 100vw, 650px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/78e2e33b14abb25f659a8936bf0e3943/3b721/cap4.png 192w,
+/static/78e2e33b14abb25f659a8936bf0e3943/66595/cap4.png 384w,
+/static/78e2e33b14abb25f659a8936bf0e3943/663f3/cap4.png 650w"
+            sizes="(max-width: 650px) 100vw, 650px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/78e2e33b14abb25f659a8936bf0e3943/663f3/cap4.png"
+            alt="3"
+            title="3"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h2 id="2-ubuntu-네트워크-설정" style="position:relative;"><a href="#2-ubuntu-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%84%A4%EC%A0%95" aria-label="2 ubuntu 네트워크 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Ubuntu 네트워크 설정</h2>
+<p>간편한 GUI 기준으로 설명하겠습니다. 우분투에서 우측 상단의 네트워크 버튼을 누르고, 세부설정에 들어가 현재 연결되어있는 네트워크의 톱니바퀴를 누릅니다.<br>
+<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/934d1be5e790b29846cfb27f7eeec60a/e2f49/Screenshot2.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeUlEQVQoz22RS0hUURyHLxa9CCJaROXgRFk+0SnTKS17ob0WKUREBVFa0YskoiAoeixC3NamsFLHGa0UrCja5SKMKMpdtGih5YxTM3fuPXfu0/vF3NHFRAc+focD5+P/kIrn+SiUlrGrqJaXz0IMhDsZ6n/Ci4EwkVA34VA3z/rDPH/ax+POhx59vT2EQ11Eervp7enidN1+ji7bwMlVG5HKJB+VUj57C/cQGZEZHHWIfLJ5991iyjYRqoKqKuBOkT3udLi4Uw64Dp1HrnK7YAcdJQ1IRXkrqJR8NJXuY+jDL958lXk9Knj/TUZVUshykmQigZJKYZoGuq7jWAY/oioTsT8oqsyDQ23cKthMR+nWjHA5AamAluomRCKGa6rTldik5CQ/x8cYHx8jrWnoeho9raGns6nISWRFpqP5BHf9Qe5X1COVzMqnSvJzKniAyck4ad1gygXDtLwKUykZoapYppmDaegosowQKu3Nx7jpq+BxVT1S+WwfNXkrObfpINGJCRRFwXVdTNP0hJkZWlZWYBh6TmbEQhO8ar3MvTXVhKprkQJz/dTPWcu1bceJRWMYhuE1nPmkCZV4PO7Nz7atXCwLTROoQmX47BU6S9bTHwwi1cxfTeOCcm7saOX3ZBwhBI7j4Di2J5STSRQlhWkY3lK8nEZJySiqysiFy/SUVdBXE0DasrCY5kVVXN/ZQuJPAtu2syuxs8LsEoR3z0VB9yoUfLzYxmCgnO51RUiNiys4vKSWOw2niUWj2E6ucIa0JnKYecsIP7dd4G2wjEflfqTmpTW0Lt1O++7zJBNJNE3Dtmyv7f+J/hVmRvTl0hmG60qJBPz8BXYrvzM69TqpAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/934d1be5e790b29846cfb27f7eeec60a/a59e9/Screenshot2.webp 192w,
+/static/934d1be5e790b29846cfb27f7eeec60a/0ca9f/Screenshot2.webp 384w,
+/static/934d1be5e790b29846cfb27f7eeec60a/dc9b9/Screenshot2.webp 768w,
+/static/934d1be5e790b29846cfb27f7eeec60a/e2c2f/Screenshot2.webp 1152w,
+/static/934d1be5e790b29846cfb27f7eeec60a/1ea9b/Screenshot2.webp 1366w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/934d1be5e790b29846cfb27f7eeec60a/3b721/Screenshot2.png 192w,
+/static/934d1be5e790b29846cfb27f7eeec60a/66595/Screenshot2.png 384w,
+/static/934d1be5e790b29846cfb27f7eeec60a/fe486/Screenshot2.png 768w,
+/static/934d1be5e790b29846cfb27f7eeec60a/d2d74/Screenshot2.png 1152w,
+/static/934d1be5e790b29846cfb27f7eeec60a/e2f49/Screenshot2.png 1366w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/934d1be5e790b29846cfb27f7eeec60a/fe486/Screenshot2.png"
+            alt="4"
+            title="4"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+현재 네트워크의 MAC 주소 및 DNS 서버를 확인해 줍니다.<br>
+<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/af2fe651f092bd70796a252871f0c179/e2f49/Screenshot3.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAC7klEQVQoz0WQTUwUdxiHR2Nqm3ixBw9Q3VZMZFGBhWW3WGBaUIlNmhhSP6IVGmPTk42uqHRB21prG6kfaWJb0vjBzOzMf2Y/qCtQrJbEg209iAgKmihc2hO6LOzs1gWWp3G19Jc8eU/vk/f9SfkLl7JyXi5Vy0o40tRI0/49NB/ysbluEx53GRWVlciyjNvtxuVy4XQ6qamu5mDjfhp9+/D59vJBUQ0NuV4+yitHWiW9Rom0jOqcCg6c0Gk6E+Hz7y/x6fEf+OzIYfzNfvx+P0ePfsGxY1/S0tLCmdOniUajdHRE6Pg5womNu/l6eS2tBeuRVs7LoURyUOuQOfztRZpPqvwY6Ob6H30M9t/i3p0++m7+zq0/bzA02M+9gduMPnzA1d7rXLjYjiF0vqmt53je27Sukp8L3dIbbMmvIairhE2NwYE7JOwkscdjPE4mmGSWBLMkUzb25ART6afcHx5CUxUCQqdJ3kTrigrOFspIzvm5eOYvZ3tBLZoaQAvoDN9/wMxMhngiwZgZwj71Helz7TCZ4L+Mjo6iqgqmZXJIfo+vXi/hQmkV0uoFSylfsIKGNe+iKEqW4eEhYBY7leLJtV4mRZB0dw8Z2ybzQjjy6BGmKRCWiVK3i7aCcrSytUjFLzl452Unn5RuRlVUhDDoGxjC/idNLPaE+PQ0M/yfTOa5cmRkBF0PYJgmkW27aV/jxfR6kTyv5LFxURE+z1Z0LYCmafQP3CWRTBEbjzERj5OIT5CybexkkvTU1JxQU1UMU9C5YxeiuBThKUaqXJTP+6962efZiqEbCFO8eJns8vQzMhmejo/zd9s5/jrbxthP57n7Sw8iHEQIQc/OeqJlLlRXPtKGxYXUL6ni4JvbUdoVwpEwXV3dXLnSQ2fn5SxdXZ3ZGQ0GuRS0srMjFMS0RPbCX+t30PtWEedXO5Dqlnj5OGcdLRUNGAEdy7IIh8KEQsFsR3MYAQxhzPGsa8sys8LfPtzGDbkQo9jBv0dSXzHLSqADAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/af2fe651f092bd70796a252871f0c179/a59e9/Screenshot3.webp 192w,
+/static/af2fe651f092bd70796a252871f0c179/0ca9f/Screenshot3.webp 384w,
+/static/af2fe651f092bd70796a252871f0c179/dc9b9/Screenshot3.webp 768w,
+/static/af2fe651f092bd70796a252871f0c179/e2c2f/Screenshot3.webp 1152w,
+/static/af2fe651f092bd70796a252871f0c179/1ea9b/Screenshot3.webp 1366w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/af2fe651f092bd70796a252871f0c179/3b721/Screenshot3.png 192w,
+/static/af2fe651f092bd70796a252871f0c179/66595/Screenshot3.png 384w,
+/static/af2fe651f092bd70796a252871f0c179/fe486/Screenshot3.png 768w,
+/static/af2fe651f092bd70796a252871f0c179/d2d74/Screenshot3.png 1152w,
+/static/af2fe651f092bd70796a252871f0c179/e2f49/Screenshot3.png 1366w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/af2fe651f092bd70796a252871f0c179/fe486/Screenshot3.png"
+            alt="5"
+            title="5"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+IPv4 세부설정에서 Manual을 선택합니다. 이후 아래 정보칸에 본인의 고정된 DHCP IP, 서브넷 마스크, 게이트웨이 IP, DNS 서버 IP를 입력합니다. Routes의 경우 자동으로 설정해놓아도 됩니다.<br>
+<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c1526fcd20cd2ec4163a85b0d6b1459e/e2f49/Screenshot4.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAACyElEQVQoz22SS0hUYRiGTxFdoE0tWmg2lUFmpaY1k2VOdykIIrphpSFFmzAdR53uqy5kLYJatKmcc+ZcxpyLTRZSUZFIlmZo423hqkUw5m2c0ZnRJ87psqkPXl74+Xm+9/35hbQ5KayckUz+kmyuOOw47KWct5dxoboCu63ckKO6kvOOKs6VnjVUWWHDbivDXlGOzVbG8cwdFCdbOJ2ai7BaWEy2sITtSXlU3pJx3PVw9Z6Pe7V+vF4Pmqaiqgp+n5cGvw+//4/78Hk9eH0ebu05xY3lBdSk70JYOSOJbMFEgcnK5duPuXhH5IH8nDfNbbS1tvD50wdaW97T0vyOL+0f6Whrpb/nKy9fv+XR41oUVeZmQRHXU7dSs9r6C7heWMbhtB3UySJPNInuznbCIz8IhUJ8+x5icDDE6MgQ4+ExfgyGiEbG6en+iiQ6cakyDut+albkcT/DirBqZjLmmcspTC9AEl24ZJlgsBt9YvEEg0MjhMNhohMTxtn4eMTwgYEBRNGJ5taotu7j2tJsHuXkI6yZlULurBUUr92Ls9aJKIp0dnYyNDxMNBplaipBJBIhkUgwOTnJxG9wf18fbk1DdWs4D5TwID0XacMmhKzZJrbNXUVpziFEp4isKASDQeLxONFIxADoCWOxmFF5bGyUqUSC3p4eFEVG0VQ8R09Ru9aCZrEgmOelsmd+JjbzEWTJheSS6OjoMIA65M9MT08bri+Ix2P09/chSaIBDBwrQc3KQTVnIWyZn8bBhRbKzUdQZBlN0+jq6jJqjo6OMGkA4n+lL9HRvb29RkK98osTRTRsWIe4Lg1h94IMihblU7Wx0HjDek89jY2NNDU18exZgEDg6T96Ggjg+f1H9YRNRcd4vTmTh2tMCAcWWTiTtJNLecUoLhm32039k3rq6uqQZdd/pcguVFW/qxnAVyeP0mzNQMky8RPlq25PJCUqmQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c1526fcd20cd2ec4163a85b0d6b1459e/a59e9/Screenshot4.webp 192w,
+/static/c1526fcd20cd2ec4163a85b0d6b1459e/0ca9f/Screenshot4.webp 384w,
+/static/c1526fcd20cd2ec4163a85b0d6b1459e/dc9b9/Screenshot4.webp 768w,
+/static/c1526fcd20cd2ec4163a85b0d6b1459e/e2c2f/Screenshot4.webp 1152w,
+/static/c1526fcd20cd2ec4163a85b0d6b1459e/1ea9b/Screenshot4.webp 1366w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c1526fcd20cd2ec4163a85b0d6b1459e/3b721/Screenshot4.png 192w,
+/static/c1526fcd20cd2ec4163a85b0d6b1459e/66595/Screenshot4.png 384w,
+/static/c1526fcd20cd2ec4163a85b0d6b1459e/fe486/Screenshot4.png 768w,
+/static/c1526fcd20cd2ec4163a85b0d6b1459e/d2d74/Screenshot4.png 1152w,
+/static/c1526fcd20cd2ec4163a85b0d6b1459e/e2f49/Screenshot4.png 1366w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c1526fcd20cd2ec4163a85b0d6b1459e/fe486/Screenshot4.png"
+            alt="6"
+            title="6"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/b8a0a713d37c48de5df4b2968b2964eb/e2f49/Screenshot5.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 56.25%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC1klEQVQoz3WSXWiTVxjHX0XUgTd64UWrxlnBpmrbtGliXdt3ttuKg4n4jW7tEMeuFI2dhjYVP7dhN/Rmgjdq837HJtWaYBX1YmywLyVNm7wVBIWhtBM7Soxp89HfeN/KYBd74M//4XDO7/zPwxHKFyxnzZxSmlbUcMLfgf/oQQLHfWzfuoW6WjeNjY2Ioojb7cblcuF0OmlpbuZYx1E6fEfw+Q7zaVUL7aVeviirR1grLKNGWEFzSQNfnVfxX4xw8tJN/OcucaK7m66uLjo7Ozl9+hRnz5whEAhw8cIFBgZu0t8fof9GhPObD/DNqlZ6Kj5EWDOnhBrBQatDpPu7a3R9L3FZvc1Pv8YZjj9kZOgR8Ye/8ej3XxhNDmGOxHn65DH3HvzI1Wu9aLrGt61tfF32Pj1rxVmgW3iXXeUtXFclwobCSPwPXvz5jL/Gxxh7OcH4+Bh/T7yyNfHqJVPZNyRHhpFlCUVX8Ytb6VndwA+VIoJzbimeuavYW9GKLCkoqkoqZVIoFJiaypLL5chkMhQKed5kMrxOpykWi5imaQONkMFx8RPOrazham0Twrp5y6mft5r29R8T7A0iSRKJRIJ8Pm/DZmZmsMqCWH02myWfyzFqpjAMHT1kENy2n8sV9ch1GxGq5zvYtNDJodqdSEEJTdNIJpP2wXQ6bYMt2L8qFOwLRkcfoyqKDYzsOUDvei+G14vgeaeMzYuq8Hl2o8oKsiyTGErYT555m8ruLS8WyU1neT4xRXzYRJGDaIZOdN9+9OpadE81QuOicnYs8XLEsxtNVdENg1QyyfT0NJOTk3ZKW69n3Vq3yjRTqOpswsHP2hiocyG5yhE+WlxJ29Imjm3Ya88wHAkTi8W4MzhINHrrraL/8Vgsav9Ba4ZWwrtt+3jwXhVX1jkQti318mXJBwQa2tEUlVAoRLgvTF/fdTvB/0nXrL2GDbz/+R5+FivRqh38A9LHZPs0ycnBAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/b8a0a713d37c48de5df4b2968b2964eb/a59e9/Screenshot5.webp 192w,
+/static/b8a0a713d37c48de5df4b2968b2964eb/0ca9f/Screenshot5.webp 384w,
+/static/b8a0a713d37c48de5df4b2968b2964eb/dc9b9/Screenshot5.webp 768w,
+/static/b8a0a713d37c48de5df4b2968b2964eb/e2c2f/Screenshot5.webp 1152w,
+/static/b8a0a713d37c48de5df4b2968b2964eb/1ea9b/Screenshot5.webp 1366w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/b8a0a713d37c48de5df4b2968b2964eb/3b721/Screenshot5.png 192w,
+/static/b8a0a713d37c48de5df4b2968b2964eb/66595/Screenshot5.png 384w,
+/static/b8a0a713d37c48de5df4b2968b2964eb/fe486/Screenshot5.png 768w,
+/static/b8a0a713d37c48de5df4b2968b2964eb/d2d74/Screenshot5.png 1152w,
+/static/b8a0a713d37c48de5df4b2968b2964eb/e2f49/Screenshot5.png 1366w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/b8a0a713d37c48de5df4b2968b2964eb/fe486/Screenshot5.png"
+            alt="7"
+            title="7"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h2 id="3-ssh-접속-확인" style="position:relative;"><a href="#3-ssh-%EC%A0%91%EC%86%8D-%ED%99%95%EC%9D%B8" aria-label="3 ssh 접속 확인 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. ssh 접속 확인</h2>
+<p>ssh로 포트포워딩에 해당하는 IP로 잘 접속되는 것을 확인할 수 있습니다.<br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f9248a6b891ee26bc85132dbacf10ec5/9d517/Screenshot6.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 52.60416666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABtUlEQVQoz42S3W6bQBCFsaMADmADZvln8a4NGIyTVJXSR+gLVOojVOr733/VYqlKpCjJxae52J2z58ys1Xc90zQx9ANd16GV5ng6cjqdGLqO3jCN/O7P/Ckb/laSn63iV1Fx3u6wPY84ioiiiLu7NVbf90uzEW0biVKay3RhHCeu88xlmjgPA/PzN7p5ZpivzE/PtErhuC6u47LZbHBdl9VqhWXEtD4yX2aO+ohsW9RBM44j6qAYhoG+7xi6nvE8oGRLJgRhGN6chRHr9RrLsm4kSYJIBPt4TxhGt4txTLJP2O122La9uPAeHpZqnPxvfo+Xlx9cr484toOUB8bzmafrI9M4cplntNYEQfCxyGvqqloaHMcmjvekIl1iJCKhrmuqssL3fTzPWxy/ifceTdMghKAsChojUNUUZUGeZ/iet0Q0+H7ANghug/9IsKoqirzACMu6RsoWpTV5lrENtssGzWzNY67jfB5Z1g2ykZiaG5dNTVXXlGWFVgop5XJuFpWm6ecOy6YkL4slpkhT8jwnyzKESHEcB9t2uL+///pSsu8NyVziNyFxKTjIdvkqhi+LvOIfN0IHwXqug6EAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f9248a6b891ee26bc85132dbacf10ec5/a59e9/Screenshot6.webp 192w,
+/static/f9248a6b891ee26bc85132dbacf10ec5/0ca9f/Screenshot6.webp 384w,
+/static/f9248a6b891ee26bc85132dbacf10ec5/dc9b9/Screenshot6.webp 768w,
+/static/f9248a6b891ee26bc85132dbacf10ec5/adb50/Screenshot6.webp 910w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f9248a6b891ee26bc85132dbacf10ec5/3b721/Screenshot6.png 192w,
+/static/f9248a6b891ee26bc85132dbacf10ec5/66595/Screenshot6.png 384w,
+/static/f9248a6b891ee26bc85132dbacf10ec5/fe486/Screenshot6.png 768w,
+/static/f9248a6b891ee26bc85132dbacf10ec5/9d517/Screenshot6.png 910w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f9248a6b891ee26bc85132dbacf10ec5/fe486/Screenshot6.png"
+            alt="8"
+            title="8"
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p></div><style data-emotion="css pit38s">.css-pit38s{height:auto;}</style><div class="css-pit38s etse75s1"><style data-emotion="css v7bn0g">.css-v7bn0g{position:-webkit-sticky;position:sticky;top:50px;display:inline-block;margin:120px 40px;margin-right:0px;height:auto;width:200px;font-size:14.5px;border-left:3px solid #4ccd97;}@media (max-width: 1200px){.css-v7bn0g{display:none;}}.css-v7bn0g li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px;color:gray;}.css-v7bn0g ul{margin-left:10px;padding:7px 5px;list-style:none;}.css-v7bn0g a:hover{-webkit-transition:0.3s;transition:0.3s;font-size:15px;font-weight:700;color:#433E49;}</style><div class="css-v7bn0g etse75s0"><ul>
+<li><a href="#1-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%A0%95%EB%B3%B4-%ED%99%95%EC%9D%B8">1. 네트워크 정보 확인</a></li>
+<li><a href="#2-ubuntu-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%84%A4%EC%A0%95">2. Ubuntu 네트워크 설정</a></li>
+<li><a href="#3-ssh-%EC%A0%91%EC%86%8D-%ED%99%95%EC%9D%B8">3. ssh 접속 확인</a></li>
+</ul></div></div></div><style data-emotion="css qi68kj">.css-qi68kj{width:768px;margin:auto auto;padding:0 10px;}@media (max-width: 768px){.css-qi68kj{width:100%;padding:0 20px;}}</style><div class="css-qi68kj elyfc7a0"><div id="disqus_thread"></div></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v81"><style data-emotion="css chvw2h">.css-chvw2h{width:80px;height:80px;background-image:url('bartender.png');-webkit-background-size:contain;background-size:contain;margin:20px auto 0px auto;}</style><div class="css-chvw2h e1oae0v80"></div>Just an developer with drinks<br/>2022 HyeonDong, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/minipc_ssh/";window.___webpackCompilationHash="70356496a4120270da86";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-c9fa82aa5b1f9c65f078.js"],"app":["/app-e9f3f84a858e449c6845.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-c686bcb9fd021576da4f.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-a996845aa9f72e17dba7.js"],"component---src-pages-post-tsx":["/component---src-pages-post-tsx-66acd32db55f17007543.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-676c0d609cc6ccc353e7.js"]};/*]]>*/</script><script src="/polyfill-c9fa82aa5b1f9c65f078.js" nomodule=""></script><script src="/app-e9f3f84a858e449c6845.js" async=""></script><script src="/framework-c57a9454c0e3bef16c3b.js" async=""></script><script src="/webpack-runtime-301cd6e2ec1b80fcee8f.js" async=""></script></body></html>

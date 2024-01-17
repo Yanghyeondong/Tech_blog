@@ -16,6 +16,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
+        host: 'https://yangdongs.web.app/',
+        sitemap: 'https://yangdongs.web.app/sitemap-pages.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://yangdongs.web.app/sitemap/sitemap-index.xml
+Sitemap: https://yangdongs.web.app/sitemap-pages.xml
 Host: https://yangdongs.web.app

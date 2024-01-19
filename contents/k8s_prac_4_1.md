@@ -1,5 +1,5 @@
 ---
-date: '2024-12-31'
+date: '2024-01-19'
 title: '『쿠버네티스 교과서』실습 4장 part 1'
 categories: ['K8s', 'Docker','DevOps']
 summary: '엘튼 스톤맨의 『쿠버네티스 교과서』를 바탕으로 k8s 실습을 진행합니다.'

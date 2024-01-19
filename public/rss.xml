@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Jan 2024 02:59:37 GMT</lastBuildDate><item><title><![CDATA[『쿠버네티스 교과서』실습 4장 part 1]]></title><description><![CDATA[해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며, 환경은 Kubernetes v1.28. Docker Desktop…]]></description><link>https://yangdongs.web.app/k8s_prac_4_1/</link><guid isPermaLink="false">https://yangdongs.web.app/k8s_prac_4_1/</guid><pubDate>Tue, 31 Dec 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며,&lt;/em&gt;&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 19 Jan 2024 03:17:48 GMT</lastBuildDate><item><title><![CDATA[『쿠버네티스 교과서』실습 4장 part 1]]></title><description><![CDATA[해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며, 환경은 Kubernetes v1.28. Docker Desktop…]]></description><link>https://yangdongs.web.app/k8s_prac_4_1/</link><guid isPermaLink="false">https://yangdongs.web.app/k8s_prac_4_1/</guid><pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며,&lt;/em&gt;&lt;br&gt;
 &lt;em&gt;환경은 Kubernetes v1.28. Docker Desktop으로 진행합니다.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;개념-요약&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%85%90-%EC%9A%94%EC%95%BD&quot; aria-label=&quot;개념 요약 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개념 요약&lt;/h2&gt;
 &lt;h3 id=&quot;컨테이너의-장점과-환경-설정값&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%9D%98-%EC%9E%A5%EC%A0%90%EA%B3%BC-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95%EA%B0%92&quot; aria-label=&quot;컨테이너의 장점과 환경 설정값 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컨테이너의 장점과 환경 설정값&lt;/h3&gt;
@@ -238,7 +238,355 @@ dbug: ToDoList&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;Page
 &lt;ul&gt;
 &lt;li&gt;『쿠버네티스 교과서』- 엘튼 스톤맨, 길벗&lt;br&gt;
 &lt;a href=&quot;https://github.com/gilbutITbook/kiamol&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://github.com/gilbutITbook/kiamol&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[『쿠버네티스 교과서』실습 3장 part 2]]></title><description><![CDATA[해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며, 환경은 Kubernetes v1.28. Docker Desktop으로 진행합니다. 개념 요약 클러스터 외부 트래픽 데이터베이스와 같은 스토리지 컴포넌트는 k8s…]]></description><link>https://yangdongs.web.app/k8s_prac_3_2/</link><guid isPermaLink="false">https://yangdongs.web.app/k8s_prac_3_2/</guid><pubDate>Thu, 18 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며,&lt;/em&gt;&lt;br&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Firebase Gitub Actions 오류 해결방법 HTTP Error: 429, You have exceeded the Hosting storage quota for your Firebase project]]></title><description><![CDATA[1. 미리 보는 결론 Firebase 콘솔에 들어가서 다음과 같이 출시 저장 용량을 제한합니다.
+ 2. 문제 인식 평소 블로그 글을 쓸때, 깃허브 Actions를 사용하여 Push를 하면 자동으로 Firebase에 배포가 되도록 설정했습니다. CI…]]></description><link>https://yangdongs.web.app/firebase-error-1/</link><guid isPermaLink="false">https://yangdongs.web.app/firebase-error-1/</guid><pubDate>Fri, 19 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;1-미리-보는-결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-%EB%AF%B8%EB%A6%AC-%EB%B3%B4%EB%8A%94-%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;1 미리 보는 결론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. 미리 보는 결론&lt;/h2&gt;
+&lt;p&gt;Firebase 콘솔에 들어가서 다음과 같이 출시 저장 용량을 제한합니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7d9020e75761d590ccfbacc11093ae6b/dabbe/3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.208333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABqElEQVQoz5WR3UvjQBTF8/+/rfjVfEzmI8kk7r4v+ygIKojoLkUxNu22tdUVpbtoEjXpkblpSx5U3IHDhJmT3z33jvVlk2HTUWAyBg92/ku+Smh3hcaGLbHeEbA2bEEwppKV4TOgtsyZCL9ChDuw2iYmEzg8guNHcLmmvcNC2C2Ze+Nry6M9Joa1rGAOjHlv/wjdsxTHp110z1NcZgOkvT4pGwyxu3dIRVwRL6ThcA1PNCNbAZuEGqPxBA9FhbtZjvL5BWbVc6CqavruZQPYnoQvNUSYgIkIXBlY077FW0BfafT6I9zMnnD/r8R8Pkdd16jqGs8vDfwi7cH1FXgQQxqgjCCCGOItIFca5+kAd39L3M8ekBcF8qLEY16iKEoC9vsZOiah0gT0TMLgvYRSYzq9ph/z4mnV5nKd/q5wcHIJxhWNR37UMl8Af/7q4ubPLSbTawzHY1xNplRkOLqC/JHh2/cDcBmsgB8mNJVMK01VjbUtF9uugM0UPUQSa8gggsdDmp0B0uO8N8PmIiawMa93GMFcHsLxAzgGJCL4MiKQ8fDFLJcJXwGdSav8w2WrQQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7d9020e75761d590ccfbacc11093ae6b/a59e9/3.webp 192w,
+/static/7d9020e75761d590ccfbacc11093ae6b/0ca9f/3.webp 384w,
+/static/7d9020e75761d590ccfbacc11093ae6b/dc9b9/3.webp 768w,
+/static/7d9020e75761d590ccfbacc11093ae6b/e2c2f/3.webp 1152w,
+/static/7d9020e75761d590ccfbacc11093ae6b/9dd84/3.webp 1483w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7d9020e75761d590ccfbacc11093ae6b/3b721/3.png 192w,
+/static/7d9020e75761d590ccfbacc11093ae6b/66595/3.png 384w,
+/static/7d9020e75761d590ccfbacc11093ae6b/fe486/3.png 768w,
+/static/7d9020e75761d590ccfbacc11093ae6b/d2d74/3.png 1152w,
+/static/7d9020e75761d590ccfbacc11093ae6b/dabbe/3.png 1483w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7d9020e75761d590ccfbacc11093ae6b/fe486/3.png&quot;
+            alt=&quot;9&quot;
+            title=&quot;9&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;2-문제-인식&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#2-%EB%AC%B8%EC%A0%9C-%EC%9D%B8%EC%8B%9D&quot; aria-label=&quot;2 문제 인식 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;2. 문제 인식&lt;/h2&gt;
+&lt;p&gt;평소 블로그 글을 쓸때, 깃허브 Actions를 사용하여 Push를 하면 자동으로 Firebase에 배포가 되도록 설정했습니다. CI/CD를 활용해 조금이나마 편리한 배포를 위해서였습니다. 😎
+하지만 어느날 다음과 같이 배포가 지속적으로 실패하는 상황이 생겼습니다.
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ec1c09c19be97b307b50b8af1c5777d0/bc1e6/0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABpElEQVQoz52R324SURCH9wm8MZEE0QrSZXHZXXaXP7tbWCtqwht44U3VSlpbtSqaGn0N06S1FeN7aHycXiCFKHYXwmfOAYwNvXKSLzNzzuSX35mj9I+P+dHr0e126fVO+J+YAHE8krVyOhwyGo2IokgefP32nRftXV7vvmfr+Su2d9psi3wOL9+8k+y037K+8ZQPe/so/ZMBP38N+X06FdzbPyRxNUtaNUikMly6nJYkUtcXSC6pklRa48LFJPfur6EM+gOiKJYuRXzqfMG0KtQbTfzwDuVglZJ/E71YpWCfRZwJDNeXBlqbz1CiOGY8HktEfDz6TDZvsXKriRfexa6GGG6AWnDJGYLStC445GR2yVtl6fLB402U+WL/FcxoFt5qEzdoYJTr5IseuhugOwEFt4bu+Ki6zfINm2XdRjNcktdU1tY3UCaTCYK54MFRhysZjZIfYrk+puNhlXxZizztA0xxN6NYXiGjmTxsPVl0eHDYYSmrU6k15LBerJzd2ywvCObM8588F/Tqt3GqdTlsV2p/mfZ1HC/EnSE+TuzyUWuLP/d5rqAmLKiVAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/ec1c09c19be97b307b50b8af1c5777d0/a59e9/0.webp 192w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/0ca9f/0.webp 384w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/dc9b9/0.webp 768w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/e2c2f/0.webp 1152w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/f3efb/0.webp 1536w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/e3297/0.webp 1871w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/ec1c09c19be97b307b50b8af1c5777d0/3b721/0.png 192w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/66595/0.png 384w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/fe486/0.png 768w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/d2d74/0.png 1152w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/e8464/0.png 1536w,
+/static/ec1c09c19be97b307b50b8af1c5777d0/bc1e6/0.png 1871w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/ec1c09c19be97b307b50b8af1c5777d0/fe486/0.png&quot;
+            alt=&quot;0&quot;
+            title=&quot;0&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+에러 문구에서도 확인할 수 있듯이, 호스팅 스토리지에 문제가 생긴듯 했습니다.&lt;/p&gt;
+&lt;h2 id=&quot;3-해결&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-%ED%95%B4%EA%B2%B0&quot; aria-label=&quot;3 해결 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. 해결&lt;/h2&gt;
+&lt;p&gt;바로 Firebase 콘솔을 확인합니다.&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5ec33fe69c94c583b41037d2d30b18d4/03094/1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.541666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA10lEQVQoz5WQDU/CMBCG+/9/ok4TFccm6xhsc73P17SAQgIGLnl6ud7X24amT3hvZ7RbQdwbunN2l3E/+k3i6NhOjvD2xXhtBdWaUNVH1geePhOqOuG5Jrw0jI9o/7LqDUFVQURwV1wzdzxgjjAviqYbMOxG5OFLYixkvyQ2mN2DFwIRo+16bOJQEsxcNnmW5gd/L+aOkA8RBbGUyzxQVCEiD8EiRVBQ87P/8vLsvEBO/tiwpIRp/sY4zWCWi1zuMc2CDIHYkOiPHN/iWg2LYz8rmkjYDIwfWtZxbdwUp9YAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/5ec33fe69c94c583b41037d2d30b18d4/a59e9/1.webp 192w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/0ca9f/1.webp 384w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/dc9b9/1.webp 768w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/e2c2f/1.webp 1152w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/f3efb/1.webp 1536w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/f0be2/1.webp 1567w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/5ec33fe69c94c583b41037d2d30b18d4/3b721/1.png 192w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/66595/1.png 384w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/fe486/1.png 768w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/d2d74/1.png 1152w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/e8464/1.png 1536w,
+/static/5ec33fe69c94c583b41037d2d30b18d4/03094/1.png 1567w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/5ec33fe69c94c583b41037d2d30b18d4/fe486/1.png&quot;
+            alt=&quot;1&quot;
+            title=&quot;1&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;정확한 제한은 모르지만, 10GB 정도가 한계인것 같습니다. 하지만 제 블로그 용량은 깃허브상 200MB가 채 안되는데 무엇이 문제일까요?
+기록을 보니 Firebase는 이전의 기록을 사본으로 계속 보관하는것 같습니다. 다행히 출시 용량 제한 옵션이 있습니다.&lt;br&gt;
+&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/6d5bcf61394538476174af36d4e6ab13/60b6f/2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 41.14583333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA7ElEQVQoz5WQ7U7DMAxF8/4PibRpDA1Ku7WOE3+kd0rajlWABD+OYiXO0bXDy/Ed/Y3ByaEGiM5/ZuufoqK/MigKQtfTvyQ/YQ54AcyA4A6ozkhSEPOeJDNYyspzXcBbX/KWjGJCZEHYonN2ECtisvaBkqEbCGPUFdlR3zc+hwkf3RX9MCJUWU2YtUCtwMygZhBVHF7PmIgxTgSKjJQFOUs7a5+7t7qU0saurrAstlIvfZGJNuHp7dJEE0VETsiiD2rvJvT2b9nnXmh74eF0bulu45KQU36ga8Jafwm/JVykogZ9Hpnir8J9QuAOtnFxM3YzUZUAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/6d5bcf61394538476174af36d4e6ab13/a59e9/2.webp 192w,
+/static/6d5bcf61394538476174af36d4e6ab13/0ca9f/2.webp 384w,
+/static/6d5bcf61394538476174af36d4e6ab13/dc9b9/2.webp 768w,
+/static/6d5bcf61394538476174af36d4e6ab13/e2c2f/2.webp 1152w,
+/static/6d5bcf61394538476174af36d4e6ab13/ff8b5/2.webp 1494w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/6d5bcf61394538476174af36d4e6ab13/3b721/2.png 192w,
+/static/6d5bcf61394538476174af36d4e6ab13/66595/2.png 384w,
+/static/6d5bcf61394538476174af36d4e6ab13/fe486/2.png 768w,
+/static/6d5bcf61394538476174af36d4e6ab13/d2d74/2.png 1152w,
+/static/6d5bcf61394538476174af36d4e6ab13/60b6f/2.png 1494w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/6d5bcf61394538476174af36d4e6ab13/fe486/2.png&quot;
+            alt=&quot;2&quot;
+            title=&quot;2&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;br&gt;
+기록 버전을 약 5개 정도로 줄이니 예상 용량이 확 줄어듭니다.&lt;br&gt;
+&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7d9020e75761d590ccfbacc11093ae6b/dabbe/3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.208333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABqElEQVQoz5WR3UvjQBTF8/+/rfjVfEzmI8kk7r4v+ygIKojoLkUxNu22tdUVpbtoEjXpkblpSx5U3IHDhJmT3z33jvVlk2HTUWAyBg92/ku+Smh3hcaGLbHeEbA2bEEwppKV4TOgtsyZCL9ChDuw2iYmEzg8guNHcLmmvcNC2C2Ze+Nry6M9Joa1rGAOjHlv/wjdsxTHp110z1NcZgOkvT4pGwyxu3dIRVwRL6ThcA1PNCNbAZuEGqPxBA9FhbtZjvL5BWbVc6CqavruZQPYnoQvNUSYgIkIXBlY077FW0BfafT6I9zMnnD/r8R8Pkdd16jqGs8vDfwi7cH1FXgQQxqgjCCCGOItIFca5+kAd39L3M8ekBcF8qLEY16iKEoC9vsZOiah0gT0TMLgvYRSYzq9ph/z4mnV5nKd/q5wcHIJxhWNR37UMl8Af/7q4ubPLSbTawzHY1xNplRkOLqC/JHh2/cDcBmsgB8mNJVMK01VjbUtF9uugM0UPUQSa8gggsdDmp0B0uO8N8PmIiawMa93GMFcHsLxAzgGJCL4MiKQ8fDFLJcJXwGdSav8w2WrQQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7d9020e75761d590ccfbacc11093ae6b/a59e9/3.webp 192w,
+/static/7d9020e75761d590ccfbacc11093ae6b/0ca9f/3.webp 384w,
+/static/7d9020e75761d590ccfbacc11093ae6b/dc9b9/3.webp 768w,
+/static/7d9020e75761d590ccfbacc11093ae6b/e2c2f/3.webp 1152w,
+/static/7d9020e75761d590ccfbacc11093ae6b/9dd84/3.webp 1483w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7d9020e75761d590ccfbacc11093ae6b/3b721/3.png 192w,
+/static/7d9020e75761d590ccfbacc11093ae6b/66595/3.png 384w,
+/static/7d9020e75761d590ccfbacc11093ae6b/fe486/3.png 768w,
+/static/7d9020e75761d590ccfbacc11093ae6b/d2d74/3.png 1152w,
+/static/7d9020e75761d590ccfbacc11093ae6b/dabbe/3.png 1483w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7d9020e75761d590ccfbacc11093ae6b/fe486/3.png&quot;
+            alt=&quot;3&quot;
+            title=&quot;3&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+설정 후 반영에는 시간이 좀 걸리며, 나중에 다시 확인해보면 다음과 같이 잘 적용되었습니다.&lt;br&gt;
+&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bde68c317a34c62e2858cfa54f3d3ee3/68141/6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA1UlEQVQoz4XQ3WrDMAwF4Lz/Iw5Gc1FY0q5Jlqa2pWPpDLvelrKLGD5sC3H8050G4ds58P1D2I9gPyr7C3ga9UWpnW92qPtcwetq1TiD49LM4DBrVdaXBZw2P9QpMtf7xhQjy3A3ZnNm46+/4QfILqTMadm43h80dypAM6OZ090ZxZiz1/2R0t+JKG/zF4frxLJW1RZo9bYCY1KrzXs/PXs1sNyqvbVOAGoooIQ+D4hJmVJiCIGPECgitb5XajWw/CFgT7nBq5yNImBMwhBLWP7Xg5bzDVN3ItuPgT2JAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/bde68c317a34c62e2858cfa54f3d3ee3/a59e9/6.webp 192w,
+/static/bde68c317a34c62e2858cfa54f3d3ee3/0ca9f/6.webp 384w,
+/static/bde68c317a34c62e2858cfa54f3d3ee3/dc9b9/6.webp 768w,
+/static/bde68c317a34c62e2858cfa54f3d3ee3/e2c2f/6.webp 1152w,
+/static/bde68c317a34c62e2858cfa54f3d3ee3/a3b48/6.webp 1534w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/bde68c317a34c62e2858cfa54f3d3ee3/3b721/6.png 192w,
+/static/bde68c317a34c62e2858cfa54f3d3ee3/66595/6.png 384w,
+/static/bde68c317a34c62e2858cfa54f3d3ee3/fe486/6.png 768w,
+/static/bde68c317a34c62e2858cfa54f3d3ee3/d2d74/6.png 1152w,
+/static/bde68c317a34c62e2858cfa54f3d3ee3/68141/6.png 1534w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/bde68c317a34c62e2858cfa54f3d3ee3/fe486/6.png&quot;
+            alt=&quot;6&quot;
+            title=&quot;6&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;최종적으로 배포도 잘 진행이 되었습니다.&lt;br&gt;
+&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/bc1e6/5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.0625%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAA7DAAAOwwHHb6hkAAABVklEQVQoz5WR2UpCURSGz30XEQgqpmWaUzmUSlphEPQgXZRwREVMSVHwIiiKbCB6j4iI6HGcIE8aWOqZ/GNts4sUqgUfC/bw7Z+1uaYgoNVq46XZhChJ+E8pqoq+KEGSZciKwtY4URShyAoGgwEE4RW5QgmpTA58PIV9PoFoLIko9TGS4BNpxJIHjN09Hnf3D+A6nXf0en1mr1Sq8PjDMNvdMJjt0BotDJ3RCp1pHDozu+CAyeLCtMaAk7MyuI9uF8pX3FqtjvWtHfhDEaxtbsMX3IB7NQSH2w/b0soYiy4fg/YN8zZcXt+CkyQJqqp+C0lEKQmXN8guWp1eWBwe1idBZyhx+eoGHIlGwnqjgUA4wl61Lw8TTEr2E6cnwBJekJA+YySs1upMotHPQU9zYvP7HZJNzWhxfHo+TEhSqnb7DcXSEdLZPDKHhT+TzRcRT2Xw+PSMT7WOgt0aJjMqAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/a59e9/5.webp 192w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/0ca9f/5.webp 384w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/dc9b9/5.webp 768w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/e2c2f/5.webp 1152w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/f3efb/5.webp 1536w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/e3297/5.webp 1871w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/3b721/5.png 192w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/66595/5.png 384w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/fe486/5.png 768w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/d2d74/5.png 1152w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/e8464/5.png 1536w,
+/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/bc1e6/5.png 1871w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2956eb1c1ea2f6ec4c402a1e4ca38b3e/fe486/5.png&quot;
+            alt=&quot;5&quot;
+            title=&quot;5&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[『쿠버네티스 교과서』실습 3장 part 2]]></title><description><![CDATA[해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며, 환경은 Kubernetes v1.28. Docker Desktop으로 진행합니다. 개념 요약 클러스터 외부 트래픽 데이터베이스와 같은 스토리지 컴포넌트는 k8s…]]></description><link>https://yangdongs.web.app/k8s_prac_3_2/</link><guid isPermaLink="false">https://yangdongs.web.app/k8s_prac_3_2/</guid><pubDate>Thu, 18 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며,&lt;/em&gt;&lt;br&gt;
 &lt;em&gt;환경은 Kubernetes v1.28. Docker Desktop으로 진행합니다.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;개념-요약&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%85%90-%EC%9A%94%EC%95%BD&quot; aria-label=&quot;개념 요약 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개념 요약&lt;/h2&gt;
 &lt;h3 id=&quot;클러스터-외부-트래픽&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%81%B4%EB%9F%AC%EC%8A%A4%ED%84%B0-%EC%99%B8%EB%B6%80-%ED%8A%B8%EB%9E%98%ED%94%BD&quot; aria-label=&quot;클러스터 외부 트래픽 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;클러스터 외부 트래픽&lt;/h3&gt;

@@ -1,5 +1,5 @@
 ---
-date: '2024-12-31'
+date: '2024-01-29'
 title: '쿠버네티스 Helm 기초 part 1'
 categories: ['K8s', 'Docker','DevOps']
 summary: 'k8s Helm 실습을 진행합니다.'

@@ -1,4 +1,132 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 29 Jan 2024 13:28:41 GMT</lastBuildDate><item><title><![CDATA[쿠버네티스 Helm 기초 part 1]]></title><description><![CDATA[해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며, 환경은 Kubernetes v1.28. Docker Desktop으로 진행합니다. 개념 요약 Helm 헬름 여러개의 YAML…]]></description><link>https://yangdongs.web.app/k8s_prac_10/</link><guid isPermaLink="false">https://yangdongs.web.app/k8s_prac_10/</guid><pubDate>Mon, 29 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며,&lt;/em&gt;&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Thu, 01 Feb 2024 05:45:33 GMT</lastBuildDate><item><title><![CDATA[IANA에서 Unassigned port 찾기]]></title><description><![CDATA[1. Unassigned port를 찾게된 이유 이번에 팀원, 교수님과 함께 준비하던 졸업작품 DEV-ROOM을 준비하면서 한가지 문제점에 도달했습니다. 바로 포트 할당의 문제입니다. DEV-ROOM…]]></description><link>https://yangdongs.web.app/iana_port/</link><guid isPermaLink="false">https://yangdongs.web.app/iana_port/</guid><pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;1-unassigned-port를-찾게된-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#1-unassigned-port%EB%A5%BC-%EC%B0%BE%EA%B2%8C%EB%90%9C-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;1 unassigned port를 찾게된 이유 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;1. Unassigned port를 찾게된 이유&lt;/h2&gt;
+&lt;p&gt;이번에 팀원, 교수님과 함께 준비하던 졸업작품 &lt;a href=&quot;https://github.com/Yanghyeondong/DEV-ROOM&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;DEV-ROOM&lt;/a&gt;을 준비하면서 한가지 문제점에 도달했습니다. 바로 포트 할당의 문제입니다.&lt;/p&gt;
+&lt;p&gt;DEV-ROOM 프로젝트의 경우, 수십명의 학생에게 개별로 수업용 컨테이너를 배포하고, ssh로 연결하는 기능이 있습니다. 이때, 이를 k8s의 로드밸런스 서비스로 할당하기 위해서는 다음과 같은 2가지 선택지가 있습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;AKS, EKS 같은 서비스를 활용하여 로드밸런서마다 다른 IP를 할당받아 사용한다.&lt;/li&gt;
+&lt;li&gt;로컬 리눅스 머신에 k3s 등을 설치하여 로드밸런서마다 다른 port를 할당받아 사용한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;1번의 경우, 추후 수십명의 학생이 개별 로드밸런서와 그에 해당하는 IP를 할당하면 막대한 비용이 발생합니다. 따라서 2번을 고려하게 되었고, 어떤 Port를 사용할지 찾아보았습니다.&lt;/p&gt;
+&lt;h3 id=&quot;tip&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#tip&quot; aria-label=&quot;tip permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;TIP!&lt;/h3&gt;
+&lt;p&gt;포트(port)는 컴퓨터끼리 정보 교환을 위해 사용하는 가상의 접속 위치이며, 주로 소프트웨어에서 네트워크 서비스나 특정 프로세스를 식별하는 단위로 사용됩니다. TCP, UDP 등에서 활용되며, 0~65536의 번호로 매겨저 있습니다.
+이때, 포트범위에 따라 well-known ports, registered ports, dynamic or private ports 등으로 나뉘는데, 이번 졸업작품에서는 최대한 충돌을 피하기위해 사용하고 있지 않은 포트를 대량으로 활용할 예정입니다.
+각 포트에 따른 정보는 IANA에서 확인합니다.&lt;/p&gt;
+&lt;h2 id=&quot;3-iana에서-포트-찾기&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#3-iana%EC%97%90%EC%84%9C-%ED%8F%AC%ED%8A%B8-%EC%B0%BE%EA%B8%B0&quot; aria-label=&quot;3 iana에서 포트 찾기 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;3. IANA에서 포트 찾기&lt;/h2&gt;
+&lt;p&gt;IANA(Internet Assigned Numbers Authority)는 인터넷 할당 번호 관리기관의 약자로 IP 주소, 최상위 도메인 등을 관리하는 단체입니다. 해당 웹 페이지&lt;a href=&quot;https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;www.iana.org&lt;/a&gt;
+에서는 어떤 포트가 등록되어있는지 다음과 같이 확인가능 합니다.&lt;br&gt;
+&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 652px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 64.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACNklEQVQ4y31Ta3ObMBDk//+0xJnUTjsNSYwxLwMSiJcf6CS2c4fjTr+UGcHp5rjb1a6CLMvw9bVHkiSI4yOqqkLTNAjDEIc4Rtd1UEqhqmvUSsGYDm3bQqla8m1roLVGrWrJB3EcI4oipEmC3W6HHz+2OB6PeH56krg8nbDd7vC82cjgsiyRphleXt7w+voLRVEgfP/EZvMTcZwgWBb88xC5RzyOk3x5MiPz91prPeKDR7QnOOegtUP47tG2FkHX9TifL1K4LAuILHgIEWEYRsnnRYH4cEDTtFJjrUOSWsQx4XYlaG0RHQhaWQTTdMblepVCXjyRv957XC7roKI4ScPO9PAylNEwMo95dhhHB6U9hsEhYHRM6XK5ghnN1spPzvk1tyxoWgNVr4JM4xn/e4KqLPH58QHTdpK4ClqALEEpfUdYItpH4oRTcRLKRUE4FSSxaQlZRug6oTyJTRjN2vB2P0su6CXWqkGWZjDGYBhHzDdCnhOK3ErDtiUkKcEYyyqv0vHb+wXzPN/PyaHvB2nIXsvyXNDjXke0Ljkez0LxMS0Ihm6A8/4hyvXyl7LWDUuPPM8Q7Q/iTzvPguoznBH+vsE5QlXNeNtaaH1DsNplncoNb3eErDbT45wxPbIsF9W5dmW1PKy2xou8g64fYC09Cpnytw+ZKm/qWqEfRrHSamyHPCOkySyDjSEcIkLfzwjGaZKfvxuuoqwN2Sa84XvM1uLc922qa4eqtPDeYRhYJIdpsvgD243mbMwmP9EAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a6e5bdbb4b32091f960cc64fc7968d86/a59e9/1.webp 192w,
+/static/a6e5bdbb4b32091f960cc64fc7968d86/0ca9f/1.webp 384w,
+/static/a6e5bdbb4b32091f960cc64fc7968d86/9a7b5/1.webp 652w&quot;
+              sizes=&quot;(max-width: 652px) 100vw, 652px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a6e5bdbb4b32091f960cc64fc7968d86/3b721/1.png 192w,
+/static/a6e5bdbb4b32091f960cc64fc7968d86/66595/1.png 384w,
+/static/a6e5bdbb4b32091f960cc64fc7968d86/43b96/1.png 652w&quot;
+            sizes=&quot;(max-width: 652px) 100vw, 652px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a6e5bdbb4b32091f960cc64fc7968d86/43b96/1.png&quot;
+            alt=&quot;0&quot;
+            title=&quot;0&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+필자는 여기서 Unassigned로 필터링하여 적당한 포트를 다음과 같이 찾았습니다.&lt;br&gt;
+&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 405px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 164.06249999999997%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAhCAYAAADZPosTAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACyklEQVRIx62WWW/aQBSF+f+/JX1IXxr1IUCfSpSNRnlIA8H7TpjNC8T2qWZssJ0AMVEtXcmasT+fe8/MHQ8s08Dj4wPup1NYtoU0TRHHMZIkwXw2w2TyGwtdQ1EUKMvy0xjIB9/e3lSUQDWBalKOZVmqYH2vwetyCcuyVWiahiAI4LkeomipVIo4VmNy3jBMrFYrMMZACAXnHIxVQSkFpQyD6fQeo9EYV1dXGI/H+PPwgJ8XF/jx4wLX19d4evqL8WiIb2dnOD//jpubWxiGgclkgtFwiMvLIcbjX7i9u8NiscCAUKq+Kusmg3MBx3Xw/DzDbD5HFEXwfR+GruN5PofteGCMwnFdaNoCLy8v6gOEEBWDbe5l2YS8iqJEnndrF4QhNptc3RNGYTs2dF1X47saFmWpXm6HhKZpphyX92o8z+H5PtJ0XQEpqYCGAT8IahHFfqC8JDBJ051a+bDjekhq4CtZwbRMLDQNrufvnhvI5VG04wCwLAqlJM02tUK6R2ENbEcbmG6Baq6oUs5aKdsnAKU6LkQD3KfwNGACynhHoaxVV6GlXO4HTBKwtsJ3Ka8IgWkatSlePyAXcSdlz/NaCtumhH2AcaOwqBT6YdivhvuWzXugXIduS+Fq67L+iSll2aohF/W2lHvycA1ty0bgh1ivN/uB1XYr6qa6BVb9cZsBpQTzmQbfCZDnObJsXW29wyl3TVEpux6ytDHFcRwYprlrDkdNiVspq7GyQBBFLVO+sg656CiUPTBtKTxppwjOQSjrKgwbhY3Lel+gAKV8j8Ks2xz6AuUBRAj7WMP15j+kvFfhqUDB1VHZrWG4UygX9kkuCyE+UVjVUOsLjIVQB/gHl79aww7wmMv9gVz9chxV6BxpXx9ryEBZt4a20yiUpliWpWoou9AXdkrZabBHgYe6jXjXbWRqWd0PGefqn8d2HETL5Q74D6np+ek6GRlsAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/a0c303eb9311c631df4453c638c96088/a59e9/2.webp 192w,
+/static/a0c303eb9311c631df4453c638c96088/0ca9f/2.webp 384w,
+/static/a0c303eb9311c631df4453c638c96088/d7d9a/2.webp 405w&quot;
+              sizes=&quot;(max-width: 405px) 100vw, 405px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/a0c303eb9311c631df4453c638c96088/3b721/2.png 192w,
+/static/a0c303eb9311c631df4453c638c96088/66595/2.png 384w,
+/static/a0c303eb9311c631df4453c638c96088/b6699/2.png 405w&quot;
+            sizes=&quot;(max-width: 405px) 100vw, 405px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/a0c303eb9311c631df4453c638c96088/b6699/2.png&quot;
+            alt=&quot;0&quot;
+            title=&quot;0&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+최종적으로 결정한 포트범위는 다음과 같습니다.&lt;br&gt;
+&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 415px; &quot;
+    &gt;
+      &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 135.9375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAYAAAB836/YAAAACXBIWXMAAA7DAAAOwwHHb6hkAAACHklEQVRIx62Vv5LTMBDG771pqKl5ABp6KGhoKKDkAWjIRLsreXJ3sS054c6OlI+R7CQOSaSDITOZzCSbn/fbP9/e7fd7zN8hBFhr0bkOdd1g++sJ8RXC9HuKA7z3cNbCWpfeO+/T93dH0CxQLRW0aCwWC9w/rM+B8RNA3/cQYihFUETohyHFXQWKCLQYiNZorbsKHIYBlTEQ1imuH3Y5IENYINrA2u42UBtwCRgmIBODWGBbVwBKGchMKUOSDLCPQD1mKAXJRApGNBQz6rotAAUsksswpKZUpgLlgC+tYczQGIOH1SqBm9ZmgC+UbLRJNYxyShlKucsBRNPYCKO9lWE/pDozHWqYGWytdaqhMMG5TUFyBBYkay2TbLqd4d80JTbDpKczXG5T4upJERhrSNAiaVuazKZolmQOseZ5c4hAJjAp2OLYZGs4/oFXLcxDB1pZNN3zP9ZwCvTPG8i397j/+g7q81s0P79PQH8zw6uDvQ8hBYYnB/r0BvLhNVYfX6H78WUEen9SUhrs+NSDJO/3qOoNzHoLWW/PJJ/iRseOTaFkc2NTjifgHOhRaYZJJqvw+Hg4AeEMeGlfw/lNmR+puClxbLQ2aBp7eaT+NAed7XKAMVU6UtF16sb+jxMwZhelrOumOIdF+1ou1XQil3CuK2wKX25KuLrLJtnXZrM9dfmaH852+bIpOJ3RuPhKqWOG8zjMzOEgediNkn8DSLQneHeDAmkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/998277de05de8d038993c0263554becf/a59e9/3.webp 192w,
+/static/998277de05de8d038993c0263554becf/0ca9f/3.webp 384w,
+/static/998277de05de8d038993c0263554becf/c93a9/3.webp 415w&quot;
+              sizes=&quot;(max-width: 415px) 100vw, 415px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/998277de05de8d038993c0263554becf/3b721/3.png 192w,
+/static/998277de05de8d038993c0263554becf/66595/3.png 384w,
+/static/998277de05de8d038993c0263554becf/80028/3.png 415w&quot;
+            sizes=&quot;(max-width: 415px) 100vw, 415px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/998277de05de8d038993c0263554becf/80028/3.png&quot;
+            alt=&quot;0&quot;
+            title=&quot;0&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;source&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#source&quot; aria-label=&quot;source permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;위키피디아 Port&lt;br&gt;
+&lt;a href=&quot;https://en.wikipedia.org/wiki/Port_(computer_networking)&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://en.wikipedia.org/wiki/Port_(computer_networking)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[쿠버네티스 Helm 기초 part 1]]></title><description><![CDATA[해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며, 환경은 Kubernetes v1.28. Docker Desktop으로 진행합니다. 개념 요약 Helm 헬름 여러개의 YAML…]]></description><link>https://yangdongs.web.app/k8s_prac_10/</link><guid isPermaLink="false">https://yangdongs.web.app/k8s_prac_10/</guid><pubDate>Mon, 29 Jan 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;해당 포스트는 교재 『쿠버네티스 교과서』를 활용하며,&lt;/em&gt;&lt;br&gt;
 &lt;em&gt;환경은 Kubernetes v1.28. Docker Desktop으로 진행합니다.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;개념-요약&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EB%85%90-%EC%9A%94%EC%95%BD&quot; aria-label=&quot;개념 요약 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개념 요약&lt;/h2&gt;
 &lt;h3 id=&quot;helm-헬름&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#helm-%ED%97%AC%EB%A6%84&quot; aria-label=&quot;helm 헬름 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Helm 헬름&lt;/h3&gt;

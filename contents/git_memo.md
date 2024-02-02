@@ -10,8 +10,10 @@ vscode에는 git 명령어를 간편히 GUI로 사용할 수 있는 source contr
 
 ### add 와 commit
 ```bash
+# 변화 사항을 스테이징
 git add .\k8s\dev-room-k8s\Chart.yaml
 
+# 스테이징된 것들을 커밋
 git commit -m ":sparkles: chart 매니페스트 파일 추가"
 
 git log
@@ -42,8 +44,10 @@ git reset --hard 26a644
   HEAD is now at 26a6441 :sparkles: chart 매니페스트 파일 추가
 ```
 
-### fetch 와 rebase
+### branch 와 checkout, status
 ```bash
+# 모든 브랜치 확인. remote는 원격 저장소이다.
+# 단, remote brach도 매번 원격 저장소를 반영하지는 않다. 따라서 git fetch가 필요하다.
 git branch -a
   develop
 * feature/k8s-boilerplate
@@ -53,8 +57,45 @@ git branch -a
   remotes/origin/feature/k8s-boilerplate
   remotes/origin/main
 
-git fetch origin
+# 원하는 브랜치로 변경. origin과 비교해준다
+git checkout develop
+  Switched to branch 'develop'
+  Your branch is behind 'origin/develop' by 6 commits, and can be fast-forwarded.
+    (use "git pull" to update your local branch)
 
+# 현재 상태 확인. origin과 비교해준다
+git status
+  On branch develop
+  Your branch is behind 'origin/develop' by 6 commits, and can be fast-forwarded.
+    (use "git pull" to update your local branch)
+
+# 리모트 브랜치로 checkout 할 경우 detached HEAD 가 된다.
+git checkout remotes/origin/develop
+  Note: switching to 'remotes/origin/develop'.
+
+  You are in 'detached HEAD' state. You can look around, make experimental
+  changes and commit them, and you can discard any commits you make in this
+  state without impacting any branches by switching back to a branch.
+```
+
+### fetch와 merge, rebase
+```bash
+# remote 브랜치를 원격 저장소의 최신 정보로 업데이트
+git fetch
+
+# 사라진 브랜치를 반영할 경우
+git fetch --prune
+
+# merge를 하고자 하는 브랜치로 이동
+git checkout feature/k8s-boilerplate
+
+# 대상이 되는 브랜치로 merge. 위의 일련의 과정은 git pull과 동일
+git merge remotes/origin/feature/k8s-boilerplate
+
+# rebase를 하고자 하는 브랜치로 이동
+git checkout feature/k8s-boilerplate
+
+# 대상이 되는 브랜치로 rebase
 git rebase remotes/origin/develop
   Auto-merging k8s/README.md
   CONFLICT (content): Merge conflict in k8s/README.md
@@ -64,4 +105,6 @@ git rebase remotes/origin/develop
   hint: You can instead skip this commit: run "git rebase --skip".
   hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
   Could not apply 2141f7c... 📝 readme 생성
+
+# 충돌 발생시 해결
 ```

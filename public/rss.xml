@@ -1,4 +1,250 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 06 Feb 2024 14:33:03 GMT</lastBuildDate><item><title><![CDATA[Spring 입문 정리]]></title><description><![CDATA[본 포스트는 스프링과 스프링부트(Spring Boot) 글을 참고하였습니다. 0. Spring을 배우는 이유 이번에 학교 졸업 작품 DEV-ROOM 을 진행하면서 spring을 백엔드 서버로 활용하게 되었습니다. 이에 간단하게 spring…]]></description><link>https://yangdongs.web.app/spring_pre/</link><guid isPermaLink="false">https://yangdongs.web.app/spring_pre/</guid><pubDate>Tue, 06 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;본 포스트는 &lt;a href=&quot;https://www.codestates.com/blog/content/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;스프링과 스프링부트(Spring Boot)&lt;/a&gt; 글을 참고하였습니다.&lt;/em&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Mar 2024 14:19:41 GMT</lastBuildDate><item><title><![CDATA[Docker의 개념, 구조, VM과의 차이점]]></title><description><![CDATA[평소 Docker를 많이 사용하지만, 그 구조나 개념을 정확히는 몰라서 이참에 정리해 보았습니다. Docker…]]></description><link>https://yangdongs.web.app/docker_struct/</link><guid isPermaLink="false">https://yangdongs.web.app/docker_struct/</guid><pubDate>Sun, 10 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;평소 Docker를 많이 사용하지만, 그 구조나 개념을 정확히는 몰라서 이참에 정리해 보았습니다.&lt;/p&gt;
+&lt;h3 id=&quot;docker란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker%EB%9E%80&quot; aria-label=&quot;docker란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker란?&lt;/h3&gt;
+&lt;p&gt;컨테이너 기반의 오픈소스 가상화 플랫폼&lt;/p&gt;
+&lt;h3 id=&quot;가상화란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%80%EC%83%81%ED%99%94%EB%9E%80&quot; aria-label=&quot;가상화란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;가상화란?&lt;/h3&gt;
+&lt;p&gt;컴퓨터 리소스의 추상화. 하나의 물리 리소스를 여러개의 논리 리소스처럼 작동시키기나 여러 물리 리소스를 하나의 논리 리소스처럼 작동시키는 것.
+ex. Docker는 하나의 물리 서버에서 여러 OS를 작동가능. K8S는 여러 물리 서버를 모아서 클러스터라는 하나의 논리 리소스 처럼 작동시킨다.&lt;/p&gt;
+&lt;h3 id=&quot;컨테이너란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EB%9E%80&quot; aria-label=&quot;컨테이너란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컨테이너란?&lt;/h3&gt;
+&lt;p&gt;어떤 환경에서든 어플리케이션을 실행할 수 있도록 실행에 필요한 모든 요소들을 패키징하고 격리하는 기술.&lt;/p&gt;
+&lt;h3 id=&quot;컨테이너의-특징&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88%EC%9D%98-%ED%8A%B9%EC%A7%95&quot; aria-label=&quot;컨테이너의 특징 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;컨테이너의 특징&lt;/h3&gt;
+&lt;p&gt;OS레벨의 가상화를 사용하며, 프로세스를 격리시켜서 동작시키는 방식이다. OS전체를 가상화하지 않는다!&lt;/p&gt;
+&lt;h3 id=&quot;vm과-docker의-차이점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#vm%EA%B3%BC-docker%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90&quot; aria-label=&quot;vm과 docker의 차이점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;VM과 Docker의 차이점&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2dd60210c81b0ef9971997fbf86cebbd/63a4f/docker_ar.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.208333333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAUBAgT/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAXErasuDML//xAAcEAABAwUAAAAAAAAAAAAAAAABABEzAgMEEiL/2gAIAQEAAQUCfrcIFxdkqCxo/wD/xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAaEAEAAQUAAAAAAAAAAAAAAAAAAhARMXKB/9oACAEBAAY/AsrUkjq6/8QAHBABAAICAwEAAAAAAAAAAAAAAQARUYEhMUFh/9oACAEBAAE/IV24xJFT9uHcTLe8wn3tDW6f/9oADAMBAAIAAwAAABAPH//EABgRAAMBAQAAAAAAAAAAAAAAAAABESEx/9oACAEDAQE/EHZguaf/xAAWEQEBAQAAAAAAAAAAAAAAAAABEFH/2gAIAQIBAT8QDZ//xAAbEAEBAAIDAQAAAAAAAAAAAAABEQAhQVFhcf/aAAgBAQABPxAwJAsGawkag6J9yyxLNNwcb4Z1li7Ry7cJwvo3rP/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2dd60210c81b0ef9971997fbf86cebbd/a59e9/docker_ar.webp 192w,
+/static/2dd60210c81b0ef9971997fbf86cebbd/0ca9f/docker_ar.webp 384w,
+/static/2dd60210c81b0ef9971997fbf86cebbd/dc9b9/docker_ar.webp 768w,
+/static/2dd60210c81b0ef9971997fbf86cebbd/0b62f/docker_ar.webp 854w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2dd60210c81b0ef9971997fbf86cebbd/150b2/docker_ar.jpg 192w,
+/static/2dd60210c81b0ef9971997fbf86cebbd/6985d/docker_ar.jpg 384w,
+/static/2dd60210c81b0ef9971997fbf86cebbd/19de6/docker_ar.jpg 768w,
+/static/2dd60210c81b0ef9971997fbf86cebbd/63a4f/docker_ar.jpg 854w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2dd60210c81b0ef9971997fbf86cebbd/19de6/docker_ar.jpg&quot;
+            alt=&quot;0&quot;
+            title=&quot;0&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h4 id=&quot;기존-vm&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EC%A1%B4-vm&quot; aria-label=&quot;기존 vm permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기존 VM&lt;/h4&gt;
+&lt;p&gt;Host OS 위에서 하이퍼바이저 엔진 등을 활용하여 게스트 OS를 작동시킨다. 가상화된 하드웨어 위에 OS가 올라가서 거의 완벽하게 OS와 분리된다.
+더 높은 격리 레벨을 지원하여 보안 측면에서 유리하다. 커널을 공유하지 않아 멀티 OS가 가능하다.&lt;/p&gt;
+&lt;h4 id=&quot;docker&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker&quot; aria-label=&quot;docker permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker&lt;/h4&gt;
+&lt;p&gt;게스트 OS를 사용하지 않고, Application 실행에 필요한 파일만 올려서 컨테이너를 만든다. Host의 커널을 공유하기 때문이다.
+근데, 윈도우나 MacOS 등에서 사용하는 도커 엔진의 경우에는 하나의 또다른 Linux VM을 사용한다는 점이 있다.&lt;/p&gt;
+&lt;p&gt;장점&lt;br&gt;
+Host의 커널을 공유하고, 프로세스를 격리하는 방식이기 때문에, IO 처리 등이 쉬워 성능이 높아진다.&lt;/p&gt;
+&lt;p&gt;단점&lt;br&gt;
+커널을 공유하기에 보안측면에서 VM보다 불리하고, Host의 운영체제와 아키텍처에 영향을 받기에 한계가 있다.
+네트워크를 구성할때 호스트 레벨에서 한번더 추상화를 해야하기 때문에 까다롭다.&lt;/p&gt;
+&lt;h3 id=&quot;docker-이미지&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker-%EC%9D%B4%EB%AF%B8%EC%A7%80&quot; aria-label=&quot;docker 이미지 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 이미지&lt;/h3&gt;
+&lt;p&gt;컨테이너 생성과 실행에 필요한 파일, 설정들을 포함하고 있는 파일.&lt;/p&gt;
+&lt;h3 id=&quot;dockerfile&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dockerfile&quot; aria-label=&quot;dockerfile permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Dockerfile&lt;/h3&gt;
+&lt;p&gt;원하는 컨테이너 이미지를 구성하기 위한 명령어 및 설정들을 포함하는 파일.&lt;/p&gt;
+&lt;h3 id=&quot;docker-레이어&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker-%EB%A0%88%EC%9D%B4%EC%96%B4&quot; aria-label=&quot;docker 레이어 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker 레이어&lt;/h3&gt;
+&lt;p&gt;컨테이너에 필요한 파일을 레이어 단위로 구별해서 구성하고, 이를 유니온 파일 시스템을 통해 하나의 파일 시스템처럼 사용한다. 이를 통해 효율적인 이미지 관리가 가능하다.&lt;br&gt;
+ex. 앱의 레이어 파일이 바뀌어도 OS의 레이어는 유지 가능. 여러개의 컨테이너를 실행해도 최소한의 용량만 사용가능!&lt;/p&gt;
+&lt;h3 id=&quot;lxc-리눅스-컨테이너&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#lxc-%EB%A6%AC%EB%88%85%EC%8A%A4-%EC%BB%A8%ED%85%8C%EC%9D%B4%EB%84%88&quot; aria-label=&quot;lxc 리눅스 컨테이너 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;LXC 리눅스 컨테이너&lt;/h3&gt;
+&lt;p&gt;호스트에서 여러 리눅스 컨테이너를 실행하기 위한 OS 레벨 가상화 방법. namespace(전체 운영 시스템을 쪼개서 각각 고립된 환경으로 운영되는 그룹), cgroups(컨트롤 그룹, namespace로 구별된 그룹들의 환경에서 자원등을 제한하는 역할) 등을 사용한다. 초기의 도커는 LXC를 사용했지만, 멀티 플랫폼 환경에서 문제가 되어 도커는 libcontainer를 만들어 사용한다.&lt;/p&gt;
+&lt;h3 id=&quot;libcontainer&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#libcontainer&quot; aria-label=&quot;libcontainer permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Libcontainer&lt;/h3&gt;
+&lt;p&gt;도커 엔진에서 사용되는 주요 컴포넌트. 컨테이너 생성시 namespace, cgroups 를 제공하고 filesystem 도 관리한다.&lt;/p&gt;
+&lt;h3 id=&quot;도커-동작-원리&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8F%84%EC%BB%A4-%EB%8F%99%EC%9E%91-%EC%9B%90%EB%A6%AC&quot; aria-label=&quot;도커 동작 원리 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;도커 동작 원리&lt;/h3&gt;
+&lt;p&gt;Host의 커널을 공유하여 각 컨테이너에 커널을 할당하고 프로세스를 실행시킨다. 이때 각 컨테이너는 cgroups, namespace 등을 통해서 독립된 환경을 구축한다.&lt;/p&gt;
+&lt;h3 id=&quot;도커-엔진&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%8F%84%EC%BB%A4-%EC%97%94%EC%A7%84&quot; aria-label=&quot;도커 엔진 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;도커 엔진&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7482da1b75dac58dad49f69752cea2d9/8e011/docker_en.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 92.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEwElEQVQ4y2WUa2xTZRjH/223trt13cbatWNre973dN16O72enku7SwIMgyaAk8E04ZpMBBkDsgg6gwRFAkHWnmU3hMg1avxijMQP+EEjfEAgqJj4yZAQ1u1MA2GwiMkxrUKy+Ca/5EneJ788z3t5IE5Nt4pHvnOJ2V+bxEt/NzJm6CjjBiVM3B8ITrOhZD7ERab5ZHI6Eo3eCwaDs16v9ybLsiafz4dEIoFwOAyO44ogKnXphUynmeeTpdA0tOgAlnjAst5Sr7fFyRKPw5ta7vK+PORv9RKm1R/w+nw+dygUMnIcVx4Oh83hcLj8udBz+DZaBy6AHvgWzSfuQQTAUgLWH4a3yQ72xR0IAvBc0yzLrCgT+bhVlGQrzyetiUSiIR6PW58JQ6EQ4Dp+t6lJeVDdfHLG4Tr2e731mgYflwTdcKgoogevmenhm+X0rW+MzOifZs/E45K2cxqsAAKBQJFFLbNvX7FFewY8wS3HGM8Hd6zBTUeQjrSAKCqoMlegiihqmCjqUarMxunI/QryuQbm6G/w+/3/F64ywignODbDeV1nAcjJCERJBh2dAx1VC5QTRe0ko3MnaW6WodnpKs8FDTQ7DUEQIIoiJEkqUoiR6nrBJEppl5But3G9Q7pMmBQ3qKIWqySjc7VkdM5HFdVFphaaPRe1Mt/gp2CP/ASWZdHb21vMfwZEOV0tyBmbIGfsQrrDJKQ7IMjtoFNPQMcfInhFw5IVb+o9I3krB5SFAm3VXDRm4lJpRCIRxOPxxcK2vvfg2n4O7v4zYLaNwd1/Gs2vHUdpjRONu7+EmfB4pGngbmuWzS+1mzqXddcmk8k6SZIqRFEsYFgkXDN8pqZ7+NLS5cOXlq4aPm9ZNXwe3fvG0Dj4Ff5blboSk6PE6rABSACIG3SA3lCiG7QDUvfaxRU6DvxQZd9/1WHbf9VhP3C1ou7gLyCbR1CvabBvmoTR2bYEQCMAJ/T6VoPFRoyuGEyATuhYDomPPZclk0nAuf972IZvon74Burf+RG9OiCV7kS4PwuizFoDl7XKQpnhG1p1JSsg8LVm9Zy4WxHoexeZgKv4KhbdcnDvZ7D2nkBl7wgazmpIrN1u0AC0fPhzPRl7YAmcfgLf6xPl9P1bDW2AbuUdDTSXr/Udvl47ACC2bo9elGWIBaEkA8LOHOo2TlZXb/6kqk7TIMeD9XIiwqajbY6uZoNREnhzOtJik2MBVo6H7O0cRafbZJbjwWY5wZF01F8jyhl9QVYUXs4O6dp3ZWs6dyvWo4MbDcn1e5tSq7eG+J4d3o4NO8u6XtlWxq8bIKnVW0L8ul3u/r7VeunVvRa+5w1fIS+1YU/DikxKL4qiRRSlapw9ecjA9+1zyut31Q9dvF7qHp9fykz9FWMmFygz8bicmVwoZybmCXPqaYyZfNLs/lgDM/7IwkwutDKnnnLMxLydmZjXdzXpdEKmUw9/sgOFsXULwNbCMMjer6W5PENzeQfNTpcUyc000GyeFM7O+9Fd0NyMmebyzn/zZiw0lwff3QM56gcMpooqvbHMqTcYG0ot9jI6/lAgitpDFHUZUdQqqqiVhZgq6lqiqOnCHyeKaqOKuoYq6kqiqDEy+gcC+75AaPsY/gGHsoOLDyMCFgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/7482da1b75dac58dad49f69752cea2d9/a59e9/docker_en.webp 192w,
+/static/7482da1b75dac58dad49f69752cea2d9/0ca9f/docker_en.webp 384w,
+/static/7482da1b75dac58dad49f69752cea2d9/dc9b9/docker_en.webp 768w,
+/static/7482da1b75dac58dad49f69752cea2d9/e2c2f/docker_en.webp 1152w,
+/static/7482da1b75dac58dad49f69752cea2d9/f3efb/docker_en.webp 1536w,
+/static/7482da1b75dac58dad49f69752cea2d9/3c67e/docker_en.webp 2125w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/7482da1b75dac58dad49f69752cea2d9/3b721/docker_en.png 192w,
+/static/7482da1b75dac58dad49f69752cea2d9/66595/docker_en.png 384w,
+/static/7482da1b75dac58dad49f69752cea2d9/fe486/docker_en.png 768w,
+/static/7482da1b75dac58dad49f69752cea2d9/d2d74/docker_en.png 1152w,
+/static/7482da1b75dac58dad49f69752cea2d9/e8464/docker_en.png 1536w,
+/static/7482da1b75dac58dad49f69752cea2d9/8e011/docker_en.png 2125w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/7482da1b75dac58dad49f69752cea2d9/fe486/docker_en.png&quot;
+            alt=&quot;1&quot;
+            title=&quot;1&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;br&gt;
+Docker Daemon, Client, 컨테이너 런타임, Shim등 으로 구성된 애플리케이션.
+Docker Client에서는 REST API와 도커 소켓으로 Docker Daemon 과 통신하여 원하는 명령을 CLI나 Compose 등으로 요청하고,
+Docker Daemon는 containerd 같은 컨테이너 런타임과 통신한다. 이후 다시 runc를 통해서 컨테이너에 필요한 리소스를 준비하고 컨테이너를 생성한다.
+이후에는 shim이 컨테이너의 생명주기를 관리하게 된다.&lt;/p&gt;
+&lt;h3 id=&quot;containerd&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#containerd&quot; aria-label=&quot;containerd permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;containerd&lt;/h3&gt;
+&lt;p&gt;고수준의 컨테이너 런타임. CRI(컨테이너 런타임 인터페이스)를 만족하여 k8s에서도 사용한다.&lt;/p&gt;
+&lt;h3 id=&quot;runc&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#runc&quot; aria-label=&quot;runc permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;runc&lt;/h3&gt;
+&lt;p&gt;저수준의 컨테이너 런타임. containerd와 같은 고수준의 컨테이너 런타임이 관리하기도 한다.&lt;/p&gt;
+&lt;h2 id=&quot;source&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#source&quot; aria-label=&quot;source permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Docker-개념&lt;br&gt;
+&lt;a href=&quot;https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://khj93.tistory.com/entry/Docker-Docker-%EA%B0%9C%EB%85%90&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;초보를 위한 도커 안내서 - 도커란 무엇인가?&lt;br&gt;
+&lt;a href=&quot;https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://subicura.com/2017/01/19/docker-guide-for-beginners-1.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Docker Engine, 제대로 이해하기&lt;br&gt;
+&lt;a href=&quot;https://gngsn.tistory.com/128&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://gngsn.tistory.com/128&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[K8S와 K3S의 차이점]]></title><description><![CDATA[미리보는 결론 k3s는 k8s 경량화 버전 설치, 배포 및 관리가 쉽고 빠르다 메모리 사용량이 더 적다 싱글노드 클러스터를 지원한다  하지만, 기본 분산 데이터베이스 시스템을 제공하지 않는다 k8s…]]></description><link>https://yangdongs.web.app/k8s_k3s/</link><guid isPermaLink="false">https://yangdongs.web.app/k8s_k3s/</guid><pubDate>Sat, 09 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;h2 id=&quot;미리보는-결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%AF%B8%EB%A6%AC%EB%B3%B4%EB%8A%94-%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;미리보는 결론 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;미리보는 결론&lt;/h2&gt;
+&lt;p&gt;k3s는&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;k8s 경량화 버전&lt;/li&gt;
+&lt;li&gt;설치, 배포 및 관리가 쉽고 빠르다&lt;/li&gt;
+&lt;li&gt;메모리 사용량이 더 적다&lt;/li&gt;
+&lt;li&gt;싱글노드 클러스터를 지원한다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;br&gt;
+하지만,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;기본 분산 데이터베이스 시스템을 제공하지 않는다&lt;/li&gt;
+&lt;li&gt;k8s 알파버전 기능들이 제거되었다&lt;/li&gt;
+&lt;li&gt;빅데이터 분석과 같은 작업에는 적합하지 않다&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;k3s란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#k3s%EB%9E%80&quot; aria-label=&quot;k3s란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;K3S란?&lt;/h3&gt;
+&lt;p&gt;k8s의 경량화 버전으로, 설치, 배포 및 관리가 쉽고 빠르다.&lt;br&gt;
+k8s 메모리의 절반을 목표, 따라서 k8s(10글자) -&gt; k3s(5글자).&lt;br&gt;
+k8s의 인증된 공식 배포판이며, K8s와 동일한 소스 코드를 기반으로 한다. (단순히 fork된 프로젝트가 아니다. 지속적인 업스트림 k8s 코어 유지)&lt;br&gt;
+Rancher Labs(랜처 랩)에서 개발 및 관리한다.&lt;/p&gt;
+&lt;h3 id=&quot;k3s-특징&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#k3s-%ED%8A%B9%EC%A7%95&quot; aria-label=&quot;k3s 특징 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;K3S 특징&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;가벼움&lt;br&gt;
+적은 램 환경에서도 사용할 수 있게, 기존 k8s에서 단일 바이너리 파일이 100MB가 넘어 가는걸 분리했다.
+기존 k8s에서 alpha 버전에 해당하는 기능이나 레거시 컴포넌트, 써드파티 storage drivers, cloud provider 등을 제거했다.&lt;/li&gt;
+&lt;li&gt;학습 곡선이 완만&lt;br&gt;
+쉽게 배우고 적용할 수 있다&lt;/li&gt;
+&lt;li&gt;빠른 설치 및 배포&lt;br&gt;
+CRI, ingress controller, CoreDNS 등을 전부 포함하고 있다.&lt;/li&gt;
+&lt;li&gt;싱글 노드 클러스터를 지원한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;k3s-단점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#k3s-%EB%8B%A8%EC%A0%90&quot; aria-label=&quot;k3s 단점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;K3S 단점&lt;/h3&gt;
+&lt;p&gt;기본적으로 분산 데이터베이스를 지원하지 않는다.
+대량의 빅데이터를 다루거나 매우 높은 성능이 요구되는 대규모 서버의 경우 K8S를 사용하는 것이 안정성 측면에서 더 좋다.&lt;/p&gt;
+&lt;h4 id=&quot;분산-데이터베이스란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B6%84%EC%82%B0-%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%EB%9E%80&quot; aria-label=&quot;분산 데이터베이스란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;분산 데이터베이스란?&lt;/h4&gt;
+&lt;p&gt;하나의 DBMS 시스템이 여러 컴퓨터(네트워크로 연결된)에 연결된 저장장치들을 제어하는 것.&lt;/p&gt;
+&lt;h4 id=&quot;가용성이란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%80%EC%9A%A9%EC%84%B1%EC%9D%B4%EB%9E%80&quot; aria-label=&quot;가용성이란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;가용성이란?&lt;/h4&gt;
+&lt;p&gt;시스템이 정상적으로 사용 가능한 정도. 이를 위해서는 장애가 발생하더라도 빠르게 대처 및 복구하여 고객 입장에서 영향을 최대한 느끼지 못하도록 해야한다.&lt;/p&gt;
+&lt;h3 id=&quot;왜-k3s를-사용하는가&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%99%9C-k3s%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94%EA%B0%80&quot; aria-label=&quot;왜 k3s를 사용하는가 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;왜 K3S를 사용하는가?&lt;/h3&gt;
+&lt;p&gt;더 적은 리소스로 더 빠르게 운영을 하면서도 고가용성, 확장성, 보안등을 가진 k8s 아키텍처의 이점을 가져온다.
+추가 클라우드 공급자 확장 없이 k8s를 온프레미스로 구축할 수 있는 좋은 방법이다.&lt;/p&gt;
+&lt;h3 id=&quot;k3s-구조&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#k3s-%EA%B5%AC%EC%A1%B0&quot; aria-label=&quot;k3s 구조 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;K3S 구조&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/150da00e5cbeecd179a039479644db79/87bab/k3s_ar.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 57.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAQAF/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAB2UsaYmf/xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAEFAl//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAUEAEAAAAAAAAAAAAAAAAAAAAg/9oACAEBAAY/Al//xAAXEAADAQAAAAAAAAAAAAAAAAABECEx/9oACAEBAAE/ISXsf//aAAwDAQACAAMAAAAQvO//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQIBAT8Q1H//xAAbEAEAAgMBAQAAAAAAAAAAAAABABEhMUFR0f/aAAgBAQABPxDjzsVzYVXsVx9itk2RbKdQ1P/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/150da00e5cbeecd179a039479644db79/a59e9/k3s_ar.webp 192w,
+/static/150da00e5cbeecd179a039479644db79/0ca9f/k3s_ar.webp 384w,
+/static/150da00e5cbeecd179a039479644db79/dc9b9/k3s_ar.webp 768w,
+/static/150da00e5cbeecd179a039479644db79/1a410/k3s_ar.webp 1089w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/150da00e5cbeecd179a039479644db79/150b2/k3s_ar.jpg 192w,
+/static/150da00e5cbeecd179a039479644db79/6985d/k3s_ar.jpg 384w,
+/static/150da00e5cbeecd179a039479644db79/19de6/k3s_ar.jpg 768w,
+/static/150da00e5cbeecd179a039479644db79/87bab/k3s_ar.jpg 1089w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/150da00e5cbeecd179a039479644db79/19de6/k3s_ar.jpg&quot;
+            alt=&quot;0&quot;
+            title=&quot;0&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+k3s는 서버 노드와 에이전트 노드로 나뉜다. 서버 노드는 k3s server command를 실행시키며 control-plane과 datastore component을 관리하는 노드이며, 에이전트 노드는 k3s agent command를 실행시키며 control-plane과 datastore component가 없는 노드이다. 두 노드 모두 kubelet, 컨테이너 런타임(container-d), CNI를 실행한다.&lt;/p&gt;
+&lt;h2 id=&quot;dev-room-프로젝트에서-k3s를-사용한-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#dev-room-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%97%90%EC%84%9C-k3s%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;dev room 프로젝트에서 k3s를 사용한 이유 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;DEV-ROOM 프로젝트에서 K3S를 사용한 이유&lt;/h2&gt;
+&lt;p&gt;추후, 다른 학교나 단체에서 이를 쉽게 활용하기 위해서는 온프레미스 서버등에 쉽게 설치 및 관리할 수 있어야 한다. 따라서 설치, 배포, 관리가 편리한 k3s가 좋다.&lt;br&gt;
+k3s의 주요 단점중 분산 데이터베이스의 부재가 있지만, 본 프로젝트 에서는 학생과 교수 정보를 별도의 클라우드에서 DB로 관리하므로 문제의 여지가 없다.&lt;br&gt;
+사용자 경험 측면에서 높은 컴퓨팅 리소스를 제공하는 것이 해당 프로젝트의 우선 순위이므로, k3s를 사용하여 자체 리소스 사용량을 최대한 절약하는게 좋다.&lt;/p&gt;
+&lt;h2 id=&quot;source&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#source&quot; aria-label=&quot;source permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;K3s Vs K8s: What’s The Difference? 2024 UPDATE - CloudZero&lt;br&gt;
+&lt;a href=&quot;https://www.cloudzero.com/blog/k3s-vs-k8s/#:~:text=The%20most%20significant%20difference%20between,for%20installing%20and%20running%20Kubernetes.&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://www.cloudzero.com/blog/k3s-vs-k8s/#:~:text=The%20most%20significant%20difference%20between,for%20installing%20and%20running%20Kubernetes.&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Spring 입문 정리]]></title><description><![CDATA[본 포스트는 스프링과 스프링부트(Spring Boot) 글을 참고하였습니다. 0. Spring을 배우는 이유 이번에 학교 졸업 작품 DEV-ROOM 을 진행하면서 spring을 백엔드 서버로 활용하게 되었습니다. 이에 간단하게 spring…]]></description><link>https://yangdongs.web.app/spring_pre/</link><guid isPermaLink="false">https://yangdongs.web.app/spring_pre/</guid><pubDate>Tue, 06 Feb 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;본 포스트는 &lt;a href=&quot;https://www.codestates.com/blog/content/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;스프링과 스프링부트(Spring Boot)&lt;/a&gt; 글을 참고하였습니다.&lt;/em&gt;&lt;/p&gt;
 &lt;h2 id=&quot;0-spring을-배우는-이유&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#0-spring%EC%9D%84-%EB%B0%B0%EC%9A%B0%EB%8A%94-%EC%9D%B4%EC%9C%A0&quot; aria-label=&quot;0 spring을 배우는 이유 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;0. Spring을 배우는 이유&lt;/h2&gt;
 &lt;p&gt;이번에 학교 졸업 작품 &lt;a href=&quot;https://github.com/Yanghyeondong/DEV-ROOM&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;DEV-ROOM&lt;/a&gt; 을 진행하면서 spring을 백엔드 서버로 활용하게 되었습니다. 이에 간단하게 spring을 배우기 전, spring의 정의나 개념을
 알아보려고 합니다.👀&lt;/p&gt;

@@ -1,4 +1,159 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 10 Mar 2024 14:19:41 GMT</lastBuildDate><item><title><![CDATA[Docker의 개념, 구조, VM과의 차이점]]></title><description><![CDATA[평소 Docker를 많이 사용하지만, 그 구조나 개념을 정확히는 몰라서 이참에 정리해 보았습니다. Docker…]]></description><link>https://yangdongs.web.app/docker_struct/</link><guid isPermaLink="false">https://yangdongs.web.app/docker_struct/</guid><pubDate>Sun, 10 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;평소 Docker를 많이 사용하지만, 그 구조나 개념을 정확히는 몰라서 이참에 정리해 보았습니다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 Mar 2024 13:34:30 GMT</lastBuildDate><item><title><![CDATA[삼성 SDS 알고리즘 특강 및 Pro 합격 후기]]></title><description><![CDATA[이제 4학년으로 올라가면서, 취직에 대한 고민이 점점 생기기 시작했습니다. 특히, 코딩테스트는 어디에 지원하든 꼭 필요한 역량이였기에, 삼성 SDS…]]></description><link>https://yangdongs.web.app/sds_pro/</link><guid isPermaLink="false">https://yangdongs.web.app/sds_pro/</guid><pubDate>Tue, 19 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이제 4학년으로 올라가면서, 취직에 대한 고민이 점점 생기기 시작했습니다.&lt;br&gt;
+특히, 코딩테스트는 어디에 지원하든 꼭 필요한 역량이였기에, 삼성 SDS 알고리즘 특강에 지원했습니다.&lt;br&gt;
+사실 특강 자체는 이미 끝난지 한달이 되어가지만, 정리겸 다시 한번 복기해봅니다!&lt;/p&gt;
+&lt;h2 id=&quot;특강-지원-및-입과&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8A%B9%EA%B0%95-%EC%A7%80%EC%9B%90-%EB%B0%8F-%EC%9E%85%EA%B3%BC&quot; aria-label=&quot;특강 지원 및 입과 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;특강 지원 및 입과&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b4dc17ad6155c659b3e42dccb249efec/b13a7/0.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 22.395833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAEABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAEF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAL/2gAMAwEAAhADEAAAAdkXNB//xAAWEAADAAAAAAAAAAAAAAAAAAAAEBH/2gAIAQEAAQUCIv/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAABD/2gAIAQEABj8Cf//EABkQAAIDAQAAAAAAAAAAAAAAAAERABBBcf/aAAgBAQABPyFPTOjX/9oADAMBAAIAAwAAABCID//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAABBB/9oACAECAQE/EIf/xAAaEAACAgMAAAAAAAAAAAAAAAABEQBxIVGh/9oACAEBAAE/EDqKmJfeAIJk3P/Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b4dc17ad6155c659b3e42dccb249efec/a59e9/0.webp 192w,
+/static/b4dc17ad6155c659b3e42dccb249efec/0ca9f/0.webp 384w,
+/static/b4dc17ad6155c659b3e42dccb249efec/dc9b9/0.webp 768w,
+/static/b4dc17ad6155c659b3e42dccb249efec/c6c78/0.webp 911w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b4dc17ad6155c659b3e42dccb249efec/150b2/0.jpg 192w,
+/static/b4dc17ad6155c659b3e42dccb249efec/6985d/0.jpg 384w,
+/static/b4dc17ad6155c659b3e42dccb249efec/19de6/0.jpg 768w,
+/static/b4dc17ad6155c659b3e42dccb249efec/b13a7/0.jpg 911w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b4dc17ad6155c659b3e42dccb249efec/19de6/0.jpg&quot;
+            alt=&quot;1&quot;
+            title=&quot;1&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;이번 2024년도 상반기 SDS 알고리즘 특강 지원에서는 딱히 코딩테스트가 필요없었습니다. 서류만 제출하였는데, 그렇기에 오히려 걱정한 부분도 있었습니다. 지금까지 Leetcode만 풀었는데 &lt;del&gt;만들고 손도 안댄&lt;/del&gt; 백준계정을 제출하고 딱히 저를 어필할만한 부분이 없었다고 느꼈기 때문입니다. 하지만 다행이 입과에는 성공했습니다.&lt;/p&gt;
+&lt;h2 id=&quot;본사-방문과-교육&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B3%B8%EC%82%AC-%EB%B0%A9%EB%AC%B8%EA%B3%BC-%EA%B5%90%EC%9C%A1&quot; aria-label=&quot;본사 방문과 교육 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;본사 방문과 교육&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/525f9e951af2a6dd6b79a462b2b1e5c4/d20b4/2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 112.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAXABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAQCBQP/xAAVAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAB6/rFip6aQMc4OBU//8QAGRABAQEBAQEAAAAAAAAAAAAAAQIRAAMh/9oACAEBAAEFAmumijqfgs9PsZW7IlU4/wD/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwGBP//EABcRAAMBAAAAAAAAAAAAAAAAAAABERD/2gAIAQIBAT8BaIXP/8QAGRAAAgMBAAAAAAAAAAAAAAAAEBEAASEg/9oACAEBAAY/AuMmhux//8QAHBAAAgIDAQEAAAAAAAAAAAAAAREAITFRYRBB/9oACAEBAAE/ISptKPQzrzE3Gh0h1V8iMWxVxidWaMCtE/cz/9oADAMBAAIAAwAAABAL133/xAAXEQEBAQEAAAAAAAAAAAAAAAABABEQ/9oACAEDAQE/EBbSLHn/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/EEFDa5//xAAdEAEAAgIDAQEAAAAAAAAAAAABABEhMUFRYRCh/9oACAEBAAE/ELPOz8fGagja2fFBfb8JYNvpzBS3fgxHaBjoSCEqu5IG8cRoAODYwz//2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/525f9e951af2a6dd6b79a462b2b1e5c4/a59e9/2.webp 192w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/0ca9f/2.webp 384w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/dc9b9/2.webp 768w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/e2c2f/2.webp 1152w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/f3efb/2.webp 1536w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/80138/2.webp 4896w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/525f9e951af2a6dd6b79a462b2b1e5c4/150b2/2.jpg 192w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/6985d/2.jpg 384w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/19de6/2.jpg 768w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/4472f/2.jpg 1152w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/d58d1/2.jpg 1536w,
+/static/525f9e951af2a6dd6b79a462b2b1e5c4/d20b4/2.jpg 4896w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/525f9e951af2a6dd6b79a462b2b1e5c4/19de6/2.jpg&quot;
+            alt=&quot;2&quot;
+            title=&quot;2&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&lt;br&gt;
+교육은 약 2주가 안되는 기간동안 오프라인으로 진행했습니다. 아침에 제 학교 자취방에서 약 1시간 반가량 이동해서 도착하는 것은 상당히 힘들었습니다. 버스는 괜찮은데 2호선이… 하지만 도착하고 나서는 굉장히 유익하고 재밌는 시간이었습니다.&lt;br&gt;
+&lt;br&gt;
+강사님들도 전부 능력있으신 분들이고, 강의도 원론적인 개념부터 백준 풀이까지 골고루 잘 배울수 있었습니다. 다만, 항상 기다려 지는건 수업보단 점심이였습니다😎. 식당이 진짜로 넓고, 메뉴도 다양하고 맛있었습니다. 항상 점심 먹기전 메뉴판에서 한 5분은 고민했던것 같습니다. 그리고 식후에는 항상 폴바셋에 가서 음료도 마셨습니다. 블루베리스무디하고 딸기 바나나 주스 추천입니다!🥤&lt;/p&gt;
+&lt;h2 id=&quot;pro-검정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#pro-%EA%B2%80%EC%A0%95&quot; aria-label=&quot;pro 검정 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Pro 검정&lt;/h2&gt;
+&lt;p&gt;이번 특강의 목표이자 꽃이기도 한 Pro 자격증 시험은 총 2번을 봤습니다. 4번 응시가 가능했는데, 저는 첫 시험에서 떨어지고 2번째 시험은 일정 때문에 Pass, 그리고 3번째 시험에서 합격했습니다. 응시 언어는 C++ 였습니다. 평소에 코딩테스트는 파이썬만 써서 특강 초반부터 많이 걱정을 했는데, 시간이 4시간으로 충분하기 때문에 STL만 적당히 외우고가면 크게 문제는 없을듯 합니다!&lt;/p&gt;
+&lt;p&gt;보안조약때문에 시험에 대한 것을 올리지는 못하지만, 제 결론은 다음과 같습니다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;강사님이 찝어주시는 빈출 유형 잘 공부하자.&lt;/li&gt;
+&lt;li&gt;수업에서 배운 내용이 많이 나온다. 허투로 흘리지 말자.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;합격 안내는 문자로 날라왔습니다!&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/b61d9af2fc757017cfa8b06566c8fd58/b37e7/4.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 134.89583333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAbABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIBAwQF/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAeu1bVoAjJdM04Ef/8QAGxAAAgMAAwAAAAAAAAAAAAAAAQIAEBESMTL/2gAIAQEAAQUCLNqnaO6ncb0K4iZX/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAwEBPwEf/8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwEf/8QAFxAAAwEAAAAAAAAAAAAAAAAAABAxIP/aAAgBAQAGPwJ0qmv/xAAbEAEAAgMBAQAAAAAAAAAAAAABABEQITFxkf/aAAgBAQABPyETA15HXKw7aJLd2wNtp2YUbb+wGP/aAAwDAQACAAMAAAAQ/AoA/8QAFREBAQAAAAAAAAAAAAAAAAAAEBH/2gAIAQMBAT8QKf/EABYRAAMAAAAAAAAAAAAAAAAAABARIf/aAAgBAgEBPxBQOD//xAAhEAEAAQMCBwAAAAAAAAAAAAABEQAQMSFhUXGBocHh8P/aAAgBAQABPxCZgX5NQlfNYhyGBPVJaA7GLAzPLkw9q0lr1s/CTwR5ocAY3aMV/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/b61d9af2fc757017cfa8b06566c8fd58/a59e9/4.webp 192w,
+/static/b61d9af2fc757017cfa8b06566c8fd58/0ca9f/4.webp 384w,
+/static/b61d9af2fc757017cfa8b06566c8fd58/dc9b9/4.webp 768w,
+/static/b61d9af2fc757017cfa8b06566c8fd58/5c666/4.webp 1080w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/b61d9af2fc757017cfa8b06566c8fd58/150b2/4.jpg 192w,
+/static/b61d9af2fc757017cfa8b06566c8fd58/6985d/4.jpg 384w,
+/static/b61d9af2fc757017cfa8b06566c8fd58/19de6/4.jpg 768w,
+/static/b61d9af2fc757017cfa8b06566c8fd58/b37e7/4.jpg 1080w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/b61d9af2fc757017cfa8b06566c8fd58/19de6/4.jpg&quot;
+            alt=&quot;4&quot;
+            title=&quot;4&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;앞으로-할일&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%95%9E%EC%9C%BC%EB%A1%9C-%ED%95%A0%EC%9D%BC&quot; aria-label=&quot;앞으로 할일 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;앞으로 할일&lt;/h2&gt;
+&lt;p&gt;Pro 자격증이 있으면 삼성SDS 공채 특전 및 인턴에서도 코테 면제가 가능합니다. 비록 2주 정도 밖에 못다녔지만, 정말 좋은 회사라는 생각이 들었습니다. 그래서 인턴과 공채 둘다 꼭 지원해볼 생각입니다!&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Docker의 개념, 구조, VM과의 차이점]]></title><description><![CDATA[평소 Docker를 많이 사용하지만, 그 구조나 개념을 정확히는 몰라서 이참에 정리해 보았습니다. Docker…]]></description><link>https://yangdongs.web.app/docker_struct/</link><guid isPermaLink="false">https://yangdongs.web.app/docker_struct/</guid><pubDate>Sun, 10 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;평소 Docker를 많이 사용하지만, 그 구조나 개념을 정확히는 몰라서 이참에 정리해 보았습니다.&lt;/p&gt;
 &lt;h3 id=&quot;docker란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#docker%EB%9E%80&quot; aria-label=&quot;docker란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Docker란?&lt;/h3&gt;
 &lt;p&gt;컨테이너 기반의 오픈소스 가상화 플랫폼&lt;/p&gt;
 &lt;h3 id=&quot;가상화란&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%80%EC%83%81%ED%99%94%EB%9E%80&quot; aria-label=&quot;가상화란 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;가상화란?&lt;/h3&gt;

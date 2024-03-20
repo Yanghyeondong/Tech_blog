@@ -1,8 +1,8 @@
 ---
 date: '2024-03-19'
-title: '삼성 SDS 알고리즘 특강 및 Pro 합격 후기'
+title: '삼성SDS 알고리즘 특강 및 Pro 합격후기'
 categories: ['Algorithm','Tip']
-summary: '2주간의 SDS 알고리즘 특강과 Pro 시험 후기입니다.'
+summary: '2주간의 SDS 특강과 Pro 시험 후기입니다.'
 thumbnail: './sds/logo.jpg'
 ---
 

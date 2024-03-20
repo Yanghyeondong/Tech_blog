@@ -1,4 +1,444 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 Mar 2024 13:34:30 GMT</lastBuildDate><item><title><![CDATA[삼성 SDS 알고리즘 특강 및 Pro 합격 후기]]></title><description><![CDATA[이제 4학년으로 올라가면서, 취직에 대한 고민이 점점 생기기 시작했습니다. 특히, 코딩테스트는 어디에 지원하든 꼭 필요한 역량이였기에, 삼성 SDS…]]></description><link>https://yangdongs.web.app/sds_pro/</link><guid isPermaLink="false">https://yangdongs.web.app/sds_pro/</guid><pubDate>Tue, 19 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이제 4학년으로 올라가면서, 취직에 대한 고민이 점점 생기기 시작했습니다.&lt;br&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Yangdongs RSS Feed]]></title><description><![CDATA[알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다]]></description><link>https://yangdongs.web.app</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 20 Mar 2024 13:04:26 GMT</lastBuildDate><item><title><![CDATA[AWS  Solution Architect Associate 자격증 실습 1장]]></title><description><![CDATA[본 포스트는 Udemy AWS Certified SAA - Stephane Maarek 강의를 일부 정리한 것입니다. 상세한 정보는 해당 강의를 참고하세요 AWS 소개 AWS 특징 AWS…]]></description><link>https://yangdongs.web.app/aws_saa_1/</link><guid isPermaLink="false">https://yangdongs.web.app/aws_saa_1/</guid><pubDate>Wed, 20 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;본 포스트는 Udemy &lt;strong&gt;AWS Certified SAA - Stephane Maarek&lt;/strong&gt; 강의를 일부 정리한 것입니다.&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;상세한 정보는 &lt;a href=&quot;https://www.udemy.com/course/best-aws-certified-developer-associate/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;해당 강의&lt;/a&gt;를 참고하세요&lt;/em&gt;&lt;/p&gt;
+&lt;h2 id=&quot;aws-소개&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-%EC%86%8C%EA%B0%9C&quot; aria-label=&quot;aws 소개 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 소개&lt;/h2&gt;
+&lt;h3 id=&quot;aws-특징&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-%ED%8A%B9%EC%A7%95&quot; aria-label=&quot;aws 특징 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 특징&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;AWS는 온디맨드 방식으로 원할 때 마다 원하는 만큼만 서버를 사용&amp;#x26;확장 할 수 있다.&lt;/li&gt;
+&lt;li&gt;Neflix, Dropbox, NASA가 사용한다.&lt;/li&gt;
+&lt;li&gt;다양한 기능들이 전부 연결되어서 사용된다.&lt;/li&gt;
+&lt;li&gt;전세계의 리전들과 이를 연결하는 사설 네트워크, 등으로 이루어져 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;aws-리전&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-%EB%A6%AC%EC%A0%84&quot; aria-label=&quot;aws 리전 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 리전&lt;/h3&gt;
+&lt;p&gt;데이터 센터의 집합.&lt;br&gt;
+대부분의 서비스는 특정 리전에 제한된다. 리전을 변경할시 서비스를 처음부터 사용하는 것!&lt;br&gt;
+&lt;br&gt;
+리전 선택 기준&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Compliance(법률 준수) 각 나라의 데이터 정책에 따라 준수&lt;/li&gt;
+&lt;li&gt;Latency(지연 시간) 서비스의 빠른 속도를 위해 서비스 지역과 가까운 곳을 골라야 함&lt;/li&gt;
+&lt;li&gt;Available services(가용 서비스) 원하는 서비스가 있는 리전을 선택해야 됨&lt;/li&gt;
+&lt;li&gt;Pricing(비용) 리전마다 비용이 다 다르다&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;aws-availability-가용-영역&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-availability-%EA%B0%80%EC%9A%A9-%EC%98%81%EC%97%AD&quot; aria-label=&quot;aws availability 가용 영역 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS Availability (가용 영역)&lt;/h3&gt;
+&lt;p&gt;리전마다 3~6개의 가용 영역이 있다.&lt;/p&gt;
+&lt;p&gt;각 가용 영역마다,&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;여분의 전원, 네트워크, 통신을 갖추고 있다.&lt;/li&gt;
+&lt;li&gt;하나 또는 2개의 데이터 센터가 있다.&lt;/li&gt;
+&lt;li&gt;하나에 문제가 생겨도 서로 다른 가용 영역과는 독립되어 있다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;가용 영역끼리 고대역 저지연 네트워크로 연결되 리전을 형성한다.&lt;/p&gt;
+&lt;h3 id=&quot;edge-location전송-지점&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#edge-location%EC%A0%84%EC%86%A1-%EC%A7%80%EC%A0%90&quot; aria-label=&quot;edge location전송 지점 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Edge Location(전송 지점)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;전 세계에 전송 지점이 있다.&lt;/li&gt;
+&lt;li&gt;최종 사용자에게 최소 지연으로 서비스 제공 가능.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;iam-identity-and-access-management&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#iam-identity-and-access-management&quot; aria-label=&quot;iam identity and access management permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IAM (Identity and Access Management)&lt;/h2&gt;
+&lt;p&gt;사용자를 생성하고 그룹에 배치한다.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;root 계정은 계정을 생성할때만 사용하고, 이후에는 사용 공유 금지.&lt;/li&gt;
+&lt;li&gt;사용자 생성과 그룹화. ex.) Developer와 Operations&lt;/li&gt;
+&lt;li&gt;그룹은 그룹을 포함시킬수 없다! 사용자만 배치 가능&lt;/li&gt;
+&lt;li&gt;그룹에 속하지 않는 사용자가 있을수도 있다.&lt;/li&gt;
+&lt;li&gt;한 사용자가 여러 그룹에 속하는 것은 가능.&lt;/li&gt;
+&lt;li&gt;글로벌 서비스다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;iam-permissions&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#iam-permissions&quot; aria-label=&quot;iam permissions permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IAM Permissions&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Json 문서로 관리된다.&lt;/li&gt;
+&lt;li&gt;비용이나 보안의 측면에서 중요.&lt;/li&gt;
+&lt;li&gt;AWS는 최소 권한의 원칙 적용 : 사용자에게 필요 이상의 권한을 주지 않음.&lt;/li&gt;
+&lt;li&gt;태그는 리소스의 메타데이터를 제공.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;iam-policies정책&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#iam-policies%EC%A0%95%EC%B1%85&quot; aria-label=&quot;iam policies정책 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IAM Policies(정책)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;그룹마다 권한의 상속이 가능&lt;/li&gt;
+&lt;li&gt;개별 인원에게 인라인 정책도 가능 (그룹의 유무와 상관없이)&lt;/li&gt;
+&lt;li&gt;복수개의 그룹에 해당하면 그 여러 그룹의 권한을 모두 부여 받는다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&quot;iam-policies-구성-요소&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#iam-policies-%EA%B5%AC%EC%84%B1-%EC%9A%94%EC%86%8C&quot; aria-label=&quot;iam policies 구성 요소 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IAM Policies 구성 요소&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;버전 넘버: 정책 언어 버전&lt;/li&gt;
+&lt;li&gt;정책 식별 ID(옵션)&lt;/li&gt;
+&lt;li&gt;Statement(문장)&lt;br&gt;
+sid: 식별자 (옵션)&lt;br&gt;
+effect: 측정 API에 대한 접근 허용 여부 - Allow or Deny&lt;br&gt;
+principal: 정책이 적용될 사용자, 계정, 역할 등&lt;br&gt;
+action: Effect에 기반해 허용 or 거부 되는 API 목록&lt;br&gt;
+resource: action이 적용될 리소스의 목록&lt;br&gt;
+전부를 호출 = ex. iam:Get*&lt;br&gt;
+condition : 언제 statement가 적용될 것인지&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;사용자-보호를-위한-2가지-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%82%AC%EC%9A%A9%EC%9E%90-%EB%B3%B4%ED%98%B8%EB%A5%BC-%EC%9C%84%ED%95%9C-2%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;사용자 보호를 위한 2가지 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;사용자 보호를 위한 2가지 방법&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Password Policy(비밀번호 정책)&lt;br&gt;
+비밀번호 최소 길이, 특정 문자 포함, 이전 번호 재사용, 변경 권한, 변경 주기 설정 가능.&lt;/li&gt;
+&lt;li&gt;MFA(다요소 인증)&lt;br&gt;
+비밀번호와 물리적인 security 디바이스도 활용&lt;br&gt;
+가상 MFA - Google Aurhenticator, Authy(하나의 장치에서 여러토큰, 여러 장치도 가능)&lt;br&gt;
+UTF 키 - Yubikey 같은 장비&lt;br&gt;
+하드웨어 key fob&lt;br&gt;
+실제 실습 시: Auth app, security key, hardware totp token 이 있다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;aws-접근-3가지-방법&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-%EC%A0%91%EA%B7%BC-3%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95&quot; aria-label=&quot;aws 접근 3가지 방법 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS 접근 3가지 방법&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;AWS console
+password + mfa&lt;/li&gt;
+&lt;li&gt;AWS CLI
+access key&lt;/li&gt;
+&lt;li&gt;AWS SDK (API 호출 키)
+access key&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;aws-sdksoftware-development-kit&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-sdksoftware-development-kit&quot; aria-label=&quot;aws sdksoftware development kit permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS SDK(software development kit)&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;특정 언어를 사용하는 라이브러리들의 모음
+자바스크립트, 파이썬(boto) …&lt;/li&gt;
+&lt;li&gt;AWS에 접속하고 관리하게 해줌&lt;/li&gt;
+&lt;li&gt;애플리케이션 코드에 임베디를 해야한다!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&quot;aws-clouldshell&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#aws-clouldshell&quot; aria-label=&quot;aws clouldshell permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;AWS ClouldShell&lt;/h3&gt;
+&lt;p&gt;웹 페이지에서 접근이 가능한 CLI&lt;br&gt;
+파일 업로드 다운로드가 가능하고 저장해도 남아 있다&lt;/p&gt;
+&lt;h3 id=&quot;iam-role역할&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#iam-role%EC%97%AD%ED%95%A0&quot; aria-label=&quot;iam role역할 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IAM Role(역할)&lt;/h3&gt;
+&lt;p&gt;AWS 서비스에 권한을 부여하는 것. AWS에서 개체가 credential을 받도록.&lt;br&gt;
+사용자와 동일하지만, 실제 사람이 아닌 AWS 서비스가 사용한다.&lt;br&gt;
+ex. EC2에서 다른 리소스를 사용하려할때 Role이 필요하다.&lt;/p&gt;
+&lt;h3 id=&quot;iam-보안-도구&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#iam-%EB%B3%B4%EC%95%88-%EB%8F%84%EA%B5%AC&quot; aria-label=&quot;iam 보안 도구 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IAM 보안 도구&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;IAM Credentials Report(자격 증명 보고서)&lt;br&gt;
+계정 수준에서 가능&lt;br&gt;
+계정에 있는 사용자와 다양한 자격 증명을 포함한 보고서&lt;br&gt;
+어떤 사용자가 비밀 번호를 안바꾸었는지, 계정이 사용되는지도 파악 가능.&lt;/li&gt;
+&lt;li&gt;IAM Access Advisor(액세스 관리자)&lt;br&gt;
+user 레벨에서 가능&lt;br&gt;
+user에게 부여된 권한과 액세스 시간을 볼수 있음&lt;br&gt;
+어떤 권한이 사용되지 않는지 관찰하여 최소 권한 원칙을 지키기에 좋다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&quot;iam-가이드-라인&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#iam-%EA%B0%80%EC%9D%B4%EB%93%9C-%EB%9D%BC%EC%9D%B8&quot; aria-label=&quot;iam 가이드 라인 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;IAM 가이드 라인&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;root계정은 AWS 계정을 설정할때 제외하고는 사용하지 말것&lt;/li&gt;
+&lt;li&gt;하나의 AWS 사용자(user)는 하나의 실제 물리 사용자와 매핑.&lt;/li&gt;
+&lt;li&gt;강력한 비밀번호 정책, MFA 권장.&lt;/li&gt;
+&lt;li&gt;AWS 서비스를 사용할때는 Role로 권한을 줘야한다.&lt;/li&gt;
+&lt;li&gt;CLI와 SDK 사용을 위해서는 엑세스 키를 사용한다.&lt;/li&gt;
+&lt;li&gt;IAM user와 엑세스 키를 절대 공유하지 말것!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;실습-이미지&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%8B%A4%EC%8A%B5-%EC%9D%B4%EB%AF%B8%EC%A7%80&quot; aria-label=&quot;실습 이미지 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;실습 이미지&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0b2f109837a4f5a04a56b7e460df837a/4612c/1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 123.95833333333333%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAZABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAIBBAX/xAAXAQEBAQEAAAAAAAAAAAAAAAAAAQID/9oADAMBAAIQAxAAAAH3Kik0E7hacjjv/8QAGBAAAgMAAAAAAAAAAAAAAAAAAhARMDL/2gAIAQEAAQUColnr/8QAFhEAAwAAAAAAAAAAAAAAAAAAABAS/9oACAEDAQE/AXB//8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEDEBH/2gAIAQIBAT8BtyYf/8QAFBABAAAAAAAAAAAAAAAAAAAAMP/aAAgBAQAGPwJP/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERIWEQMVH/2gAIAQEAAT8hSXhghK8EZC6Lpkc9h//aAAwDAQACAAMAAAAQPz8P/8QAFxEBAQEBAAAAAAAAAAAAAAAAEQEAEP/aAAgBAwEBPxB7FF3/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAECAQE/ENqah//EAB4QAAIBBAMBAAAAAAAAAAAAAAABESExUXEQQbGB/9oACAEBAAE/EEa3aEm6GhWOEYEqMDYobhriJ8N8+Dw//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/0b2f109837a4f5a04a56b7e460df837a/a59e9/1.webp 192w,
+/static/0b2f109837a4f5a04a56b7e460df837a/0ca9f/1.webp 384w,
+/static/0b2f109837a4f5a04a56b7e460df837a/dc9b9/1.webp 768w,
+/static/0b2f109837a4f5a04a56b7e460df837a/72a6f/1.webp 858w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/0b2f109837a4f5a04a56b7e460df837a/150b2/1.jpg 192w,
+/static/0b2f109837a4f5a04a56b7e460df837a/6985d/1.jpg 384w,
+/static/0b2f109837a4f5a04a56b7e460df837a/19de6/1.jpg 768w,
+/static/0b2f109837a4f5a04a56b7e460df837a/4612c/1.jpg 858w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/0b2f109837a4f5a04a56b7e460df837a/19de6/1.jpg&quot;
+            alt=&quot;.&quot;
+            title=&quot;.&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cda0d1b37cc7d0568c470b313ab0df58/92e1a/2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 62.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAgABBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHuIaijH//EABYQAAMAAAAAAAAAAAAAAAAAAAARIP/aAAgBAQABBQKWf//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABgQAAMBAQAAAAAAAAAAAAAAAAAQESEB/9oACAEBAAE/IeLC6VP/2gAMAwEAAgADAAAAEP8A/wD/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8QuK//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxCI/8QAGxABAAMAAwEAAAAAAAAAAAAAAQARITFBYaH/2gAIAQEAAT8QOY55UoOVhbu4NAlxd15cwpX2f//Z&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/cda0d1b37cc7d0568c470b313ab0df58/a59e9/2.webp 192w,
+/static/cda0d1b37cc7d0568c470b313ab0df58/0ca9f/2.webp 384w,
+/static/cda0d1b37cc7d0568c470b313ab0df58/dc9b9/2.webp 768w,
+/static/cda0d1b37cc7d0568c470b313ab0df58/8d53d/2.webp 803w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/cda0d1b37cc7d0568c470b313ab0df58/150b2/2.jpg 192w,
+/static/cda0d1b37cc7d0568c470b313ab0df58/6985d/2.jpg 384w,
+/static/cda0d1b37cc7d0568c470b313ab0df58/19de6/2.jpg 768w,
+/static/cda0d1b37cc7d0568c470b313ab0df58/92e1a/2.jpg 803w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/jpeg&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/cda0d1b37cc7d0568c470b313ab0df58/19de6/2.jpg&quot;
+            alt=&quot;.&quot;
+            title=&quot;.&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/2ef06b3c0450eadd052945adad9d9a78/eb088/001.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 111.97916666666667%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAWCAIAAABPIytRAAAACXBIWXMAAAsTAAALEwEAmpwYAAACcUlEQVQ4y4VT244cKQyt///ATJSHXSU9k+ribhsDhqI6AqaTTKTdHFnIdtUxxpftn6+3T5+//Pt6V8YGCEj0d0G0zvkAm9b6drtp5yInZo4TFP/ERw8BIABuROS87723WttErfU8z6kMfaG1drYPJqe0Reacc50fRGQSGmLIic9We+/9uvp1ccqcczunOZ25lC3nrI1ZWSFRjFxKjmCYPJPtvT8muNSQJNfz8Xhc01MWOTKf59l7X+d1XSMWc2vn478xyBTJhxBmAbwPgCi1Wuc45fnQc7yoNalV6geMN3tAC6NmHsA6FxC1MUpr573S+lDKBwBEIBrnVJBomrQpbfdDBxh/+JEBhhUFwHlvrAVEfDJx8XGkiUSb9/7l5eX2+hp5IK1zorXWe1+NQRz8IhIja2MAkDltnNLo+kgGacwCIw34MPMlmv2rpZSliMjSx5uJIgCKSGutFJn+oYcA324353wa0bk9USZ5sBC3mW1SyhhjzjZGJKdERLNV7XmVMCeYkIlSJDJvKWdpJ83SWm4+FqkjvPceiYqUfvXRsFqVdY7SMMeI9ZTzRjEa56w1NoS79dqFOCu2Fmjpq4BAEeO7ySlRjBsivb19/3Z7cyGsbojUIpKL5JzTb5JL+d0zyBTj6tuh1Pf9ro05jmPf7wEg5bzufF6elyznIDPzcaj7/VBK7fturFNaq0PFOAb+1w5OESmrYO/jmXMOgNY6o+2htDHW+zD4Wiul9/0wxmgPyuNuQwDgGFciOectpXQ/lDG2FPnVzOdIlHm2s8t5ldav6+NWjZWcm5xSKrMkP3f4/1FENlgrMkc/THnfob8K4g9bae56Csz9OgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/2ef06b3c0450eadd052945adad9d9a78/a59e9/001.webp 192w,
+/static/2ef06b3c0450eadd052945adad9d9a78/0ca9f/001.webp 384w,
+/static/2ef06b3c0450eadd052945adad9d9a78/dc9b9/001.webp 768w,
+/static/2ef06b3c0450eadd052945adad9d9a78/14231/001.webp 916w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/2ef06b3c0450eadd052945adad9d9a78/3b721/001.png 192w,
+/static/2ef06b3c0450eadd052945adad9d9a78/66595/001.png 384w,
+/static/2ef06b3c0450eadd052945adad9d9a78/fe486/001.png 768w,
+/static/2ef06b3c0450eadd052945adad9d9a78/eb088/001.png 916w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/2ef06b3c0450eadd052945adad9d9a78/fe486/001.png&quot;
+            alt=&quot;.&quot;
+            title=&quot;.&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bf2cdede0777616db970d7f15b2dc5e2/14077/002.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.416666666666664%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABt0lEQVQoz3WQy24UMRBF+6f5Az6GJV/Agg0bdhAkskky6emenrTterts9wP1ZNhB6cgqWTq+V+6mANMc5jATE9J/IWZiQUJUJ9/JN2TtmCXESCyWPbvnY/zG3/HjnlURQb3Z9Rc/fJLfnwWmQz69vPTDNCdkPiJuIcwiRxwzEpVSzAwBfN1r/zV++SDfPlp67Y4ySKqWcxZVEVFVM1Oz+2aac661unstpSxr3XepO5t3LGpeQkyAVFurrWV3EvFSvFS1LMezHlICYi/taEZHxwjQmWqDYOHNIK4mu+tqsiivJqvpotxUFpVCWIVW0ya8CK/KItxl1fzz+/Dw4+nx8fL0FPo+ns8wDjj0OPQ09DQei0yjXAa6DDwNcbrqHJ2pM6ZNCBOO1zRe5vP41g9v/TgLpMLU5Eh2AoshXieJoUIsAA0xv8u7MYR5HEfPuZZyO93MWmv7bQAOWWJ0hE1oE9z4LuOuPF+vz6fTHCMSx3T/vGXd6s2PMXoKu9LGuN64y1l4d3NCAVBAjpFi4BAkJUUUSC1bVV3oPfPOLuTCXQIYXk9j/3p559yP5x7jbExKqISC8E8Q8Q80I6eBdp8oIgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/bf2cdede0777616db970d7f15b2dc5e2/a59e9/002.webp 192w,
+/static/bf2cdede0777616db970d7f15b2dc5e2/0ca9f/002.webp 384w,
+/static/bf2cdede0777616db970d7f15b2dc5e2/dc9b9/002.webp 768w,
+/static/bf2cdede0777616db970d7f15b2dc5e2/8f82d/002.webp 923w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/bf2cdede0777616db970d7f15b2dc5e2/3b721/002.png 192w,
+/static/bf2cdede0777616db970d7f15b2dc5e2/66595/002.png 384w,
+/static/bf2cdede0777616db970d7f15b2dc5e2/fe486/002.png 768w,
+/static/bf2cdede0777616db970d7f15b2dc5e2/14077/002.png 923w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/bf2cdede0777616db970d7f15b2dc5e2/fe486/002.png&quot;
+            alt=&quot;.&quot;
+            title=&quot;.&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/79f65/003.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 86.45833333333334%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAIAAABSJhvpAAAACXBIWXMAAAsTAAALEwEAmpwYAAABoElEQVQ4y5WT7W7TMBSGc39I3BoSdwHXsp9TVxATy0oT1278eexz/BnkbkDH6FQevYl/PbHz6nhgi2ZH+W1aDkfJudhPs9LGOWevyPD9Ydzcbbdfvt5uNrd3W6Gsvc7sstL6wDnnwjlnrIXwAv8rr3EAg3PucbfjQtRa0ytqybV0ckrnKTkjhgGJkMgY4wBiSjGl/Ic02biXbpZWYdZYNGZDxVA1sblAz7KUylhrAaxzuZRSa6k15Ty5NB7tA9eTDpMOPyRwyJKapNUEGgKiUtpaRxRLKa21epbW1rr2lNZTT+9SW21rTGkAH46LVFp773PO60taf9rT+hddDojgPSLmUtb/4VnWSoWAMab+/4hEVM4+1I9+WSZt9H5m4+NumhnnnDEGPly1MxIpqaaZ7adZCAHQxyTGSEQAvo8b+LdkY6yUCpF+n/OJXviJt2TBxTiOM2NSqkXKnN9urp36X2OMXV4WeZj7gEultDaXGvrHzuC9AzB9vlwvOka8TEBCM+PxHpd7r/bD+RUz1l6KdU7KRShvbz6yz+/nT+/g5sNP51zUnVxb6sIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/a59e9/003.webp 192w,
+/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/0ca9f/003.webp 384w,
+/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/dc9b9/003.webp 768w,
+/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/65619/003.webp 833w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/3b721/003.png 192w,
+/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/66595/003.png 384w,
+/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/fe486/003.png 768w,
+/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/79f65/003.png 833w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/328d50b1ff49b5f0bdf9a7f4ff07e1f1/fe486/003.png&quot;
+            alt=&quot;.&quot;
+            title=&quot;.&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/37ef56157e5897802fde405f2afc78d5/2876f/004.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.1875%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAx0lEQVQY043Q3U7DMAwF4GLHbVlJmp/GWZPerOu0QBgCbsb7PxliCMTN6L4rS5aP5FMZY733MaYY4zhumdkPwzYE56zW2lrbtm11TdPUzNz3GgAFIgIIIYjo7ke1Skk1panrus3mHgCqG31ns+dSnne7+Xz+yMdjzjmlSSqperWeZYzJ+WlZDvv9kvPj6fRSSnl9e5/nmYiuniFiTQSAdVPTZQAAvBBf6L+3BYq/69+SbqpKPsjBuThGDoHZO+eMNiklDmE14hOUSg6WJqsizQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/37ef56157e5897802fde405f2afc78d5/a59e9/004.webp 192w,
+/static/37ef56157e5897802fde405f2afc78d5/0ca9f/004.webp 384w,
+/static/37ef56157e5897802fde405f2afc78d5/dc9b9/004.webp 768w,
+/static/37ef56157e5897802fde405f2afc78d5/ece56/004.webp 968w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/37ef56157e5897802fde405f2afc78d5/3b721/004.png 192w,
+/static/37ef56157e5897802fde405f2afc78d5/66595/004.png 384w,
+/static/37ef56157e5897802fde405f2afc78d5/fe486/004.png 768w,
+/static/37ef56157e5897802fde405f2afc78d5/2876f/004.png 968w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/37ef56157e5897802fde405f2afc78d5/fe486/004.png&quot;
+            alt=&quot;.&quot;
+            title=&quot;.&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;br&gt;
+&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/abff7/005.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 34.895833333333336%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAABDklEQVQY04XOSW6DQBAFUI5iaLpxz/MENGCMpziL3P80UUwWVjaRnkq1+F9V1fN+M+MT66kh/nC072rsoMhAjECWVk4sXljY6ItIV9XfKxuycANAvIasQbx5LTvQCYgVwgp0vIH00JJd23FlM+a2Ynllcdau1y4JHZVN0kTtsraJcO1jGedNmki4pdxS4RAWbccA+lFt14/L7bMv5zycxmmL/ZKHdSjrUM4xl44oJj2TXqhAhWPSw6OoW9JA2kBazeutnK6xX1K/hDRZPwodO6IQli4MDaR1S+qWHADe5177LT+eX2W5vA6eYp59mozrhQoIS+MyQOw9/UelbBImSZuUzVwFabJQYX/M+H/K3/nrTacvKmubAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;picture&gt;
+          &lt;source
+              srcset=&quot;/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/a59e9/005.webp 192w,
+/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/0ca9f/005.webp 384w,
+/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/dc9b9/005.webp 768w,
+/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/e2c2f/005.webp 1152w,
+/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/3af10/005.webp 1267w&quot;
+              sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+              type=&quot;image/webp&quot;
+            /&gt;
+          &lt;source
+            srcset=&quot;/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/3b721/005.png 192w,
+/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/66595/005.png 384w,
+/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/fe486/005.png 768w,
+/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/d2d74/005.png 1152w,
+/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/abff7/005.png 1267w&quot;
+            sizes=&quot;(max-width: 768px) 100vw, 768px&quot;
+            type=&quot;image/png&quot;
+          /&gt;
+          &lt;img
+            class=&quot;gatsby-resp-image-image&quot;
+            src=&quot;/static/8d1d1ef1d7e478ad7dbc61c65df37d4f/fe486/005.png&quot;
+            alt=&quot;.&quot;
+            title=&quot;.&quot;
+            loading=&quot;lazy&quot;
+            decoding=&quot;async&quot;
+            style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+          /&gt;
+        &lt;/picture&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h2 id=&quot;source&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#source&quot; aria-label=&quot;source permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Source&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;『AWS Certified Cloud Solutions Architect』 &lt;em&gt;Stephane Maarek - 지음&lt;/em&gt;&lt;br&gt;
+&lt;a href=&quot;https://www.udemy.com/course/best-aws-certified-developer-associate/&quot; target=&quot;_blank&quot; rel=&quot;nofollow&quot;&gt;https://www.udemy.com/course/best-aws-certified-developer-associate&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[삼성SDS 알고리즘 특강 및 Pro 합격후기]]></title><description><![CDATA[이제 4학년으로 올라가면서, 취직에 대한 고민이 점점 생기기 시작했습니다. 특히, 코딩테스트는 어디에 지원하든 꼭 필요한 역량이였기에, 삼성 SDS…]]></description><link>https://yangdongs.web.app/sds_pro/</link><guid isPermaLink="false">https://yangdongs.web.app/sds_pro/</guid><pubDate>Tue, 19 Mar 2024 00:00:00 GMT</pubDate><content:encoded>&lt;p&gt;이제 4학년으로 올라가면서, 취직에 대한 고민이 점점 생기기 시작했습니다.&lt;br&gt;
 특히, 코딩테스트는 어디에 지원하든 꼭 필요한 역량이였기에, 삼성 SDS 알고리즘 특강에 지원했습니다.&lt;br&gt;
 사실 특강 자체는 이미 끝난지 한달이 되어가지만, 정리겸 다시 한번 복기해봅니다!&lt;/p&gt;
 &lt;h2 id=&quot;특강-지원-및-입과&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8A%B9%EA%B0%95-%EC%A7%80%EC%9B%90-%EB%B0%8F-%EC%9E%85%EA%B3%BC&quot; aria-label=&quot;특강 지원 및 입과 permalink&quot; class=&quot;anchor before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;특강 지원 및 입과&lt;/h2&gt;

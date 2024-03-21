@@ -1,6 +1,6 @@
 ---
 date: '2024-03-20'
-title: 'AWS  Solution Architect Associate 자격증 실습 1장'
+title: 'AWS SAA 자격증 공부 < IAM >'
 categories: ['AWS','Cloud']
 summary: 'AWS SAA 취득을 위한 공부 내용을 기록합니다'
 thumbnail: './aws/saa.jpg'
@@ -30,7 +30,7 @@ thumbnail: './aws/saa.jpg'
 3. Available services(가용 서비스) 원하는 서비스가 있는 리전을 선택해야 됨
 4. Pricing(비용) 리전마다 비용이 다 다르다
 
-### AWS Availability (가용 영역)
+### AWS Availability Zones (가용 영역)
 
 리전마다 3~6개의 가용 영역이 있다.  
 

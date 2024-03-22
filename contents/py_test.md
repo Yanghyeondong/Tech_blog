@@ -1,7 +1,7 @@
 ---
 date: '2024-03-23'
 title: 'Python 실전 압축 정리본'
-categories: ['Tip','C++', 'Algorithm']
+categories: ['Tip','Python', 'Algorithm']
 summary: '코딩테스트에 유용한 Python 라이브러리와 문법을 정리합니다.'
 thumbnail: './common/python.png'
 ---

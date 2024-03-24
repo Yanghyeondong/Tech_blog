@@ -1,0 +1,584 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="naver-site-verification" content="7727e68f404d4c7be584f2b673b9943ab5c6b9ab"/><meta data-react-helmet="true" name="google-site-verification" content="fygLmB3YoAnXWkSTMHoemYurOt8ZBEdT2K5M1qZQL5E"/><meta data-react-helmet="true" name="twitter:image" content="/static/e46772e428fa9f924fd778334079b666/saa.jpg"/><meta data-react-helmet="true" name="twitter:description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta data-react-helmet="true" name="twitter:title" content="AWS SAA 자격증 공부 &lt; EC2 심화 &gt;"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" property="og:site_name" content="AWS SAA 자격증 공부 &lt; EC2 심화 &gt;"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:image" content="/static/e46772e428fa9f924fd778334079b666/saa.jpg"/><meta data-react-helmet="true" property="og:description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta data-react-helmet="true" property="og:title" content="AWS SAA 자격증 공부 &lt; EC2 심화 &gt;"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" name="description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta name="generator" content="Gatsby 4.19.2"/><style data-href="/styles.69a4e1e9c4403d061256.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#2f2f2f;color:#eee;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5em;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#363636}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#fd9170}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#c792ea}.token.attr-name{color:#ffcb6b}.token.attr-value,.token.attribute{color:#a5e844}.token.boolean{color:#c792ea}.token.builtin{color:#ffcb6b}.token.cdata,.token.char{color:#80cbc4}.token.class{color:#ffcb6b}.token.class-name{color:#f2ff00}.token.comment{color:#616161}.token.constant{color:#c792ea}.token.deleted{color:#f66}.token.doctype{color:#616161}.token.entity{color:#f66}.token.function{color:#c792ea}.token.hexcode{color:#f2ff00}.token.id,.token.important{color:#c792ea;font-weight:700}.token.inserted{color:#80cbc4}.token.keyword{color:#c792ea}.token.number{color:#fd9170}.token.operator{color:#89ddff}.token.prolog{color:#616161}.token.property{color:#80cbc4}.token.pseudo-class,.token.pseudo-element{color:#a5e844}.token.punctuation{color:#89ddff}.token.regex{color:#f2ff00}.token.selector{color:#f66}.token.string{color:#a5e844}.token.symbol{color:#c792ea}.token.tag{color:#f66}.token.unit{color:#fd9170}.token.url,.token.variable{color:#f66}:host,:root{--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1 "Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1 "Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1 "Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{box-sizing:content-box;overflow:visible}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.07143em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{top:.25em;width:var(--fa-li-width,2em)}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:var(--fa-right,0);top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.08333em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.07143em;vertical-align:.05357em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.04167em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width, 2em)*-1);line-height:inherit;position:absolute;text-align:center;width:var(--fa-li-width,2em)}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade,.fa-fade{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s)}.fa-beat-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-shake,.fa-spin{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal)}.fa-spin{-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scaleX(-1);transform:scaleX(-1)}.fa-flip-vertical{-webkit-transform:scaleY(-1);transform:scaleY(-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1);transform:scale(-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;height:2em;position:relative;vertical-align:middle;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-only,.sr-only-focusable:not(:focus){clip:rect(0,0,0,0);border-width:0;height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor)}.svg-inline--fa .fa-secondary,.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="canonical" href="https://yangdongs.web.app/aws_saa_3/" data-baseprotocol="https:" data-basehost="yangdongs.web.app"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><title data-react-helmet="true">AWS SAA 자격증 공부 &lt; EC2 심화 &gt;</title><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yangdongs RSS Feed" href="/rss.xml"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css vbubbu">.css-vbubbu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100vh;overflow-x:hidden;width:100%;}</style><main class="css-vbubbu e1strnqo0"><style data-emotion="css 1pe8cy1">.css-1pe8cy1{position:fixed;margin:10px 10px;z-index:5;}</style><div class="css-1pe8cy1 e1md2nih0"><style data-emotion="css 1qhl3ja">.css-1qhl3ja{display:grid;place-items:center;width:60px;height:60px;border-radius:20px;background-color:#4ccd97;color:#ffffff;font-size:40px;cursor:pointer;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);-webkit-transition:background-color 0.6s,color 0.6s;transition:background-color 0.6s,color 0.6s;}.css-1qhl3ja:hover{background-color:#ffffff;color:#4ccd97;}@media (max-width: 768px){.css-1qhl3ja{width:45px;height:45px;font-size:30px;border-radius:15px;}}</style><div class="css-1qhl3ja e1md2nih1"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM325.1 306.7L380.6 162.4C388.1 142.1 369 123.9 349.6 131.4L205.3 186.9C196.8 190.1 190.1 196.8 186.9 205.3L131.4 349.6C123.9 369 142.1 388.1 162.4 380.6L306.7 325.1C315.2 321.9 321.9 315.2 325.1 306.7V306.7z"></path></svg></div><style data-emotion="css 12ua5r7">.css-12ua5r7{margin:10px 10px;border-radius:20px;z-index:4;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-transition:500ms;transition:500ms;left:-600px;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);background-color:white;}</style><div class="css-12ua5r7 ee3oskm2"><style data-emotion="css x68nae">.css-x68nae{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;text-align:center;margin-top:5%;margin-bottom:10%;margin:10px;}</style><div class="css-x68nae ee3oskm1"><style data-emotion="css 58nrwj">.css-58nrwj{font-size:20px;margin:15px;}.css-58nrwj:hover{border-bottom:3px solid #4ccd97;}</style><a class="css-58nrwj ee3oskm0" href="/">Home</a><a class="css-58nrwj ee3oskm0" href="/post/">Post</a><a href="https://github.com/Yanghyeondong/tech_blog#readme" class="css-58nrwj ee3oskm0">About</a></div></div></div><style data-emotion="css-global gyifnl">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1470px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;889&#x27; width=&#x27;1470&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/jpeg;base64,/9j/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcDBQYJ/8QAFwEAAwEAAAAAAAAAAAAAAAAAAwUGB//aAAwDAQACEAMQAAAB5hRLtU6YvujPkeT/xAAcEAACAgIDAAAAAAAAAAAAAAABAwIFAAQGFDH/2gAIAQEAAQUCWNeGry6toqxXaMse2bqx7WNI8//EACARAAICAgEFAQAAAAAAAAAAAAIDAREEEgATITFRYaH/2gAIAQMBAT8BbjnkHjsBnSWI0wBHuymmVzN0UkOqrKJ0AI19clIX5n8+c//EACERAAICAQIHAAAAAAAAAAAAAAEDAgQFABIGERMUIXGB/9oACAECAQE/AZcR4+lhrONbg61u1arVuyyLDANpbFBTBEdEsjycJvBS5RsGQjZ3xjEAXWkA+D7+a//EACcQAAEEAAQEBwAAAAAAAAAAAAECAxESAAQTURQiMUEFECEjYXFy/9oACAEBAAY/AskwsFHFPJQt4VtV1R5gVSJQBAtIsZicZZzwx+y9NAeo7mHQt60HW4lCSHVTb2iUwkg9o5vXsPrC0OGRl36N/lzqDv0BHyJ3wnUcW5QVTdRVUbCT5f/EAB0QAQACAwADAQAAAAAAAAAAAAERIQAxQVFxgbH/2gAIAQEAAT8h4mgrEiw8ZG+jg5etgCBtrALEsNxCLE40byZx4+KHbAuUly5BcQSvpso97alYzV9/c//aAAwDAQACAAMAAAAQhA//xAAaEQEBAAMBAQAAAAAAAAAAAAABEQAhMWGR/9oACAEDAQE/EBP20blAbVjKe4GoJbAg61vz7Pc//8QAGREBAQADAQAAAAAAAAAAAAAAAREAITFh/9oACAECAQE/EHkky9QBhjwuJtAZCoq+lFehvcuf/8QAGxABAAIDAQEAAAAAAAAAAAAAAREhADFBcZH/2gAIAQEAAT8QMatsWcKtYOiBKFLwAlvTEKQyIhkgakyTwSwXHlA0XiLMKllFhkqGQJaTVE8GACKgEAPZdi50INJw+zn/2Q==" alt=""/><picture><source type="image/webp" data-srcset="/static/e46772e428fa9f924fd778334079b666/2ca11/saa.webp 368w,/static/e46772e428fa9f924fd778334079b666/1f67a/saa.webp 735w,/static/e46772e428fa9f924fd778334079b666/f61fd/saa.webp 1470w" sizes="(min-width: 1470px) 1470px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1470px) 1470px, 100vw" decoding="async" loading="lazy" data-src="/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg" data-srcset="/static/e46772e428fa9f924fd778334079b666/9bfc9/saa.jpg 368w,/static/e46772e428fa9f924fd778334079b666/86bea/saa.jpg 735w,/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg 1470w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/e46772e428fa9f924fd778334079b666/2ca11/saa.webp 368w,/static/e46772e428fa9f924fd778334079b666/1f67a/saa.webp 735w,/static/e46772e428fa9f924fd778334079b666/f61fd/saa.webp 1470w" sizes="(min-width: 1470px) 1470px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1470px) 1470px, 100vw" decoding="async" loading="lazy" src="/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg" srcSet="/static/e46772e428fa9f924fd778334079b666/9bfc9/saa.jpg 368w,/static/e46772e428fa9f924fd778334079b666/86bea/saa.jpg 735w,/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg 1470w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css lzjgtp">.css-lzjgtp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:400px;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-lzjgtp{height:330px;width:100%;padding:40px 20px;}}</style><div class="css-lzjgtp e1st1jau7"><style data-emotion="css 10qqw1">.css-10qqw1{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin:auto 0;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:42px;font-weight:800;}@media (max-width: 768px){.css-10qqw1{font-size:30px;}}</style><div class="css-10qqw1 e1st1jau5">AWS SAA 자격증 공부 &lt; EC2 심화 &gt;</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau4"><style data-emotion="css 5yjeco">.css-5yjeco{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:start;justify-content:start;}@media (max-width: 768px){.css-5yjeco{-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-5yjeco e1st1jau3"><style data-emotion="css 1b9df66">.css-1b9df66{margin:2px 5px;padding:1px 7px 4px 7px;border-radius:6px;background-color:#49ae8e;font-size:16px;font-weight:800;color:white;}@media (max-width: 768px){.css-1b9df66{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-1b9df66 e1st1jau2">AWS</div><div class="css-1b9df66 e1st1jau2">Cloud</div></div><style data-emotion="css 14b4j72">.css-14b4j72{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}@media (max-width: 768px){.css-14b4j72{margin:7px 7px;}}</style><div class="css-14b4j72 e1st1jau1"><style data-emotion="css nkt64x">.css-nkt64x{margin-right:10px;}</style><div class="css-nkt64x e1st1jau0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-days" class="svg-inline--fa fa-calendar-days " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"></path></svg></div>2024.03.24.</div></div></div></div><style data-emotion="css hn6e83">.css-hn6e83{margin:auto auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}@media (min-width: 1200px){.css-hn6e83{margin-left:calc( 50% - 384px );}}@media (max-width: 768px){.css-hn6e83{width:100%;}}</style><div class="css-hn6e83 e6b6ljm0"><style data-emotion="css aco8as">.css-aco8as{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:2.5;font-size:18px;font-weight:400;}.css-aco8as p{padding:3px 0;}.css-aco8as strong{margin:0px 1px;font-size:18.3px;font-weight:800;}.css-aco8as h1,.css-aco8as h2{font-weight:800;margin-bottom:20px;}.css-aco8as h3{margin-bottom:0px;}.css-aco8as *+h1,.css-aco8as *+h2,.css-aco8as *+h3{margin-top:50px;}.css-aco8as *+h4{margin-top:25px;}.css-aco8as hr+h1,.css-aco8as hr+h2,.css-aco8as hr+h3{margin-top:0;}.css-aco8as hr+h4{margin-top:25px;}.css-aco8as h1{font-size:40px;}.css-aco8as h2{font-size:35px;}.css-aco8as h3{font-size:23px;color:#49ae8e;}.css-aco8as blockquote{margin:30px 10px;padding:5px 15px;border-left:2px solid #49ae8e;background-color:#f9f9f9;font-weight:400;}.css-aco8as blockquote li{font-size:18px;margin:0px 15px;padding:0px 10px 0px 5px;background-color:#f9f9f9;}.css-aco8as blockquote ol li::Marker{font-weight:800;color:#000;}.css-aco8as em{padding-right:8px;padding-left:3px;}.css-aco8as ol{margin-left:20px;padding:5px 0;}.css-aco8as ol li::Marker{font-weight:800;font-size:19px;color:#49ae8e;}.css-aco8as ul{margin:20px;margin-right:0px;}.css-aco8as ul li::Marker{content:"▶ ";font-weight:800;color:#49ae8e;}.css-aco8as li{font-size:17px;margin:10px 20px;padding-left:10px;padding-right:10px;background-color:#f9f9f9;border-radius:10px;}.css-aco8as li strong{font-size:17.5px;}.css-aco8as del{-webkit-text-decoration:line-through 3px solid rgba(0, 0, 0, .4);text-decoration:line-through 3px solid rgba(0, 0, 0, .4);}.css-aco8as hr{border:1px solid #000000;margin:100px 0;}.css-aco8as a{font-weight:800;color:#49ae8e;-webkit-text-decoration:underline 1px;text-decoration:underline 1px;text-underline-position:under;}.css-aco8as a:hover{color:#ffffff;background-color:#49ae8e;}.css-aco8as pre[class*='language-']{font-weight:300;padding:20px 30px;margin-bottom:15px;font-size:20px;border-radius:10px;border:1px solid #dddddd;}.css-aco8as pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);}.css-aco8as pre[class*='language-'] *{font-family:'Roboto Mono',monospace;font-weight:400;}.css-aco8as code[class*='language-']{font-size:16px;margin-right:4px;}.css-aco8as :not(pre)>code[class*="language-"]{font-size:15px;margin-right:4px;margin-left:4px;color:#000000;background-color:#fafafa;border:1px solid #dddddd;padding:1px 4px 3px 4px;border-radius:5px;}.css-aco8as :not(pre)>code[class*="language-"]::selection{background-color:#dadada;}@media (max-width: 768px){.css-aco8as{width:100%;padding:80px 20px;line-height:2.0;font-size:16px;}.css-aco8as h1{font-size:26px;}.css-aco8as h2{font-size:23px;}.css-aco8as h3{font-size:20px;}.css-aco8as strong{margin:0px 3px;font-size:17px;font-weight:800;}.css-aco8as img{width:100%;}.css-aco8as hr{margin:50px 0;}.css-aco8as li{font-size:16px;}}</style><div class="css-aco8as e1ijh0y10"><p><em>본 포스트는 Udemy <strong>AWS Certified SAA - Stephane Maarek</strong> 강의를 일부 정리한 것입니다.</em><br>
+<em>상세한 정보는 <a href="https://www.udemy.com/course/best-aws-certified-developer-associate/" target="_blank" rel="nofollow">해당 강의</a>를 참고하세요</em></p>
+<h2 id="ec2-ip" style="position:relative;"><a href="#ec2-ip" aria-label="ec2 ip permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EC2 IP</h2>
+<h3 id="ipv4" style="position:relative;"><a href="#ipv4" aria-label="ipv4 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>IPv4</h3>
+<p>37억개의 서로 다른 주소 허용. 현재 고갈 예정.</p>
+<h3 id="private-ip" style="position:relative;"><a href="#private-ip" aria-label="private ip permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Private IP</h3>
+<p>기기가 오직 private 네트워크 안에서만 식별되며, private 네트워크안에서만 유일하면 된다.<br>
+NAT 장치와 인터넷 게이트웨이(프록시)를 통해 인터넷과 연결된다.<br>
+지정된 범위의 IP만 private 아이피로 사용가능.</p>
+<h3 id="public-ip" style="position:relative;"><a href="#public-ip" aria-label="public ip permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Public IP</h3>
+<p>기기가 인터넷 상에서 식별되는 주소. ISP에 의해 발급.<br>
+전체 웹에서 유일해야 함.</p>
+<h3 id="elastic-ip" style="position:relative;"><a href="#elastic-ip" aria-label="elastic ip permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Elastic IP</h3>
+<p>EC2 인스턴스를 시작하고 중지할 때 public ip는 바뀐다(private ip는 안바뀜).<br>
+고정된 공용 IP를 사용하려면 Elastic IP 가 필요하다.</p>
+<ul>
+<li>IPv4를 사용한다.</li>
+<li>삭제하지 않는한 계속 가지고 있다.</li>
+<li>한번에 한 인스턴스에만 첨부가능.</li>
+<li>Elastic IP를 가지고 있는데 사용하지 않으면 요금이 부과된다.</li>
+<li>계정당 Elastic IP는 5개만 사용가능. 따라서 사용하지 않는것이 좋다. 매우 좋지 않은 구조적 결정.</li>
+<li>대신 random public ip를 써서 DNS(Domain Name System) name 할당.</li>
+<li>로드밸런서를 통해 public ip를 전혀 사용하지 않을수도 있다.</li>
+</ul>
+<h2 id="ec2-placement-group배치-그룹" style="position:relative;"><a href="#ec2-placement-group%EB%B0%B0%EC%B9%98-%EA%B7%B8%EB%A3%B9" aria-label="ec2 placement group배치 그룹 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EC2 Placement Group(배치 그룹)</h2>
+<p>EC2 인스턴스가 AWS 인프라에 배치되는 방식을 제어하고자 할 때 사용.
+AWS 하드웨어와 직접적인 상호작용은 안하지만 배치 방식을 알려주고자 할때.</p>
+<h3 id="cluster" style="position:relative;"><a href="#cluster" aria-label="cluster permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cluster</h3>
+<p>단일 AZ내에서 지연시간이 짧은 하드웨어 설정으로 인스턴스를 그룹화.<br>
+높은 성능을 제공하지만 위험도 높음.<br>
+모든 EC2 인스턴스가 동일한 랙(동일한 가용영역, 동일한 하드웨어)에 있다.<br>
+고성능 네트워크 구성이 가능하다는 장점. 빅 데이터 job 등.<br>
+랙에 fail이 발생하면 모든 인스턴스가 동시에 fail 된다. 위험도 높음.</p>
+<h3 id="spread" style="position:relative;"><a href="#spread" aria-label="spread permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Spread</h3>
+<p>가용성을 극대화하고 fail 위험을 최소화 해야 할때 사용.<br>
+크리티컬 애플리케이션에서 자주 활용.<br>
+모든 EC2 인스턴스가 다른 하드웨어에 위치. (동일한 AZ 내에서도 다른 하드웨어)<br>
+여러 가용 영역에 걸쳐 있을수 있고, 동시 fail의 위험이 감소하는 장점.<br>
+배치 그룹의 AZ당 인스턴스가 <strong>7개</strong>로 제한. 배치 그룹의 규모에 제한이 있음.<br>
+너무 크지 않은 애플리케이션에만 적용가능.</p>
+<h3 id="partition" style="position:relative;"><a href="#partition" aria-label="partition permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Partition</h3>
+<p>Spread와 비슷하게 분산하지만, 여러 파티션에 인스턴스가 분할.<br>
+파티션은 AZ내의 하드웨어 랙 세트에 의존.<br>
+<strong>AZ당 최대 7개의 파티션</strong>이 있을 수 있고, 각 파티션에는 많은 EC2 인스턴스가 있을수 있다.<br>
+각 파티션은 AWS의 랙을 나타낸다.<br>
+파티션이 많으면 인스턴스가 여러 하드웨어 랙으로 분산되어 fail로 부터 안전.<br>
+파티션은 동일한 리전의 여러 AZ에 걸쳐 있을수 있다. 최대 수백 개의 EC2 인스턴스를 얻을 수 있음.<br>
+어떤 파티션에 인스턴스가 있는지 확인은 메타데이터 서비스.<br>
+파티션 전반에 걸쳐 데이터와 서버를 나누고 파티션을 인식 가능한 애플리케이션의 경우 사용한다.<br>
+Hadoop, HDFS, HBase, Cassandra, Kafaka 같은 빅 데이터 애플리케이션.</p>
+<h3 id="eni-elastic-network-interfaces-탄력적-네트워크-인터페이스" style="position:relative;"><a href="#eni-elastic-network-interfaces-%ED%83%84%EB%A0%A5%EC%A0%81-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4" aria-label="eni elastic network interfaces 탄력적 네트워크 인터페이스 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ENI (Elastic Network interfaces) 탄력적 네트워크 인터페이스</h3>
+<p>VPC(Virtual Private Cloud)의 논리적 구성 요소이며 가상 네트워크 카드를 나타낸다.<br>
+EC2 인스턴스가 네트워크에 액세스하게 해줌. 인스턴스 외부에서도 사용된다!</p>
+<h4 id="eni-속성" style="position:relative;"><a href="#eni-%EC%86%8D%EC%84%B1" aria-label="eni 속성 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ENI 속성</h4>
+<ol>
+<li>주요 private Ipv4와 보조 private Ipv4를 가진다. ex. Eth0, Eth1 …</li>
+<li>private Ipv4 별로 하나의 elastic ip 혹은 public ip를 가진다.</li>
+<li>하나 이상의 보안 그룹을 연결할 수 있다.</li>
+<li>EC2 인스턴트와 독립적으로 생성 및 즉시 연결, 이동이 가능하다.
+ex. 장애조치: 인스턴스1에 연결된 ENI를 인스턴스2로 옮겨서 privat ip를 이동시킬수 있다.</li>
+<li><strong>특정 AZ에 바인딩 된다</strong>.</li>
+</ol>
+<h3 id="ec2-hibernate최대-절전-모드" style="position:relative;"><a href="#ec2-hibernate%EC%B5%9C%EB%8C%80-%EC%A0%88%EC%A0%84-%EB%AA%A8%EB%93%9C" aria-label="ec2 hibernate최대 절전 모드 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EC2 Hibernate(최대 절전 모드)</h3>
+<p>일반적인 상황에서,<br>
+인스턴스를 stop(중지)하면 EBS(Elastic Block Store)는 재시작까지 유지.<br>
+인스턴스를 terminate(종료)하면 EBS도 삭제. (일반적인 설정에서)<br>
+<br>
+절전 모드에서는,<br>
+RAM에 있는 인메모리 상태는 그대로 보존. = 인스턴스 부팅이 빨라진다.<br>
+OS를 완전히 중지하거나 시작하지 않고 그냥 멈춰두었기 때문에.<br>
+RAM의 인 메모리 상태가 암호화된 EBS 볼륨에 덤프(기록)되고, RAM이 사라진다.<br>
+인스턴스 재시작시 볼륨에서 메모리를 불러와 RAM으로 가져간다.<br>
+<br>
+최대 절전 모드 사용 사례</p>
+<ol>
+<li>오래 실행되는 프로세스를 갖고 있고 중지하지 않을때.</li>
+<li>RAM 상태를 저장하고 싶을때</li>
+<li>빠르게 재부팅을 하고 싶을 때</li>
+<li>중단 없이 인스턴스를 절전 모드로 전환하고 싶을 때</li>
+</ol>
+<p><br>
+최대 절전 모드 지원</p>
+<ol>
+<li>다양한 인스턴스 패밀리 c3, c4, m3 …</li>
+<li>인스턴스 램 크기는 150GB 까지</li>
+<li>베어 메탈 인스턴스는 지원 안함</li>
+<li>여러 운영체제 가능 linux, windows …</li>
+<li>절전 모드를 활성화하기 위해서는 EC2 인스턴스 루트 볼륨 유형이 EBS 볼륨이어야만 하며, 암호화가 필요하고 충분한 용량이 필요하다.</li>
+<li>온디맨드(On-Demand), 예약(Reserved), 스팟(Spot) 모든 종류의 인스턴스에 사용할 수 있다.</li>
+<li>최대 60일까지 절전모드 가능.</li>
+</ol>
+<h2 id="실습-이미지" style="position:relative;"><a href="#%EC%8B%A4%EC%8A%B5-%EC%9D%B4%EB%AF%B8%EC%A7%80" aria-label="실습 이미지 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>실습 이미지</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9aeba7586502fa18d528803deaccbd29/38095/001.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 113.02083333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACMklEQVQ4y5VUW3LcIBDUjXOXHCGXyFdukC9XUk7WtU97JQRCwCCY4SWl0LoS2+XY664uGIQapGGaphOqE+ORq3uuhJSMC8a5GAaw9l02293+5+3tr83ddn/Y7vY3Nz+Oba/AXiWWUrK+H6SU4zhIOSoNdnLev8vJuQYADsdjzwXrutNDO1HMKV4DCqGhEHLKl0HM8/XIOTd2moQYxDCM2hiPIcbXGYJHXJ6glNJ478GANoZCWJY55Zzy6yAKL8XKuo6PWqtRKfR+uRpVPGFQYDUYY+2gtLReTWQcxpq2lFKiQDGlmGLO+aU4hOCcN2BhmpSduLa9tiM4j+gQPaJ1dS3tiGJ6KY4xzsuSS8mlhBjWX64bhhhpzZMLETAqHymVZVnmef4nRiTvPSKmlJePoIqttdv9/nh6OJxOXHDW9w/nM+v7tmOMsXPXtV3Xc35u27btzusUY33bdinlBtFXY3TD5r4/ixG9d84jkXMOkYgI1662IRDVzySilFKZ58YjKmO4GLQ2PRc1BfNcSrm0ZY3KE/x9HlNqtNZyVEO1B6dAtFbSu0RE730jx3G/P+x2u9+bDWOMi0EpBQDVdGABwFTAJdBaW2uNqbHzvpYnXVZCP62gun241PNj/xg/+qlG67Ch9V1rJ19PjNYKv/qoEFGOIxdDre3nvnkTcympcc4pbUalDMBKSyFcvPU/VixznJcGrLXT9JRv31sGQBkLd1/NzZfmmovuudhIBfD9s/n26Q+k6Sy6iHWTUgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/9aeba7586502fa18d528803deaccbd29/a59e9/001.webp 192w,
+/static/9aeba7586502fa18d528803deaccbd29/0ca9f/001.webp 384w,
+/static/9aeba7586502fa18d528803deaccbd29/dc9b9/001.webp 768w,
+/static/9aeba7586502fa18d528803deaccbd29/8c31b/001.webp 827w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/9aeba7586502fa18d528803deaccbd29/3b721/001.png 192w,
+/static/9aeba7586502fa18d528803deaccbd29/66595/001.png 384w,
+/static/9aeba7586502fa18d528803deaccbd29/fe486/001.png 768w,
+/static/9aeba7586502fa18d528803deaccbd29/38095/001.png 827w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/9aeba7586502fa18d528803deaccbd29/fe486/001.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ec0967d0515599d7a29fa5073b188081/3d463/002.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 32.8125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA/ElEQVQY053OzUrDQBDA8fUF9CAIFnwET8V3U1A8qBREi+irePFUfI0kbYIxuzFJm3R3M7MfSVaSWuhFEH/8D8sMA0vG09Hp/eHZ9GT8eHx0tbd/Tg4u/hqZvF4+vF0/z+5e3idPs9ttNzvvXyNQ6q52zrh/IEHMFixb0C8/pmFaSICyKrMi55IDAiCgghrqGmulcROqnwgtqnS5zkqRVyJfAyrFOV+uVoJzNUBEPVBKAQAimoHWmlhrjda7n2nathKy5LJpmq5thRDGWOdc23UAIKXsT4yx1pIkoZSxhNKEbjHmR59eGPebNA170TBmH3EczOe+H3ieH4bRN4q7TXu6cXqFAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/ec0967d0515599d7a29fa5073b188081/a59e9/002.webp 192w,
+/static/ec0967d0515599d7a29fa5073b188081/0ca9f/002.webp 384w,
+/static/ec0967d0515599d7a29fa5073b188081/dc9b9/002.webp 768w,
+/static/ec0967d0515599d7a29fa5073b188081/e4c2c/002.webp 1005w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/ec0967d0515599d7a29fa5073b188081/3b721/002.png 192w,
+/static/ec0967d0515599d7a29fa5073b188081/66595/002.png 384w,
+/static/ec0967d0515599d7a29fa5073b188081/fe486/002.png 768w,
+/static/ec0967d0515599d7a29fa5073b188081/3d463/002.png 1005w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/ec0967d0515599d7a29fa5073b188081/fe486/002.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/47e93771980168871ddbd3fbc42dac63/5c9dd/003.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 88.02083333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAIAAADUsmlHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACGUlEQVQ4y4VT2W7bMBDUX/YH+wV9LtBvaBKkbp34ki+J4rW7vEmpoJy0ieOig9FiKHIIUdxpDh1bn9j6zM+D6Lq+Z0PHmAJAIkSqlQgQb7L5fne/fHr6sVjcLZaD0kopqZRQkgshpBRVKw1w2zxwzoVgA2Occ1k9A+fDwNlQZ7gQXAhAvHzCW1bzrm03m+3xeDyfTm27P53PAFByTm8Qb4GIGu8cGRNijCldmPIHlHLFMo5kbXNk4tz1QOS89z6Qsda5Mo7T/2CtbTpJrGdaa0CcxnEaK17mP24xL7iIak72SGoNakewN7AnaC0dCFqCvcUDyC1Ba2CPdUGdsnhA3abAyFATTCv6x75b8P5nd3g8tPfH/UPX/dqdn1en5+1x6czW4o5gY2nrTetNa3BTYkeETUnMmx2qFaoVyOcqZBUGNha3qFakVxa3ki9Jr6fcTaVyTD0RNAiMoI9BByeDU8FXxleG11pF0NGrHCFFXRIZaxqlQUiNxvoQcxlzLimXmPIVU85krNL47m9LqXrGhmGod+S9dS7GWMZyhXF+k3N+Z1ZacyFnCo1onfMh/GmY+No8IYS3zhfzMHChtLG1N+bijXVztVX4OjTWppSmv7c+TlOpZudcTU+NhLyEQSldTz4j1/NXjB8axjjfIJGZcckKzcP6WPMiqrY0azIE5IgtzcNn6h6bSzL/ldgrIgKTpFff+JdPtP76G3U2BEpRl9teAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/47e93771980168871ddbd3fbc42dac63/a59e9/003.webp 192w,
+/static/47e93771980168871ddbd3fbc42dac63/0ca9f/003.webp 384w,
+/static/47e93771980168871ddbd3fbc42dac63/dc9b9/003.webp 768w,
+/static/47e93771980168871ddbd3fbc42dac63/0a6c5/003.webp 836w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/47e93771980168871ddbd3fbc42dac63/3b721/003.png 192w,
+/static/47e93771980168871ddbd3fbc42dac63/66595/003.png 384w,
+/static/47e93771980168871ddbd3fbc42dac63/fe486/003.png 768w,
+/static/47e93771980168871ddbd3fbc42dac63/5c9dd/003.png 836w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/47e93771980168871ddbd3fbc42dac63/fe486/003.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/bcd18/004.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 21.354166666666668%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAIAAAABPYjBAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZElEQVQI133OywrDMAxEUf//v8YeFVkPR5ID3aUkPcuBC9OmCAC1xZ6RtZ+stQBS1Z+9fYQ6HZl1RtZzu82998HMZqZf4idbNJ6zjwEQQPVSZ2ZE1F1WNTMTkf2Xu4OF1VVuzy8mf+usixirZgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/a59e9/004.webp 192w,
+/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/0ca9f/004.webp 384w,
+/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/dc9b9/004.webp 768w,
+/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/e2c2f/004.webp 1152w,
+/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/87e47/004.webp 1241w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/3b721/004.png 192w,
+/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/66595/004.png 384w,
+/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/fe486/004.png 768w,
+/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/d2d74/004.png 1152w,
+/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/bcd18/004.png 1241w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/59d3478ffaa7d58a8f780e5e8a3bb7ec/fe486/004.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f82ec6276c614cac776a1769968ef8e3/0469b/005.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 68.75%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAABVklEQVQoz3VS7W7jMAzr+7/hYbf1tmxNG38ktiXZluR2cAoM3TUhaMF/KBI2D4gUQnTWRSAo3HQXItJauz3ggIgpQUogqpWFZZuiipSZ5ZcYVrFzPmAuVVRUdsjMralIY72WdR6I6OyCWQCqpixQBKo+E6t6yAkyUMWiDnkm7uLBxmEmm9uEOqFc4IkoE8hn4Mz6HBtH480cFqCep91+WKS5EI0PbgkXH/S/BwPEEOM4jpfzeTyNKaWciQhpBSJaa7z3zjnv/dNrE1nr/ry8vL4d/74eP79Ol8lY7yOk+973j+H9Y3g7/hu+ThvOiDhNxlhnrJvnhbn/p7YOZl4TZEQstV5vv3BIACwSU4qASDnnkgCIcl/aJ5VabzvosZclOOdTr4Beu986Hi73ht0TbZQkAfYm8TbXgglRFpEN53mJkVj267U2bMsZ+qG2Bts3V8S+/lH8DRR9LUFx/yjoAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f82ec6276c614cac776a1769968ef8e3/a59e9/005.webp 192w,
+/static/f82ec6276c614cac776a1769968ef8e3/0ca9f/005.webp 384w,
+/static/f82ec6276c614cac776a1769968ef8e3/dc9b9/005.webp 768w,
+/static/f82ec6276c614cac776a1769968ef8e3/91236/005.webp 805w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f82ec6276c614cac776a1769968ef8e3/3b721/005.png 192w,
+/static/f82ec6276c614cac776a1769968ef8e3/66595/005.png 384w,
+/static/f82ec6276c614cac776a1769968ef8e3/fe486/005.png 768w,
+/static/f82ec6276c614cac776a1769968ef8e3/0469b/005.png 805w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f82ec6276c614cac776a1769968ef8e3/fe486/005.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d5d3ddb6aa3b16438706a8107b545e3a/a4646/006.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 30.208333333333332%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAg0lEQVQY06XLYQsDIQgG4P7/Lz3SLtO0LIJxF4yxfdhg8qAvouE4DsBUrfWrvO3Zu4/h7uPuO7xlVQ0kdlanajELslHhZkaiF6KUzjPnCKBmc87WHUhLVTFea4XCkqlgShEwAgJu6YYR4NkzEYsQc7kxc2ARFpFav9qXr8Ln6nd/PT8AgARVb/bnp2EAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/d5d3ddb6aa3b16438706a8107b545e3a/a59e9/006.webp 192w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/0ca9f/006.webp 384w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/dc9b9/006.webp 768w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/e2c2f/006.webp 1152w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/f3efb/006.webp 1536w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/18e57/006.webp 1829w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/d5d3ddb6aa3b16438706a8107b545e3a/3b721/006.png 192w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/66595/006.png 384w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/fe486/006.png 768w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/d2d74/006.png 1152w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/e8464/006.png 1536w,
+/static/d5d3ddb6aa3b16438706a8107b545e3a/a4646/006.png 1829w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/d5d3ddb6aa3b16438706a8107b545e3a/fe486/006.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/53ea36d6f9b8dbd66381d91f6b4cdd65/249e2/008.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 66.14583333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRklEQVQoz41Ry27DMAzL/39jT8W6IWkSW7Yk62Evm51t6GFASwg+EKJEixMizstyvV4vl8uyhSIqLyBRSYgTMeecY4zzPMdM6k9QB1gMiaaU0zwv67rVWo8XwFo3VLbKpUxq9vmA4zg+X0MXi0jYQ0oQYwSAlPM54rmFUiYuHGPXoLjXdhxHay2l1JmcWV28k4gZkEms1drG9C4mIhFpv55PMQAQlR9mPIgYAoRuDtTsT8x7CIBc9LxkKyLvH++QKRertZq7iN7XbU9ko8VH/dguUkRUbOTQmplBSmqug+li1ZRzEfHa/jIj5glS2kJAosTi7mZWRG5vt/m+0/Byivc9zOu2BjijNrW+uYiYWW3tTN/MVTUjEvPp0NyLSMq43O/rtrl7a/1rfTMxAUBk7Y4H/o3q8ZxnzzgYMxJ1ww91vBD1t/gLGgv2rYhiG5IAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/53ea36d6f9b8dbd66381d91f6b4cdd65/a59e9/008.webp 192w,
+/static/53ea36d6f9b8dbd66381d91f6b4cdd65/0ca9f/008.webp 384w,
+/static/53ea36d6f9b8dbd66381d91f6b4cdd65/dc9b9/008.webp 768w,
+/static/53ea36d6f9b8dbd66381d91f6b4cdd65/6da5f/008.webp 810w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/53ea36d6f9b8dbd66381d91f6b4cdd65/3b721/008.png 192w,
+/static/53ea36d6f9b8dbd66381d91f6b4cdd65/66595/008.png 384w,
+/static/53ea36d6f9b8dbd66381d91f6b4cdd65/fe486/008.png 768w,
+/static/53ea36d6f9b8dbd66381d91f6b4cdd65/249e2/008.png 810w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/53ea36d6f9b8dbd66381d91f6b4cdd65/fe486/008.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 766px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/459f84007ca461f1c873ff7e4de3f10e/e4da8/009.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 16.666666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAIAAAAcOLh5AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAdklEQVQI11XI6w6CMAwF4L3/W6qJkPWyjtF2gxqNgD/8ctKc09SWNk1zW1czX/sWEa9THPmJiDHG+18Skdv9AUjEhbkQFyTOgEh8lgwERBlwzoDERSoXEanmPVnfnlhBFnM3c7Xjqrl770PVVM38+ujhu933PT6W3qvYdOCpXgAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/459f84007ca461f1c873ff7e4de3f10e/a59e9/009.webp 192w,
+/static/459f84007ca461f1c873ff7e4de3f10e/0ca9f/009.webp 384w,
+/static/459f84007ca461f1c873ff7e4de3f10e/1d625/009.webp 766w"
+              sizes="(max-width: 766px) 100vw, 766px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/459f84007ca461f1c873ff7e4de3f10e/3b721/009.png 192w,
+/static/459f84007ca461f1c873ff7e4de3f10e/66595/009.png 384w,
+/static/459f84007ca461f1c873ff7e4de3f10e/e4da8/009.png 766w"
+            sizes="(max-width: 766px) 100vw, 766px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/459f84007ca461f1c873ff7e4de3f10e/e4da8/009.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cb44f7e494cc33c29e365edd90600228/984b6/010.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 69.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAIAAACgpqunAAAACXBIWXMAAAsTAAALEwEAmpwYAAACCElEQVQoz4WSSW/UQBCF/Ys5cAJx4sCN/5Q5ImUjiyGZ8djO9Hh370tV22M3sofkgAR8enrqfq1Xl65Ia11X9YGQsqyapun7vigKpRT8E2uMNibSxpRlmaYpIWQdUe73qRBiHMfh72i9lgHROWesHccxvDKHMC+EVa+E8JaEELz3ESC0XdcsVIz2lPZGq7U7hVfN82kZOE8hLJrDEuK5DPpF0SfFsr55Zv2O9YkWuWSZFrmWL4pnWuaLi1zSVLJUiWyAEtFFAO6EhDZxeYwPL9/z7JYc7pPdVVk8Hsl9nt0m28t0f/3081tBHsrjY0EemuqHd2QpW2fmoUFLWPss6E6xRPOUd8+K7RXb826raELbJ6fyMNbzUM1DFcZ68iWAjRyCQdDgLII5O4L1uPh6sB6cB4vOgjXgtLPKWesBECMHuOfjHeFb0twlJM6rx7Q4+/fdIc6r+NDGBb9JqsvtMSZ92oislY2dLGBkAcUQWo2VcJWwR6Yr6epVlbAl10TAjg17Puz4cNQnfQpyDAznpewAtHFcKqE0E5JL3TPRUcal4lIxseRcSC6klKrrWspo07YA7vzPOHgPAN57Zy0iGmO01m+biLi8ggM/Tm4Kfg4wLVv0uxz+x3Qa/SkEemsu3vHNR7N5P9988aAiYy0g/iG36u1qrBEGsb6mFx/qzWe6+WSvvlrNfwGlyhOOn8J+uAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/cb44f7e494cc33c29e365edd90600228/a59e9/010.webp 192w,
+/static/cb44f7e494cc33c29e365edd90600228/0ca9f/010.webp 384w,
+/static/cb44f7e494cc33c29e365edd90600228/e59cf/010.webp 630w"
+              sizes="(max-width: 630px) 100vw, 630px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/cb44f7e494cc33c29e365edd90600228/3b721/010.png 192w,
+/static/cb44f7e494cc33c29e365edd90600228/66595/010.png 384w,
+/static/cb44f7e494cc33c29e365edd90600228/984b6/010.png 630w"
+            sizes="(max-width: 630px) 100vw, 630px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/cb44f7e494cc33c29e365edd90600228/984b6/010.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h2 id="source" style="position:relative;"><a href="#source" aria-label="source permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source</h2>
+<ul>
+<li>『AWS Certified Cloud Solutions Architect』 <em>Stephane Maarek - 지음</em><br>
+<a href="https://www.udemy.com/course/best-aws-certified-developer-associate/" target="_blank" rel="nofollow">https://www.udemy.com/course/best-aws-certified-developer-associate</a></li>
+</ul></div><style data-emotion="css pit38s">.css-pit38s{height:auto;}</style><div class="css-pit38s etse75s1"><style data-emotion="css v7bn0g">.css-v7bn0g{position:-webkit-sticky;position:sticky;top:50px;display:inline-block;margin:120px 40px;margin-right:0px;height:auto;width:200px;font-size:14.5px;border-left:3px solid #4ccd97;}@media (max-width: 1200px){.css-v7bn0g{display:none;}}.css-v7bn0g li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px;color:gray;}.css-v7bn0g ul{margin-left:10px;padding:7px 5px;list-style:none;}.css-v7bn0g a:hover{-webkit-transition:0.3s;transition:0.3s;font-size:15px;font-weight:700;color:#433E49;}</style><div class="css-v7bn0g etse75s0"><ul>
+<li>
+<p><a href="#ec2-ip">EC2 IP</a></p>
+<ul>
+<li><a href="#ipv4">IPv4</a></li>
+<li><a href="#private-ip">Private IP</a></li>
+<li><a href="#public-ip">Public IP</a></li>
+<li><a href="#elastic-ip">Elastic IP</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#ec2-placement-group%EB%B0%B0%EC%B9%98-%EA%B7%B8%EB%A3%B9">EC2 Placement Group(배치 그룹)</a></p>
+<ul>
+<li>
+<p><a href="#cluster">Cluster</a></p>
+</li>
+<li>
+<p><a href="#spread">Spread</a></p>
+</li>
+<li>
+<p><a href="#partition">Partition</a></p>
+</li>
+<li>
+<p><a href="#eni-elastic-network-interfaces-%ED%83%84%EB%A0%A5%EC%A0%81-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-%EC%9D%B8%ED%84%B0%ED%8E%98%EC%9D%B4%EC%8A%A4">ENI (Elastic Network interfaces) 탄력적 네트워크 인터페이스</a></p>
+<ul>
+<li><a href="#eni-%EC%86%8D%EC%84%B1">ENI 속성</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#ec2-hibernate%EC%B5%9C%EB%8C%80-%EC%A0%88%EC%A0%84-%EB%AA%A8%EB%93%9C">EC2 Hibernate(최대 절전 모드)</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#%EC%8B%A4%EC%8A%B5-%EC%9D%B4%EB%AF%B8%EC%A7%80">실습 이미지</a></p>
+</li>
+<li>
+<p><a href="#source">Source</a></p>
+</li>
+</ul></div></div></div><style data-emotion="css qi68kj">.css-qi68kj{width:768px;margin:auto auto;padding:0 10px;}@media (max-width: 768px){.css-qi68kj{width:100%;padding:0 20px;}}</style><div class="css-qi68kj elyfc7a0"><div id="disqus_thread"></div></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v81"><style data-emotion="css chvw2h">.css-chvw2h{width:80px;height:80px;background-image:url('bartender.png');-webkit-background-size:contain;background-size:contain;margin:20px auto 0px auto;}</style><div class="css-chvw2h e1oae0v80"></div>Just an developer with drinks<br/>2022 HyeonDong, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/aws_saa_3/";window.___webpackCompilationHash="bfb743b8b9fb1efb5fa1";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-c9fa82aa5b1f9c65f078.js"],"app":["/app-e9f3f84a858e449c6845.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-c686bcb9fd021576da4f.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-a996845aa9f72e17dba7.js"],"component---src-pages-post-tsx":["/component---src-pages-post-tsx-66acd32db55f17007543.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-676c0d609cc6ccc353e7.js"]};/*]]>*/</script><script src="/polyfill-c9fa82aa5b1f9c65f078.js" nomodule=""></script><script src="/app-e9f3f84a858e449c6845.js" async=""></script><script src="/framework-c57a9454c0e3bef16c3b.js" async=""></script><script src="/webpack-runtime-301cd6e2ec1b80fcee8f.js" async=""></script></body></html>

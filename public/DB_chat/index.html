@@ -1,0 +1,1002 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="naver-site-verification" content="7727e68f404d4c7be584f2b673b9943ab5c6b9ab"/><meta data-react-helmet="true" name="google-site-verification" content="fygLmB3YoAnXWkSTMHoemYurOt8ZBEdT2K5M1qZQL5E"/><meta data-react-helmet="true" name="twitter:image" content="/static/2fbe5e591c745d9a7b6d46aea90833a2/base.jpg"/><meta data-react-helmet="true" name="twitter:description" content="자연어로 구성된 DB문제를 실제 쿼리문으로 바꿔주는 서비스를 테스트 해봅니다."/><meta data-react-helmet="true" name="twitter:title" content="DB 쿼리문 생성 능력 비교 by EverSQL &amp; ChatGPT"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" property="og:site_name" content="DB 쿼리문 생성 능력 비교 by EverSQL &amp; ChatGPT"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:image" content="/static/2fbe5e591c745d9a7b6d46aea90833a2/base.jpg"/><meta data-react-helmet="true" property="og:description" content="자연어로 구성된 DB문제를 실제 쿼리문으로 바꿔주는 서비스를 테스트 해봅니다."/><meta data-react-helmet="true" property="og:title" content="DB 쿼리문 생성 능력 비교 by EverSQL &amp; ChatGPT"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" name="description" content="자연어로 구성된 DB문제를 실제 쿼리문으로 바꿔주는 서비스를 테스트 해봅니다."/><meta name="generator" content="Gatsby 4.19.2"/><style data-href="/styles.69a4e1e9c4403d061256.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#2f2f2f;color:#eee;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5em;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#363636}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#fd9170}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#c792ea}.token.attr-name{color:#ffcb6b}.token.attr-value,.token.attribute{color:#a5e844}.token.boolean{color:#c792ea}.token.builtin{color:#ffcb6b}.token.cdata,.token.char{color:#80cbc4}.token.class{color:#ffcb6b}.token.class-name{color:#f2ff00}.token.comment{color:#616161}.token.constant{color:#c792ea}.token.deleted{color:#f66}.token.doctype{color:#616161}.token.entity{color:#f66}.token.function{color:#c792ea}.token.hexcode{color:#f2ff00}.token.id,.token.important{color:#c792ea;font-weight:700}.token.inserted{color:#80cbc4}.token.keyword{color:#c792ea}.token.number{color:#fd9170}.token.operator{color:#89ddff}.token.prolog{color:#616161}.token.property{color:#80cbc4}.token.pseudo-class,.token.pseudo-element{color:#a5e844}.token.punctuation{color:#89ddff}.token.regex{color:#f2ff00}.token.selector{color:#f66}.token.string{color:#a5e844}.token.symbol{color:#c792ea}.token.tag{color:#f66}.token.unit{color:#fd9170}.token.url,.token.variable{color:#f66}:host,:root{--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1 "Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1 "Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1 "Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{box-sizing:content-box;overflow:visible}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.07143em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{top:.25em;width:var(--fa-li-width,2em)}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:var(--fa-right,0);top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.08333em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.07143em;vertical-align:.05357em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.04167em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width, 2em)*-1);line-height:inherit;position:absolute;text-align:center;width:var(--fa-li-width,2em)}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade,.fa-fade{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s)}.fa-beat-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-shake,.fa-spin{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal)}.fa-spin{-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scaleX(-1);transform:scaleX(-1)}.fa-flip-vertical{-webkit-transform:scaleY(-1);transform:scaleY(-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1);transform:scale(-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;height:2em;position:relative;vertical-align:middle;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-only,.sr-only-focusable:not(:focus){clip:rect(0,0,0,0);border-width:0;height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor)}.svg-inline--fa .fa-secondary,.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="canonical" href="https://yangdongs.web.app/DB_chat/" data-baseprotocol="https:" data-basehost="yangdongs.web.app"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><title data-react-helmet="true">DB 쿼리문 생성 능력 비교 by EverSQL &amp; ChatGPT</title><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yangdongs RSS Feed" href="/rss.xml"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css vbubbu">.css-vbubbu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100vh;overflow-x:hidden;width:100%;}</style><main class="css-vbubbu e1strnqo0"><style data-emotion="css 1pe8cy1">.css-1pe8cy1{position:fixed;margin:10px 10px;z-index:5;}</style><div class="css-1pe8cy1 e1md2nih0"><style data-emotion="css 1qhl3ja">.css-1qhl3ja{display:grid;place-items:center;width:60px;height:60px;border-radius:20px;background-color:#4ccd97;color:#ffffff;font-size:40px;cursor:pointer;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);-webkit-transition:background-color 0.6s,color 0.6s;transition:background-color 0.6s,color 0.6s;}.css-1qhl3ja:hover{background-color:#ffffff;color:#4ccd97;}@media (max-width: 768px){.css-1qhl3ja{width:45px;height:45px;font-size:30px;border-radius:15px;}}</style><div class="css-1qhl3ja e1md2nih1"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM325.1 306.7L380.6 162.4C388.1 142.1 369 123.9 349.6 131.4L205.3 186.9C196.8 190.1 190.1 196.8 186.9 205.3L131.4 349.6C123.9 369 142.1 388.1 162.4 380.6L306.7 325.1C315.2 321.9 321.9 315.2 325.1 306.7V306.7z"></path></svg></div><style data-emotion="css 12ua5r7">.css-12ua5r7{margin:10px 10px;border-radius:20px;z-index:4;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-transition:500ms;transition:500ms;left:-600px;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);background-color:white;}</style><div class="css-12ua5r7 ee3oskm2"><style data-emotion="css x68nae">.css-x68nae{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;text-align:center;margin-top:5%;margin-bottom:10%;margin:10px;}</style><div class="css-x68nae ee3oskm1"><style data-emotion="css 58nrwj">.css-58nrwj{font-size:20px;margin:15px;}.css-58nrwj:hover{border-bottom:3px solid #4ccd97;}</style><a class="css-58nrwj ee3oskm0" href="/">Home</a><a class="css-58nrwj ee3oskm0" href="/post/">Post</a><a href="https://github.com/Yanghyeondong/tech_blog#readme" class="css-58nrwj ee3oskm0">About</a></div></div></div><style data-emotion="css-global gyifnl">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:3840px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;2160&#x27; width=&#x27;3840&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/jpeg;base64,/9j/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wgARCAALABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAUDBAcJ/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAAB4j2mz8yknD//xAAcEAACAgIDAAAAAAAAAAAAAAABAgMFABIEETL/2gAIAQEAAQUChgEgbh6s2yGvHb2IGP6//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAIxAAAQMDAwUBAAAAAAAAAAAAAQIRMQASISJhgSMyQVGR0f/aAAgBAQAGPwKHWbpAwSk+TpKNiynLpMUm6wuqCli14i7txjrtpiiAxH1tnbJG2PVChiAf3nmjX//EABoQAQEBAQEBAQAAAAAAAAAAAAERIQAxUUH/2gAIAQEAAT8hnVGpvBYvik6NgOtlAnjUlrBokasjz1sKQN32h+FdXccVJd7NjAZsX0+6+n55xOP/2gAMAwEAAgADAAAAEFDP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAQACAQUAAAAAAAAAAAAAAREAITFBUZGxwf/aAAgBAQABPxA7V4hpLZJREgzDPBQJILNOaQUEasIW2Gv4J6JVZhUQGR7IX2+cCBFRGwXXqUUBAgARq4Q+5//Z" alt=""/><picture><source type="image/webp" data-srcset="/static/2fbe5e591c745d9a7b6d46aea90833a2/eeb31/base.webp 960w,/static/2fbe5e591c745d9a7b6d46aea90833a2/702da/base.webp 1920w,/static/2fbe5e591c745d9a7b6d46aea90833a2/e9e05/base.webp 3840w" sizes="(min-width: 3840px) 3840px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 3840px) 3840px, 100vw" decoding="async" loading="lazy" data-src="/static/2fbe5e591c745d9a7b6d46aea90833a2/7268e/base.jpg" data-srcset="/static/2fbe5e591c745d9a7b6d46aea90833a2/175be/base.jpg 960w,/static/2fbe5e591c745d9a7b6d46aea90833a2/8cf01/base.jpg 1920w,/static/2fbe5e591c745d9a7b6d46aea90833a2/7268e/base.jpg 3840w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/2fbe5e591c745d9a7b6d46aea90833a2/eeb31/base.webp 960w,/static/2fbe5e591c745d9a7b6d46aea90833a2/702da/base.webp 1920w,/static/2fbe5e591c745d9a7b6d46aea90833a2/e9e05/base.webp 3840w" sizes="(min-width: 3840px) 3840px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 3840px) 3840px, 100vw" decoding="async" loading="lazy" src="/static/2fbe5e591c745d9a7b6d46aea90833a2/7268e/base.jpg" srcSet="/static/2fbe5e591c745d9a7b6d46aea90833a2/175be/base.jpg 960w,/static/2fbe5e591c745d9a7b6d46aea90833a2/8cf01/base.jpg 1920w,/static/2fbe5e591c745d9a7b6d46aea90833a2/7268e/base.jpg 3840w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css lzjgtp">.css-lzjgtp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:400px;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-lzjgtp{height:330px;width:100%;padding:40px 20px;}}</style><div class="css-lzjgtp e1st1jau7"><style data-emotion="css 10qqw1">.css-10qqw1{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin:auto 0;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:42px;font-weight:800;}@media (max-width: 768px){.css-10qqw1{font-size:30px;}}</style><div class="css-10qqw1 e1st1jau5">DB 쿼리문 생성 능력 비교 by EverSQL &amp; ChatGPT</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau4"><style data-emotion="css 5yjeco">.css-5yjeco{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:start;justify-content:start;}@media (max-width: 768px){.css-5yjeco{-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-5yjeco e1st1jau3"><style data-emotion="css 1b9df66">.css-1b9df66{margin:2px 5px;padding:1px 7px 4px 7px;border-radius:6px;background-color:#49ae8e;font-size:16px;font-weight:800;color:white;}@media (max-width: 768px){.css-1b9df66{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-1b9df66 e1st1jau2">DB</div></div><style data-emotion="css 14b4j72">.css-14b4j72{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}@media (max-width: 768px){.css-14b4j72{margin:7px 7px;}}</style><div class="css-14b4j72 e1st1jau1"><style data-emotion="css nkt64x">.css-nkt64x{margin-right:10px;}</style><div class="css-nkt64x e1st1jau0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-days" class="svg-inline--fa fa-calendar-days " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"></path></svg></div>2024.04.11.</div></div></div></div><style data-emotion="css hn6e83">.css-hn6e83{margin:auto auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}@media (min-width: 1200px){.css-hn6e83{margin-left:calc( 50% - 384px );}}@media (max-width: 768px){.css-hn6e83{width:100%;}}</style><div class="css-hn6e83 e6b6ljm0"><style data-emotion="css aco8as">.css-aco8as{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:2.5;font-size:18px;font-weight:400;}.css-aco8as p{padding:3px 0;}.css-aco8as strong{margin:0px 1px;font-size:18.3px;font-weight:800;}.css-aco8as h1,.css-aco8as h2{font-weight:800;margin-bottom:20px;}.css-aco8as h3{margin-bottom:0px;}.css-aco8as *+h1,.css-aco8as *+h2,.css-aco8as *+h3{margin-top:50px;}.css-aco8as *+h4{margin-top:25px;}.css-aco8as hr+h1,.css-aco8as hr+h2,.css-aco8as hr+h3{margin-top:0;}.css-aco8as hr+h4{margin-top:25px;}.css-aco8as h1{font-size:40px;}.css-aco8as h2{font-size:35px;}.css-aco8as h3{font-size:23px;color:#49ae8e;}.css-aco8as blockquote{margin:30px 10px;padding:5px 15px;border-left:2px solid #49ae8e;background-color:#f9f9f9;font-weight:400;}.css-aco8as blockquote li{font-size:18px;margin:0px 15px;padding:0px 10px 0px 5px;background-color:#f9f9f9;}.css-aco8as blockquote ol li::Marker{font-weight:800;color:#000;}.css-aco8as em{padding-right:8px;padding-left:3px;}.css-aco8as ol{margin-left:20px;padding:5px 0;}.css-aco8as ol li::Marker{font-weight:800;font-size:19px;color:#49ae8e;}.css-aco8as ul{margin:20px;margin-right:0px;}.css-aco8as ul li::Marker{content:"▶ ";font-weight:800;color:#49ae8e;}.css-aco8as li{font-size:17px;margin:10px 20px;padding-left:10px;padding-right:10px;background-color:#f9f9f9;border-radius:10px;}.css-aco8as li strong{font-size:17.5px;}.css-aco8as del{-webkit-text-decoration:line-through 3px solid rgba(0, 0, 0, .4);text-decoration:line-through 3px solid rgba(0, 0, 0, .4);}.css-aco8as hr{border:1px solid #000000;margin:100px 0;}.css-aco8as a{font-weight:800;color:#49ae8e;-webkit-text-decoration:underline 1px;text-decoration:underline 1px;text-underline-position:under;}.css-aco8as a:hover{color:#ffffff;background-color:#49ae8e;}.css-aco8as pre[class*='language-']{font-weight:300;padding:20px 30px;margin-bottom:15px;font-size:20px;border-radius:10px;border:1px solid #dddddd;}.css-aco8as pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);}.css-aco8as pre[class*='language-'] *{font-family:'Roboto Mono',monospace;font-weight:400;}.css-aco8as code[class*='language-']{font-size:16px;margin-right:4px;}.css-aco8as :not(pre)>code[class*="language-"]{font-size:15px;margin-right:4px;margin-left:4px;color:#000000;background-color:#fafafa;border:1px solid #dddddd;padding:1px 4px 3px 4px;border-radius:5px;}.css-aco8as :not(pre)>code[class*="language-"]::selection{background-color:#dadada;}@media (max-width: 768px){.css-aco8as{width:100%;padding:80px 20px;line-height:2.0;font-size:16px;}.css-aco8as h1{font-size:26px;}.css-aco8as h2{font-size:23px;}.css-aco8as h3{font-size:20px;}.css-aco8as strong{margin:0px 3px;font-size:17px;font-weight:800;}.css-aco8as img{width:100%;}.css-aco8as hr{margin:50px 0;}.css-aco8as li{font-size:16px;}}</style><div class="css-aco8as e1ijh0y10"><p>과거 학과에서 DB 개론 수업을 들으면서 복잡한 쿼리문 작성에 항상 머리가 아팠습니다. 😫<br>
+이후 자연어로된 문장을 쿼리문으로 쉽게 만들어주는 서비스는 없는지 고민했고, EverSQL과 ChatGPT을 떠올렸습니다. 그래서 정말로 이 두 서비스가 쿼리문을 잘 만들어주는지 테스트 했었던 결과를 정리해 봅니다.</p>
+<h2 id="1-데이터-및-자연어-쿼리-문제-선정" style="position:relative;"><a href="#1-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B0%8F-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%BF%BC%EB%A6%AC-%EB%AC%B8%EC%A0%9C-%EC%84%A0%EC%A0%95" aria-label="1 데이터 및 자연어 쿼리 문제 선정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. 데이터 및 자연어 쿼리 문제 선정</h2>
+<p>저의 DB 개론 교과서였던 『Database System Concepts』의 데이터를 활용합니다.<br>
+<a href="https://www.db-book.com/university-lab-dir/sample_tables-dir/index.html" target="_blank" rel="nofollow">https://www.db-book.com/university-lab-dir/sample_tables-dir/index.html</a></p>
+<p>쿼리 문제는 교재의 연습문제를 활용합니다.</p>
+<ul>
+<li>A. Find all instructors earning the highest salary (there may be more than one with the same salary)</li>
+<li>B. Find the enrollment of each section that was offered in Fall 2017.</li>
+<li>C. Display a list of all instructors, showing each instructor’s ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. Your query should use an outer join, and should not use subqueries.</li>
+<li>D. Find the department that have the highest average salary.</li>
+<li>E. Find all courses taught in both the Fall 2017 semester and in the Spring 2018 semester.</li>
+<li>F. Find all courses that were offered at most once in 2017.</li>
+</ul>
+<h2 id="2-환경-셋팅" style="position:relative;"><a href="#2-%ED%99%98%EA%B2%BD-%EC%85%8B%ED%8C%85" aria-label="2 환경 셋팅 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. 환경 셋팅</h2>
+<p>실제 쿼리문의 검증은 DB는 Oracle 19c를 사용했습니다.</p>
+<h3 id="eversql" style="position:relative;"><a href="#eversql" aria-label="eversql permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>EverSQL</h3>
+<p>text-to-sql 기능을 통해 자연어 질문을 쿼리문으로 바꿀수 있습니다.<br>
+<a href="https://www.eversql.com/text-to-sql/" target="_blank" rel="nofollow">https://www.eversql.com/text-to-sql/</a>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.45833333333333%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGklEQVQoz42STU7EMAyFe3UWbBDiBkhICHacgYPMfjSZlkWb2E7in4DbodK0g8TXp8iR9eJnqd3hcDgejyLSdpjZ9f2qVUrpVJWIEBEAEDHnPNdIRKra/sbMutbaOI7D0Idz6M/nYfgKIYRT6PueiHhH5bomcrOKlFIqc60sImZmaqoeLFMuM3lmKdZEbq6ViTKSd5lZVFSVmXWz8w43l1xSTAAIyb8YEyLGGBGpzqiqbfndWdWYhT2ys+y21HWu7VaEi3ntLQ+2/3ExA+YxQgSaEk6JIlCCPCUaJxgjRiDWtpda68xaEdu96n/EKrWtWFuVi7lV9ouf3G7O2cgtMsf+/LDnO3t7tNcHe7m39yfL2QeK3pi56mfnb65fvuwcrH9+AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/69716a6b50509cd7b963708cf4b3ee60/a59e9/001.webp 192w,
+/static/69716a6b50509cd7b963708cf4b3ee60/0ca9f/001.webp 384w,
+/static/69716a6b50509cd7b963708cf4b3ee60/dc9b9/001.webp 768w,
+/static/69716a6b50509cd7b963708cf4b3ee60/e2c2f/001.webp 1152w,
+/static/69716a6b50509cd7b963708cf4b3ee60/007e4/001.webp 1159w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/69716a6b50509cd7b963708cf4b3ee60/3b721/001.png 192w,
+/static/69716a6b50509cd7b963708cf4b3ee60/66595/001.png 384w,
+/static/69716a6b50509cd7b963708cf4b3ee60/fe486/001.png 768w,
+/static/69716a6b50509cd7b963708cf4b3ee60/d2d74/001.png 1152w,
+/static/69716a6b50509cd7b963708cf4b3ee60/8746f/001.png 1159w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/69716a6b50509cd7b963708cf4b3ee60/fe486/001.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+    </span></p>
+<h3 id="chatgpt" style="position:relative;"><a href="#chatgpt" aria-label="chatgpt permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ChatGpt</h3>
+<p>프롬프트 질문을 다음과 같이 설정했습니다.</p>
+<blockquote>
+<p>generate oracle sql query from text [hw질문 내용] and follow ddl [DDL 파일]</p>
+</blockquote>
+<h2 id="3-생성된-쿼리문-분석" style="position:relative;"><a href="#3-%EC%83%9D%EC%84%B1%EB%90%9C-%EC%BF%BC%EB%A6%AC%EB%AC%B8-%EB%B6%84%EC%84%9D" aria-label="3 생성된 쿼리문 분석 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. 생성된 쿼리문 분석</h2>
+<h4 id="a-find-all-instructors-earning-the-highest-salary-there-may-be-more-than-one-with-the-same-salary" style="position:relative;"><a href="#a-find-all-instructors-earning-the-highest-salary-there-may-be-more-than-one-with-the-same-salary" aria-label="a find all instructors earning the highest salary there may be more than one with the same salary permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>A. Find all instructors earning the highest salary (there may be more than one with the same salary)</h4>
+<p><br>
+<strong>실제 정답</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/680fc32179b43500bc88a040796b2dec/01c73/004.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 38.541666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA40lEQVQY043L0U7CMBhA4b4LMqchGGSZoogYESNe6LubSITN0rU/zNbNznas00kNLwA7+W4PUkKtcMxC4CAYgMyyqqp+64VMbpJZygisIJZSap2n6ZdS6qdGyHybT5xgQgiJAJbzIBRCFIWpNReq4BEPQiy4yGSmtTam1rmdJZPsHRLO12VeVqW1drPtz9rNXmg+C1+n0+DthdIILxaMQRx/ACwjSiPKdkN398/++W1/8HB989j1hme90Wj8NBhOTjr9vdDl1bjhnLbaPffYd1zPcb1Gs9NqX7hH/oHTbR56O/wDeGRtEiDqGd4AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/680fc32179b43500bc88a040796b2dec/a59e9/004.webp 192w,
+/static/680fc32179b43500bc88a040796b2dec/0ca9f/004.webp 384w,
+/static/680fc32179b43500bc88a040796b2dec/dc9b9/004.webp 768w,
+/static/680fc32179b43500bc88a040796b2dec/d3450/004.webp 1145w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/680fc32179b43500bc88a040796b2dec/3b721/004.png 192w,
+/static/680fc32179b43500bc88a040796b2dec/66595/004.png 384w,
+/static/680fc32179b43500bc88a040796b2dec/fe486/004.png 768w,
+/static/680fc32179b43500bc88a040796b2dec/01c73/004.png 1145w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/680fc32179b43500bc88a040796b2dec/fe486/004.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p><br>
+<strong>EverSQL의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 516px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/be6f7655c8afc2698c7392d8c5f6fe02/fbb32/002.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 40.10416666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAuElEQVQY06XPwQqCQBSF4XmcHN2FjouMclFuc90zhUalJVlWRK8mpIWa0DjeiZIKoY30cVc/nMVFAFDcCyihkfIFAUB2zSilvIlqjzjnURilScobAoDnOInTOLyUJWs8ZqzIb3l0jiilrK56jP1SdcT/gHb708RarLzAsl17+j3Ldhx37W8Os7ln2U6tL33HXW+DIxqZY0EkHc2QSV8QFSypWCJYUltYkYmudQ3xXT69Lfdkog+G5gO3qpRn5zUMuQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/be6f7655c8afc2698c7392d8c5f6fe02/a59e9/002.webp 192w,
+/static/be6f7655c8afc2698c7392d8c5f6fe02/0ca9f/002.webp 384w,
+/static/be6f7655c8afc2698c7392d8c5f6fe02/67d7c/002.webp 516w"
+              sizes="(max-width: 516px) 100vw, 516px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/be6f7655c8afc2698c7392d8c5f6fe02/3b721/002.png 192w,
+/static/be6f7655c8afc2698c7392d8c5f6fe02/66595/002.png 384w,
+/static/be6f7655c8afc2698c7392d8c5f6fe02/fbb32/002.png 516w"
+            sizes="(max-width: 516px) 100vw, 516px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/be6f7655c8afc2698c7392d8c5f6fe02/fbb32/002.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+select에서 보여주는 instructor내 column 차이는 다소 있지만, 전체적으로 거의 비슷한 쿼리문 구조를 보여주며, 결과도 동일하다.</p>
+<p><br>
+<strong>ChatGpt의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/fbfdedfc7967ec8bdb6871569c4df424/6452e/003.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 27.604166666666668%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKUlEQVQY02WLUUvCUBiGv4FXBv6OcG4WlU5PEVrbMUl/QV0lmCgV3lpRboJt68INjP7B7oXAW6H/o3l2NkH4og5I0MPLd/G+3wNxvIrjFecRIk4mHxeXjXa722rdXbdum82bTTqd7lWjPZt9IiLnkbAgiuIoihkLEfH+sQ8AyWQSACRJgj8kEgkAGI/fEHG5ZMICxjhjfLFYImKv9wAAqdQW/EPInucj4nz+FYY8DDngL+v1GhGDICgSUq/XKhVKqUENXdd1w9ApNarVM0KK0+l084yI8PQ8dFzPdkZ907YGrjVwTUtc58Ueef674/qm5YhJpG867qtvux6oO2Tv4LhUPleyRFa0jFqQ1UJGLaQz+f1cqXxay+4eiv5nUjRZ0bbTubx2Qo7oN7HwreEEtBX2AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/fbfdedfc7967ec8bdb6871569c4df424/a59e9/003.webp 192w,
+/static/fbfdedfc7967ec8bdb6871569c4df424/0ca9f/003.webp 384w,
+/static/fbfdedfc7967ec8bdb6871569c4df424/dc9b9/003.webp 768w,
+/static/fbfdedfc7967ec8bdb6871569c4df424/e5a25/003.webp 1148w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/fbfdedfc7967ec8bdb6871569c4df424/3b721/003.png 192w,
+/static/fbfdedfc7967ec8bdb6871569c4df424/66595/003.png 384w,
+/static/fbfdedfc7967ec8bdb6871569c4df424/fe486/003.png 768w,
+/static/fbfdedfc7967ec8bdb6871569c4df424/6452e/003.png 1148w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/fbfdedfc7967ec8bdb6871569c4df424/fe486/003.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+select에서 보여주는 instructor내 column 차이는 다소 있지만, 전체적으로 거의 비슷한 쿼리문 구조를 보여주며, 결과도 동일하다.</p>
+<h4 id="b-find-the-enrollment-of-each-section-that-was-offered-in-fall-2017" style="position:relative;"><a href="#b-find-the-enrollment-of-each-section-that-was-offered-in-fall-2017" aria-label="b find the enrollment of each section that was offered in fall 2017 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>B. Find the enrollment of each section that was offered in Fall 2017.</h4>
+<p><br>
+<strong>실제 정답</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/db5f02a74588fe3885d0d72caa758582/5f301/005.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 38.541666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4ElEQVQY05XN626CMBjG8d7LJiMbks3hDMrMNrPoF+PFLzFOQTm8xVoOQnGptHhIdgGKv/y/PnkQo2y9IuBgGtIAgOWsqipZD9oX+3SRgofXmGRZvtv9pdttURRSSnEN4hlPvGTpup7nA2DbdqIo5pyLGhBnnPqR7SwjGuf/z2VZCiFrjVnIiL9Jk1gcSnEUp1ug+dyezmaL358AgpXrAmBCNhiHfgBXQ4PvyWv7w+wNrf7oufVudD6/BuOeNXxqmprevRyy+qO7xoumm+rjm6IaimrcKy1N7ypqu/FgXO4Mc99ssQyXcygAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/db5f02a74588fe3885d0d72caa758582/a59e9/005.webp 192w,
+/static/db5f02a74588fe3885d0d72caa758582/0ca9f/005.webp 384w,
+/static/db5f02a74588fe3885d0d72caa758582/dc9b9/005.webp 768w,
+/static/db5f02a74588fe3885d0d72caa758582/9db17/005.webp 1146w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/db5f02a74588fe3885d0d72caa758582/3b721/005.png 192w,
+/static/db5f02a74588fe3885d0d72caa758582/66595/005.png 384w,
+/static/db5f02a74588fe3885d0d72caa758582/fe486/005.png 768w,
+/static/db5f02a74588fe3885d0d72caa758582/5f301/005.png 1146w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/db5f02a74588fe3885d0d72caa758582/fe486/005.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p><br>
+<strong>EverSQL의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/866f14c734b51bdda82e4559881d190a/c71c8/006.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 43.22916666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAv0lEQVQoz5XOSQ6CQBRF0dqLAoUSbBBUIkwYuG9ApFMTN+EEgYSiDFSDQecoJ3f68j9oXy0ltPvgf2OMUUoBqlD+LNhH97fvHlR5hcq6aRqMcTcG5xwUzzLPCkZIN1I/RiXKHkWNMWOMj9G/TQgl7eizXyCO01MQhWGaJBffD8Moud7uUZS6buB554Fc7wwO1lGeb5dra6XZEtQV1dzunZVmT4T1VNSGA8bOESRNUU1J1iVZF+FGgBtlYcKZ8bM3BEWoSc4Ei3AAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/866f14c734b51bdda82e4559881d190a/a59e9/006.webp 192w,
+/static/866f14c734b51bdda82e4559881d190a/0ca9f/006.webp 384w,
+/static/866f14c734b51bdda82e4559881d190a/dc9b9/006.webp 768w,
+/static/866f14c734b51bdda82e4559881d190a/124cc/006.webp 1141w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/866f14c734b51bdda82e4559881d190a/3b721/006.png 192w,
+/static/866f14c734b51bdda82e4559881d190a/66595/006.png 384w,
+/static/866f14c734b51bdda82e4559881d190a/fe486/006.png 768w,
+/static/866f14c734b51bdda82e4559881d190a/c71c8/006.png 1141w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/866f14c734b51bdda82e4559881d190a/fe486/006.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+순서의 차이는 있지만, 결과는 동일하게 나온다. 쿼리문의 경우, 차이점은 section 테이블에 접근하지 않고 오로지 takes 테이블로만 결과를 도출한다는 것이다. 물론 takes 테이블에 course_id, sec_id	, semester 등 구분에 필요한 최소한의 정보는 있다. 하지만 each section에 대한 추가적인 정보를 출력해야 한다면 (ex.room_number) 전체적인 쿼리문 구조를 변경해야 한다는 한계점이 있다.</p>
+<p><br>
+<strong>ChatGpt의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/50eba36245d87b26b72c0c790affad06/b1620/007.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 32.29166666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAABRElEQVQY02P4/fvP8+cvXNx8TUytLS3tzc1tLSztzS3sLcytLcytzSzsLSzsjIwtwcjCyNjS3MLWwNB84cIl////Z/j9+8/9+w8ExKXYubhZWFiYmJhYWFiYmZmZmRhZmBmZWViZWVkZkAAzMzMDA0NraytI8////58+fconLsfJzcfJzc3CwcnDy8vNxsHIxAzXwMTExAgGcM0dHR0gzU+ePLt583bvhEld3b29PX2dnd29vf19/RM6O7vb2zs6OrraOzpbWttAqKWttbW9ra2jsbF5+/adr169YYhPzPTzj/TyDg0LTwwIjHb3DImKSQ2PTPL2jYiNz4iOTQuPTHZ1D3LzCIYjD69QKxv3yOgUBm+/cB09SyUVQ1UNEwUlfQUlPVNzRxU1I1V1YwsrF3lFPXVNU0VlfWSkpGIgK6/t6RUCANKibS4xTzftAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/50eba36245d87b26b72c0c790affad06/a59e9/007.webp 192w,
+/static/50eba36245d87b26b72c0c790affad06/0ca9f/007.webp 384w,
+/static/50eba36245d87b26b72c0c790affad06/dc9b9/007.webp 768w,
+/static/50eba36245d87b26b72c0c790affad06/ea084/007.webp 1144w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/50eba36245d87b26b72c0c790affad06/3b721/007.png 192w,
+/static/50eba36245d87b26b72c0c790affad06/66595/007.png 384w,
+/static/50eba36245d87b26b72c0c790affad06/fe486/007.png 768w,
+/static/50eba36245d87b26b72c0c790affad06/b1620/007.png 1144w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/50eba36245d87b26b72c0c790affad06/fe486/007.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+순서의 차이와 select에서 보여주는 section 내 column 차이는 다소 있지만, 결과는 동일하게 나온다. 쿼리문의 경우 takes 와 section 모두 활용하는 모습을 보이며, 차이점으로는 서브 쿼리 대신 left join 과 group by로 문제를 해결한다는 점이 있다.</p>
+<h4 id="c-display-a-list-of-all-instructors-showing-each-instructors-id-and-the-number-of-sections-taught-make-sure-to-show-the-number-of-sections-as-0-for-instructors-who-have-not-taught-any-section-your-query-should-use-an-outer-join-and-should-not-use-subqueries" style="position:relative;"><a href="#c-display-a-list-of-all-instructors-showing-each-instructors-id-and-the-number-of-sections-taught-make-sure-to-show-the-number-of-sections-as-0-for-instructors-who-have-not-taught-any-section-your-query-should-use-an-outer-join-and-should-not-use-subqueries" aria-label="c display a list of all instructors showing each instructors id and the number of sections taught make sure to show the number of sections as 0 for instructors who have not taught any section your query should use an outer join and should not use subqueries permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>C. Display a list of all instructors, showing each instructor’s ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. Your query should use an outer join, and should not use subqueries.</h4>
+<p><br>
+<strong>실제 정답</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/6421efd5d9d880b4da24e0a7f2a2b229/b1620/008.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 37.5%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAIAAAB2/0i6AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+klEQVQY033LT0vDMBjH8bwP2brWbGmapE3/rqtaBfElyBiCou7iwZfpTRC6xmilepVNN231WJRZ2MXSh8/h+xx+oFyUy9dlOS+LeVEs1r7fv4q3z9XHqqqqn9YDtzd3DzLL85c8e37KcpFKkUiRyiRJZzMhhGyUpvdSPgKIXMc7sL3Y8fdNvqNopgq5Crn2R922/tMg7/aoZe8Bg4Z95A50b6D7Jt9F2N/QjaARJsM+coPwEBA2qn+DDrkTt2waxsyKMAkNuma7cR3tCBsh7IfREdAg7yik26OKyjAJ6m6nqGyrg6kZgcnJdDy5rJ2eXW263fH4/GJ6/Qt90bVuohHymQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/6421efd5d9d880b4da24e0a7f2a2b229/a59e9/008.webp 192w,
+/static/6421efd5d9d880b4da24e0a7f2a2b229/0ca9f/008.webp 384w,
+/static/6421efd5d9d880b4da24e0a7f2a2b229/dc9b9/008.webp 768w,
+/static/6421efd5d9d880b4da24e0a7f2a2b229/ea084/008.webp 1144w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/6421efd5d9d880b4da24e0a7f2a2b229/3b721/008.png 192w,
+/static/6421efd5d9d880b4da24e0a7f2a2b229/66595/008.png 384w,
+/static/6421efd5d9d880b4da24e0a7f2a2b229/fe486/008.png 768w,
+/static/6421efd5d9d880b4da24e0a7f2a2b229/b1620/008.png 1144w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/6421efd5d9d880b4da24e0a7f2a2b229/fe486/008.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p><br>
+<strong>EverSQL의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/0bf6e2dc41941f59eb3b42ac6cb1de53/dc896/009.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 32.8125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAwUlEQVQY052OWwsBURSFz9+Q65NL7qLI5dnPEPGCGeNO/i4vlBrtffa5zBkhT2jK19d6W63FlFRKKv8DE4TneQxcOJ/OLiBJTSSJOAASkR+E1prBDa+XqxBSSCWlEoJIPDDGBPafy8cLuhwROecAwEkAolD6fd3/oWGv9/5fMGexX64OU3tt2ZuJ9Uhrth1Pls58N3N2w5E9GE6/2uuPWbvTLZZbpUo7m6+nMrVCuZkrNJLpaiSWjcZzv4wl8qFw5g5THkrNrxhKygAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/0bf6e2dc41941f59eb3b42ac6cb1de53/a59e9/009.webp 192w,
+/static/0bf6e2dc41941f59eb3b42ac6cb1de53/0ca9f/009.webp 384w,
+/static/0bf6e2dc41941f59eb3b42ac6cb1de53/dc9b9/009.webp 768w,
+/static/0bf6e2dc41941f59eb3b42ac6cb1de53/b2cd5/009.webp 1140w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/0bf6e2dc41941f59eb3b42ac6cb1de53/3b721/009.png 192w,
+/static/0bf6e2dc41941f59eb3b42ac6cb1de53/66595/009.png 384w,
+/static/0bf6e2dc41941f59eb3b42ac6cb1de53/fe486/009.png 768w,
+/static/0bf6e2dc41941f59eb3b42ac6cb1de53/dc896/009.png 1140w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/0bf6e2dc41941f59eb3b42ac6cb1de53/fe486/009.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+결과 쿼리문을 실행하면 오류가 발생한다. 그 원인은 section에 ID라는 column가 없음에도 접근하려 하기 때문이다.(ID는 instructor에 있다.) DDL 파일을 주었음에도 이와 같이 잘못된 쿼리문을 생성하는 것은 EverSQL의 한계로 생각된다. 이러한 문제가 발생한 이유는, 질문에서 꼭 사용해야 하는 teaches 테이블을 언급하지 않아서로 생각된다.
+즉, EverSQL 입장에서는 instructor ID와 teaches ID를 join 한다는 판단을 하지 못한 것으로 생각된다.
+section 단어 대신 sec_id를 넣고 use teaches 등 설명을 추가해봤지만 아쉽게도 원하는 답을 얻지는 못했다.</p>
+<p><br>
+<strong>ChatGpt의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7543d9f9f9ebafce6b6cbced091a507f/5f301/010.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAABlUlEQVQoz33NyU7CYBQF4J9HYOcQKBUZpC0yJQKJKC4VlUJbJEBpAYUdCRsMkDDUGAFRo9EX0ScxURfGN9AFlUIrwm+QlQs5+VYnufcAWVZkWen3BxDCx8enWDzFcWmeP+L4bCqdS6VyLJtJsOkkd1goFN/fP4bD78FAlmVFUb5Aryf1elK3K0II7+8fAAAqlQr8zbRRq9Wvr2+KMux2P0VRkqQ+gL8ZjUYQwqfnF5I5iMXjFE3TNEWSQZIMhkKhcDi8t7ebyaRFcbIxHo+nV6DduS5VhGb7qnNxc3l1d965qdXPGkKrLrQaJ+0JoTVVbzRLFaFUbpQrQrFYvbi8BfvBqMHkRPWrS8sOVG/TG+yLGst/EJRAUEK3ZJ1fNPu3dkEimbU5fBbcjREeC+52uDZwqxcjPDPgVq/R7NoJRADLZW2O9RVszYK7VzC33embfpkBIzwGk3N7hwEUw+oNdg2CaXW4BsGMZheCElodPgOCEnMLxk1/AFRrp9FYhqKTNMNRdDLBZpkITzPcDEyEJ0PxfP74B72Gy4BiFRxuAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/7543d9f9f9ebafce6b6cbced091a507f/a59e9/010.webp 192w,
+/static/7543d9f9f9ebafce6b6cbced091a507f/0ca9f/010.webp 384w,
+/static/7543d9f9f9ebafce6b6cbced091a507f/dc9b9/010.webp 768w,
+/static/7543d9f9f9ebafce6b6cbced091a507f/9db17/010.webp 1146w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/7543d9f9f9ebafce6b6cbced091a507f/3b721/010.png 192w,
+/static/7543d9f9f9ebafce6b6cbced091a507f/66595/010.png 384w,
+/static/7543d9f9f9ebafce6b6cbced091a507f/fe486/010.png 768w,
+/static/7543d9f9f9ebafce6b6cbced091a507f/5f301/010.png 1146w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/7543d9f9f9ebafce6b6cbced091a507f/fe486/010.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p>결과가 동일하며, 쿼리문도 실제 정답과 비슷하게 작성되었다. 다만, count()에서 sec_id 대신 course_id를 쓴다는 차이점이 있다. 문제의 요구사항이 “showing each instructor’s ID and the number of sections” 인 점을 고려하면, sec_id를 사용하는 것이 바람직하다고 생각된다.</p>
+<h4 id="d-find-the-department-that-have-the-highest-average-salary" style="position:relative;"><a href="#d-find-the-department-that-have-the-highest-average-salary" aria-label="d find the department that have the highest average salary permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>D. Find the department that have the highest average salary.</h4>
+<p><br>
+<strong>실제 정답</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/723a24867c8b8b2d0762d1a7ca9d02b2/01c73/011.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 29.166666666666668%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAkklEQVQY043HUQ6CIACAYe7RSuOxLeoAHTWwZcuXztOD1RA1aHNjNk1QA1p1Af59Lz+QQnLBGcvr+mmsGd+jf6C6VmVWUprdOe/aTr1UP/SDX6B5NOIs8rS4pLeMMllJrZVnwI3Wtc5q8z2tjDHOO5Akp2h3xCQm0QGT+G+L9z4AWm9CuAogCuY/EM3C5WS68PEBVCwVCWMb3DYAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/723a24867c8b8b2d0762d1a7ca9d02b2/a59e9/011.webp 192w,
+/static/723a24867c8b8b2d0762d1a7ca9d02b2/0ca9f/011.webp 384w,
+/static/723a24867c8b8b2d0762d1a7ca9d02b2/dc9b9/011.webp 768w,
+/static/723a24867c8b8b2d0762d1a7ca9d02b2/d3450/011.webp 1145w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/723a24867c8b8b2d0762d1a7ca9d02b2/3b721/011.png 192w,
+/static/723a24867c8b8b2d0762d1a7ca9d02b2/66595/011.png 384w,
+/static/723a24867c8b8b2d0762d1a7ca9d02b2/fe486/011.png 768w,
+/static/723a24867c8b8b2d0762d1a7ca9d02b2/01c73/011.png 1145w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/723a24867c8b8b2d0762d1a7ca9d02b2/fe486/011.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p><br>
+<strong>EverSQL의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8504a0878d6ced697df6fadd68365f96/9f6f0/012.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 64.58333333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAIAAAAmMtkJAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA80lEQVQoz6WRz07CQBCH930MFnoSYUNi9ADqTV+j0HqwYgxejHfx4p+oTYy+mDEISWlxoTudmcXsE9CNX77rl98kI5h4mS8R0bjAzIgoiGj6PVNKrR1hZhun07n6dY6NMYKZ0kmazuZE5B4bLpReZAsN2jlGQgRc5QWWCACI5BATEaG9vCh0WQIiOsQAGjRMvn6yLGdmqox91fofiLvxw9NzkiSfb8nHy+v7+P6xuqJ7eNI7OpWdruz0mrsH2/W215B1v5JidH17NboJo2F0djmILoIw7odxMIiD/vlGxd7+8Y4dbHmNttWXni9rXmur1tzoH/W1bcyS0dx+AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/8504a0878d6ced697df6fadd68365f96/a59e9/012.webp 192w,
+/static/8504a0878d6ced697df6fadd68365f96/0ca9f/012.webp 384w,
+/static/8504a0878d6ced697df6fadd68365f96/dc9b9/012.webp 768w,
+/static/8504a0878d6ced697df6fadd68365f96/c88ff/012.webp 1051w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/8504a0878d6ced697df6fadd68365f96/3b721/012.png 192w,
+/static/8504a0878d6ced697df6fadd68365f96/66595/012.png 384w,
+/static/8504a0878d6ced697df6fadd68365f96/fe486/012.png 768w,
+/static/8504a0878d6ced697df6fadd68365f96/9f6f0/012.png 1051w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/8504a0878d6ced697df6fadd68365f96/fe486/012.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+우선 처음 쿼리문에서는 괄호 뒤 as 구문으로 인해 오류가 발생한다. 이는 오라클에서 허용되지 않는 부분이다. EverSQL 옵션을 oracle 19c로 주었음에도 이러한 문제가 발생하는 것은 한계점으로 생각된다.
+해당 오류를 고친 후 실행해보면 결과는 동일하게 나온다. 쿼리문에서는 all 대신 max()를 사용하여 avg(salary)의 최댓값을 한번 구하고, 다시 이 최댓값과 동일한 avg(salary)의 dept_name을 찾는 방법으로 문제를 해결한다. 이로 인해 having 속 서브 쿼리, 그 서브 쿼리의 from 속 서브 쿼리로 총 2중 서브 쿼리가 생기게 된다.</p>
+<p><br>
+<strong>ChatGpt의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f1516a588afa8a1fd31c9c8737a5857f/e5cc9/013.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 28.125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAABJUlEQVQY013LyU7CUBiG4Z+WSIobEqMigwVbBqFDVBQTIyau5ZospxB6SqQlDiz0jnC4hO6Ia+yhLaEeQ4iivnkW3+aDIJj5fhCGn+PxO8YWQt1Ox2y3F3QdI2QgZCyGjofDpyCY/Qae5xMypZS+vL7FE1sct84yLABAhIHvGGaxBUHw/cDz/B/gutPJ5GM+D0ej53hig+NibDTGssxaNAIQ+XcmZOq6ZIkQApTSMAwppY7j1OsncnVfPaqdnjcuGmeqqsiyJMuSqiqFgthsXtG/wd39IzZtszfApt1CWGthXTdv+rfYHGit7rW2oiHDwPZS17D61gOIxYP0biXDV7O8lMsruT2Fz8vFcu24fpnlpVSmks6uJFOlZKq0ky5vboti8fAL08ups4p1S6sAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f1516a588afa8a1fd31c9c8737a5857f/a59e9/013.webp 192w,
+/static/f1516a588afa8a1fd31c9c8737a5857f/0ca9f/013.webp 384w,
+/static/f1516a588afa8a1fd31c9c8737a5857f/dc9b9/013.webp 768w,
+/static/f1516a588afa8a1fd31c9c8737a5857f/1de89/013.webp 1058w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f1516a588afa8a1fd31c9c8737a5857f/3b721/013.png 192w,
+/static/f1516a588afa8a1fd31c9c8737a5857f/66595/013.png 384w,
+/static/f1516a588afa8a1fd31c9c8737a5857f/fe486/013.png 768w,
+/static/f1516a588afa8a1fd31c9c8737a5857f/e5cc9/013.png 1058w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f1516a588afa8a1fd31c9c8737a5857f/fe486/013.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+avg_salary column이 추가된 차이는 있지만, 결과는 동일하다. 해당 쿼리문에서는 max(avg(salary)) 를 통해 한번에 최댓값을 구하고, 해당 값을 가지는 dept_name을 찾는 방식으로 문제를 해결한다. 깔끔하고 좋은 방법인 것 같다.</p>
+<h4 id="e-find-all-courses-taught-in-both-the-fall-2017-semester-and-in-the-spring-2018-semester" style="position:relative;"><a href="#e-find-all-courses-taught-in-both-the-fall-2017-semester-and-in-the-spring-2018-semester" aria-label="e find all courses taught in both the fall 2017 semester and in the spring 2018 semester permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>E. Find all courses taught in both the Fall 2017 semester and in the Spring 2018 semester.</h4>
+<p><br>
+<strong>실제 정답</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/5a1773623d08cec8e92e0759952ef174/e5cc9/014.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 35.9375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAxElEQVQY043MwQqCMBzH8T1U0MUkOqXQrUeojr5MQRtRQrdCgl4mgorSSslqW1Pc/ioY1F324Xv9/RA70eflFQbRM45AyqIoC22IHt/B4RoEN8ZjmrwgzyGHXA9SqRR3wX2uUpBS/S91x1DCJ/yE+/CwO119P36cqWBSi0JVVZVpmYmMciZEIkHyhCkFlQa0Wm9m8yUmLiHuFC8wdjF2p3heEyaL8YR43hYNR45l99udnmFaRssyzO4vqyazbTeancHI+QKC7VX62bj5AwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/5a1773623d08cec8e92e0759952ef174/a59e9/014.webp 192w,
+/static/5a1773623d08cec8e92e0759952ef174/0ca9f/014.webp 384w,
+/static/5a1773623d08cec8e92e0759952ef174/dc9b9/014.webp 768w,
+/static/5a1773623d08cec8e92e0759952ef174/1de89/014.webp 1058w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/5a1773623d08cec8e92e0759952ef174/3b721/014.png 192w,
+/static/5a1773623d08cec8e92e0759952ef174/66595/014.png 384w,
+/static/5a1773623d08cec8e92e0759952ef174/fe486/014.png 768w,
+/static/5a1773623d08cec8e92e0759952ef174/e5cc9/014.png 1058w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/5a1773623d08cec8e92e0759952ef174/fe486/014.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p><br>
+<strong>EverSQL의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c77155dff75895c2ca052a4978a7592f/d458b/015.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 58.333333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAIAAADtbgqsAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA8ElEQVQoz6WPzUrDQBRG78v4Ayoh1I2lujMGN9KqG8G9FBSbFESbnUtd+QKdWNriRhc+kwhp7ExHbcjcmTuCPoATPZztge8DY0zxUSCitWSdISJUCozWPOdKKVsRIgKNmL1MVFk5ttYCEfGJyLO3Yl5Ujg2ZTzEXfPZ9u3osp1Ly2V9mI6Kcyuw1fxdClaU2RjsD9h/A49PzYPDA2DBNx/3+kLERY6P0fuwi7B8e1xuB52+uenW/tuX5jZW1jYWl2uLy+q/Cze1dL7mOu0knuoq7SRT3zjuXp2cXLsJJO9prHoW7B0HY2t5p/hiELRe/ABwiObbb2KU5AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c77155dff75895c2ca052a4978a7592f/a59e9/015.webp 192w,
+/static/c77155dff75895c2ca052a4978a7592f/0ca9f/015.webp 384w,
+/static/c77155dff75895c2ca052a4978a7592f/dc9b9/015.webp 768w,
+/static/c77155dff75895c2ca052a4978a7592f/a9c1f/015.webp 1061w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c77155dff75895c2ca052a4978a7592f/3b721/015.png 192w,
+/static/c77155dff75895c2ca052a4978a7592f/66595/015.png 384w,
+/static/c77155dff75895c2ca052a4978a7592f/fe486/015.png 768w,
+/static/c77155dff75895c2ca052a4978a7592f/d458b/015.png 1061w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c77155dff75895c2ca052a4978a7592f/fe486/015.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+우선 처음 쿼리문에서는 위와 같이 오류가 발생한다. section 에는 title 이라는 column가 없음에도 접근하려 하기 때문이다. (title은 course에 있다.) DDL 파일을 주었음에도 이와 같이 잘못된 쿼리문을 생성하는 것은 EverSQL의 한계로 생각된다. 해당 title 부분을 지워주고 나면 결과가 잘 출력된다. 본인 쿼리문과 차이점은 exist() 대신 in()을 사용하였다는 점이다.</p>
+<p><br>
+<strong>ChatGpt의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/24f1ec2316130c6742b2cc73cac13285/ea60f/016.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 27.604166666666668%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAIAAABM9SnKAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNUlEQVQY02XLTUvCcBzA8V85E1PIex5KkwqnW85ZWBM79FYqKOhQB+mviBrZ+M+nfIrMDnnQs5degIfejunmJqi/oEEUffleP2AYU8OY6rqxWCz6/ffrm2QqdZdM5UgyS0jmlmQIyRKSTafvE4n0YPCBiJOJbirQdUPXDU2bIOLZ+SUAWBgrwBL8jWEYAKCUIuJ4rJoKVFVTVW00GiPi6cUVgGXN5Vq22R1Op8O+arOu/MayLCPicPhpKsDv5vM5ItJimRfCsbgU3BejknQoRrhAgGX9LOvnec7tXu/1uog4m81MBW+dbvOp3Wi226+dQrGazxce5JIsl6hSoUpFKVR/pspjudKsN15q9Vat3qrWnoELHW16uZ1dMSTE+JB0ED0RxONwJO7bFv7v9e15tnjzDU/wC1fGrXneHV+4AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/24f1ec2316130c6742b2cc73cac13285/a59e9/016.webp 192w,
+/static/24f1ec2316130c6742b2cc73cac13285/0ca9f/016.webp 384w,
+/static/24f1ec2316130c6742b2cc73cac13285/dc9b9/016.webp 768w,
+/static/24f1ec2316130c6742b2cc73cac13285/668f0/016.webp 1060w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/24f1ec2316130c6742b2cc73cac13285/3b721/016.png 192w,
+/static/24f1ec2316130c6742b2cc73cac13285/66595/016.png 384w,
+/static/24f1ec2316130c6742b2cc73cac13285/fe486/016.png 768w,
+/static/24f1ec2316130c6742b2cc73cac13285/ea60f/016.png 1060w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/24f1ec2316130c6742b2cc73cac13285/fe486/016.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+title column 차이점은 있지만, 결과는 동일하다. 본 쿼리문의 경우 exist() 나 in()을 사용하지 않고 join을 두 번 하여 2017 Fall 과 2018 spring semester 를 둘 다 가진 row를 찾아내는 방법으로 문제를 해결한다.</p>
+<h4 id="f-find-all-courses-that-were-offered-at-most-once-in-2017" style="position:relative;"><a href="#f-find-all-courses-that-were-offered-at-most-once-in-2017" aria-label="f find all courses that were offered at most once in 2017 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>F. Find all courses that were offered at most once in 2017.</h4>
+<p><br>
+<strong>실제 정답</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/e75816fe765c23a3a87f12ab978aed07/e5cc9/017.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 48.958333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA5UlEQVQoz2N4e/Pt08dPn718/vnr598w8Is4wPDt47cPL959ePT+y/MvH95+fPP27fv374nUz/D73+9PTz69uPHiwa1Hjx/ce/fu7evXb16/fv3167cfhADDnz+/f3z5/u3rt6/fv37/+uHP719///79DSL/EEQMVTVNqel50bFpUdEpkdGpEVHJEVHJkVHJEZGEEUNEVLKegbWCsr6Ckr68op6CEgmIITo21cjEXlPLXFvXklTEEBOXZmBkq6FlrqVjQSpiCAtP0NQ2l5XXUVDSk1ckDTHU1rfGxKYGBceFhMaTigC3pz0ORWayeAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/e75816fe765c23a3a87f12ab978aed07/a59e9/017.webp 192w,
+/static/e75816fe765c23a3a87f12ab978aed07/0ca9f/017.webp 384w,
+/static/e75816fe765c23a3a87f12ab978aed07/dc9b9/017.webp 768w,
+/static/e75816fe765c23a3a87f12ab978aed07/1de89/017.webp 1058w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/e75816fe765c23a3a87f12ab978aed07/3b721/017.png 192w,
+/static/e75816fe765c23a3a87f12ab978aed07/66595/017.png 384w,
+/static/e75816fe765c23a3a87f12ab978aed07/fe486/017.png 768w,
+/static/e75816fe765c23a3a87f12ab978aed07/e5cc9/017.png 1058w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/e75816fe765c23a3a87f12ab978aed07/fe486/017.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<p><br>
+<strong>EverSQL의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a74fb90465e8b7a2fa41f7b3c0165153/604b4/018.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 47.91666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAr0lEQVQoz52Nuw6CQBQF77fw8EFIBBMNokRRtFCg1f9vSFBZFC6wwO5a6AewTqY4zeRAkiSEkDRNKaVCEuho39FONmOM9X0PeZpndyIEl4o554wxKEhZYS3k4ZzD+1mSx4tLPv9izLHICvEX0DQUsULEtm3ruq4Gg1hBGF/9Q7jzL1F82wfRan10N6eBguMGimZpo7mqzw3TUTRL1e2Bgrc9j6eLibE0TGdme9890A8cDcIUaZqdHwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a74fb90465e8b7a2fa41f7b3c0165153/a59e9/018.webp 192w,
+/static/a74fb90465e8b7a2fa41f7b3c0165153/0ca9f/018.webp 384w,
+/static/a74fb90465e8b7a2fa41f7b3c0165153/dc9b9/018.webp 768w,
+/static/a74fb90465e8b7a2fa41f7b3c0165153/cb660/018.webp 1059w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a74fb90465e8b7a2fa41f7b3c0165153/3b721/018.png 192w,
+/static/a74fb90465e8b7a2fa41f7b3c0165153/66595/018.png 384w,
+/static/a74fb90465e8b7a2fa41f7b3c0165153/fe486/018.png 768w,
+/static/a74fb90465e8b7a2fa41f7b3c0165153/604b4/018.png 1059w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a74fb90465e8b7a2fa41f7b3c0165153/fe486/018.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+결과가 다르게 출력된다. 가장 큰 차이점은 “offered at most once”를 도출해야 하는데 한 번도 열리지 않은 수업은 출력하지 못하는 모습을 보인다. 그 이유는 section 테이블만 활용해서 인데, section 테이블에는 없는 열리지 않은 수업들이 course 테이블에 존재하기 때문이다. 이는 EverSQL의 한계점으로 보인다.
+즉, EverSQL가 이러한 판단을 내린 이유는 ‘course 에는 있지만 section 에는 없는 수업’을 생각하지 못하고 section 테이블 속 year=2017 라는 조건만 생각했기 때문이라고 예상된다.</p>
+<p><br>
+<strong>ChatGpt의 생성된 쿼리문 및 결과</strong><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/30a68b320765b2579e19eb19db4ed905/e5cc9/019.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 34.375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAIAAACHqfpvAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZUlEQVQY033Ly0oCUQDG8SNZubOdSHTD7EYtFAtMp8LLOONc0hkX6phQRhBBOk5RrexNkuo1hCjoOWxoISHeUOecGeOEuqpFf37L7wMIIQhRv69hjCuVl2CY4fkEywkME48ycYYVGFZgOZHlxFzuvFb7MoyBpkEIEUI6gBBqGux2exjjh8dnMGmxWmemLRbzKDDKZDIBAOx2e7X6MRh893r98R8gpCOkaxrEGJfLTwCAKfME+N34bLPZVFXFGEOIdN0wjAFotzutVrteb/R72uvb+2VBvru9UZRrWVZkWSkWhxTlKp8vlEr3qvrZbA7H9Xqj1eqAVDoXImN+gqJokYomxEQ2LmZjwhEfk/5g+RSxH/URFLFHe3YCUuYMcIfJtfXt5RV3MMwHQjxJCyQV9xOR+cXNhaWtPxxOl8Ppcq66Z+c2IrQAjnMXgSDn9ZGCmIkJUjJ9QkcTXh/5j11/xO05SEmnP47kti1CzTwiAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/30a68b320765b2579e19eb19db4ed905/a59e9/019.webp 192w,
+/static/30a68b320765b2579e19eb19db4ed905/0ca9f/019.webp 384w,
+/static/30a68b320765b2579e19eb19db4ed905/dc9b9/019.webp 768w,
+/static/30a68b320765b2579e19eb19db4ed905/1de89/019.webp 1058w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/30a68b320765b2579e19eb19db4ed905/3b721/019.png 192w,
+/static/30a68b320765b2579e19eb19db4ed905/66595/019.png 384w,
+/static/30a68b320765b2579e19eb19db4ed905/fe486/019.png 768w,
+/static/30a68b320765b2579e19eb19db4ed905/e5cc9/019.png 1058w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/30a68b320765b2579e19eb19db4ed905/fe486/019.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+결과가 다르게 출력된다. 문제점은 EverSQL과 동일하게 “offered at most once”를 도출해야 하는데 한번도 열리지 않은 수업은 출력하지 못하는 모습을 보인다. 단, EverSQL과 다르게 section 테이블과 course 테이블 모두 활용하지만, join 연산자로 인해 결국 section에 없는 course 수업들이 전부 사라지기 때문이다. 이는 ChatGPT의 한계점으로 보인다.
+즉, ChatGPT가 이러한 판단을 내린 이유는 해당 join 연산자를 사용하면 ‘course에는 있지만 section에는 없는 수업’이 사라지는 것을 생각하지 못했기 때문이라고 예상된다.</p>
+<h2 id="결론" style="position:relative;"><a href="#%EA%B2%B0%EB%A1%A0" aria-label="결론 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>결론</h2>
+<p>총 6개의 질의에 대하여, EverSQL는 2개를 맞추고 ChatGpt는 5개를 맞췄습니다.
+물론 단순히 답 뿐만 아니라 효율성도 고려해야 하지만, 그럼에도 ChatGpt의 성능이 상당히 좋습니다. ㄷㄷ</p>
+<h2 id="source" style="position:relative;"><a href="#source" aria-label="source permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source</h2>
+<ul>
+<li>『Database System Concepts』 <em>Avi Silberschatz - 지음</em><br>
+<a href="https://www.db-book.com/university-lab-dir/sample_tables-dir/index.html" target="_blank" rel="nofollow">https://www.db-book.com/university-lab-dir/sample_tables-dir/index.html</a></li>
+</ul></div><style data-emotion="css pit38s">.css-pit38s{height:auto;}</style><div class="css-pit38s etse75s1"><style data-emotion="css v7bn0g">.css-v7bn0g{position:-webkit-sticky;position:sticky;top:50px;display:inline-block;margin:120px 40px;margin-right:0px;height:auto;width:200px;font-size:14.5px;border-left:3px solid #4ccd97;}@media (max-width: 1200px){.css-v7bn0g{display:none;}}.css-v7bn0g li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px;color:gray;}.css-v7bn0g ul{margin-left:10px;padding:7px 5px;list-style:none;}.css-v7bn0g a:hover{-webkit-transition:0.3s;transition:0.3s;font-size:15px;font-weight:700;color:#433E49;}</style><div class="css-v7bn0g etse75s0"><ul>
+<li>
+<p><a href="#1-%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B0%8F-%EC%9E%90%EC%97%B0%EC%96%B4-%EC%BF%BC%EB%A6%AC-%EB%AC%B8%EC%A0%9C-%EC%84%A0%EC%A0%95">1. 데이터 및 자연어 쿼리 문제 선정</a></p>
+</li>
+<li>
+<p><a href="#2-%ED%99%98%EA%B2%BD-%EC%85%8B%ED%8C%85">2. 환경 셋팅</a></p>
+<ul>
+<li><a href="#eversql">EverSQL</a></li>
+<li><a href="#chatgpt">ChatGpt</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#3-%EC%83%9D%EC%84%B1%EB%90%9C-%EC%BF%BC%EB%A6%AC%EB%AC%B8-%EB%B6%84%EC%84%9D">3. 생성된 쿼리문 분석</a></p>
+<ul>
+<li>
+<ul>
+<li><a href="#a-find-all-instructors-earning-the-highest-salary-there-may-be-more-than-one-with-the-same-salary">A. Find all instructors earning the highest salary (there may be more than one with the same salary)</a></li>
+<li><a href="#b-find-the-enrollment-of-each-section-that-was-offered-in-fall-2017">B. Find the enrollment of each section that was offered in Fall 2017.</a></li>
+<li><a href="#c-display-a-list-of-all-instructors-showing-each-instructors-id-and-the-number-of-sections-taught-make-sure-to-show-the-number-of-sections-as-0-for-instructors-who-have-not-taught-any-section-your-query-should-use-an-outer-join-and-should-not-use-subqueries">C. Display a list of all instructors, showing each instructor’s ID and the number of sections taught. Make sure to show the number of sections as 0 for instructors who have not taught any section. Your query should use an outer join, and should not use subqueries.</a></li>
+<li><a href="#d-find-the-department-that-have-the-highest-average-salary">D. Find the department that have the highest average salary.</a></li>
+<li><a href="#e-find-all-courses-taught-in-both-the-fall-2017-semester-and-in-the-spring-2018-semester">E. Find all courses taught in both the Fall 2017 semester and in the Spring 2018 semester.</a></li>
+<li><a href="#f-find-all-courses-that-were-offered-at-most-once-in-2017">F. Find all courses that were offered at most once in 2017.</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#%EA%B2%B0%EB%A1%A0">결론</a></p>
+</li>
+<li>
+<p><a href="#source">Source</a></p>
+</li>
+</ul></div></div></div><style data-emotion="css qi68kj">.css-qi68kj{width:768px;margin:auto auto;padding:0 10px;}@media (max-width: 768px){.css-qi68kj{width:100%;padding:0 20px;}}</style><div class="css-qi68kj elyfc7a0"><div id="disqus_thread"></div></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v81"><style data-emotion="css chvw2h">.css-chvw2h{width:80px;height:80px;background-image:url('bartender.png');-webkit-background-size:contain;background-size:contain;margin:20px auto 0px auto;}</style><div class="css-chvw2h e1oae0v80"></div>Just an developer with drinks<br/>2022 HyeonDong, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/DB_chat/";window.___webpackCompilationHash="bfb743b8b9fb1efb5fa1";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-c9fa82aa5b1f9c65f078.js"],"app":["/app-e9f3f84a858e449c6845.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-c686bcb9fd021576da4f.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-a996845aa9f72e17dba7.js"],"component---src-pages-post-tsx":["/component---src-pages-post-tsx-66acd32db55f17007543.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-676c0d609cc6ccc353e7.js"]};/*]]>*/</script><script src="/polyfill-c9fa82aa5b1f9c65f078.js" nomodule=""></script><script src="/app-e9f3f84a858e449c6845.js" async=""></script><script src="/framework-c57a9454c0e3bef16c3b.js" async=""></script><script src="/webpack-runtime-301cd6e2ec1b80fcee8f.js" async=""></script></body></html>

@@ -1,7 +1,7 @@
 ---
 date: '2024-04-20'
-title: 'Boston College SimpleDB 개선 과제 1'
-categories: ['DB']
+title: 'Boston College SimpleDB 개선 과제 part 1'
+categories: ['DB', 'Java']
 summary: 'Edward Sciore의 Java 기반 SimpleDB 개선 과제를 수행합니다.'
 thumbnail: './common/common2.jpg'
 ---
@@ -17,19 +17,20 @@ Boston College의 Edward Sciore 교수님이 논문으로 발표한 Java 기반�
 ![.](./db_hw1/001.png)  
 SimpleDB 컴포넌트 구조
 
-
 ## 2. SimpleDB 실행 방법 (Embedded mode)
-
 
 ```bash
 # 데이터베이스 테이블/레코드 생성
-$ cd	$SDBHOME/target $	java	-cp	./simpledb-project-1.0.0.jar	simpleclient.embedded.CreateStudentDB
+$ cd $SDBHOME/target 
+$ java -cp ./simpledb-project-1.0.0.jar simpleclient.embedded.CreateStudentDB
 # 데이터베이스 내 레코드 확인
-$	java	-cp	./simpledb-project-1.0.0.jar	simpleclient.embedded.StudentMajor
+$ java -cp ./simpledb-project-1.0.0.jar	simpleclient.embedded.StudentMajor
 # 데이터베이스 삭제
-$	cd	$SDBHOME/target/studentdb $	rm	–i *.tbl
+$ cd $SDBHOME/target/studentdb 
+$ rm –i *.tbl
 # Interactive shell을 실행
-$ cd $SDBHOME/target $ java	-cp	./simpledb-project-1.0.0.jar	simpleclient.SimpleIJ
+$ cd $SDBHOME/target 
+$ java -cp ./simpledb-project-1.0.0.jar simpleclient.SimpleIJ
 ```
 
 ## 목표: Improving Buffer Manager (LRU, midpoint-insertion policy)
@@ -184,7 +185,7 @@ public LRUBufferMgr(FileMgr fm, LogMgr lm, int numbuffs) {
          unpin_buffer.add(new Buffer(fm, lm, i));
    }
 ```
-위와 같이 LinkedList<Buffer> 클래스를 사용하여 unpin_buffer를 만들고, HashMap<BlockId,Buffer> 를 활용하여 alloc_buffer를 만들었다. alloc_buffer의 경우 과제 명세 설명 " Keep a map of allocated buffers, keyed on the block they contain." 처럼 map의 일종인 hashmap을 활용했으며, BlockId를 key로 하여 Buffer를 value로 담도록 하였다.
+위와 같이 LinkedList<Buffer> 클래스를 사용하여 unpin_buffer를 만들고, HashMap<BlockId,Buffer> 를 활용하여 alloc_buffer를 만들었다. alloc_buffer의 경우 과제 명세 설명 "Keep a map of allocated buffers, keyed on the block they contain." 처럼 map의 일종인 hashmap을 활용했으며, BlockId를 key로 하여 Buffer를 value로 담도록 하였다.
 2) Unpinned buffer 작동
 ```java
 private Buffer chooseUnpinnedBuffer() {

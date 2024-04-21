@@ -1,0 +1,831 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="naver-site-verification" content="7727e68f404d4c7be584f2b673b9943ab5c6b9ab"/><meta data-react-helmet="true" name="google-site-verification" content="fygLmB3YoAnXWkSTMHoemYurOt8ZBEdT2K5M1qZQL5E"/><meta data-react-helmet="true" name="twitter:image" content="/static/e46772e428fa9f924fd778334079b666/saa.jpg"/><meta data-react-helmet="true" name="twitter:description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta data-react-helmet="true" name="twitter:title" content="AWS SAA 자격증 공부 &lt; S3 &gt;"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" property="og:site_name" content="AWS SAA 자격증 공부 &lt; S3 &gt;"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:image" content="/static/e46772e428fa9f924fd778334079b666/saa.jpg"/><meta data-react-helmet="true" property="og:description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta data-react-helmet="true" property="og:title" content="AWS SAA 자격증 공부 &lt; S3 &gt;"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" name="description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta name="generator" content="Gatsby 4.19.2"/><style data-href="/styles.69a4e1e9c4403d061256.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#2f2f2f;color:#eee;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5em;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#363636}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#fd9170}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#c792ea}.token.attr-name{color:#ffcb6b}.token.attr-value,.token.attribute{color:#a5e844}.token.boolean{color:#c792ea}.token.builtin{color:#ffcb6b}.token.cdata,.token.char{color:#80cbc4}.token.class{color:#ffcb6b}.token.class-name{color:#f2ff00}.token.comment{color:#616161}.token.constant{color:#c792ea}.token.deleted{color:#f66}.token.doctype{color:#616161}.token.entity{color:#f66}.token.function{color:#c792ea}.token.hexcode{color:#f2ff00}.token.id,.token.important{color:#c792ea;font-weight:700}.token.inserted{color:#80cbc4}.token.keyword{color:#c792ea}.token.number{color:#fd9170}.token.operator{color:#89ddff}.token.prolog{color:#616161}.token.property{color:#80cbc4}.token.pseudo-class,.token.pseudo-element{color:#a5e844}.token.punctuation{color:#89ddff}.token.regex{color:#f2ff00}.token.selector{color:#f66}.token.string{color:#a5e844}.token.symbol{color:#c792ea}.token.tag{color:#f66}.token.unit{color:#fd9170}.token.url,.token.variable{color:#f66}:host,:root{--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1 "Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1 "Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1 "Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{box-sizing:content-box;overflow:visible}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.07143em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{top:.25em;width:var(--fa-li-width,2em)}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:var(--fa-right,0);top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.08333em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.07143em;vertical-align:.05357em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.04167em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width, 2em)*-1);line-height:inherit;position:absolute;text-align:center;width:var(--fa-li-width,2em)}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade,.fa-fade{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s)}.fa-beat-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-shake,.fa-spin{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal)}.fa-spin{-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scaleX(-1);transform:scaleX(-1)}.fa-flip-vertical{-webkit-transform:scaleY(-1);transform:scaleY(-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1);transform:scale(-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;height:2em;position:relative;vertical-align:middle;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-only,.sr-only-focusable:not(:focus){clip:rect(0,0,0,0);border-width:0;height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor)}.svg-inline--fa .fa-secondary,.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="canonical" href="https://yangdongs.web.app/aws_saa_9/" data-baseprotocol="https:" data-basehost="yangdongs.web.app"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><title data-react-helmet="true">AWS SAA 자격증 공부 &lt; S3 &gt;</title><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yangdongs RSS Feed" href="/rss.xml"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css vbubbu">.css-vbubbu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100vh;overflow-x:hidden;width:100%;}</style><main class="css-vbubbu e1strnqo0"><style data-emotion="css 1pe8cy1">.css-1pe8cy1{position:fixed;margin:10px 10px;z-index:5;}</style><div class="css-1pe8cy1 e1md2nih0"><style data-emotion="css 1qhl3ja">.css-1qhl3ja{display:grid;place-items:center;width:60px;height:60px;border-radius:20px;background-color:#4ccd97;color:#ffffff;font-size:40px;cursor:pointer;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);-webkit-transition:background-color 0.6s,color 0.6s;transition:background-color 0.6s,color 0.6s;}.css-1qhl3ja:hover{background-color:#ffffff;color:#4ccd97;}@media (max-width: 768px){.css-1qhl3ja{width:45px;height:45px;font-size:30px;border-radius:15px;}}</style><div class="css-1qhl3ja e1md2nih1"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM325.1 306.7L380.6 162.4C388.1 142.1 369 123.9 349.6 131.4L205.3 186.9C196.8 190.1 190.1 196.8 186.9 205.3L131.4 349.6C123.9 369 142.1 388.1 162.4 380.6L306.7 325.1C315.2 321.9 321.9 315.2 325.1 306.7V306.7z"></path></svg></div><style data-emotion="css 12ua5r7">.css-12ua5r7{margin:10px 10px;border-radius:20px;z-index:4;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-transition:500ms;transition:500ms;left:-600px;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);background-color:white;}</style><div class="css-12ua5r7 ee3oskm2"><style data-emotion="css x68nae">.css-x68nae{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;text-align:center;margin-top:5%;margin-bottom:10%;margin:10px;}</style><div class="css-x68nae ee3oskm1"><style data-emotion="css 58nrwj">.css-58nrwj{font-size:20px;margin:15px;}.css-58nrwj:hover{border-bottom:3px solid #4ccd97;}</style><a class="css-58nrwj ee3oskm0" href="/">Home</a><a class="css-58nrwj ee3oskm0" href="/post/">Post</a><a href="https://github.com/Yanghyeondong/tech_blog#readme" class="css-58nrwj ee3oskm0">About</a></div></div></div><style data-emotion="css-global gyifnl">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1470px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;889&#x27; width=&#x27;1470&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/jpeg;base64,/9j/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcDBQYJ/8QAFwEAAwEAAAAAAAAAAAAAAAAAAwUGB//aAAwDAQACEAMQAAAB5hRLtU6YvujPkeT/xAAcEAACAgIDAAAAAAAAAAAAAAABAwIFAAQGFDH/2gAIAQEAAQUCWNeGry6toqxXaMse2bqx7WNI8//EACARAAICAgEFAQAAAAAAAAAAAAIDAREEEgATITFRYaH/2gAIAQMBAT8BbjnkHjsBnSWI0wBHuymmVzN0UkOqrKJ0AI19clIX5n8+c//EACERAAICAQIHAAAAAAAAAAAAAAEDAgQFABIGERMUIXGB/9oACAECAQE/AZcR4+lhrONbg61u1arVuyyLDANpbFBTBEdEsjycJvBS5RsGQjZ3xjEAXWkA+D7+a//EACcQAAEEAAQEBwAAAAAAAAAAAAECAxESAAQTURQiMUEFECEjYXFy/9oACAEBAAY/AskwsFHFPJQt4VtV1R5gVSJQBAtIsZicZZzwx+y9NAeo7mHQt60HW4lCSHVTb2iUwkg9o5vXsPrC0OGRl36N/lzqDv0BHyJ3wnUcW5QVTdRVUbCT5f/EAB0QAQACAwADAQAAAAAAAAAAAAERIQAxQVFxgbH/2gAIAQEAAT8h4mgrEiw8ZG+jg5etgCBtrALEsNxCLE40byZx4+KHbAuUly5BcQSvpso97alYzV9/c//aAAwDAQACAAMAAAAQhA//xAAaEQEBAAMBAQAAAAAAAAAAAAABEQAhMWGR/9oACAEDAQE/EBP20blAbVjKe4GoJbAg61vz7Pc//8QAGREBAQADAQAAAAAAAAAAAAAAAREAITFh/9oACAECAQE/EHkky9QBhjwuJtAZCoq+lFehvcuf/8QAGxABAAIDAQEAAAAAAAAAAAAAAREhADFBcZH/2gAIAQEAAT8QMatsWcKtYOiBKFLwAlvTEKQyIhkgakyTwSwXHlA0XiLMKllFhkqGQJaTVE8GACKgEAPZdi50INJw+zn/2Q==" alt=""/><picture><source type="image/webp" data-srcset="/static/e46772e428fa9f924fd778334079b666/2ca11/saa.webp 368w,/static/e46772e428fa9f924fd778334079b666/1f67a/saa.webp 735w,/static/e46772e428fa9f924fd778334079b666/f61fd/saa.webp 1470w" sizes="(min-width: 1470px) 1470px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1470px) 1470px, 100vw" decoding="async" loading="lazy" data-src="/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg" data-srcset="/static/e46772e428fa9f924fd778334079b666/9bfc9/saa.jpg 368w,/static/e46772e428fa9f924fd778334079b666/86bea/saa.jpg 735w,/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg 1470w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/e46772e428fa9f924fd778334079b666/2ca11/saa.webp 368w,/static/e46772e428fa9f924fd778334079b666/1f67a/saa.webp 735w,/static/e46772e428fa9f924fd778334079b666/f61fd/saa.webp 1470w" sizes="(min-width: 1470px) 1470px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1470px) 1470px, 100vw" decoding="async" loading="lazy" src="/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg" srcSet="/static/e46772e428fa9f924fd778334079b666/9bfc9/saa.jpg 368w,/static/e46772e428fa9f924fd778334079b666/86bea/saa.jpg 735w,/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg 1470w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css lzjgtp">.css-lzjgtp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:400px;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-lzjgtp{height:330px;width:100%;padding:40px 20px;}}</style><div class="css-lzjgtp e1st1jau7"><style data-emotion="css 10qqw1">.css-10qqw1{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin:auto 0;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:42px;font-weight:800;}@media (max-width: 768px){.css-10qqw1{font-size:30px;}}</style><div class="css-10qqw1 e1st1jau5">AWS SAA 자격증 공부 &lt; S3 &gt;</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau4"><style data-emotion="css 5yjeco">.css-5yjeco{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:start;justify-content:start;}@media (max-width: 768px){.css-5yjeco{-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-5yjeco e1st1jau3"><style data-emotion="css 1b9df66">.css-1b9df66{margin:2px 5px;padding:1px 7px 4px 7px;border-radius:6px;background-color:#49ae8e;font-size:16px;font-weight:800;color:white;}@media (max-width: 768px){.css-1b9df66{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-1b9df66 e1st1jau2">AWS</div><div class="css-1b9df66 e1st1jau2">Cloud</div></div><style data-emotion="css 14b4j72">.css-14b4j72{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}@media (max-width: 768px){.css-14b4j72{margin:7px 7px;}}</style><div class="css-14b4j72 e1st1jau1"><style data-emotion="css nkt64x">.css-nkt64x{margin-right:10px;}</style><div class="css-nkt64x e1st1jau0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-days" class="svg-inline--fa fa-calendar-days " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"></path></svg></div>2024.04.04.</div></div></div></div><style data-emotion="css hn6e83">.css-hn6e83{margin:auto auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}@media (min-width: 1200px){.css-hn6e83{margin-left:calc( 50% - 384px );}}@media (max-width: 768px){.css-hn6e83{width:100%;}}</style><div class="css-hn6e83 e6b6ljm0"><style data-emotion="css aco8as">.css-aco8as{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:2.5;font-size:18px;font-weight:400;}.css-aco8as p{padding:3px 0;}.css-aco8as strong{margin:0px 1px;font-size:18.3px;font-weight:800;}.css-aco8as h1,.css-aco8as h2{font-weight:800;margin-bottom:20px;}.css-aco8as h3{margin-bottom:0px;}.css-aco8as *+h1,.css-aco8as *+h2,.css-aco8as *+h3{margin-top:50px;}.css-aco8as *+h4{margin-top:25px;}.css-aco8as hr+h1,.css-aco8as hr+h2,.css-aco8as hr+h3{margin-top:0;}.css-aco8as hr+h4{margin-top:25px;}.css-aco8as h1{font-size:40px;}.css-aco8as h2{font-size:35px;}.css-aco8as h3{font-size:23px;color:#49ae8e;}.css-aco8as blockquote{margin:30px 10px;padding:5px 15px;border-left:2px solid #49ae8e;background-color:#f9f9f9;font-weight:400;}.css-aco8as blockquote li{font-size:18px;margin:0px 15px;padding:0px 10px 0px 5px;background-color:#f9f9f9;}.css-aco8as blockquote ol li::Marker{font-weight:800;color:#000;}.css-aco8as em{padding-right:8px;padding-left:3px;}.css-aco8as ol{margin-left:20px;padding:5px 0;}.css-aco8as ol li::Marker{font-weight:800;font-size:19px;color:#49ae8e;}.css-aco8as ul{margin:20px;margin-right:0px;}.css-aco8as ul li::Marker{content:"▶ ";font-weight:800;color:#49ae8e;}.css-aco8as li{font-size:17px;margin:10px 20px;padding-left:10px;padding-right:10px;background-color:#f9f9f9;border-radius:10px;}.css-aco8as li strong{font-size:17.5px;}.css-aco8as del{-webkit-text-decoration:line-through 3px solid rgba(0, 0, 0, .4);text-decoration:line-through 3px solid rgba(0, 0, 0, .4);}.css-aco8as hr{border:1px solid #000000;margin:100px 0;}.css-aco8as a{font-weight:800;color:#49ae8e;-webkit-text-decoration:underline 1px;text-decoration:underline 1px;text-underline-position:under;}.css-aco8as a:hover{color:#ffffff;background-color:#49ae8e;}.css-aco8as pre[class*='language-']{font-weight:300;padding:20px 30px;margin-bottom:15px;font-size:20px;border-radius:10px;border:1px solid #dddddd;}.css-aco8as pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);}.css-aco8as pre[class*='language-'] *{font-family:'Roboto Mono',monospace;font-weight:400;}.css-aco8as code[class*='language-']{font-size:16px;margin-right:4px;}.css-aco8as :not(pre)>code[class*="language-"]{font-size:15px;margin-right:4px;margin-left:4px;color:#000000;background-color:#fafafa;border:1px solid #dddddd;padding:1px 4px 3px 4px;border-radius:5px;}.css-aco8as :not(pre)>code[class*="language-"]::selection{background-color:#dadada;}@media (max-width: 768px){.css-aco8as{width:100%;padding:80px 20px;line-height:2.0;font-size:16px;}.css-aco8as h1{font-size:26px;}.css-aco8as h2{font-size:23px;}.css-aco8as h3{font-size:20px;}.css-aco8as strong{margin:0px 3px;font-size:17px;font-weight:800;}.css-aco8as img{width:100%;}.css-aco8as hr{margin:50px 0;}.css-aco8as li{font-size:16px;}}</style><div class="css-aco8as e1ijh0y10"><p><em>본 포스트는 Udemy <strong>AWS Certified SAA - Stephane Maarek</strong> 강의를 일부 정리한 것입니다.</em><br>
+<em>상세한 정보는 <a href="https://www.udemy.com/course/best-aws-certified-developer-associate/" target="_blank" rel="nofollow">해당 강의</a>를 참고하세요</em></p>
+<h2 id="s3" style="position:relative;"><a href="#s3" aria-label="s3 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3</h2>
+<p>백업과 스토리지로 활용<br>
+파일, 디스크, 재해 복구, 아카이브, 하이브리드 클라우드 스토리지,<br>
+애플리케이션 및 이미지 호스팅, 빅데이터, 정적 웹사이트 등등</p>
+<h3 id="buckets-버킷" style="position:relative;"><a href="#buckets-%EB%B2%84%ED%82%B7" aria-label="buckets 버킷 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Buckets 버킷</h3>
+<p>S3가 파일을 저장하는 곳.</p>
+<ul>
+<li>상위 레벨 디렉토리로 표시.</li>
+<li>버킷 안의 파일은 객체라고 한다.</li>
+<li>계정 안에 생성되며, 전역적(모든 리전 포함)으로 고유한 이름이 있어야 한다.</li>
+<li>즉, 내가 아닌 다른 사람이 사용하는 이름도 안된다</li>
+<li><strong>리전 수준에서 정의된다. 전역 서비스가 아니다!! 전역적 고유 이름은 필요하지만</strong></li>
+<li>네이밍 컨벤션이 존재한다.</li>
+</ul>
+<h4 id="object객체" style="position:relative;"><a href="#object%EA%B0%9D%EC%B2%B4" aria-label="object객체 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Object(객체)</h4>
+<ul>
+<li>키가 존재.</li>
+<li>키 = 파일 전체 경로. 접두사(상위 경로) + 오브젝트 이름 으로 구성</li>
+<li>값의 본문은 내용.</li>
+<li>최대 객체 크기는 5TB</li>
+<li>5GB보다 파일이 크면 멀티파트 업로드를 사용.</li>
+<li>메타데이터 = 키, 값 쌍 리스트</li>
+<li>태그 = 보안과 수명주기</li>
+</ul>
+<h3 id="s3-보안" style="position:relative;"><a href="#s3-%EB%B3%B4%EC%95%88" aria-label="s3 보안 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 보안</h3>
+<h4 id="user-based-사용자-기반" style="position:relative;"><a href="#user-based-%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B8%B0%EB%B0%98" aria-label="user based 사용자 기반 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>User-Based 사용자 기반</h4>
+<p>IAM 정책 : 어떤 API 호출이 특정 IAM 사용자를 위해 허용되는지를 승인</p>
+<h4 id="리소스-기반-보안" style="position:relative;"><a href="#%EB%A6%AC%EC%86%8C%EC%8A%A4-%EA%B8%B0%EB%B0%98-%EB%B3%B4%EC%95%88" aria-label="리소스 기반 보안 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>리소스 기반 보안</h4>
+<p>S3 버킷 정책</p>
+<ul>
+<li>S3 콘솔에서 직접 할당할 수 있는 전체 버킷 규칙</li>
+<li>특정 사용자나 다른 계정 사용자 허용 가능</li>
+<li>버킷을 공개로 만드는 방법이기도 함</li>
+</ul>
+<h4 id="객체-acl액세스-제어-목록" style="position:relative;"><a href="#%EA%B0%9D%EC%B2%B4-acl%EC%95%A1%EC%84%B8%EC%8A%A4-%EC%A0%9C%EC%96%B4-%EB%AA%A9%EB%A1%9D" aria-label="객체 acl액세스 제어 목록 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>객체 ACL(액세스 제어 목록)</h4>
+<ul>
+<li>세밀한 보안, 비활성화 가능</li>
+</ul>
+<h4 id="버킷-acl액세스-제어-목록" style="position:relative;"><a href="#%EB%B2%84%ED%82%B7-acl%EC%95%A1%EC%84%B8%EC%8A%A4-%EC%A0%9C%EC%96%B4-%EB%AA%A9%EB%A1%9D" aria-label="버킷 acl액세스 제어 목록 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>버킷 ACL(액세스 제어 목록)</h4>
+<h4 id="암호화-키-사용" style="position:relative;"><a href="#%EC%95%94%ED%98%B8%ED%99%94-%ED%82%A4-%EC%82%AC%EC%9A%A9" aria-label="암호화 키 사용 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>암호화 키 사용</h4>
+<h3 id="s3-버킷-정책" style="position:relative;"><a href="#s3-%EB%B2%84%ED%82%B7-%EC%A0%95%EC%B1%85" aria-label="s3 버킷 정책 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 버킷 정책</h3>
+<ul>
+<li>JSON 기반 정책</li>
+<li>리소스 블록 : 이 정책이 적용되는 버킷과 객체 정의</li>
+<li>Effect(결과) : 작업의 허용과 거부</li>
+<li>Action(작업) : ex. GetObject</li>
+<li>Principal(원칙) : 정책을 적용할 계정 또는 사용자.</li>
+</ul>
+<p>블록 공개 액세스 설정을 해제하지 않으면 공개 되지 않는다. 유출 방지.</p>
+<h3 id="s3-정적-웹사이트-호스팅" style="position:relative;"><a href="#s3-%EC%A0%95%EC%A0%81-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%98%B8%EC%8A%A4%ED%8C%85" aria-label="s3 정적 웹사이트 호스팅 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 정적 웹사이트 호스팅</h3>
+<p>웹 사이트를 호스팅하고 인터넷 접속이 가능하게 만든다.<br>
+403 에러가 난다면 버킷이 공개가 아니라는 뜻</p>
+<h3 id="s3-버전관리" style="position:relative;"><a href="#s3-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC" aria-label="s3 버전관리 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 버전관리</h3>
+<ul>
+<li>버킷 수준에서 활성화해야 하는 설정</li>
+<li>파일을 업로드할 때마다 선택키에서 파일 버전 생성</li>
+<li>동일한 키를 업로드하고 해당 파일을 덮어쓰는 경우 버전 2, 3 등을 생성</li>
+<li>의도하지 않은 삭제를 방지하고 롤백이 가능하다.</li>
+<li>버전 관리를 활성화하기 전 모든 파일은 널(null) 버전</li>
+<li>버전 관리를 중단해도 이전 버전을 삭제 x</li>
+</ul>
+<h3 id="s3-복제" style="position:relative;"><a href="#s3-%EB%B3%B5%EC%A0%9C" aria-label="s3 복제 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 복제</h3>
+<ul>
+<li>소스 버킷과 복제 대상 버킷 둘 모두 버전 관리 기능이 활성화.</li>
+<li>복제 과정은 백그라운드에서 일어나며 비동기식으로 진행.</li>
+<li>IAM으로 읽기, 쓰기 권한을 S3에 부여해야 함.</li>
+<li>복제를 활성화한 후에는 새로운 객체만 복제 대상!</li>
+<li>기존의 객체를 복제하려면 S3 배치 복제 기능 사용</li>
+<li>삭제는 삭제 마커만 복제 가능하다.</li>
+<li>체이닝 복제는 불가</li>
+</ul>
+<h4 id="crr-교차-리전-복제" style="position:relative;"><a href="#crr-%EA%B5%90%EC%B0%A8-%EB%A6%AC%EC%A0%84-%EB%B3%B5%EC%A0%9C" aria-label="crr 교차 리전 복제 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CRR 교차 리전 복제</h4>
+<p>두 리전이 달라야 한다.</p>
+<ul>
+<li>법규나 내부 체제 관리</li>
+<li>다른 리전에 있어 발생할 수 있는 지연 시간 줄이기</li>
+<li>계정간 복제</li>
+</ul>
+<h4 id="srr-같은-리전으로-복제" style="position:relative;"><a href="#srr-%EA%B0%99%EC%9D%80-%EB%A6%AC%EC%A0%84%EC%9C%BC%EB%A1%9C-%EB%B3%B5%EC%A0%9C" aria-label="srr 같은 리전으로 복제 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>SRR 같은 리전으로 복제</h4>
+<p>두 리전이 같아야 한다.</p>
+<ul>
+<li>다수의 S3 버킷 로그를 통합</li>
+<li>개발 환경이 별도로 있어 운영 환경으로의 실시간 복제</li>
+</ul>
+<h3 id="s3-스토리지-클래스" style="position:relative;"><a href="#s3-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%ED%81%B4%EB%9E%98%EC%8A%A4" aria-label="s3 스토리지 클래스 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 스토리지 클래스</h3>
+<ul>
+<li>객체를 생성할 때 클래스를 선택 가능</li>
+<li>혹은 스토리지 클래스를 수동으로 수정</li>
+<li>수명 주기 구성을 사용해 스토리지 클래스 간에 객체를 자동으로 이동 가능</li>
+</ul>
+<h4 id="standard" style="position:relative;"><a href="#standard" aria-label="standard permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Standard</h4>
+<ul>
+<li>범용 목적</li>
+<li>가용성 99.99%</li>
+<li>자주 액세스하는 데이터에 사용</li>
+<li>지연 시간이 짧고 처리량이 높다</li>
+<li>두 개의 기능 장애를 동시에 버틸 수 있다</li>
+</ul>
+<p>사용 사례:</p>
+<ol>
+<li>빅데이터 분석</li>
+<li>모바일과 게임 애플리케이션</li>
+<li>콘텐츠 배포</li>
+</ol>
+<h4 id="standard-ia-infrequent-access" style="position:relative;"><a href="#standard-ia-infrequent-access" aria-label="standard ia infrequent access permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Standard IA (Infrequent Access)</h4>
+<ul>
+<li>자주 액세스하지는 않지만 필요한 경우 빠르게 액세스해야 하는 데이터</li>
+<li>Standard 보다 비용은 적지만 검색 비용이 발생한다</li>
+<li>가용성 99.9%</li>
+</ul>
+<p>사용 사례:</p>
+<ol>
+<li>재해 복구</li>
+<li>백업</li>
+</ol>
+<h4 id="one-zone-infrequent-access" style="position:relative;"><a href="#one-zone-infrequent-access" aria-label="one zone infrequent access permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>One Zone Infrequent Access</h4>
+<ul>
+<li>단일 AZ 내에서는 높은 내구성을 갖지만 AZ가 fail 할시 데이터 잃음</li>
+<li>가용성 99.5%</li>
+</ul>
+<p>사용 사례:</p>
+<ol>
+<li>온프레미스 데이터를 2차 백업</li>
+<li>재생성 가능한 데이터를 저장</li>
+</ol>
+<h4 id="glacier-storage-classes" style="position:relative;"><a href="#glacier-storage-classes" aria-label="glacier storage classes permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Glacier Storage Classes</h4>
+<ul>
+<li>콜드 스토리지</li>
+<li>아카이빙과 백업을 위한 저비용</li>
+</ul>
+<p>하위 클래스</p>
+<ol>
+<li>Glacier Instant Retrieval<br>
+밀리초 단위 검색
+ex. 분기에 한 번 액세스하는 데이터에 적합
+최소 보관 기간이 90일</li>
+<li>Glacier Flexible Retrieval<br>
+Expedited - 데이터 받기 1-5분<br>
+Standard - 데이터 받기 3-5시간<br>
+Bulk - 데이터 받기 5-12시간 (무료)</li>
+<li>Glacier Deep Archive<br>
+12시간 Standard, 48시간 Bulk</li>
+</ol>
+<h4 id="s3-intelligent-tiering" style="position:relative;"><a href="#s3-intelligent-tiering" aria-label="s3 intelligent tiering permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 Intelligent Tiering</h4>
+<p>사용 패턴에 따라 액세스된 티어 간에 객체를 이동</p>
+<ul>
+<li>FrequentAccess 기본 티어</li>
+<li>Infrequent Access 30일 동안 액세스하지 않는 객체</li>
+<li>Archive Instant Access 90일 동안 액세스하지 않는 객체</li>
+<li>Archive Access 90일에서 700일</li>
+<li>Deep Archive Access 180일에서 700일</li>
+</ul>
+<h3 id="s3-스토리지-클래스간-이동" style="position:relative;"><a href="#s3-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%ED%81%B4%EB%9E%98%EC%8A%A4%EA%B0%84-%EC%9D%B4%EB%8F%99" aria-label="s3 스토리지 클래스간 이동 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 스토리지 클래스간 이동</h3>
+<p>Lifecycle Rule (라이프 사이클 규칙) 설정</p>
+<ol>
+<li>Transition Actions<br>
+다른 스토리지 클래스로 이전하기 위해 객체를 설정<br>
+생성된 지 60일 후 Standard로 이전, 또는 6개월 후에 Glacier로 이전</li>
+<li>Expiration actions<br>
+만료 시간 뒤에 객체를 삭제<br>
+액세스 로그 파일 365일 후에 삭제<br>
+버저닝과 같이 사용하여 모든 파일 버전을 삭제<br>
+불완전한 멀티파트 업로드를 삭제<br>
+버킷의 특정한 경로나 태그에 대해 삭제 가능</li>
+</ol>
+<p>ex. 섬네일은 빈번히 액세스하는 게 아니고 쉽게 재생성, One-Zone IA에 두고 60일 후에 만료 삭제</p>
+<h4 id="예시-문제" style="position:relative;"><a href="#%EC%98%88%EC%8B%9C-%EB%AC%B8%EC%A0%9C" aria-label="예시 문제 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>예시 문제</h4>
+<p>30일 동안은 삭제된 S3 객체를 즉각적으로 복구.<br>
+이후에는 최장 365일 동안 삭제된 객체를 48시간 이내에 복구.<br>
+S3 버저닝 활성화해서 객체 버전 보관. 삭제 마커로 감췄다가 그 다음에 복구.<br>
+이후 객체를 Standard IA로 이동.</p>
+<h3 id="최적의-객체-클래스-이전-일수-설정" style="position:relative;"><a href="#%EC%B5%9C%EC%A0%81%EC%9D%98-%EA%B0%9D%EC%B2%B4-%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%9D%B4%EC%A0%84-%EC%9D%BC%EC%88%98-%EC%84%A4%EC%A0%95" aria-label="최적의 객체 클래스 이전 일수 설정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>최적의 객체 클래스 이전 일수 설정</h3>
+<p>Amazon S3 Analytics 활용<br>
+Standard나 Standard IA에 관한 추천사항을 제시<br>
+One-Zone IA나 Glacier와는 호환 안됨</p>
+<h3 id="s3-requester-pays-요청자-지불" style="position:relative;"><a href="#s3-requester-pays-%EC%9A%94%EC%B2%AD%EC%9E%90-%EC%A7%80%EB%B6%88" aria-label="s3 requester pays 요청자 지불 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 Requester pays 요청자 지불</h3>
+<p>소유자가 여전히 버킷의 객체 스토리지 비용을 부담하지만,<br>
+요청자가 객체를 다운로드하면 이제 그 요청자가 다운로드와 관련된 네트워킹 비용을 지불.<br>
+대량의 데이터 셋을 다른 계정과 공유하려고 할 때 매우 유용.<br>
+요청자가 익명이면 안된다. AWS 인증을 받아야 한다.</p>
+<h3 id="s3-event-notifications-이벤트-알림" style="position:relative;"><a href="#s3-event-notifications-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%95%8C%EB%A6%BC" aria-label="s3 event notifications 이벤트 알림 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 Event Notifications 이벤트 알림</h3>
+<p>이벤트 : 객체 생성, 삭제, 복구 등</p>
+<ul>
+<li>이벤트 알림을 만들고 전송</li>
+<li>SNS 토픽이나 SQS Queue, 람다 함수 등을 알람 타깃으로 한다.</li>
+<li>통상적으로 몇 초에서 몇분 까지</li>
+<li>IAM 권한 필요, 각 기능마다 액세스 정책 설정</li>
+<li>IAM 역할이 아닌 리소스 액세스 정책을 정의한다 (S3 버킷 정책과 유사)</li>
+</ul>
+<p>이벤트를 Amazon EventBridge로 보낼수 있다!<br>
+이를 통해 고급 필터링과 다수 전송 가능</p>
+<h3 id="s3-퍼포먼스" style="position:relative;"><a href="#s3-%ED%8D%BC%ED%8F%AC%EB%A8%BC%EC%8A%A4" aria-label="s3 퍼포먼스 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 퍼포먼스</h3>
+<ul>
+<li>S3는 요청이 많을 때 자동 확장</li>
+<li>지연시간 100~200 밀리초</li>
+<li>초당 3,500개의 PUT/COPY/POST/DELETE 5,500개의 GET/HEAD 요청을 지원</li>
+<li>버킷 내에서 접두사 수에 제한이 없다</li>
+</ul>
+<h4 id="접두사" style="position:relative;"><a href="#%EC%A0%91%EB%91%90%EC%82%AC" aria-label="접두사 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>접두사</h4>
+<p>bucket/folder1/sub1/file<br>
+bucket과 file 사이에 있는 것이 접두사<br>
+/folder1/sub1</p>
+<h4 id="최적화-방법" style="position:relative;"><a href="#%EC%B5%9C%EC%A0%81%ED%99%94-%EB%B0%A9%EB%B2%95" aria-label="최적화 방법 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>최적화 방법</h4>
+<p>멀티파트 업로드</p>
+<ul>
+<li>100MB가 넘는 파일은 멀티파트 업로드 권장</li>
+<li>5GB가 넘는 파일은 반드시 사용</li>
+<li>업로드를 병렬화, 전송 속도를 높여 대역폭을 최대화</li>
+<li>모든 파트가 업로드되면 자동으로 모든 파트를 합쳐 다시 하나의 큰 파일로 만든다</li>
+</ul>
+<p>Transfer acceleration 전송 가속화</p>
+<ul>
+<li>파일을 AWS 엣지 로케이션으로 전송해서 전송 속도 높이기</li>
+<li>엣지 로케이션 까지는 public 엣지에서 버킷 까지는 private 네트워크로</li>
+<li>퍼블릭 인터넷 사용을 최소로 하고 프라이빗을 최대화</li>
+<li>데이터를 대상 리전에 있는 S3 버킷으로 전달</li>
+<li>멀티파트 업로드와 같이 사용 가능</li>
+</ul>
+<h3 id="s3-byte-range-fetches-바이트-범위-가져오기" style="position:relative;"><a href="#s3-byte-range-fetches-%EB%B0%94%EC%9D%B4%ED%8A%B8-%EB%B2%94%EC%9C%84-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0" aria-label="s3 byte range fetches 바이트 범위 가져오기 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 byte range fetches 바이트 범위 가져오기</h3>
+<p>파일을 수신하고 읽는 가장 효율적인 방법.<br>
+다운로드 속도를 높이고 싶을때! 혹은 데이터의 일부분(헤더)만가져올때.<br>
+파일에서 특정 바이트 범위를 가져와서 GET 요청을 병렬화<br>
+실패한 경우에도 더 작은 바이트 범위에서 재시도 -> 복원력 높음</p>
+<h3 id="s3-select-glacier-select" style="position:relative;"><a href="#s3-select-glacier-select" aria-label="s3 select glacier select permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 Select, Glacier Select</h3>
+<p>SQL 문에서 간단히 행과 열을 사용해 필터링<br>
+네트워크 전송이 감소, 데이터 검색과 필터링에 드는 클라이언트 측의 CPU 비용도 감소.</p>
+<h3 id="s3-batch-operations" style="position:relative;"><a href="#s3-batch-operations" aria-label="s3 batch operations permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>S3 Batch Operations</h3>
+<p>단일 요청으로 기존 S3 객체에서 대량 작업 수행</p>
+<ul>
+<li>한 번에 많은 S3 객체의 메타데이터와 프로퍼티 수정</li>
+<li>배치 작업으로 S3 버킷 간에 객체를 복사</li>
+<li>S3 버킷 내 암호화되지 않은 모든 객체를 암호화</li>
+<li>ACL이나 태그를 수정</li>
+<li>한 번에 많은 객체를 복원</li>
+<li>S3 Inventory로 객체 목록을 가져오고 S3 Select로 필터링</li>
+</ul>
+<h2 id="실습-이미지" style="position:relative;"><a href="#%EC%8B%A4%EC%8A%B5-%EC%9D%B4%EB%AF%B8%EC%A7%80" aria-label="실습 이미지 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>실습 이미지</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/c9828a88c8510105eaa9cd58b3afb823/41929/001.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 115.10416666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACcUlEQVQ4y5WUi3LbIBBF/f+/18mjdZzEL0mINwu7gEDuINkZd5p2kjNXGOy5oF3vshm4eD32A5enUY6c9wMz1jqAr2jzvt8//tz+eHh8eHruhDHWWdf0JTOXknHe9X03DMM4DowNIxNKfcnsnDudz2wciSh+ByTa+BCMMd77UspcG+Uf1FKmO1JKG0TkUiqtiaL3HolSzqXWq+5IOV/uqLW2k5VUwyiUaYky1iFiyvlDeT0nZySab1zNgPTC7FF6O118ucB0gdzkljGmCQCcA6JYa53KtL5Onqac88Zh7Fx+3nfvg9p1/J2pl/O46/iu44OLMRdrbTcwLiQXknEhpFLaEMWrWcX5ddDbs9hze9Z4UuEo/UECg0xpIiIH3vvgAKxrcfkQplJawgKiUJpr8KlMteZSpzqvyi3Bpd64LKE2lrBLKZsQUAjBhcAYU2oPUQyIARsBqU2IXIgmxJBKSGXdpCUMiZTWbBT9wISUQkrwPuUcUyPGZb+UHWWD2dLkYpk//ipEFFKe+95YRxRTyvPH6/2Xq9k5EEqDD6ttvqN+pvkj5iWRYY2QYvxU8e9vUgqIrTF2r2+/ttu3Y+euO4VlWCbLGgBa8pb17ZdARBvwoLUSgnPOpZQAbQPvryMANHPzIIBfGnF5vG9mj5H5iQMx45kJLlV/rdAZ0hxbSaMDoJjq0ir11jOtSGyIB5OeD8PD2+lp3+96uef2IFxnAseCKUup9ocjG9sto41V2uh230DKuTUGTBdN1cSqsHCfuM/cJ4lFx9pOXkolpdxSRe0OWCftZCLSCznly3e49jN471wr97WwVi3k9eO2/IMY428SyyqysF7T+AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/c9828a88c8510105eaa9cd58b3afb823/a59e9/001.webp 192w,
+/static/c9828a88c8510105eaa9cd58b3afb823/0ca9f/001.webp 384w,
+/static/c9828a88c8510105eaa9cd58b3afb823/dc9b9/001.webp 768w,
+/static/c9828a88c8510105eaa9cd58b3afb823/306b0/001.webp 825w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/c9828a88c8510105eaa9cd58b3afb823/3b721/001.png 192w,
+/static/c9828a88c8510105eaa9cd58b3afb823/66595/001.png 384w,
+/static/c9828a88c8510105eaa9cd58b3afb823/fe486/001.png 768w,
+/static/c9828a88c8510105eaa9cd58b3afb823/41929/001.png 825w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/c9828a88c8510105eaa9cd58b3afb823/fe486/001.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/f28ac4346e197af8f65bb0175986b23e/7190f/002.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 103.64583333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAACKklEQVQ4y5WTbXLbIBCGuVzv0d89V8/QPz1IGseuHX3ZEhICll1ACKkDcpxmEneaZ95hlpW0sB9inHPe92VZVVUFYNw7vPsYspYJIZrzua6bpjkPQkgp1Qtaa6lNK7EajEQ3h+lvnHNsnucls67rnIkxzq/EKcxT2NxvmKaJOe/JOUREsmitc379P+Z5ZtbaUUqldYxx/QzpYyRCIkpnOud90gv2n0oF45w/7na7/YFLQEq3x4xBtFvEe9UmYgDQJbjUV27Vdt6H+zjvGSIBgLHeTvO6rstb3ntuhBDYeTScD8M4ijGVTYwj7welkqGUvoX4uGAGqa6bum5Op+eqqsuqeT4VZVFVdX08Fc9FcSxKPowS0IVr/0MI28pCCFKpjg9KayRrrqVyxiCRRSKhiSvi2nbgkJy1yYmI3nsGxmgwU452m57wOmBxWeI17xiXGOc8f0tc0rVHbfZle2pHAeSdyz1PPUwTZ53NdupquoXdBoFSB1Mj2EViUTVk7fpJ0skKUpL5F6MtSbKWcmJEdrOvertFIqaUKoricPhNRNPktwH1d0mPpixnLVMapNJCKY1oiAAprwhIWbjZGlHnrTaowGQB2/V2d1FPZ7Fv5WPNf9X8oeqz3e8v8sj1oVO7szi08qmV+4soRrzgfDGh0Z61CjuFnTQ8GaaTppXAXzxJOvm5Mp0yvcbeOOEXFVbhIjMAxtwXwPYCAKCBfhhVd5Q/vpbfv6if3/4AvOy3Lc12tbQAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/f28ac4346e197af8f65bb0175986b23e/a59e9/002.webp 192w,
+/static/f28ac4346e197af8f65bb0175986b23e/0ca9f/002.webp 384w,
+/static/f28ac4346e197af8f65bb0175986b23e/dc9b9/002.webp 768w,
+/static/f28ac4346e197af8f65bb0175986b23e/58a39/002.webp 815w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/f28ac4346e197af8f65bb0175986b23e/3b721/002.png 192w,
+/static/f28ac4346e197af8f65bb0175986b23e/66595/002.png 384w,
+/static/f28ac4346e197af8f65bb0175986b23e/fe486/002.png 768w,
+/static/f28ac4346e197af8f65bb0175986b23e/7190f/002.png 815w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/f28ac4346e197af8f65bb0175986b23e/fe486/002.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7c609944e23009223cd357cc010bb12b/33421/003.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 23.958333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAc0lEQVQY05XLuQ7CQAxF0fn/bwR60Gx+tuNlGiTSJIGGq1P5yeXZqfX2qhXMBPyl3O6POiZEVHUzO9m7HA9rqbX1McEsqnFuZa69zB/WKgBEJTIzV0QemRnAZvZ5PxWR7l6IlWSLDI8rcx9z9j4mEQHf6xuemB/98YdVfAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/7c609944e23009223cd357cc010bb12b/a59e9/003.webp 192w,
+/static/7c609944e23009223cd357cc010bb12b/0ca9f/003.webp 384w,
+/static/7c609944e23009223cd357cc010bb12b/dc9b9/003.webp 768w,
+/static/7c609944e23009223cd357cc010bb12b/e2c2f/003.webp 1152w,
+/static/7c609944e23009223cd357cc010bb12b/1a70e/003.webp 1255w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/7c609944e23009223cd357cc010bb12b/3b721/003.png 192w,
+/static/7c609944e23009223cd357cc010bb12b/66595/003.png 384w,
+/static/7c609944e23009223cd357cc010bb12b/fe486/003.png 768w,
+/static/7c609944e23009223cd357cc010bb12b/d2d74/003.png 1152w,
+/static/7c609944e23009223cd357cc010bb12b/33421/003.png 1255w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/7c609944e23009223cd357cc010bb12b/fe486/003.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/baa75aadb608570659e059a4d887a0d7/809bd/004.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 104.16666666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAIAAADJt1n/AAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVQ4y5WUbY6bMBRFvbfupYvrGvq/O2hnmiaTBDDgbz8/f2AbUkFmRpo2SdWj8+PK8kNXGEwOlO2aoeey5+o0yuMgmRBMSIdoASwAOHdTC0B2+/3z889BKMAQY/Deo/c+eIeIW0ZEd0fStM3+cHg5t7+O56f98dR0I2OnpqFDf27a87lpKW1pR4eh7Tra9x2ltO/bruv6ngwj6/qhZeplkIdBCQNrYecAnYXN1554DdY5A7BqgcRclstlvlxCTFJrJhSXumd85FJZJ5QeheJKjVwOTHBlwMeyXMq8+KkQ69B5D+gxRBcChrjqA77nTRcCoAfvnX9ddz4QKcVut/v+46kfBi7EMI6ci1pKybnklVLKNE0xJQDgQiKilFIbg4gEPSqtN41zDmAtMeX8wY2YUgxxI4UtEHDOWNDGOMSYUkrrphDWbe++kcI2tj5oWychhFwKop8/Uuva/Q9ijNZCSmmuNaVEjLVSqdPx1HXUWKuN0cYorb330y3WbhshBCKkpJSyj4zjqLV2D7HWEmtsPwo/1WWZyzzXN0utuZQHpmkiIcZpyvOy1PkvluWBuRSCIUqIEEudl8v/UGslOWdjDOfcAuSc4/WFbN/Gv4e304s+bMeekvdrSCnFlEqtD5ymvP5VbUel1lwIqZTUWkjF+JrvXQPvEi5E21HG+cAY45xxPjLGhdDG3Bxw6AC9Cxl8ItoYJgSXUmxyIa+TDvHe7QNWWX6ysiP3rpjbVcEy7d35m/7yyX39/BvfSK04l6lT1gAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/baa75aadb608570659e059a4d887a0d7/a59e9/004.webp 192w,
+/static/baa75aadb608570659e059a4d887a0d7/0ca9f/004.webp 384w,
+/static/baa75aadb608570659e059a4d887a0d7/dc9b9/004.webp 768w,
+/static/baa75aadb608570659e059a4d887a0d7/dfad5/004.webp 821w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/baa75aadb608570659e059a4d887a0d7/3b721/004.png 192w,
+/static/baa75aadb608570659e059a4d887a0d7/66595/004.png 384w,
+/static/baa75aadb608570659e059a4d887a0d7/fe486/004.png 768w,
+/static/baa75aadb608570659e059a4d887a0d7/809bd/004.png 821w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/baa75aadb608570659e059a4d887a0d7/fe486/004.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/ceabe519fe679425f9d501cbf2bfdda3/38095/005.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 115.625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAAC/0lEQVQ4y42UyW7kNhRF9ZFZ5CPyZdlnFyDL3gWIu50aXZoskRLFmY8zVYFUDrphG0GIg4tLEo8AL/FYTVRchwUtbJjp60xvmE2UjRjPZFFa/zfVy63+9vfxcDofz+eR8IUrvW9oo43erNJaKvWRrRjjqa7rW103bdt2Xdt2TdP2w3Bpuks7XLrxFeFpmvA0IYxHhHaDhhFRulRU6oHwiUlExUj4uPCRCkRlT3VNVEP0LC0zluo3mHEPM0tTYWn/uKlTi55v/aEdj81waIZDPfREUOOJdkgAlnZSDkuLhB25QQK2qcnVot1oyvOtf7q2X6/tuUWXfrq+zjXewrsSc8H8Okw1podmOHfoZZzPPbr2GOlcUQ0yrFjAJO2sHHeZ+7Kpy2wjiX/9Y3Hb9Zn7POlQCSlvdWuddz5Y58G6/4l1rgIArWRK8V7yWvJ9LWv5zn19Y11LyfkdlQZo0DILA3HVIeuQzY4NWfskfVI+SZeUS/cPo1IAHRGTMFgYxDTmpqHQUDjPBimvfBIuMZuEjZ8UgwUwmlEqOPchlJxiTD4k62NKad3v8uDdSDlXxpiu607H0/V6HWfKuTBabQekGGPYCD/oj4RQgbUQM4QMsRgfpQ3SBhPSht/ZI4BN37zZ4sg+5co518jULKaZ+A3zlqiWqHoWHd20IbIlspk3kPQ83Jm/c3+f7apDqaxzXNuFa+NjyKvfcelNN7Npcan43T9wcU1lrYx1/cwQGgkhgnEphPdujy2kFHNKOcXtiXMqJb9P23kvpG77YSZUKaM0aPPAKg3KgNQGrNMGUv5Y7FzyHDSxQINj1lIH1AJ1lmk1G03AEDALGBI9D15EL2IQwbOS/Vbs5JFO3+bxGQ9fx/4vgp/x8DR2T4KeQb5IduHLSWx65PQk2UXQo2KHHFhlrc2BOsDOYFCjlqPdDWicAy2RlbQT2Zo2SubrPeQ15BIrbQxYb51/NNajt6z7vMMMOANgxz+h/+Jev1Sffm6f/3hKUS6WBcvff+l//Un99vM/Ru8WHv66mDIAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/ceabe519fe679425f9d501cbf2bfdda3/a59e9/005.webp 192w,
+/static/ceabe519fe679425f9d501cbf2bfdda3/0ca9f/005.webp 384w,
+/static/ceabe519fe679425f9d501cbf2bfdda3/dc9b9/005.webp 768w,
+/static/ceabe519fe679425f9d501cbf2bfdda3/8c31b/005.webp 827w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/ceabe519fe679425f9d501cbf2bfdda3/3b721/005.png 192w,
+/static/ceabe519fe679425f9d501cbf2bfdda3/66595/005.png 384w,
+/static/ceabe519fe679425f9d501cbf2bfdda3/fe486/005.png 768w,
+/static/ceabe519fe679425f9d501cbf2bfdda3/38095/005.png 827w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/ceabe519fe679425f9d501cbf2bfdda3/fe486/005.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/58d01d84a21d885c8a926758968e6dc6/31384/006.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 45.833333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA90lEQVQoz5WP2W7DIBRE+f8/rCpVcWvHZoe7AAEnqrCdNG1f2tHhCg3MCMS0qJe34fQxjVIpY0KMgPhHhNb6fRjGaVLGITMS/SPsQjwb70OwziljtLUbbpFqUSoC7ISN+EQAEM77eZGASMwPOHEfqa/DTOlrf3cEIp7nWfuYUk53AZdAxWHeK3ouJSJKT2IigYTee+eDsTYCYBd5ZAusw/H//hZmxB7mrYq3LhGAXCQEyDm3WnfWeum0Wi8XJiqltLWtrR0X2oEwwKPFSVpNtbRrbtd9PrABA+Wy3vJ3P9erODt4XfxJ+snzEtMPJOTRwmhBQv59+gmaeP/NPgWh5AAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/58d01d84a21d885c8a926758968e6dc6/a59e9/006.webp 192w,
+/static/58d01d84a21d885c8a926758968e6dc6/0ca9f/006.webp 384w,
+/static/58d01d84a21d885c8a926758968e6dc6/dc9b9/006.webp 768w,
+/static/58d01d84a21d885c8a926758968e6dc6/91b06/006.webp 976w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/58d01d84a21d885c8a926758968e6dc6/3b721/006.png 192w,
+/static/58d01d84a21d885c8a926758968e6dc6/66595/006.png 384w,
+/static/58d01d84a21d885c8a926758968e6dc6/fe486/006.png 768w,
+/static/58d01d84a21d885c8a926758968e6dc6/31384/006.png 976w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/58d01d84a21d885c8a926758968e6dc6/fe486/006.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2187562cfc5dcd0916bb785c55211f44/6a7a5/007.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 78.125%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAIAAACZeshMAAAACXBIWXMAAAsTAAALEwEAmpwYAAACFklEQVQoz31SWY7bMAz1mYperjfoMYpepT/9KjqYYpJMxrG8ZCwvsbWQ1OIlheQUTTFtH54okQIXUUzqXhSt4P3IL6LqRtaObX95rTlvupo355q/ci6kVFq/ZcKK8tv3h2N6OhyPrKye0/SYpg+Pj8eXl/3h8ONpV/dCKvVXJqMQZVVx3rRd13Zd0zRN2/WXQSo1CjEIoZHImLfUiImU6mm3ez4eWcb2+/1+d8gyBgAaYAs/jqNUUkophFARQgopJRIlUilW5FV1Ziw/n1/LskpPWZqxvMgzxl7SU14ULM9ZnhdlmRdFxvJTluVFCQAJAFz6gGEYhlGU7ZjxSzsqBFBaQ4SOQMDtvBmJKFFkJdpgBECkeVnW9brGFbZ1vd6wrn+oV+d9ItHwQdZ1zXnbXwZEJKIoQleMsaFd1lIwmOXO2XufWGunyaOxEK81ogJQgBpQaRBaKUSNCETW+YBpmud5XpaQmYx1zkkNQulRKam1UFrqG0OjtVYAQSKStda5384mqM5Yi0QYPxAjtwMQmlBaSLcsy/UOfnO2zmkkBYB0q1lCVGI4iA8BJIjTsixzDDX/yuy9AhTb0MVqhdZAhGQwtg1CG2+DhURA5P0UMjvv52VBE5/uXJDeW+eMCxXdk6yzzls/2WmZ1vhVgGgibMRt+weMsQZHkg3KBmQXxnMrWEj5fw7DpRlRff3Yfn7PP73TXz78BAn+iPa/29HKAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2187562cfc5dcd0916bb785c55211f44/a59e9/007.webp 192w,
+/static/2187562cfc5dcd0916bb785c55211f44/0ca9f/007.webp 384w,
+/static/2187562cfc5dcd0916bb785c55211f44/dc9b9/007.webp 768w,
+/static/2187562cfc5dcd0916bb785c55211f44/39199/007.webp 849w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2187562cfc5dcd0916bb785c55211f44/3b721/007.png 192w,
+/static/2187562cfc5dcd0916bb785c55211f44/66595/007.png 384w,
+/static/2187562cfc5dcd0916bb785c55211f44/fe486/007.png 768w,
+/static/2187562cfc5dcd0916bb785c55211f44/6a7a5/007.png 849w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2187562cfc5dcd0916bb785c55211f44/fe486/007.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/d2e302fe6a0f329f68f795a71e0e29f0/5a70b/008.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 55.208333333333336%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAIAAADwazoUAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA/UlEQVQoz5VSy04DMQzM/38UVz6AG1KRENADpc07sSd2FiW7rEQPLYysSJY9SmYmpvvD4ekxprIsS+99+Q9MzeHjeHQ+aB9k7X09tS/60+7QvebA5JT85eTPXylGAETEzESoLJXaaBjEYOI5AUMZwiyq3XRpXGIONqeYcwYg0lqTJoq2FUPRhJuI/tJlGleKroZzzZkZY2msbrijefWIGT6kUgqPBw1Jqioity00wwbVUop31jlLVHlivVlvk1WlToJ18e390/uw2gbgflR7vOHy8vr8gE3nnwI3UjOiRXSUbAknFdGJu4IHGaVUb6uzFHONxLSpnZld/ZFrfAN7jYd37W9pLwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/d2e302fe6a0f329f68f795a71e0e29f0/a59e9/008.webp 192w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/0ca9f/008.webp 384w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/dc9b9/008.webp 768w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/e2c2f/008.webp 1152w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/f3efb/008.webp 1536w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/cf0a6/008.webp 1689w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/d2e302fe6a0f329f68f795a71e0e29f0/3b721/008.png 192w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/66595/008.png 384w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/fe486/008.png 768w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/d2d74/008.png 1152w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/e8464/008.png 1536w,
+/static/d2e302fe6a0f329f68f795a71e0e29f0/5a70b/008.png 1689w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/d2e302fe6a0f329f68f795a71e0e29f0/fe486/008.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/358c2a3ca289a753de8f8f24afc4f142/4eba6/009.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 51.041666666666664%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAKCAIAAAA7N+mxAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAqklEQVQoz53R2w7CIAwG4L7/A/oGzk3jXCjQI8yweaFmJsQvvSHhp0DhPAyXcQwY322r9EtA3AtiSiKi8oFYWM2PFPe2gSgTQc6kqrXWtU/drOvqpUAIOC9LTFG/2x9jZndvYXfAGO+PJWAgIunDIiknM4PpekOM3E7kzrC7m7UfgYDYH9u93uwOKed/wwb7gFVVRDuV4qVWK7V1ztvQaLtARzGr4XyO0+kJ2gRG5yxfURcAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/358c2a3ca289a753de8f8f24afc4f142/a59e9/009.webp 192w,
+/static/358c2a3ca289a753de8f8f24afc4f142/0ca9f/009.webp 384w,
+/static/358c2a3ca289a753de8f8f24afc4f142/dc9b9/009.webp 768w,
+/static/358c2a3ca289a753de8f8f24afc4f142/e2c2f/009.webp 1152w,
+/static/358c2a3ca289a753de8f8f24afc4f142/f3efb/009.webp 1536w,
+/static/358c2a3ca289a753de8f8f24afc4f142/eae28/009.webp 2203w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/358c2a3ca289a753de8f8f24afc4f142/3b721/009.png 192w,
+/static/358c2a3ca289a753de8f8f24afc4f142/66595/009.png 384w,
+/static/358c2a3ca289a753de8f8f24afc4f142/fe486/009.png 768w,
+/static/358c2a3ca289a753de8f8f24afc4f142/d2d74/009.png 1152w,
+/static/358c2a3ca289a753de8f8f24afc4f142/e8464/009.png 1536w,
+/static/358c2a3ca289a753de8f8f24afc4f142/4eba6/009.png 2203w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/358c2a3ca289a753de8f8f24afc4f142/fe486/009.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/1f8a23253393ff8ff078035fea0dabd1/b04fb/010.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 26.5625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAIAAADKYVtkAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAmUlEQVQY01XOUY7DMAgEUN//qM0mtRHDYLDTldPsqn3yB0YMouzHvu0HzLCYgFXfNfR69+e/owqgqamxiMiz1lrbHdY7bIAtfDyliZA0ku6rRTY42IsZAYuI/DMyrzEfl8gcY8w5V+baQnLONVZ6BHswxuvDeZ5zztc30rftJyK7d5KZWQxoTQ5R/7CONPNvAOhUoInU2lTxC+IBIYthHfzMAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/1f8a23253393ff8ff078035fea0dabd1/a59e9/010.webp 192w,
+/static/1f8a23253393ff8ff078035fea0dabd1/0ca9f/010.webp 384w,
+/static/1f8a23253393ff8ff078035fea0dabd1/dc9b9/010.webp 768w,
+/static/1f8a23253393ff8ff078035fea0dabd1/e2c2f/010.webp 1152w,
+/static/1f8a23253393ff8ff078035fea0dabd1/6225e/010.webp 1398w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/1f8a23253393ff8ff078035fea0dabd1/3b721/010.png 192w,
+/static/1f8a23253393ff8ff078035fea0dabd1/66595/010.png 384w,
+/static/1f8a23253393ff8ff078035fea0dabd1/fe486/010.png 768w,
+/static/1f8a23253393ff8ff078035fea0dabd1/d2d74/010.png 1152w,
+/static/1f8a23253393ff8ff078035fea0dabd1/b04fb/010.png 1398w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/1f8a23253393ff8ff078035fea0dabd1/fe486/010.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h2 id="source" style="position:relative;"><a href="#source" aria-label="source permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source</h2>
+<ul>
+<li>『AWS Certified Cloud Solutions Architect』 <em>Stephane Maarek - 지음</em><br>
+<a href="https://www.udemy.com/course/best-aws-certified-developer-associate/" target="_blank" rel="nofollow">https://www.udemy.com/course/best-aws-certified-developer-associate</a></li>
+</ul></div><style data-emotion="css pit38s">.css-pit38s{height:auto;}</style><div class="css-pit38s etse75s1"><style data-emotion="css v7bn0g">.css-v7bn0g{position:-webkit-sticky;position:sticky;top:50px;display:inline-block;margin:120px 40px;margin-right:0px;height:auto;width:200px;font-size:14.5px;border-left:3px solid #4ccd97;}@media (max-width: 1200px){.css-v7bn0g{display:none;}}.css-v7bn0g li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px;color:gray;}.css-v7bn0g ul{margin-left:10px;padding:7px 5px;list-style:none;}.css-v7bn0g a:hover{-webkit-transition:0.3s;transition:0.3s;font-size:15px;font-weight:700;color:#433E49;}</style><div class="css-v7bn0g etse75s0"><ul>
+<li>
+<p><a href="#s3">S3</a></p>
+<ul>
+<li>
+<p><a href="#buckets-%EB%B2%84%ED%82%B7">Buckets 버킷</a></p>
+<ul>
+<li><a href="#object%EA%B0%9D%EC%B2%B4">Object(객체)</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#s3-%EB%B3%B4%EC%95%88">S3 보안</a></p>
+<ul>
+<li><a href="#user-based-%EC%82%AC%EC%9A%A9%EC%9E%90-%EA%B8%B0%EB%B0%98">User-Based 사용자 기반</a></li>
+<li><a href="#%EB%A6%AC%EC%86%8C%EC%8A%A4-%EA%B8%B0%EB%B0%98-%EB%B3%B4%EC%95%88">리소스 기반 보안</a></li>
+<li><a href="#%EA%B0%9D%EC%B2%B4-acl%EC%95%A1%EC%84%B8%EC%8A%A4-%EC%A0%9C%EC%96%B4-%EB%AA%A9%EB%A1%9D">객체 ACL(액세스 제어 목록)</a></li>
+<li><a href="#%EB%B2%84%ED%82%B7-acl%EC%95%A1%EC%84%B8%EC%8A%A4-%EC%A0%9C%EC%96%B4-%EB%AA%A9%EB%A1%9D">버킷 ACL(액세스 제어 목록)</a></li>
+<li><a href="#%EC%95%94%ED%98%B8%ED%99%94-%ED%82%A4-%EC%82%AC%EC%9A%A9">암호화 키 사용</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#s3-%EB%B2%84%ED%82%B7-%EC%A0%95%EC%B1%85">S3 버킷 정책</a></p>
+</li>
+<li>
+<p><a href="#s3-%EC%A0%95%EC%A0%81-%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8-%ED%98%B8%EC%8A%A4%ED%8C%85">S3 정적 웹사이트 호스팅</a></p>
+</li>
+<li>
+<p><a href="#s3-%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC">S3 버전관리</a></p>
+</li>
+<li>
+<p><a href="#s3-%EB%B3%B5%EC%A0%9C">S3 복제</a></p>
+<ul>
+<li><a href="#crr-%EA%B5%90%EC%B0%A8-%EB%A6%AC%EC%A0%84-%EB%B3%B5%EC%A0%9C">CRR 교차 리전 복제</a></li>
+<li><a href="#srr-%EA%B0%99%EC%9D%80-%EB%A6%AC%EC%A0%84%EC%9C%BC%EB%A1%9C-%EB%B3%B5%EC%A0%9C">SRR 같은 리전으로 복제</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#s3-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%ED%81%B4%EB%9E%98%EC%8A%A4">S3 스토리지 클래스</a></p>
+<ul>
+<li><a href="#standard">Standard</a></li>
+<li><a href="#standard-ia-infrequent-access">Standard IA (Infrequent Access)</a></li>
+<li><a href="#one-zone-infrequent-access">One Zone Infrequent Access</a></li>
+<li><a href="#glacier-storage-classes">Glacier Storage Classes</a></li>
+<li><a href="#s3-intelligent-tiering">S3 Intelligent Tiering</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#s3-%EC%8A%A4%ED%86%A0%EB%A6%AC%EC%A7%80-%ED%81%B4%EB%9E%98%EC%8A%A4%EA%B0%84-%EC%9D%B4%EB%8F%99">S3 스토리지 클래스간 이동</a></p>
+<ul>
+<li><a href="#%EC%98%88%EC%8B%9C-%EB%AC%B8%EC%A0%9C">예시 문제</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#%EC%B5%9C%EC%A0%81%EC%9D%98-%EA%B0%9D%EC%B2%B4-%ED%81%B4%EB%9E%98%EC%8A%A4-%EC%9D%B4%EC%A0%84-%EC%9D%BC%EC%88%98-%EC%84%A4%EC%A0%95">최적의 객체 클래스 이전 일수 설정</a></p>
+</li>
+<li>
+<p><a href="#s3-requester-pays-%EC%9A%94%EC%B2%AD%EC%9E%90-%EC%A7%80%EB%B6%88">S3 Requester pays 요청자 지불</a></p>
+</li>
+<li>
+<p><a href="#s3-event-notifications-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EC%95%8C%EB%A6%BC">S3 Event Notifications 이벤트 알림</a></p>
+</li>
+<li>
+<p><a href="#s3-%ED%8D%BC%ED%8F%AC%EB%A8%BC%EC%8A%A4">S3 퍼포먼스</a></p>
+<ul>
+<li><a href="#%EC%A0%91%EB%91%90%EC%82%AC">접두사</a></li>
+<li><a href="#%EC%B5%9C%EC%A0%81%ED%99%94-%EB%B0%A9%EB%B2%95">최적화 방법</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#s3-byte-range-fetches-%EB%B0%94%EC%9D%B4%ED%8A%B8-%EB%B2%94%EC%9C%84-%EA%B0%80%EC%A0%B8%EC%98%A4%EA%B8%B0">S3 byte range fetches 바이트 범위 가져오기</a></p>
+</li>
+<li>
+<p><a href="#s3-select-glacier-select">S3 Select, Glacier Select</a></p>
+</li>
+<li>
+<p><a href="#s3-batch-operations">S3 Batch Operations</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#%EC%8B%A4%EC%8A%B5-%EC%9D%B4%EB%AF%B8%EC%A7%80">실습 이미지</a></p>
+</li>
+<li>
+<p><a href="#source">Source</a></p>
+</li>
+</ul></div></div></div><style data-emotion="css qi68kj">.css-qi68kj{width:768px;margin:auto auto;padding:0 10px;}@media (max-width: 768px){.css-qi68kj{width:100%;padding:0 20px;}}</style><div class="css-qi68kj elyfc7a0"><div id="disqus_thread"></div></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v81"><style data-emotion="css chvw2h">.css-chvw2h{width:80px;height:80px;background-image:url('bartender.png');-webkit-background-size:contain;background-size:contain;margin:20px auto 0px auto;}</style><div class="css-chvw2h e1oae0v80"></div>Just an developer with drinks<br/>2022 HyeonDong, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/aws_saa_9/";window.___webpackCompilationHash="e19035616decff0d8666";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-c9fa82aa5b1f9c65f078.js"],"app":["/app-e9f3f84a858e449c6845.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-c686bcb9fd021576da4f.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-b7dfa6c162bfdd18771f.js"],"component---src-pages-post-tsx":["/component---src-pages-post-tsx-66acd32db55f17007543.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-676c0d609cc6ccc353e7.js"]};/*]]>*/</script><script src="/polyfill-c9fa82aa5b1f9c65f078.js" nomodule=""></script><script src="/app-e9f3f84a858e449c6845.js" async=""></script><script src="/framework-c57a9454c0e3bef16c3b.js" async=""></script><script src="/webpack-runtime-f63e6013a0d82e00314b.js" async=""></script></body></html>

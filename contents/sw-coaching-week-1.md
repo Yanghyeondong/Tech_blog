@@ -1,7 +1,7 @@
 ---
 date: '2023-01-02'
 title: '[SW Coaching - Week 1] Web Scraping 기초'
-categories: ['Python','Web Scraping','SW Coaching']
+categories: ['Python','WebScraping','SW Coaching']
 summary: '파이썬 Web Scraping, politeness policy, BeautifulSoup, hierarchy, regular expression'
 thumbnail: './sw-coaching-week-1/title.png'
 ---

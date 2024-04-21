@@ -1,7 +1,7 @@
 ---
 date: '2023-02-03'
 title: '[SW Coaching - Week 3] Pandas Dataframe 다루기'
-categories: ['Python','Web Scraping','SW Coaching']
+categories: ['Python','WebScraping','SW Coaching']
 summary: '파이썬 Web Scraping, Pandas, iloc, 람다 표현식'
 thumbnail: './sw-coaching-week-3/title.png'
 ---

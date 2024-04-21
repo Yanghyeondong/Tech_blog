@@ -1,7 +1,7 @@
 ---
 date: '2023-01-05'
 title: '파이썬 정규식 + 파일 확장자 = 웹페이지 파일 이름 가져오기'
-categories: ['Python','Tip','Web Scraping']
+categories: ['Python','Tip','WebScraping']
 summary: 'Web Scraping, 정규식 표현 사용법 [] $ \w + (), jpg 확장자 사진 이름 가져오기'
 thumbnail: './common/code_img/img_3.jpg'
 ---

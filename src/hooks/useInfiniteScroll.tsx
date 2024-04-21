@@ -20,9 +20,16 @@ const useInfiniteScroll = function (
   const [count, setCount] = useState<number>(1)
 
   if (maxPostNum !== 0){
+    let filteredPosts = posts;
+
+    if (selectedCategory != 'all') {
+      filteredPosts = posts.filter((item: { node: { frontmatter: { categories: string[] } } }) =>
+        !item.node.frontmatter.categories || item.node.frontmatter.categories.includes(selectedCategory)
+      );
+    }
     return {
       containerRef,
-      postList: posts.slice(0, maxPostNum)
+      postList: filteredPosts.slice(0, maxPostNum)
     }
   }
 

@@ -1,0 +1,754 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta data-react-helmet="true" name="naver-site-verification" content="7727e68f404d4c7be584f2b673b9943ab5c6b9ab"/><meta data-react-helmet="true" name="google-site-verification" content="fygLmB3YoAnXWkSTMHoemYurOt8ZBEdT2K5M1qZQL5E"/><meta data-react-helmet="true" name="twitter:image" content="/static/e46772e428fa9f924fd778334079b666/saa.jpg"/><meta data-react-helmet="true" name="twitter:description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta data-react-helmet="true" name="twitter:title" content="AWS SAA 자격증 공부 &lt; RDS, Aurora, ElastiCache &gt;"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" property="og:site_name" content="AWS SAA 자격증 공부 &lt; RDS, Aurora, ElastiCache &gt;"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:image" content="/static/e46772e428fa9f924fd778334079b666/saa.jpg"/><meta data-react-helmet="true" property="og:description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta data-react-helmet="true" property="og:title" content="AWS SAA 자격증 공부 &lt; RDS, Aurora, ElastiCache &gt;"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" http-equiv="Content-Type" content="text/html;charset=UTF-8"/><meta data-react-helmet="true" name="viewport" content="width=device-width, initial-scale=1.0"/><meta data-react-helmet="true" name="description" content="AWS SAA 취득을 위한 공부 내용을 기록합니다"/><meta name="generator" content="Gatsby 4.19.2"/><style data-href="/styles.69a4e1e9c4403d061256.css" data-identity="gatsby-global-css">code[class*=language-],pre[class*=language-]{word-wrap:normal;background:#2f2f2f;color:#eee;font-family:Roboto Mono,monospace;font-size:1em;-webkit-hyphens:none;hyphens:none;line-height:1.5em;-o-tab-size:4;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}code[class*=language-] ::selection,code[class*=language-]::selection,pre[class*=language-] ::selection,pre[class*=language-]::selection{background:#363636}:not(pre)>code[class*=language-]{border-radius:.2em;padding:.1em;white-space:normal}pre[class*=language-]{margin:.5em 0;overflow:auto;padding:1.25em 1em;position:relative}.language-css>code,.language-sass>code,.language-scss>code{color:#fd9170}[class*=language-] .namespace{opacity:.7}.token.atrule{color:#c792ea}.token.attr-name{color:#ffcb6b}.token.attr-value,.token.attribute{color:#a5e844}.token.boolean{color:#c792ea}.token.builtin{color:#ffcb6b}.token.cdata,.token.char{color:#80cbc4}.token.class{color:#ffcb6b}.token.class-name{color:#f2ff00}.token.comment{color:#616161}.token.constant{color:#c792ea}.token.deleted{color:#f66}.token.doctype{color:#616161}.token.entity{color:#f66}.token.function{color:#c792ea}.token.hexcode{color:#f2ff00}.token.id,.token.important{color:#c792ea;font-weight:700}.token.inserted{color:#80cbc4}.token.keyword{color:#c792ea}.token.number{color:#fd9170}.token.operator{color:#89ddff}.token.prolog{color:#616161}.token.property{color:#80cbc4}.token.pseudo-class,.token.pseudo-element{color:#a5e844}.token.punctuation{color:#89ddff}.token.regex{color:#f2ff00}.token.selector{color:#f66}.token.string{color:#a5e844}.token.symbol{color:#c792ea}.token.tag{color:#f66}.token.unit{color:#fd9170}.token.url,.token.variable{color:#f66}:host,:root{--fa-font-solid:normal 900 1em/1 "Font Awesome 6 Solid";--fa-font-regular:normal 400 1em/1 "Font Awesome 6 Regular";--fa-font-light:normal 300 1em/1 "Font Awesome 6 Light";--fa-font-thin:normal 100 1em/1 "Font Awesome 6 Thin";--fa-font-duotone:normal 900 1em/1 "Font Awesome 6 Duotone";--fa-font-brands:normal 400 1em/1 "Font Awesome 6 Brands"}svg:not(:host).svg-inline--fa,svg:not(:root).svg-inline--fa{box-sizing:content-box;overflow:visible}.svg-inline--fa{display:var(--fa-display,inline-block);height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-2xs{vertical-align:.1em}.svg-inline--fa.fa-xs{vertical-align:0}.svg-inline--fa.fa-sm{vertical-align:-.07143em}.svg-inline--fa.fa-lg{vertical-align:-.2em}.svg-inline--fa.fa-xl{vertical-align:-.25em}.svg-inline--fa.fa-2xl{vertical-align:-.3125em}.svg-inline--fa.fa-pull-left{margin-right:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-pull-right{margin-left:var(--fa-pull-margin,.3em);width:auto}.svg-inline--fa.fa-li{top:.25em;width:var(--fa-li-width,2em)}.svg-inline--fa.fa-fw{width:var(--fa-fw-width,1.25em)}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:var(--fa-counter-background-color,#ff253a);border-radius:var(--fa-counter-border-radius,1em);box-sizing:border-box;color:var(--fa-inverse,#fff);line-height:var(--fa-counter-line-height,1);max-width:var(--fa-counter-max-width,5em);min-width:var(--fa-counter-min-width,1.5em);overflow:hidden;padding:var(--fa-counter-padding,.25em .5em);right:var(--fa-right,0);text-overflow:ellipsis;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-counter-scale,.25));transform:scale(var(--fa-counter-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:var(--fa-bottom,0);right:var(--fa-right,0);top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:var(--fa-bottom,0);left:var(--fa-left,0);right:auto;top:auto;-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:var(--fa-right,0);top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:var(--fa-left,0);right:auto;top:var(--fa-top,0);-webkit-transform:scale(var(--fa-layers-scale,.25));transform:scale(var(--fa-layers-scale,.25));-webkit-transform-origin:top left;transform-origin:top left}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-2xs{font-size:.625em;line-height:.1em;vertical-align:.225em}.fa-xs{font-size:.75em;line-height:.08333em;vertical-align:.125em}.fa-sm{font-size:.875em;line-height:.07143em;vertical-align:.05357em}.fa-lg{font-size:1.25em;line-height:.05em;vertical-align:-.075em}.fa-xl{font-size:1.5em;line-height:.04167em;vertical-align:-.125em}.fa-2xl{font-size:2em;line-height:.03125em;vertical-align:-.1875em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:var(--fa-li-margin,2.5em);padding-left:0}.fa-ul>li{position:relative}.fa-li{left:calc(var(--fa-li-width, 2em)*-1);line-height:inherit;position:absolute;text-align:center;width:var(--fa-li-width,2em)}.fa-border{border-color:var(--fa-border-color,#eee);border-radius:var(--fa-border-radius,.1em);border-style:var(--fa-border-style,solid);border-width:var(--fa-border-width,.08em);padding:var(--fa-border-padding,.2em .25em .15em)}.fa-pull-left{float:left;margin-right:var(--fa-pull-margin,.3em)}.fa-pull-right{float:right;margin-left:var(--fa-pull-margin,.3em)}.fa-beat{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat;animation-name:fa-beat;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-bounce{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-bounce;animation-name:fa-bounce;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.28,.84,.42,1))}.fa-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-fade;animation-name:fa-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-beat-fade,.fa-fade{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s)}.fa-beat-fade{-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-beat-fade;animation-name:fa-beat-fade;-webkit-animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1));animation-timing-function:var(--fa-animation-timing,cubic-bezier(.4,0,.6,1))}.fa-flip{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-flip;animation-name:fa-flip;-webkit-animation-timing-function:var(--fa-animation-timing,ease-in-out);animation-timing-function:var(--fa-animation-timing,ease-in-out)}.fa-shake{-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-shake;animation-name:fa-shake;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-shake,.fa-spin{-webkit-animation-delay:var(--fa-animation-delay,0);animation-delay:var(--fa-animation-delay,0);-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal)}.fa-spin{-webkit-animation-duration:var(--fa-animation-duration,2s);animation-duration:var(--fa-animation-duration,2s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,linear);animation-timing-function:var(--fa-animation-timing,linear)}.fa-spin-reverse{--fa-animation-direction:reverse}.fa-pulse,.fa-spin-pulse{-webkit-animation-direction:var(--fa-animation-direction,normal);animation-direction:var(--fa-animation-direction,normal);-webkit-animation-duration:var(--fa-animation-duration,1s);animation-duration:var(--fa-animation-duration,1s);-webkit-animation-iteration-count:var(--fa-animation-iteration-count,infinite);animation-iteration-count:var(--fa-animation-iteration-count,infinite);-webkit-animation-name:fa-spin;animation-name:fa-spin;-webkit-animation-timing-function:var(--fa-animation-timing,steps(8));animation-timing-function:var(--fa-animation-timing,steps(8))}@media (prefers-reduced-motion:reduce){.fa-beat,.fa-beat-fade,.fa-bounce,.fa-fade,.fa-flip,.fa-pulse,.fa-shake,.fa-spin,.fa-spin-pulse{-webkit-animation-delay:-1ms;animation-delay:-1ms;-webkit-animation-duration:1ms;animation-duration:1ms;-webkit-animation-iteration-count:1;animation-iteration-count:1;transition-delay:0s;transition-duration:0s}}@-webkit-keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@keyframes fa-beat{0%,90%{-webkit-transform:scale(1);transform:scale(1)}45%{-webkit-transform:scale(var(--fa-beat-scale,1.25));transform:scale(var(--fa-beat-scale,1.25))}}@-webkit-keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@keyframes fa-bounce{0%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}10%{-webkit-transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0);transform:scale(var(--fa-bounce-start-scale-x,1.1),var(--fa-bounce-start-scale-y,.9)) translateY(0)}30%{-webkit-transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em));transform:scale(var(--fa-bounce-jump-scale-x,.9),var(--fa-bounce-jump-scale-y,1.1)) translateY(var(--fa-bounce-height,-.5em))}50%{-webkit-transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0);transform:scale(var(--fa-bounce-land-scale-x,1.05),var(--fa-bounce-land-scale-y,.95)) translateY(0)}57%{-webkit-transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em));transform:scale(1) translateY(var(--fa-bounce-rebound,-.125em))}64%{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}to{-webkit-transform:scale(1) translateY(0);transform:scale(1) translateY(0)}}@-webkit-keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@keyframes fa-fade{50%{opacity:var(--fa-fade-opacity,.4)}}@-webkit-keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@keyframes fa-beat-fade{0%,to{opacity:var(--fa-beat-fade-opacity,.4);-webkit-transform:scale(1);transform:scale(1)}50%{opacity:1;-webkit-transform:scale(var(--fa-beat-fade-scale,1.125));transform:scale(var(--fa-beat-fade-scale,1.125))}}@-webkit-keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@keyframes fa-flip{50%{-webkit-transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg));transform:rotate3d(var(--fa-flip-x,0),var(--fa-flip-y,1),var(--fa-flip-z,0),var(--fa-flip-angle,-180deg))}}@-webkit-keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@keyframes fa-shake{0%{-webkit-transform:rotate(-15deg);transform:rotate(-15deg)}4%{-webkit-transform:rotate(15deg);transform:rotate(15deg)}24%,8%{-webkit-transform:rotate(-18deg);transform:rotate(-18deg)}12%,28%{-webkit-transform:rotate(18deg);transform:rotate(18deg)}16%{-webkit-transform:rotate(-22deg);transform:rotate(-22deg)}20%{-webkit-transform:rotate(22deg);transform:rotate(22deg)}32%{-webkit-transform:rotate(-12deg);transform:rotate(-12deg)}36%{-webkit-transform:rotate(12deg);transform:rotate(12deg)}40%,to{-webkit-transform:rotate(0deg);transform:rotate(0deg)}}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}to{-webkit-transform:rotate(1turn);transform:rotate(1turn)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scaleX(-1);transform:scaleX(-1)}.fa-flip-vertical{-webkit-transform:scaleY(-1);transform:scaleY(-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1);transform:scale(-1)}.fa-rotate-by{-webkit-transform:rotate(var(--fa-rotate-angle,none));transform:rotate(var(--fa-rotate-angle,none))}.fa-stack{display:inline-block;height:2em;position:relative;vertical-align:middle;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0;z-index:var(--fa-stack-z-index,auto)}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:var(--fa-inverse,#fff)}.fa-sr-only,.fa-sr-only-focusable:not(:focus),.sr-only,.sr-only-focusable:not(:focus){clip:rect(0,0,0,0);border-width:0;height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;white-space:nowrap;width:1px}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor)}.svg-inline--fa .fa-secondary,.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fa-duotone.fa-inverse,.fad.fa-inverse{color:var(--fa-inverse,#fff)}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link rel="icon" href="/favicon-32x32.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=fe1cfd1d0f30f87b6d8f1bf6bea4c1e4"/><link rel="canonical" href="https://yangdongs.web.app/aws_saa_6/" data-baseprotocol="https:" data-basehost="yangdongs.web.app"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><title data-react-helmet="true">AWS SAA 자격증 공부 &lt; RDS, Aurora, ElastiCache &gt;</title><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="alternate" type="application/rss+xml" title="Yangdongs RSS Feed" href="/rss.xml"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><style data-emotion="css vbubbu">.css-vbubbu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100vh;overflow-x:hidden;width:100%;}</style><main class="css-vbubbu e1strnqo0"><style data-emotion="css 1pe8cy1">.css-1pe8cy1{position:fixed;margin:10px 10px;z-index:5;}</style><div class="css-1pe8cy1 e1md2nih0"><style data-emotion="css 1qhl3ja">.css-1qhl3ja{display:grid;place-items:center;width:60px;height:60px;border-radius:20px;background-color:#4ccd97;color:#ffffff;font-size:40px;cursor:pointer;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);-webkit-transition:background-color 0.6s,color 0.6s;transition:background-color 0.6s,color 0.6s;}.css-1qhl3ja:hover{background-color:#ffffff;color:#4ccd97;}@media (max-width: 768px){.css-1qhl3ja{width:45px;height:45px;font-size:30px;border-radius:15px;}}</style><div class="css-1qhl3ja e1md2nih1"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="compass" class="svg-inline--fa fa-compass " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M288 256C288 273.7 273.7 288 256 288C238.3 288 224 273.7 224 256C224 238.3 238.3 224 256 224C273.7 224 288 238.3 288 256zM0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM325.1 306.7L380.6 162.4C388.1 142.1 369 123.9 349.6 131.4L205.3 186.9C196.8 190.1 190.1 196.8 186.9 205.3L131.4 349.6C123.9 369 142.1 388.1 162.4 380.6L306.7 325.1C315.2 321.9 321.9 315.2 325.1 306.7V306.7z"></path></svg></div><style data-emotion="css 12ua5r7">.css-12ua5r7{margin:10px 10px;border-radius:20px;z-index:4;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;position:fixed;-webkit-transition:500ms;transition:500ms;left:-600px;box-shadow:0 0 5px rgba(0, 0, 0, 0.2);background-color:white;}</style><div class="css-12ua5r7 ee3oskm2"><style data-emotion="css x68nae">.css-x68nae{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;text-align:center;margin-top:5%;margin-bottom:10%;margin:10px;}</style><div class="css-x68nae ee3oskm1"><style data-emotion="css 58nrwj">.css-58nrwj{font-size:20px;margin:15px;}.css-58nrwj:hover{border-bottom:3px solid #4ccd97;}</style><a class="css-58nrwj ee3oskm0" href="/">Home</a><a class="css-58nrwj ee3oskm0" href="/post/">Post</a><a href="https://github.com/Yanghyeondong/tech_blog#readme" class="css-58nrwj ee3oskm0">About</a></div></div></div><style data-emotion="css-global gyifnl">@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');*{padding:0;margin:0;box-sizing:border-box;font-family:'Noto Sans KR',sans-serif;}html,body,#___gatsby{height:100%;}a,a:hover{color:inherit;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;}</style><style data-emotion="css 16cz9yp">.css-16cz9yp{position:relative;width:100%;height:400px;}@media (max-width: 768px){.css-16cz9yp{height:300px;}}</style><div class="css-16cz9yp e1opi4mu1"><style data-emotion="css 1bjn9yo">.css-1bjn9yo{z-index:-1;width:100%;height:400px;object-fit:cover;-webkit-filter:brightness(0.25);filter:brightness(0.25);}@media (max-width: 768px){.css-1bjn9yo{height:300px;}}</style><div data-gatsby-image-wrapper="" style="position:absolute" class="gatsby-image-wrapper gatsby-image-wrapper-constrained css-1bjn9yo e1opi4mu0"><div style="max-width:1470px;display:block"><img alt="" role="presentation" aria-hidden="true" src="data:image/svg+xml;charset=utf-8,%3Csvg height=&#x27;889&#x27; width=&#x27;1470&#x27; xmlns=&#x27;http://www.w3.org/2000/svg&#x27; version=&#x27;1.1&#x27;%3E%3C/svg%3E" style="max-width:100%;display:block;position:static"/></div><img aria-hidden="true" data-placeholder-image="" style="opacity:1;transition:opacity 500ms linear" decoding="async" src="data:image/jpeg;base64,/9j/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wgARCAAMABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAcDBQYJ/8QAFwEAAwEAAAAAAAAAAAAAAAAAAwUGB//aAAwDAQACEAMQAAAB5hRLtU6YvujPkeT/xAAcEAACAgIDAAAAAAAAAAAAAAABAwIFAAQGFDH/2gAIAQEAAQUCWNeGry6toqxXaMse2bqx7WNI8//EACARAAICAgEFAQAAAAAAAAAAAAIDAREEEgATITFRYaH/2gAIAQMBAT8BbjnkHjsBnSWI0wBHuymmVzN0UkOqrKJ0AI19clIX5n8+c//EACERAAICAQIHAAAAAAAAAAAAAAEDAgQFABIGERMUIXGB/9oACAECAQE/AZcR4+lhrONbg61u1arVuyyLDANpbFBTBEdEsjycJvBS5RsGQjZ3xjEAXWkA+D7+a//EACcQAAEEAAQEBwAAAAAAAAAAAAECAxESAAQTURQiMUEFECEjYXFy/9oACAEBAAY/AskwsFHFPJQt4VtV1R5gVSJQBAtIsZicZZzwx+y9NAeo7mHQt60HW4lCSHVTb2iUwkg9o5vXsPrC0OGRl36N/lzqDv0BHyJ3wnUcW5QVTdRVUbCT5f/EAB0QAQACAwADAQAAAAAAAAAAAAERIQAxQVFxgbH/2gAIAQEAAT8h4mgrEiw8ZG+jg5etgCBtrALEsNxCLE40byZx4+KHbAuUly5BcQSvpso97alYzV9/c//aAAwDAQACAAMAAAAQhA//xAAaEQEBAAMBAQAAAAAAAAAAAAABEQAhMWGR/9oACAEDAQE/EBP20blAbVjKe4GoJbAg61vz7Pc//8QAGREBAQADAQAAAAAAAAAAAAAAAREAITFh/9oACAECAQE/EHkky9QBhjwuJtAZCoq+lFehvcuf/8QAGxABAAIDAQEAAAAAAAAAAAAAAREhADFBcZH/2gAIAQEAAT8QMatsWcKtYOiBKFLwAlvTEKQyIhkgakyTwSwXHlA0XiLMKllFhkqGQJaTVE8GACKgEAPZdi50INJw+zn/2Q==" alt=""/><picture><source type="image/webp" data-srcset="/static/e46772e428fa9f924fd778334079b666/2ca11/saa.webp 368w,/static/e46772e428fa9f924fd778334079b666/1f67a/saa.webp 735w,/static/e46772e428fa9f924fd778334079b666/f61fd/saa.webp 1470w" sizes="(min-width: 1470px) 1470px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1470px) 1470px, 100vw" decoding="async" loading="lazy" data-src="/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg" data-srcset="/static/e46772e428fa9f924fd778334079b666/9bfc9/saa.jpg 368w,/static/e46772e428fa9f924fd778334079b666/86bea/saa.jpg 735w,/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg 1470w" alt="thumbnail"/></picture><noscript><picture><source type="image/webp" srcSet="/static/e46772e428fa9f924fd778334079b666/2ca11/saa.webp 368w,/static/e46772e428fa9f924fd778334079b666/1f67a/saa.webp 735w,/static/e46772e428fa9f924fd778334079b666/f61fd/saa.webp 1470w" sizes="(min-width: 1470px) 1470px, 100vw"/><img data-gatsby-image-ssr="" data-main-image="" style="opacity:0" sizes="(min-width: 1470px) 1470px, 100vw" decoding="async" loading="lazy" src="/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg" srcSet="/static/e46772e428fa9f924fd778334079b666/9bfc9/saa.jpg 368w,/static/e46772e428fa9f924fd778334079b666/86bea/saa.jpg 735w,/static/e46772e428fa9f924fd778334079b666/f6e2b/saa.jpg 1470w" alt="thumbnail"/></picture></noscript><script type="module">const t="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll("img[data-main-image]");for(let e of t){e.dataset.src&&(e.setAttribute("src",e.dataset.src),e.removeAttribute("data-src")),e.dataset.srcset&&(e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset"));const t=e.parentNode.querySelectorAll("source[data-srcset]");for(let e of t)e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-srcset");e.complete&&(e.style.opacity=1,e.parentNode.parentNode.querySelector("[data-placeholder-image]").style.opacity=0)}}</script></div><style data-emotion="css lzjgtp">.css-lzjgtp{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;height:400px;margin:0 auto;padding:60px 0;color:#ffffff;}@media (max-width: 768px){.css-lzjgtp{height:330px;width:100%;padding:40px 20px;}}</style><div class="css-lzjgtp e1st1jau7"><style data-emotion="css 10qqw1">.css-10qqw1{display:-webkit-box;overflow:hidden;overflow-wrap:break-word;margin:auto 0;text-overflow:ellipsis;white-space:normal;-webkit-line-clamp:2;-webkit-box-orient:vertical;font-size:42px;font-weight:800;}@media (max-width: 768px){.css-10qqw1{font-size:30px;}}</style><div class="css-10qqw1 e1st1jau5">AWS SAA 자격증 공부 &lt; RDS, Aurora, ElastiCache &gt;</div><style data-emotion="css 3gcnt2">.css-3gcnt2{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-top:10px;font-size:18px;font-weight:700;}@media (max-width: 768px){.css-3gcnt2{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;font-size:15px;font-weight:400;}}</style><div class="css-3gcnt2 e1st1jau4"><style data-emotion="css 5yjeco">.css-5yjeco{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-ms-flex-pack:start;-webkit-justify-content:start;justify-content:start;}@media (max-width: 768px){.css-5yjeco{-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-5yjeco e1st1jau3"><style data-emotion="css 1b9df66">.css-1b9df66{margin:2px 5px;padding:1px 7px 4px 7px;border-radius:6px;background-color:#49ae8e;font-size:16px;font-weight:800;color:white;}@media (max-width: 768px){.css-1b9df66{-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:flex-start;-webkit-box-align:flex-start;-ms-flex-align:flex-start;align-items:flex-start;}}</style><div class="css-1b9df66 e1st1jau2">AWS</div><div class="css-1b9df66 e1st1jau2">Cloud</div></div><style data-emotion="css 14b4j72">.css-14b4j72{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;}@media (max-width: 768px){.css-14b4j72{margin:7px 7px;}}</style><div class="css-14b4j72 e1st1jau1"><style data-emotion="css nkt64x">.css-nkt64x{margin-right:10px;}</style><div class="css-nkt64x e1st1jau0"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="calendar-days" class="svg-inline--fa fa-calendar-days " role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M160 32V64H288V32C288 14.33 302.3 0 320 0C337.7 0 352 14.33 352 32V64H400C426.5 64 448 85.49 448 112V160H0V112C0 85.49 21.49 64 48 64H96V32C96 14.33 110.3 0 128 0C145.7 0 160 14.33 160 32zM0 192H448V464C448 490.5 426.5 512 400 512H48C21.49 512 0 490.5 0 464V192zM64 304C64 312.8 71.16 320 80 320H112C120.8 320 128 312.8 128 304V272C128 263.2 120.8 256 112 256H80C71.16 256 64 263.2 64 272V304zM192 304C192 312.8 199.2 320 208 320H240C248.8 320 256 312.8 256 304V272C256 263.2 248.8 256 240 256H208C199.2 256 192 263.2 192 272V304zM336 256C327.2 256 320 263.2 320 272V304C320 312.8 327.2 320 336 320H368C376.8 320 384 312.8 384 304V272C384 263.2 376.8 256 368 256H336zM64 432C64 440.8 71.16 448 80 448H112C120.8 448 128 440.8 128 432V400C128 391.2 120.8 384 112 384H80C71.16 384 64 391.2 64 400V432zM208 384C199.2 384 192 391.2 192 400V432C192 440.8 199.2 448 208 448H240C248.8 448 256 440.8 256 432V400C256 391.2 248.8 384 240 384H208zM320 432C320 440.8 327.2 448 336 448H368C376.8 448 384 440.8 384 432V400C384 391.2 376.8 384 368 384H336C327.2 384 320 391.2 320 400V432z"></path></svg></div>2024.03.29.</div></div></div></div><style data-emotion="css hn6e83">.css-hn6e83{margin:auto auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;}@media (min-width: 1200px){.css-hn6e83{margin-left:calc( 50% - 384px );}}@media (max-width: 768px){.css-hn6e83{width:100%;}}</style><div class="css-hn6e83 e6b6ljm0"><style data-emotion="css aco8as">.css-aco8as{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;width:768px;margin:0 auto;padding:100px 0;word-break:break-all;line-height:2.5;font-size:18px;font-weight:400;}.css-aco8as p{padding:3px 0;}.css-aco8as strong{margin:0px 1px;font-size:18.3px;font-weight:800;}.css-aco8as h1,.css-aco8as h2{font-weight:800;margin-bottom:20px;}.css-aco8as h3{margin-bottom:0px;}.css-aco8as *+h1,.css-aco8as *+h2,.css-aco8as *+h3{margin-top:50px;}.css-aco8as *+h4{margin-top:25px;}.css-aco8as hr+h1,.css-aco8as hr+h2,.css-aco8as hr+h3{margin-top:0;}.css-aco8as hr+h4{margin-top:25px;}.css-aco8as h1{font-size:40px;}.css-aco8as h2{font-size:35px;}.css-aco8as h3{font-size:23px;color:#49ae8e;}.css-aco8as blockquote{margin:30px 10px;padding:5px 15px;border-left:2px solid #49ae8e;background-color:#f9f9f9;font-weight:400;}.css-aco8as blockquote li{font-size:18px;margin:0px 15px;padding:0px 10px 0px 5px;background-color:#f9f9f9;}.css-aco8as blockquote ol li::Marker{font-weight:800;color:#000;}.css-aco8as em{padding-right:8px;padding-left:3px;}.css-aco8as ol{margin-left:20px;padding:5px 0;}.css-aco8as ol li::Marker{font-weight:800;font-size:19px;color:#49ae8e;}.css-aco8as ul{margin:20px;margin-right:0px;}.css-aco8as ul li::Marker{content:"▶ ";font-weight:800;color:#49ae8e;}.css-aco8as li{font-size:17px;margin:10px 20px;padding-left:10px;padding-right:10px;background-color:#f9f9f9;border-radius:10px;}.css-aco8as li strong{font-size:17.5px;}.css-aco8as del{-webkit-text-decoration:line-through 3px solid rgba(0, 0, 0, .4);text-decoration:line-through 3px solid rgba(0, 0, 0, .4);}.css-aco8as hr{border:1px solid #000000;margin:100px 0;}.css-aco8as a{font-weight:800;color:#49ae8e;-webkit-text-decoration:underline 1px;text-decoration:underline 1px;text-underline-position:under;}.css-aco8as a:hover{color:#ffffff;background-color:#49ae8e;}.css-aco8as pre[class*='language-']{font-weight:300;padding:20px 30px;margin-bottom:15px;font-size:20px;border-radius:10px;border:1px solid #dddddd;}.css-aco8as pre[class*='language-']::-webkit-scrollbar-thumb{background:rgba(255, 255, 255, 0.5);}.css-aco8as pre[class*='language-'] *{font-family:'Roboto Mono',monospace;font-weight:400;}.css-aco8as code[class*='language-']{font-size:16px;margin-right:4px;}.css-aco8as :not(pre)>code[class*="language-"]{font-size:15px;margin-right:4px;margin-left:4px;color:#000000;background-color:#fafafa;border:1px solid #dddddd;padding:1px 4px 3px 4px;border-radius:5px;}.css-aco8as :not(pre)>code[class*="language-"]::selection{background-color:#dadada;}@media (max-width: 768px){.css-aco8as{width:100%;padding:80px 20px;line-height:2.0;font-size:16px;}.css-aco8as h1{font-size:26px;}.css-aco8as h2{font-size:23px;}.css-aco8as h3{font-size:20px;}.css-aco8as strong{margin:0px 3px;font-size:17px;font-weight:800;}.css-aco8as img{width:100%;}.css-aco8as hr{margin:50px 0;}.css-aco8as li{font-size:16px;}}</style><div class="css-aco8as e1ijh0y10"><p><em>본 포스트는 Udemy <strong>AWS Certified SAA - Stephane Maarek</strong> 강의를 일부 정리한 것입니다.</em><br>
+<em>상세한 정보는 <a href="https://www.udemy.com/course/best-aws-certified-developer-associate/" target="_blank" rel="nofollow">해당 강의</a>를 참고하세요</em></p>
+<h2 id="rds-relational-database-servive" style="position:relative;"><a href="#rds-relational-database-servive" aria-label="rds relational database servive permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS (Relational Database Servive)</h2>
+<p>관계형 데이터베이스 서비스.<br>
+SQL을 쿼리 언어로 사용.<br>
+AWS가 DB를 관리한다.<br>
+<br>
+지원 DB:</p>
+<ul>
+<li>PostgreSQL</li>
+<li>MySQL</li>
+<li>MariaDB</li>
+<li>Oracle</li>
+<li>Microsoft SQL Server</li>
+<li>Aurora</li>
+</ul>
+<p>EC2 인스턴스 자체 DB 서비스를 배포하지 않는 이유는 RDS가 관리형 이기때문.<br>
+프로비저닝, 기본 운영체제 패치, 타임 스탬프 복원 등.<br>
+<strong>RDS 인스턴스에 SSH 접근은 불가능하다!</strong></p>
+<h3 id="rds-storage-auto-scaling" style="position:relative;"><a href="#rds-storage-auto-scaling" aria-label="rds storage auto scaling permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS storage auto scaling</h3>
+<p>애플리케이션이 RDS 데이터베이스에서 읽기와 쓰기 작업을 많이 하면.<br>
+임곗값에 도달, 자동으로 스토리지를 오토 스케일링.<br>
+워크로드 예측이 힘든 애플리케이션에서 굉장히 유용하다.<br>
+최대 스토리지 임곗값 설정필요.<br>
+<br>
+스토리지 자동 수정은:</p>
+<ol>
+<li>남은 공간이 10% 미만</li>
+<li>스토리지 부족 상태가 5분 이상 지속</li>
+<li>지난 수정으로부터 6시간이 지났을 경우</li>
+</ol>
+<h3 id="rds-읽기-전용-복제본" style="position:relative;"><a href="#rds-%EC%9D%BD%EA%B8%B0-%EC%A0%84%EC%9A%A9-%EB%B3%B5%EC%A0%9C%EB%B3%B8" aria-label="rds 읽기 전용 복제본 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS 읽기 전용 복제본</h3>
+<p>읽기를 스케일링 한다.</p>
+<ul>
+<li>읽기 전용 복제본은 최대 15개까지 생성 가능. 오로라 기준.</li>
+<li>AZ나 리전을 걸쳐서 생성 가능.</li>
+<li>주 RDS 인스턴스와 읽기 전용 복제본 사이에서는 ASYNC 비동기식 복제.</li>
+<li>읽기가 일관적으로 유지된다. 예시 참조.</li>
+<li>읽기 전용 복제본을 데이터베이스로 승격도 가능.</li>
+<li><strong>SELECT 명령어만 사용가능하다!!</strong></li>
+<li>읽기 전용 복제본은 같은 리전이라면 AZ가 달라도 네트워크 복제로 인한 이동 비용이 들지 않는다.</li>
+<li>AWS는 기본적으로 다른 가용 영역으로의 데이터 이동은 비용이 들지만 관리형 서비스는 예외.</li>
+</ul>
+<h4 id="예시" style="position:relative;"><a href="#%EC%98%88%EC%8B%9C" aria-label="예시 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>예시</h4>
+<p>기존의 Master RDS에 새로운 애플리케이션을 위한 워크로드가 발생할때.<br>
+그대로 연결하면 오보로드와 기존 애플리케이션의 속도가 느려진다.<br>
+여기서 읽기 전용 복제본을 만들고 비동기식 복제를 하면 복제본에서 읽기 작업 가능.<br>
+기존 애플리케이션은 영향을 받지 않는다.</p>
+<h3 id="rds-다중-az" style="position:relative;"><a href="#rds-%EB%8B%A4%EC%A4%91-az" aria-label="rds 다중 az permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS 다중 AZ</h3>
+<p>주로 재해 복구에 사용된다.</p>
+<ul>
+<li>동기식 SYNC 로 다른 AZ에 스탠바이 인스턴스로 복제.</li>
+<li>Master RDS의 변경사항이 대기 인스턴스에 그대로 복제된다.</li>
+<li><strong>하나의 DNS</strong> 이름을 갖고 애플리케이션도 하나의 DNS 이름으로 통신.</li>
+<li>Master에 문제가 생겨도 스탠바이 DB에 자동으로 장애조치 수행. 새로운 Master가 되도록.</li>
+<li>가용성을 높일 수 있다.</li>
+<li>스탠바이 DB는 단지 대기할 뿐 누구도 읽거나 쓰지 않는다.</li>
+</ul>
+<p>다른 리전에 읽기 전용 복제본을 만들고 다중 AZ를 설정하면 특정 리전의 fail에도 신속하게 다른 리전에서 읽고 쓰기 작업이 가능하다.</p>
+<p>단일 AZ에서 다중 AZ로의 전환이 가능한가?</p>
+<ul>
+<li>가능하다. 다운타임 전혀 없이.</li>
+<li>다중 AZ 기능을 활성화만 하면 스탠바이 DB가 생긴다.</li>
+</ul>
+<p><br>
+내부적인 과정</p>
+<ol>
+<li>기존 RDS가 자동으로 스냅샷 생성</li>
+<li>스냅샷이 새로운 스탠바이 DB에 복원</li>
+<li>스탠바이 DB가 복원되면 동기화가 설정되는 것.</li>
+</ol>
+<h3 id="rds-custom" style="position:relative;"><a href="#rds-custom" aria-label="rds custom permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS custom</h3>
+<p>기저 운영체제나 사용자 지정 기능에 엑세스 가능.<br>
+Oracle, Microsoft SQL Server 사용 가능.<br>
+<br>
+기능:</p>
+<ul>
+<li>내부 설정 구성</li>
+<li>패치 적용</li>
+<li>네이티브 기능 활성화</li>
+<li>SSH와 SSM으로 인스턴스에 접근 가능</li>
+</ul>
+<p>사용자 지정 설정을 위해서는 자동화나 스케일링 옵션 종료 추천.</p>
+<h3 id="amazon-aurora" style="position:relative;"><a href="#amazon-aurora" aria-label="amazon aurora permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Amazon Aurora</h3>
+<ul>
+<li>Postgres, MySQL과 호환가능.</li>
+<li>RDS MySQL보다 5배, Postgre보다 3배 높은 성능.</li>
+<li>스토리지 자동 확장 기능. 10GB -> 128TB</li>
+<li>읽기 전용 복제본 15개</li>
+<li>클라우드 네이티브라 가용성 높음</li>
+</ul>
+<h4 id="aurora-가용성" style="position:relative;"><a href="#aurora-%EA%B0%80%EC%9A%A9%EC%84%B1" aria-label="aurora 가용성 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aurora 가용성</h4>
+<ul>
+<li>3개의 AZ에 6개의 복제본을 둔다.</li>
+<li>쓰기에는 6개의 사본중 4개만 있으면 된다.</li>
+<li>읽기는 6개의 사본중 3개만 있으면 된다.</li>
+<li>작은 블록 단위로 확장 및 자가 복구. 백엔드에서 P2P를 활용.</li>
+<li>수백개의 볼륨 활용</li>
+<li>master에 문제가 생기면 30초 이내 장애 조치 시작.</li>
+<li>리전간 복제를 지원한다.</li>
+<li>읽기 전용 복제본 자동 스케일링 가능하다.</li>
+</ul>
+<h4 id="aurora-db-cluster" style="position:relative;"><a href="#aurora-db-cluster" aria-label="aurora db cluster permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aurora DB Cluster</h4>
+<p>writer endpoint:</p>
+<ul>
+<li>DNS 이름으로 마스터를 가리킨다.</li>
+</ul>
+<p>Reader endpoint:</p>
+<ul>
+<li>복제본의 위치와 URL 등을 확인 가능.</li>
+<li>연결 로드 밸런싱에 도움을 줌.</li>
+<li>모든 읽기 전용 복제본과 연결됨.</li>
+<li>로드밸런싱이 문장(statement) 레벨이 아닌 연결 레벨에서 일어난다!</li>
+</ul>
+<h4 id="aurora-복제본-auto-scaling" style="position:relative;"><a href="#aurora-%EB%B3%B5%EC%A0%9C%EB%B3%B8-auto-scaling" aria-label="aurora 복제본 auto scaling permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aurora 복제본 Auto Scaling</h4>
+<p>다른 목적의 (ex. 분석 쿼리) 커스텀 엔드 포인트 등을 DB 인스턴스와 연결하면,<br>
+기존의 리더 엔드포인트는 사용하지 않게 된다.<br>
+Aurora 복제본의 subset을 활용하도록.</p>
+<h4 id="aurora-serverless-서버리스" style="position:relative;"><a href="#aurora-serverless-%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4" aria-label="aurora serverless 서버리스 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aurora Serverless (서버리스)</h4>
+<ul>
+<li>자동화된 데이터베이스 예시화, Auto Scaling 제공</li>
+<li>간헐적이고 예측 불가능한 업무량에 대응 가능</li>
+<li>capacity planning을 할 필요 없음</li>
+<li>활용 Aurora 인스턴스마다 초당 비용 지불하여 비용 효율적</li>
+</ul>
+<h4 id="aurora-global-database" style="position:relative;"><a href="#aurora-global-database" aria-label="aurora global database permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aurora Global database</h4>
+<ul>
+<li>모든 읽기와 쓰기가 일어나는 하나의 기본 리전이 있다.</li>
+<li>최대 5개의 보조 읽기 전용 리전 생성 가능. 응답 지연 1초 이하.</li>
+<li>보조 리전당 최대 16개의 읽기 전용 복제본 사용 가능.</li>
+<li>재해 복구시 다른 리전으로 변환하는데 1분 이내.</li>
+<li>평균적으로 한 리전에서 다른 리전으로 데이터를 복제하는 1초 이하의 시간.</li>
+</ul>
+<h4 id="aurora-machine-learning" style="position:relative;"><a href="#aurora-machine-learning" aria-label="aurora machine learning permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aurora machine Learning</h4>
+<p>SQL 인터페이스를 통해 애플리케이션에 기계 학습 예측을 제공해준다.<br>
+다른 AWS ML 서비스와 간단하고 최적화된 통합.</p>
+<ol>
+<li>SageMaker(ML 모델)</li>
+<li>Amazon Comprehend(감정 분석)</li>
+</ol>
+<h3 id="rds-백업" style="position:relative;"><a href="#rds-%EB%B0%B1%EC%97%85" aria-label="rds 백업 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS 백업</h3>
+<p>자동 백업</p>
+<ul>
+<li>자동으로 DB 전체 백업을 수행한다.</li>
+<li>5분마다 트랜잭션 로그가 백업. 즉, 가장 빠른 백업은 5분 전의 백업.</li>
+<li>자동 백업 보존 기간은 1~35일 사이로 설정가능.</li>
+</ul>
+<p>수동 DB 스냅샷</p>
+<ul>
+<li>사용자가 수동으로 트리거</li>
+<li>수동으로 한 백업을 원하는 기간동안 유지.</li>
+<li>DB를 중지해도 스토리지 비용은 계속 지불해야 한다.</li>
+<li>이럴때는 스냅샷을 만든 후 원본 DB를 삭제하면 된다.</li>
+<li>훨씬 저렴하다.</li>
+</ul>
+<h3 id="aurora-백업" style="position:relative;"><a href="#aurora-%EB%B0%B1%EC%97%85" aria-label="aurora 백업 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aurora 백업</h3>
+<p>자동 백업</p>
+<ul>
+<li>비활성화 불가. 1~35일 백업 보존.</li>
+<li>시점 복구 기능. 어느 시점으로든 복구 가능</li>
+</ul>
+<p>수동(온디맨드) DB 스냅샷 백업</p>
+<ul>
+<li>사용자가 수동으로 트리거</li>
+<li>수동으로 한 백업을 원하는 기간동안 유지.</li>
+</ul>
+<h3 id="rds--aurora-복원" style="position:relative;"><a href="#rds--aurora-%EB%B3%B5%EC%9B%90" aria-label="rds  aurora 복원 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS &#x26; Aurora 복원.</h3>
+<p>자동화된 백업이나 수동 스냅샷을 활용하여 새 데이터베이스 생성.<br>
+<br>
+S3로부터 DB 복구</p>
+<ul>
+<li>RDS의 경우, 온프레미스 db를 백업해서 S3에 저장하고 이를 RDS 인스턴스로 복원.</li>
+<li>MySQL Aurora 의 경우, Percona XtraBackup을 활용하여 온프레미스를 db를 백업하고 Aurora로 복원.</li>
+</ul>
+<h3 id="aurora-db-복제" style="position:relative;"><a href="#aurora-db-%EB%B3%B5%EC%A0%9C" aria-label="aurora db 복제 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Aurora DB 복제</h3>
+<p>기존의 Aurora 클러스터 DB에서 새로운 Aurora 클러스터를 생성.<br>
+ex.) 테스트를 진행하고 싶을때. 기존 프로덕션 Aurora를 복제한 스테이징 Aurora를 만듬.</p>
+<ul>
+<li>스냅샷 보다 빠르다. copy-on-write 프로토콜을 사용하기 때문.</li>
+<li>처음에는 동일한 데이터 볼륨을 사용하다가 업데이트가 이루어지면 추가 스토리지가 할당되고 데이터가 복사 및 분리된다.</li>
+<li>비용 효율적이고 프로덕션 DB에 영향이 없으며 스냅샷 및 복원 기능도 필요없다.</li>
+<li>재해 복구 및 감사 목적으로 장기 백업에 좋다.</li>
+</ul>
+<h3 id="rds--aurora-보안" style="position:relative;"><a href="#rds--aurora-%EB%B3%B4%EC%95%88" aria-label="rds  aurora 보안 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS &#x26; Aurora 보안</h3>
+<p>데이터가 볼륨에 암호화.<br>
+KMS를 사용해 Master와 모든 복제본의 암호화 (DB를 처음 실행 때 정의)<br>
+Master 즉 주 DB를 암호화하지 않으면 읽기 전용 복제본을 암호화 불가.<br>
+암호화 되어있지 않은 기존 데이터베이스를 암호화 -> 스냅샷을 가지고 와서 암호화 옵션을 키고 복원해야 한다.</p>
+<h4 id="in-flight전송중-암호화" style="position:relative;"><a href="#in-flight%EC%A0%84%EC%86%A1%EC%A4%91-%EC%95%94%ED%98%B8%ED%99%94" aria-label="in flight전송중 암호화 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>In-flight(전송중) 암호화</h4>
+<p>클라이언트가 AWS의 TLS 루트 인증서 사용</p>
+<h4 id="db-암호화" style="position:relative;"><a href="#db-%EC%95%94%ED%98%B8%ED%99%94" aria-label="db 암호화 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DB 암호화</h4>
+<ul>
+<li>사용자 이름과 패스워드 조합</li>
+<li>IAM role 역할 사용</li>
+</ul>
+<h4 id="보안-그룹" style="position:relative;"><a href="#%EB%B3%B4%EC%95%88-%EA%B7%B8%EB%A3%B9" aria-label="보안 그룹 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>보안 그룹</h4>
+<p>특정 포트, IP, 보안그룹 허용 및 차단가능.</p>
+<h4 id="audit-logs-감사-로그" style="position:relative;"><a href="#audit-logs-%EA%B0%90%EC%82%AC-%EB%A1%9C%EA%B7%B8" aria-label="audit logs 감사 로그 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Audit logs 감사 로그</h4>
+<p>쿼리의 생성과 DB 작동 확인 가능.</p>
+<h4 id="tip" style="position:relative;"><a href="#tip" aria-label="tip permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TIP</h4>
+<p>RDS와 Aurora에는 SSH가 없지만, RDS 커스텀은 예외다.</p>
+<h3 id="rds-proxy-프록시" style="position:relative;"><a href="#rds-proxy-%ED%94%84%EB%A1%9D%EC%8B%9C" aria-label="rds proxy 프록시 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS proxy (프록시)</h3>
+<p>VPC 내에 RDS DB를 배포 가능 하지만,<br>
+완전 관리형 RDS DB 프록시도 배포 가능.</p>
+<ul>
+<li>완전한 서버리스</li>
+<li>오토스케일링 가능</li>
+<li>다중 AZ 지원</li>
+<li>RDS와 Aurora의 장애 조치 시간을 66%까지 줄일수 있음.</li>
+<li>애플리케이션 코드 변경이 필요없다.</li>
+<li>IAM 인증을 강제할 수 있다.</li>
+</ul>
+<p><br>
+프록시가 필요한 이유:</p>
+<ul>
+<li>애플리케이션이 DB내에서 DB연결 풀을 형성하고 공유 가능.</li>
+<li>인스턴스에 일일이 연결하는 대신 프록시에 연결하면 인스턴스로 가는 연결을 줄일수 있다.</li>
+<li>CPU와 RAM 등 효율성을 향상시킬 수 있고</li>
+<li>개방된 연결과 시간초과를 최소화</li>
+<li>장애 조치시 각각 app 인스턴스가 직접 처리하는게 아니라 RDS 프록시가 db 인스턴스를 처리한다.</li>
+</ul>
+<h3 id="rds-프록시는-퍼블릭-액세스가-불가하다-vpc-내에서만-가능" style="position:relative;"><a href="#rds-%ED%94%84%EB%A1%9D%EC%8B%9C%EB%8A%94-%ED%8D%BC%EB%B8%94%EB%A6%AD-%EC%95%A1%EC%84%B8%EC%8A%A4%EA%B0%80-%EB%B6%88%EA%B0%80%ED%95%98%EB%8B%A4-vpc-%EB%82%B4%EC%97%90%EC%84%9C%EB%A7%8C-%EA%B0%80%EB%8A%A5" aria-label="rds 프록시는 퍼블릭 액세스가 불가하다 vpc 내에서만 가능 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>RDS 프록시는 퍼블릭 액세스가 불가하다!. VPC 내에서만 가능.</h3>
+<h2 id="elasticache" style="position:relative;"><a href="#elasticache" aria-label="elasticache permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ElastiCache</h2>
+<p>캐싱 기술인 Redis 또는 Memcached를 관리.</p>
+<ul>
+<li>매우 높은 성능과 짧은 지연 시간을 가진 인메모리 DB.</li>
+<li>DB 의 로드를 줄여줌. 일반적인 쿼리는 캐시에 저장.</li>
+<li>캐시만 사용하여 쿼리의 결과를 검색 가능.</li>
+<li>애플리케이션을 상태 stateless(비저장형)으로 만들어줌.</li>
+<li>AWS에서 매니징 해준다.</li>
+<li>ElastiCache 사용을 위해서는 애플리케이션 코드를 많이 바꿔야함.</li>
+</ul>
+<h3 id="캐싱-과정" style="position:relative;"><a href="#%EC%BA%90%EC%8B%B1-%EA%B3%BC%EC%A0%95" aria-label="캐싱 과정 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>캐싱 과정</h3>
+<p>ElastiCache 쿼리 - 캐시 히트 - DB이동 절약<br>
+ElastiCache 쿼리 - 캐시 미스 - DB이동</p>
+<h3 id="캐시-무효화-전략" style="position:relative;"><a href="#%EC%BA%90%EC%8B%9C-%EB%AC%B4%ED%9A%A8%ED%99%94-%EC%A0%84%EB%9E%B5" aria-label="캐시 무효화 전략 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>캐시 무효화 전략</h3>
+<p>가장 최신 데이터만 사용하기 위해.</p>
+<h4 id="stateless비저장형-무상태" style="position:relative;"><a href="#stateless%EB%B9%84%EC%A0%80%EC%9E%A5%ED%98%95-%EB%AC%B4%EC%83%81%ED%83%9C" aria-label="stateless비저장형 무상태 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stateless(비저장형, 무상태)</h4>
+<p>클라이언트와 서버 관계에서 서버가 클라이언트의 상태를 보존하지 않음.</p>
+<h4 id="stateless-애플리케이션-상태" style="position:relative;"><a href="#stateless-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%83%81%ED%83%9C" aria-label="stateless 애플리케이션 상태 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stateless 애플리케이션 상태</h4>
+<p>사용자가 어떤 애플리케이션에 로그인하면, 애플리케이션이 세션 데이터를 ElastiCache에 쓰기.<br>
+다른 인스턴스로 리다이렉션 되면, 세션 캐시를 ElastiCache에서 직접검색 가능.<br>
+사용자는 여전히 로그인 된 상태이다!</p>
+<h3 id="redis-vs-memcached" style="position:relative;"><a href="#redis-vs-memcached" aria-label="redis vs memcached permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redis vs Memcached</h3>
+<h4 id="redis" style="position:relative;"><a href="#redis" aria-label="redis permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Redis</h4>
+<p>Key, Value 구조 데이터를 저장하고 관리하는 오픈 소스 기반의 비관계형 DBMS.<br>
+인메모리 데이터 구조를 가지며 DB, 캐시, 메세지 브로커로 사용된다.</p>
+<ul>
+<li>다중 AZ 지원 (자동 장애 조치)</li>
+<li>읽기 복제본 가능</li>
+<li>AOF를 사용한 데이터 내구성</li>
+<li>백업 기능 지원</li>
+<li>set과 정렬된 set을 지원
+고유성과 요소 순서를 모두 보장
+요소가 추가될 때마다, 올바른 순서로 추가됨.
+예를 들어 실시간 리더보드를 구현할 수 있다.
+애플리케이션 측에서는 이 기능을 프로그램밍 할필요 없다. Redis에서 액세스 가능.</li>
+</ul>
+<p>보안</p>
+<ul>
+<li>Redis에서만 IAM 인증을 지원. 나머지는 사용자 이름 비밀번호</li>
+<li>IAM 정책을 정의하면 AWS API 수준 보안에만 사용</li>
+<li>Redis AUTH이라는 Redis 내부 보안을 통해 비밀번호와 토큰을 설정. 보안 그룹에 추가하여서 더욱 보안.</li>
+<li>SSL 전송 중 암호화지원</li>
+</ul>
+<h4 id="memcached" style="position:relative;"><a href="#memcached" aria-label="memcached permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Memcached</h4>
+<ul>
+<li>데이터 분할을 위해 멀티 노드를 사용(Sharding 샤딩)</li>
+<li>고가용성, 복제가 없음</li>
+<li>영구 캐시가 아님</li>
+<li>백업 및 복원 없음</li>
+<li>멀티 스레드 아키텍쳐</li>
+</ul>
+<p>보안</p>
+<ul>
+<li>SASL 기반 승인 제공</li>
+</ul>
+<h3 id="elasticache-패턴" style="position:relative;"><a href="#elasticache-%ED%8C%A8%ED%84%B4" aria-label="elasticache 패턴 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ElastiCache 패턴</h3>
+<ol>
+<li>Lazy loading(지연 로딩) 사용자가 필요로 하는 시점에 로딩<br>
+모든 데이터가 캐시되고 데이터가 캐시에서 지체 가능.<br>
+캐시 미스때만 데이터를 ElastiCache에 로드한다.</li>
+<li>Write Through
+DB에 데이터가 기록될 때마다 캐시에 데이터를 추가하거나 업데이트.<br>
+데이터가 지체되지 않음.</li>
+<li>세션 스토어
+유지 시간 기능을 사용해 세션을 만료.</li>
+</ol>
+<h3 id="tip-1" style="position:relative;"><a href="#tip-1" aria-label="tip 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TIP</h3>
+<p>읽기 전용 복제본은 DNS 이름을 갖는 새로운 엔드 포인트를 추가.<br>
+읽기 로드를 밸런싱하기 위해서는 애플리케이션이 개별적으로 참조를 하게끔 변경해야 함.<br>
+다중 AZ는 활성화 상태의 데이터베이스 종류와 상관 없이 동일한 연결 문자열을 유지합니다.</p>
+<h2 id="실습-이미지" style="position:relative;"><a href="#%EC%8B%A4%EC%8A%B5-%EC%9D%B4%EB%AF%B8%EC%A7%80" aria-label="실습 이미지 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>실습 이미지</h2>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/7099b2c4feda77c8c6b82aff71d7f0b5/f843c/001.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 122.39583333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAIAAAB1KUohAAAACXBIWXMAAAsTAAALEwEAmpwYAAACzUlEQVQ4y41UyY4jNwztv89nBMgxP5BLgLkFmCyNIINGggS2x3bbtbhUpZ0UqSVRqdpwIwEyBA8qPVF85GPpqRvF6dofT6fz5dIP422atNHamC/xp2EYdofjfr8/nE7Xa7fbHayzXxpsrO374fx6Gcfx2nV9P4xi8YAAAIjVH+2+g1iDrbWzELfbTUophJiFUNrGlFKKMXKM63L9eDRmNtY+AeJnRYdhGQ3OkISPk+fR4GDCAgwA0yQmMQOg92vmSgqJqAY7gIumXSd2/bwfZKeg16FT2BsSngOGaZpvkxDzIuZFKr1eEYhYG1trNs47QOvBejCP7ryrZ2FNu5lb3TpXa9bGHE/H1/M5IG7+3vC93fdrsPNeKS215ZT/1Zu2kXPO99UdqzV7D1KqcRJCSmutMZaIY0wxJiIGQKONlNLU8qzWpkHMb8GxZuOUYtff9odTSqmsFgIxV1WYeRin3f5IRA2KMVba3vsUY865lPL5eP75+TdmrnjOIYT7RedL9+MvvxLximRmXoMBZouL8Ra5ekjbAtkhIaC1Dt5aScQhUPOVNuB+wdOkJZUZ06StpNJ8gRgCKq1bwnWuOOeSc2FeaVsPkrLmjKV8/PP47ddf+ZglFbUG32kzhT9++qCleFez8yB8WjCpkF+l//14kRhniALi4olp65lR6tZ3FIjWvTtt8L4OsNamte2uJBE555VUxJxKyaXEN5SIm1S+DUMp5dRP33z3Q1mvaFJttIlK35ehL3Ipbwk2qWKM7bTS7vuPn9a7ckoZAzUoBYqXazy/xmlq0PpjmI22Vlop7QFzlXcTAzF4AKU0YOBSuBR6QLeaQyAA74w1UlKbkNLIVnPec4xMhAD/MWEx1sJyCJf9/q/d7nq9tlJDpd0W4XA4PD8/v7y8bMo1nT14pnqoTvj752ZVJTI//mHp3TNknO+nuT1v9879r+VS/gn+G2rQZfS7r4HdAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/7099b2c4feda77c8c6b82aff71d7f0b5/a59e9/001.webp 192w,
+/static/7099b2c4feda77c8c6b82aff71d7f0b5/0ca9f/001.webp 384w,
+/static/7099b2c4feda77c8c6b82aff71d7f0b5/dc9b9/001.webp 768w,
+/static/7099b2c4feda77c8c6b82aff71d7f0b5/3acdd/001.webp 861w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/7099b2c4feda77c8c6b82aff71d7f0b5/3b721/001.png 192w,
+/static/7099b2c4feda77c8c6b82aff71d7f0b5/66595/001.png 384w,
+/static/7099b2c4feda77c8c6b82aff71d7f0b5/fe486/001.png 768w,
+/static/7099b2c4feda77c8c6b82aff71d7f0b5/f843c/001.png 861w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/7099b2c4feda77c8c6b82aff71d7f0b5/fe486/001.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/3a68fb7f56bff370b9a18c05926db14c/79f65/002.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 115.625%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAXCAIAAACEf/j0AAAACXBIWXMAAAsTAAALEwEAmpwYAAACd0lEQVQ4y41UiY4bMQid///EqlKTZnPM5QNsMLbHqRgnu2l3V+oTsrA1DMcDBmPM4Xgk5iTyIomTyiv+eQkxDtaa4+HgnPPeO2udVYUo1lpLKfmJ8sT7NcY4hCQrFYOEqQapmEpMmZkRkZlLLaXWnHOSFCNxSv2npRQiGgzlnzP+ON2Osz+tcHFkKIuk8+U6TrPz3nlPzJLzOC/zugIAIBIzMQ/A2ef7SmUKMgWxcrdcWttqrSI5JdFTpNY6TvPpfD28XaZ5IdqNPSWTNps2K82mbeFqSdRiz6zn2ksFiNaDgcisVy0YhoCIGBAQY4y0IxLF2EWfuvRQmblfMYTBA/w6Hk+/T6ffJyL+qGf+GvJU1LP+KUbKZWv3bdNU67aV+sS2ba1t7QtozosPh7fr+XK7jhMi9vD28DkEZee+Y/sbrTVmHliycX6aZiXGgbXOKxdhJwk84LwYD8Ba96ydJULEItoLQ87ZWHubpnGajXGAgUhLEoL2hDqPhBoCPdpSHlxQN17W9XYb53kBDBhiLkVyLrW21nqEWosvwxaRGMkD7Amyut1dJZH+3btZfer91Pa0zs7r2mv+QKc6xvCNdADi4Jyf5+VBUnlytDdW/QZ9MHSqIpExdlnW27R4DVYeNdkHWyQ/O1zBKeVcPngOIV6uo7HWA4Y92xAjxudJpEoIgIE55T2czrwWLMRwvlxXY5z3y2oWY411DmA1drVWT6P7QR+VdnAeHn1OPEgW5WbH3tgvG0PfNeyXlaJKa+3huec8jpMD1P7+b/Sw47IY57xx3kLoPIPuoLS19j4eZZ+Rz8ZhnCYd6BAA0AMChr7i8otIzvWT8R9G0zE1sUJiLAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/3a68fb7f56bff370b9a18c05926db14c/a59e9/002.webp 192w,
+/static/3a68fb7f56bff370b9a18c05926db14c/0ca9f/002.webp 384w,
+/static/3a68fb7f56bff370b9a18c05926db14c/dc9b9/002.webp 768w,
+/static/3a68fb7f56bff370b9a18c05926db14c/65619/002.webp 833w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/3a68fb7f56bff370b9a18c05926db14c/3b721/002.png 192w,
+/static/3a68fb7f56bff370b9a18c05926db14c/66595/002.png 384w,
+/static/3a68fb7f56bff370b9a18c05926db14c/fe486/002.png 768w,
+/static/3a68fb7f56bff370b9a18c05926db14c/79f65/002.png 833w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/3a68fb7f56bff370b9a18c05926db14c/fe486/002.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/003e1bdf0c844dc0c4c79115a43c6c8e/0591a/003.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 135.9375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChElEQVQ4y41Ui27jNhDU//9egd4FLXpx7USW+BAf+yKXsg+0nMB2kjaDwYKCNCK5u7NDynkcj9M8W+ekVCnlnRv6+jMA4pABxnF8HY/G2hhj2BhCTD0uYQkxlvoJkGggZiIGxAyIRdc3tLe4LU73OJ/PLNLFzntjLRHrej5fXnwHUsqQAKZpds7PxszzbKw7HifrvLVuHI/WeZ+RmNd1/UScAYxzIUZj3RJiVd2Oqk21aa2qqqXW04cTdTEL11JqU6m1J0b19L2Td3EkGX2y1k7GGOe8X4iltfVbYiBOSAB4rWcp1zzfQ1Vbax/EiNY563zKkAFjyiGm3iGXW7yTRYilF+O2VBkAkDJ0JSBeC95Bd6RHZoC+8263m+d5bVrKNWvlG0DEgUW4Q0i0rf+F0+l2fWLmAREPh5d/nnejcSnlDBBjCjGlfnr6/4R539sr5a4std5t8QZVlVIexUjkl5ByXjJJ7d2lrVXVj2ytrevpsT1DWBCBelJ7EOb+Xbu06RbXdjqttRat9X5nFo/Fg8Qe+UJJohuzaGbNXCOVxJqlJa6Ray4riQyJynOoP/+dng7z36/2aX/8uZ9+PI9P++mvg/nxGv48+D8O/pdJe5dfAu5d3pn0EgW5DJkkldVjcSCBW2CN0haq28LghbSCnt+Jek71jCyDlAJIMeWYkqp+ZYOPk6TfWURCCH6JYQku5m0SbVVV1Vp7Ab50VQDez4sx9jjNr+PRh8CXyfje56rtSzGyJCDvF78EHyIR19o3lO6r+tBVj2IictYZ55zzdklADBd7pQws8mjsmytcO8wYe/EjQTdmd2h9G0m3LKXcZvQqZpbeW9xd2p+Y9TNc/3Iz9H8Dz/IgUHxMzrMAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/003e1bdf0c844dc0c4c79115a43c6c8e/a59e9/003.webp 192w,
+/static/003e1bdf0c844dc0c4c79115a43c6c8e/0ca9f/003.webp 384w,
+/static/003e1bdf0c844dc0c4c79115a43c6c8e/dc9b9/003.webp 768w,
+/static/003e1bdf0c844dc0c4c79115a43c6c8e/25dae/003.webp 838w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/003e1bdf0c844dc0c4c79115a43c6c8e/3b721/003.png 192w,
+/static/003e1bdf0c844dc0c4c79115a43c6c8e/66595/003.png 384w,
+/static/003e1bdf0c844dc0c4c79115a43c6c8e/fe486/003.png 768w,
+/static/003e1bdf0c844dc0c4c79115a43c6c8e/0591a/003.png 838w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/003e1bdf0c844dc0c4c79115a43c6c8e/fe486/003.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/92fb1ccc29001ee497c77ff872b5f9f1/0591a/004.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 133.33333333333331%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAAAsTAAALEwEAmpwYAAADKElEQVQ4y41U2XLsKAz1///hVO5M0p10YhvMKoQkFs9gdye5y8OoTmGBLQNHR5qsc7d5AaRM/xcJcTMWACYAWLRBllZrKXecdvg/2bkuIiHGhDhhSpvW3nsiIuYiIszDJRquiEiRI7C1xocRUe+dmCcH+PSuL7O6zPq6bO+b1xEdikUJKCGC895aF0LwISDmceyM4/yZJovybPCv6/x0W5/elh839feHvih31cHkSsxK61Vpa63SGjFjzikhEWeiKSB92Pg8b8+zuVlYoGxJ1pAVsM33q/Z97733fa+t3emoFXOeIqTX9/n2sX4s6javN2Wsjz4mG8CFCIilVCnlxAg+0FojosH2qtSyrEop792mtTGmFKn1pPeOk6f9mw3CUs42pAPgU3YRIxLXTqVxbVQalXqCx0o/IXXPxJNHefHlquPrBhflryq8GfhnNhcdXre4RLG8G+ontoejco9IE2TSkXTANWSfJeTic3HIfjgSuYGc6CAtlX44PZUdiacIoJXW27YahzkjYkrpc8zDhp9SAgBEBABIqYgMwhBRG5MyEg89sQgxn86fcXx2/ngyAWa1IWKk0h+2H4k9We3fVr9/MNgGEu2Csc46N5To/bYZY60PwfkwVtyADzHEaJ3zIerNRIARXIqM9BpLzEMJcpYGl4cwyud4FAnzuFcp5QwuIURjfYjRh3Duf8KH6Hw4XoF1HjHLJyPHLwZhznutt1WpzQPx0BaLnFsNLdaBImfBl9ZqKdJbOxSGaKyd51UpPbZICXOOMEaA9KLhZTG3LSwhq0iLxzXQElBFTpmmUffC5jhuzvTJc++9tnYL5aKH5pbIlncnA152Q/tQWEK01hlrN2syU6lfNXRWhtQmtXEZTqm9tF5qr+3QdkrJGHOy/1VEn/hqX6OB/VZVkJZ1XW3AM1O/2iNDIn8Izjlb65TWzHy0iG89sz7GOvoRM/8aHGOclzXEmI/uKTxyeNojpfc5i7SHZu/BRDQv6/Xt9vY+v2vnRvcB42OIaegGIEICSBFSTCkfOxynkLvCiHgkGDGm7BM7pNXnxGV0qno0rPp43pvfmPwX/C9pnBaGWyKHkwAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/92fb1ccc29001ee497c77ff872b5f9f1/a59e9/004.webp 192w,
+/static/92fb1ccc29001ee497c77ff872b5f9f1/0ca9f/004.webp 384w,
+/static/92fb1ccc29001ee497c77ff872b5f9f1/dc9b9/004.webp 768w,
+/static/92fb1ccc29001ee497c77ff872b5f9f1/25dae/004.webp 838w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/92fb1ccc29001ee497c77ff872b5f9f1/3b721/004.png 192w,
+/static/92fb1ccc29001ee497c77ff872b5f9f1/66595/004.png 384w,
+/static/92fb1ccc29001ee497c77ff872b5f9f1/fe486/004.png 768w,
+/static/92fb1ccc29001ee497c77ff872b5f9f1/0591a/004.png 838w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/92fb1ccc29001ee497c77ff872b5f9f1/fe486/004.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/a6b8bdf74d83e61f5e272043c1fa6b4c/a1895/005.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.79166666666667%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAIAAAC9o5sfAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA0UlEQVQoz42R0W4EIQhF/f/fbNJuumlFRQSEmWZ0Z9Z9aLInPFyu0YshfHzevr7vKeVcypuVco4AkCAAgIqYWe9dVbVrH7DI0U3NfGkRmUpVAzW2gbsTEbOYubkz8zTdHSuJ6LZt7n6Z7h7uP/E3QsoZcoaURh2iIBZErBUrTv1wFh1ijIh1vuruciTbNhLMXOWY0Na4hTDn2U+osXTr/nAK1Sb9efxKMLO1b42RWj9Noiqq+5uXU5Ub0Bm8iwizrKO9XJaxpwvmYxPPfvzN/uEP24sOoYGE8A8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/a6b8bdf74d83e61f5e272043c1fa6b4c/a59e9/005.webp 192w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/0ca9f/005.webp 384w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/dc9b9/005.webp 768w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/e2c2f/005.webp 1152w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/f3efb/005.webp 1536w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/18c0b/005.webp 2179w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/a6b8bdf74d83e61f5e272043c1fa6b4c/3b721/005.png 192w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/66595/005.png 384w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/fe486/005.png 768w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/d2d74/005.png 1152w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/e8464/005.png 1536w,
+/static/a6b8bdf74d83e61f5e272043c1fa6b4c/a1895/005.png 2179w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/a6b8bdf74d83e61f5e272043c1fa6b4c/fe486/005.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/378e6cd1d5ede0c188a9ed625d7e80c7/98650/006.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 122.39583333333334%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAYCAIAAAB1KUohAAAACXBIWXMAAAsTAAALEwEAmpwYAAACkUlEQVQ4y41UiW7cOgz0//9fUSRpk900sdeXTl6iJO+D7M2BvKLtYCDAhEcSOaS6x9PTt+/fn07n0/l8d//wMpkQ4z+yA4DLOAWklERE+I1/BSJ2McZ+GGfj/I7gvXMuQtS/gYg6ZiaEnPP1eq3bVv+H6/W6/S7OIp1HuRv8eXKjpxXVcrFc97V4qSQSQjTWEbHmnFSTquasmps4cJqoPLxMP4flPLnHYT1P7nlu282gomqsc94jERIRMRI3SGpiEl5dAMlSrqSVtGIqxyq5llLqVo+MSq2NpeSd+7VJ7sfwPNmV8krZyeb1jakyizF2mhdE0pxFRFVrrTdxIFmp9ia+WugtLKiGy43UEvMhGOu8DxHQugBIOatIQuJmlQ9B9hxYhJiP9N7ZcrzFmZhb2kiIFAE67/3pdIoxAsQDzKz/gObzsXVzewcippRyQ/kziLkDxHU1SHSLHfXctV9YSrl+gqTUIdG6mnlZATBG8CG00gBK0nfN+76/EbcRCV5SqlvNH3/WD2931m37KgbEZVnjfizgUQABREBEoqT6+eafxUm1iZtCJALu98UIcIxrBDh8ehvSJOmDSNRFgOFyefjx0zkncqt5Kz6/eY63rv4CQGwj6b3v+95aG/bs29pOBe89QNzZktg90JLzwd1nlmO+Wm8cDuWbzTlng2pALLAFDpxRK6QCqcRUiaUj5iR8GcdpniPEo1tw70BVPbv0NPkf/fx4MafJDZ6NbC5dF96ApUMWy9mzRlaLsgRagZdABtiAGNIZbpxiGoPcPrEg74/B2ee7wX17tfej/7X43tOrwSHwyxpfTRu1wdPg8Hl2g4Pe4uB5pA0ldYHYUu69vDgeY3LtAcofpGK/RHaumIH4P0GvZl5TWz9FAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/378e6cd1d5ede0c188a9ed625d7e80c7/a59e9/006.webp 192w,
+/static/378e6cd1d5ede0c188a9ed625d7e80c7/0ca9f/006.webp 384w,
+/static/378e6cd1d5ede0c188a9ed625d7e80c7/dc9b9/006.webp 768w,
+/static/378e6cd1d5ede0c188a9ed625d7e80c7/b2907/006.webp 835w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/378e6cd1d5ede0c188a9ed625d7e80c7/3b721/006.png 192w,
+/static/378e6cd1d5ede0c188a9ed625d7e80c7/66595/006.png 384w,
+/static/378e6cd1d5ede0c188a9ed625d7e80c7/fe486/006.png 768w,
+/static/378e6cd1d5ede0c188a9ed625d7e80c7/98650/006.png 835w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/378e6cd1d5ede0c188a9ed625d7e80c7/fe486/006.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span><br>
+<span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 768px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/2df75810f6d20b5547d4b0ddf7be4535/f843c/007.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 134.375%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAbCAIAAADzvTiPAAAACXBIWXMAAAsTAAALEwEAmpwYAAADW0lEQVQ4y41ViXLjNgz1//9ekt0cjhPJTixRvEECBA+5pZRtt8d2+gYDQTN8pEDgQQcPMM+CUkrM6U/wZol+bRDCAQDOlw9jrXXO+Q63w/uUUv41QgiHGDExcym1ttpa3ZBrybmU2upP1ta1tbW2L4QYDxHRGK2Vds5ZY73z4H0iWtd1Y7R9y1ZrIoohgPettdvtFhEPEUkAL0CLR+lp8VE4VIENZhNZh6RjMsgKSAFJj4tHHZLnFiIeAtK7zU/jdHcc71/PD6fL3XG4P47fTh/3r+PD28fd6XL/fv0+Tk/j9fUqn8/z4/BxMRiQDhDR8jrb+KH8p4arjVcTrjpcpPtUfvLp3aQ3nT5DcXm1vJrUdg8R+4URl1RqabfSbrmue1DX/bXl2srmU66UC5eWSuO6XViI4XI+j+NoHCBxLblsljPnzP3Sc66ltFr3UmqllVRa615naf3sUCk9LRJC9ABSKWNt7xnmiAQRpdLGeUopIkXEiOg8OO8Pw+KeZJpMGISVWD8dH0V4EeEo42hIU5shvc1mEG5Y7Fm6iwYBLLEJC4e3xX2XfLX4Jpzi2+jK3YQPM34T+ChIpdsV8mm2p9m9XPVJ2JOwF0uCbpOBwyD9k+LZ0SBB8/rhy6OgR0EPU3yRSaVVxDIsbpTwJmwPFEw+ybT2k42HkNg4mJVGztLT6+yOk3u+dgJy8ZEmqYQ006JmqWeptQvIxQEcvPeLlD5E/AHaPeF/wwN8qWoxDgC8Bw9f2BQGezMHACLaq1hL2W1TFWLOZRdxLy5nZt6C/sSUA3FMPUhbe1AulEvK5UtVibOUapoEhMDbSOhfTYlSHiw/f+rjp3y9qkF6EbKiptOqqEGMB0SMIYQYmXMnECGlLXFKibE0n4qn7ClbZEc5ljWWFcsaEA8+4HlapJTa2H5gSt0x96iD1k29/0TcyTaQMUZqXWv956L1D1u7/wu5N6q18yxCCLyrgXNKOTG3tt5+jY0ccRbCOldrL8EmqLKr4n+RjXUOoNS6F6mUwsx7CutP+DdyH4BOLFIqRfRVpBD7rf1oh1prS6nv+3dyCBEgOOettb2Naqvb6i2Ljn1Kb9O57EO3/x+Ye5M479+H4en55fvj4zCMAGGf+9737QBgz+VnONcX/D5JfgOkLwvcQNRHOQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <picture>
+          <source
+              srcset="/static/2df75810f6d20b5547d4b0ddf7be4535/a59e9/007.webp 192w,
+/static/2df75810f6d20b5547d4b0ddf7be4535/0ca9f/007.webp 384w,
+/static/2df75810f6d20b5547d4b0ddf7be4535/dc9b9/007.webp 768w,
+/static/2df75810f6d20b5547d4b0ddf7be4535/3acdd/007.webp 861w"
+              sizes="(max-width: 768px) 100vw, 768px"
+              type="image/webp"
+            />
+          <source
+            srcset="/static/2df75810f6d20b5547d4b0ddf7be4535/3b721/007.png 192w,
+/static/2df75810f6d20b5547d4b0ddf7be4535/66595/007.png 384w,
+/static/2df75810f6d20b5547d4b0ddf7be4535/fe486/007.png 768w,
+/static/2df75810f6d20b5547d4b0ddf7be4535/f843c/007.png 861w"
+            sizes="(max-width: 768px) 100vw, 768px"
+            type="image/png"
+          />
+          <img
+            class="gatsby-resp-image-image"
+            src="/static/2df75810f6d20b5547d4b0ddf7be4535/fe486/007.png"
+            alt="."
+            title="."
+            loading="lazy"
+            decoding="async"
+            style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+          />
+        </picture>
+  </a>
+    </span></p>
+<h2 id="source" style="position:relative;"><a href="#source" aria-label="source permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source</h2>
+<ul>
+<li>『AWS Certified Cloud Solutions Architect』 <em>Stephane Maarek - 지음</em><br>
+<a href="https://www.udemy.com/course/best-aws-certified-developer-associate/" target="_blank" rel="nofollow">https://www.udemy.com/course/best-aws-certified-developer-associate</a></li>
+</ul></div><style data-emotion="css pit38s">.css-pit38s{height:auto;}</style><div class="css-pit38s etse75s1"><style data-emotion="css v7bn0g">.css-v7bn0g{position:-webkit-sticky;position:sticky;top:50px;display:inline-block;margin:120px 40px;margin-right:0px;height:auto;width:200px;font-size:14.5px;border-left:3px solid #4ccd97;}@media (max-width: 1200px){.css-v7bn0g{display:none;}}.css-v7bn0g li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px;color:gray;}.css-v7bn0g ul{margin-left:10px;padding:7px 5px;list-style:none;}.css-v7bn0g a:hover{-webkit-transition:0.3s;transition:0.3s;font-size:15px;font-weight:700;color:#433E49;}</style><div class="css-v7bn0g etse75s0"><ul>
+<li>
+<p><a href="#rds-relational-database-servive">RDS (Relational Database Servive)</a></p>
+<ul>
+<li>
+<p><a href="#rds-storage-auto-scaling">RDS storage auto scaling</a></p>
+</li>
+<li>
+<p><a href="#rds-%EC%9D%BD%EA%B8%B0-%EC%A0%84%EC%9A%A9-%EB%B3%B5%EC%A0%9C%EB%B3%B8">RDS 읽기 전용 복제본</a></p>
+<ul>
+<li><a href="#%EC%98%88%EC%8B%9C">예시</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#rds-%EB%8B%A4%EC%A4%91-az">RDS 다중 AZ</a></p>
+</li>
+<li>
+<p><a href="#rds-custom">RDS custom</a></p>
+</li>
+<li>
+<p><a href="#amazon-aurora">Amazon Aurora</a></p>
+<ul>
+<li><a href="#aurora-%EA%B0%80%EC%9A%A9%EC%84%B1">Aurora 가용성</a></li>
+<li><a href="#aurora-db-cluster">Aurora DB Cluster</a></li>
+<li><a href="#aurora-%EB%B3%B5%EC%A0%9C%EB%B3%B8-auto-scaling">Aurora 복제본 Auto Scaling</a></li>
+<li><a href="#aurora-serverless-%EC%84%9C%EB%B2%84%EB%A6%AC%EC%8A%A4">Aurora Serverless (서버리스)</a></li>
+<li><a href="#aurora-global-database">Aurora Global database</a></li>
+<li><a href="#aurora-machine-learning">Aurora machine Learning</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#rds-%EB%B0%B1%EC%97%85">RDS 백업</a></p>
+</li>
+<li>
+<p><a href="#aurora-%EB%B0%B1%EC%97%85">Aurora 백업</a></p>
+</li>
+<li>
+<p><a href="#rds--aurora-%EB%B3%B5%EC%9B%90">RDS &#x26; Aurora 복원.</a></p>
+</li>
+<li>
+<p><a href="#aurora-db-%EB%B3%B5%EC%A0%9C">Aurora DB 복제</a></p>
+</li>
+<li>
+<p><a href="#rds--aurora-%EB%B3%B4%EC%95%88">RDS &#x26; Aurora 보안</a></p>
+<ul>
+<li><a href="#in-flight%EC%A0%84%EC%86%A1%EC%A4%91-%EC%95%94%ED%98%B8%ED%99%94">In-flight(전송중) 암호화</a></li>
+<li><a href="#db-%EC%95%94%ED%98%B8%ED%99%94">DB 암호화</a></li>
+<li><a href="#%EB%B3%B4%EC%95%88-%EA%B7%B8%EB%A3%B9">보안 그룹</a></li>
+<li><a href="#audit-logs-%EA%B0%90%EC%82%AC-%EB%A1%9C%EA%B7%B8">Audit logs 감사 로그</a></li>
+<li><a href="#tip">TIP</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#rds-proxy-%ED%94%84%EB%A1%9D%EC%8B%9C">RDS proxy (프록시)</a></p>
+</li>
+<li>
+<p><a href="#rds-%ED%94%84%EB%A1%9D%EC%8B%9C%EB%8A%94-%ED%8D%BC%EB%B8%94%EB%A6%AD-%EC%95%A1%EC%84%B8%EC%8A%A4%EA%B0%80-%EB%B6%88%EA%B0%80%ED%95%98%EB%8B%A4-vpc-%EB%82%B4%EC%97%90%EC%84%9C%EB%A7%8C-%EA%B0%80%EB%8A%A5">RDS 프록시는 퍼블릭 액세스가 불가하다!. VPC 내에서만 가능.</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#elasticache">ElastiCache</a></p>
+<ul>
+<li>
+<p><a href="#%EC%BA%90%EC%8B%B1-%EA%B3%BC%EC%A0%95">캐싱 과정</a></p>
+</li>
+<li>
+<p><a href="#%EC%BA%90%EC%8B%9C-%EB%AC%B4%ED%9A%A8%ED%99%94-%EC%A0%84%EB%9E%B5">캐시 무효화 전략</a></p>
+<ul>
+<li><a href="#stateless%EB%B9%84%EC%A0%80%EC%9E%A5%ED%98%95-%EB%AC%B4%EC%83%81%ED%83%9C">stateless(비저장형, 무상태)</a></li>
+<li><a href="#stateless-%EC%95%A0%ED%94%8C%EB%A6%AC%EC%BC%80%EC%9D%B4%EC%85%98-%EC%83%81%ED%83%9C">stateless 애플리케이션 상태</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#redis-vs-memcached">Redis vs Memcached</a></p>
+<ul>
+<li><a href="#redis">Redis</a></li>
+<li><a href="#memcached">Memcached</a></li>
+</ul>
+</li>
+<li>
+<p><a href="#elasticache-%ED%8C%A8%ED%84%B4">ElastiCache 패턴</a></p>
+</li>
+<li>
+<p><a href="#tip-1">TIP</a></p>
+</li>
+</ul>
+</li>
+<li>
+<p><a href="#%EC%8B%A4%EC%8A%B5-%EC%9D%B4%EB%AF%B8%EC%A7%80">실습 이미지</a></p>
+</li>
+<li>
+<p><a href="#source">Source</a></p>
+</li>
+</ul></div></div></div><style data-emotion="css qi68kj">.css-qi68kj{width:768px;margin:auto auto;padding:0 10px;}@media (max-width: 768px){.css-qi68kj{width:100%;padding:0 20px;}}</style><div class="css-qi68kj elyfc7a0"><div id="disqus_thread"></div></div><style data-emotion="css 9w9jmx">.css-9w9jmx{display:grid;place-items:center;margin-top:auto;padding:50px 0;font-size:15px;text-align:center;line-height:1.5;}@media (max-width: 768px){.css-9w9jmx{font-size:13px;}}</style><footer class="css-9w9jmx e1oae0v81"><style data-emotion="css chvw2h">.css-chvw2h{width:80px;height:80px;background-image:url('bartender.png');-webkit-background-size:contain;background-size:contain;margin:20px auto 0px auto;}</style><div class="css-chvw2h e1oae0v80"></div>Just an developer with drinks<br/>2022 HyeonDong, Powered By Gatsby.</footer></main></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/aws_saa_6/";window.___webpackCompilationHash="e19035616decff0d8666";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-c9fa82aa5b1f9c65f078.js"],"app":["/app-e9f3f84a858e449c6845.js"],"component---src-pages-404-tsx":["/component---src-pages-404-tsx-c686bcb9fd021576da4f.js"],"component---src-pages-index-tsx":["/component---src-pages-index-tsx-b7dfa6c162bfdd18771f.js"],"component---src-pages-post-tsx":["/component---src-pages-post-tsx-66acd32db55f17007543.js"],"component---src-templates-post-template-tsx":["/component---src-templates-post-template-tsx-676c0d609cc6ccc353e7.js"]};/*]]>*/</script><script src="/polyfill-c9fa82aa5b1f9c65f078.js" nomodule=""></script><script src="/app-e9f3f84a858e449c6845.js" async=""></script><script src="/framework-c57a9454c0e3bef16c3b.js" async=""></script><script src="/webpack-runtime-f63e6013a0d82e00314b.js" async=""></script></body></html>

@@ -1,7 +1,7 @@
 ---
 date: '2023-10-04'
 title: 'dockerfile nvm 설치 에러 해결법 source: not found, nvm: command not found'
-categories: ['Docker','DevOps', 'Back-end']
+categories: ['Docker','DevOps', 'Back-end', 'Choice']
 summary: 'dockerfile에 nvm을 설치하다 겪는 다양한 오류를 해결합니다. '
 thumbnail: './docker/docker.png'
 ---

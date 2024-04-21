@@ -1,7 +1,7 @@
 ---
 date: '2023-02-10'
 title: '[SW Coaching - Week 5] 문서 클러스터링 및 토픽 모델링'
-categories: ['Python','Web Scraping','SW Coaching']
+categories: ['Python','WebScraping','SW Coaching']
 summary: '파이썬 Web Scraping, TF-IDF, Normalized TF, K-means, LDA, pyLDAvis'
 thumbnail: './sw-coaching-week-5/title.PNG'
 ---

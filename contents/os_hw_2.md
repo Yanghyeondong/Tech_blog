@@ -1,7 +1,7 @@
 ---
 date: '2023-08-21'
 title: 'OS: Three Easy Pieces [Remzi] <14.Debugging Memory> 풀이'
-categories: ['Operating System']
+categories: ['OS']
 summary: '교재 Operating Systems: Three Easy Pieces [Remzi] 속 Homework 문제 풀이'
 thumbnail: './os/book2.png'
 ---

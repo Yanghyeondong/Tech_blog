@@ -1,7 +1,7 @@
 ---
 date: '2023-01-09'
 title: '[SW Coaching - Week 2] Web Scraping 심화'
-categories: ['Python','Web Scraping','SW Coaching']
+categories: ['Python','WebScraping','SW Coaching']
 summary: '파이썬 Web Scraping, html 및 csv로 저장, time.sleep() 위치'
 thumbnail: './sw-coaching-week-2/title.png'
 ---

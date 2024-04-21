@@ -1,15 +1,18 @@
 ---
 date: '2024-04-20'
 title: 'Boston College SimpleDB 개선 과제 part 2'
-categories: ['DB', 'Java']
+categories: ['DB', 'Java', 'Choice']
 summary: 'Edward Sciore의 Java 기반 SimpleDB 개선 과제를 수행합니다.'
 thumbnail: './common/common1.jpg'
 ---
 이전 포스트 Boston College SimpleDB 개선 과제 part 1에서 이어집니다!
 
-#### SimpleDB란? (주의! AWS SimpleDB아님)
-Boston College의 Edward Sciore 교수님이 논문으로 발표한 Java 기반의 다중 사용자 DB.  
-[SimpleDB: a simple java-based multiuser syst for teaching database internals](https://dl.acm.org/doi/10.1145/1227504.1227498)
+### SimpleDB란? (주의! AWS SimpleDB아님)
+Boston College의 Edward Sciore 교수님이 논문으로 발표한 Java 기반의 다중 사용자 DB입니다.  
+관련 논문은 다음과 같습니다. [SimpleDB: a simple java-based multiuser syst](https://dl.acm.org/doi/10.1145/1227504.1227498)
+
+![.](./db_hw1/001.png)  
+SimpleDB 컴포넌트 구조
 
 ## 목표: midpoint-insertion policy를 SimpleDB에 적용해 보자.
 - midpoint insertion은 MySQL InnoDB에 적용되어 있는 버퍼 정책입니다.  
@@ -44,7 +47,7 @@ public MidInsBufferMgr(FileMgr fm, LogMgr lm, int numbuffs) {
       
    }
 ```
-과제 명세 설명 "LRU list는 doubly linked list로 구현한다."에 따라 lru_list 는 java의 LinkedList로 구현하였다. 자바 공식홈페이지에 "Doubly-linked list implementation..." 로 설명되어있는 클래스이다. `free_list`의 경우에도 편의를 위해 LinkedList로 구현하였다. 과제 명세 설명 "버퍼풀 초기화 시  버퍼들을 `numbuff`만큼 생성, `free list`에 삽입"에 따라 `free_list.add `를 진행하였다. `alloc_buffer`는 이전 과제와 동일하게 `HashMap`으로 구현하였다. `hit_cnt`, `reference_cnt`은 hit ratio를 구하기위해 사용하며 `MAX_TIME`은 pin에서 시간 초과를 확인하기위해 사용한다.
+`lru_list` 는 java의 `LinkedList`로 구현하였다. 자바 공식홈페이지에 "Doubly-linked list implementation..." 로 설명되어있는 클래스이다. `free_list`의 경우에도 편의를 위해 LinkedList로 구현하였다. 버퍼풀 초기화 시  버퍼들을 `numbuff`만큼 생성, `free list`에 삽입하기 위해 `free_list.add `를 진행하였다. `alloc_buffer`는 이전 과제와 동일하게 `HashMap`으로 구현하였다. `hit_cnt`, `reference_cnt`은 hit ratio를 구하기위해 사용하며 `MAX_TIME`은 pin에서 시간 초과를 확인하기위해 사용한다.
 
 #### LRU MidPoint Insertion 기능 구현
 ```java
@@ -59,7 +62,7 @@ public void midIns(Buffer buff) {
       }
    }
 ```
-과제 명세내용에 따라 LRU list 길이가 3이하면 LRU head로 삽입하고, 아닌 경우에는 LRU list의 head에서 5/8 지점에 페이지를 삽입하도록 하였다. "(현재 LRU list 길이 * 5/8) 의 다음 노드로 삽입" 라는 설명에따라 `pos = (size * 5 / 8) + 1` 을 하였다. 소숫점일 경우 나누기에 의해 int 부분이 절사 된다. 리스트에 집어넣을때는 `lru_list.add(pos-1, buff)` 를 하는데, pos-1인 이유는 리스트에서 첫번째를 0이 아닌 1로봐야 하기때문이다.
+LRU list 길이가 3이하면 LRU head로 삽입하고, 아닌 경우에는 LRU list의 head에서 5/8 지점에 페이지를 삽입하도록 하였다. "`(현재 LRU list 길이 * 5/8)` 의 다음 노드로 삽입" 공식 에따라 `pos = (size * 5 / 8) + 1` 을 하였다. 소숫점일 경우 나누기에 의해 int 부분이 절사 된다. 리스트에 집어넣을때는 `lru_list.add(pos-1, buff)` 를 하는데, pos-1인 이유는 리스트에서 첫번째를 0이 아닌 1로봐야 하기때문이다.
 
 #### available() 기능 구현
 ```java
@@ -72,7 +75,7 @@ public synchronized int available() {
       return freenum + unpinnum;
    }
 ```
-과제 설명 "Free list의 버퍼 개수와 unpin된 버퍼 개수를 합한 값" 을 구하기 위해 `free_list.size()` 값을 구하고 lru_list 내 `!buff.isPinned()` 인 경우의 개수를 누적하여 합을 리턴한다.
+Free list의 버퍼 개수와 unpin된 버퍼 개수를 합한 값을 구하기 위해 `free_list.size()` 값을 구하고 lru_list 내 `!buff.isPinned()` 인 경우의 개수를 누적하여 합을 리턴한다.
 
 #### touch() 함수 구현
 ```java
@@ -82,7 +85,7 @@ public void touch(Buffer buff){
       lru_list.addFirst(buff);
    }
 ```
-과제 명세 설명에 따르면 LRU list에 있는 buffer가 hit되었을 때 (= hash map에 해당 buffer가 존재할 때) buffer를 new sublist의 head로 보낸다. 즉, pin이 되면 맨 앞으로 옮겨진다. 따라서 해당 동작을 touch라는 함수로 따로 구현하였다. `lru_list.remove(buff)`을 통해 요청 받은 버퍼를 지우고, `lru_list.addFirst(buff)`을 통해 맨앞에 넣게된다. 만약 없을경우 에러 메세지를 출력한다.
+LRU list에 있는 buffer가 hit되었을 때 (= hash map에 해당 buffer가 존재할 때) buffer를 new sublist의 head로 보낸다. 즉, pin이 되면 맨 앞으로 옮겨진다. 따라서 해당 동작을 touch라는 함수로 따로 구현하였다. `lru_list.remove(buff)`을 통해 요청 받은 버퍼를 지우고, `lru_list.addFirst(buff)`을 통해 맨앞에 넣게된다. 만약 없을경우 에러 메세지를 출력한다.
 
 #### waitingTooLong() 설정
 ```java
@@ -90,7 +93,7 @@ private boolean waitingTooLong(long starttime) {
       return System.currentTimeMillis() - starttime > MAX_TIME;
    }
 ```
-exception 관련 코드도 구현하라는 공지에따라 vanilla의 코드를 그대로 가져왔다.
+exception 관련 코드는 vanilla의 코드를 그대로 가져왔다.
 
 #### pin() 구현
 ```java
@@ -135,7 +138,7 @@ private Buffer tryToPin(BlockId blk) {
       return buff;
    }
 ```
-trypin()의 경우, 이전과 달라진 점이 있다. `findExistingBuffer()`에 실패해서 새로운 버퍼를 `chooseFreeBuffer()`로 할당받을 경우, 과제 설명 "(첫번째로 reference되는 페이지일 경우) block id를 해당 버퍼에 할당, LRU list에 삽입. midpoint Insertion 로직에 따라 LRU list내 위치 조정" 에 따른 일련의 과정을 수행한다. 우선 alloc_buffer.remove를 통해 현재 할당된 맵에서 해당 버퍼를 지우고, `buff.assignToBlock(blk)`를 통해 주어진 blk로 초기화하게 된다. 이후 앞서 소개한 `midIns()`를 통해서 해당 버퍼를 집어넣게된다. 또한,  findExistingBuffer(blk)에 성공했을때는 buffer가 hit되었을 때를 의미하므로 hit_cnt를 증가시켜주고 앞서 설명한 `touch()`를 수행하게 된다. `buff.pin()`을 통해 pin 값도 늘려준다.
+trypin()의 경우, 이전과 달라진 점이 있다. `findExistingBuffer()`에 실패해서 새로운 버퍼를 `chooseFreeBuffer()`로 할당받을 경우, (첫번째로 reference되는 페이지일 경우) block id를 해당 버퍼에 할당, LRU list에 삽입한다. 그리고 midpoint Insertion 로직에 따라 LRU list내 위치 조정 과정을 수행한다. 우선 `alloc_buffer.remove`를 통해 현재 할당된 맵에서 해당 버퍼를 지우고, `buff.assignToBlock(blk)`를 통해 주어진 blk로 초기화하게 된다. 이후 앞서 소개한 `midIns()`를 통해서 해당 버퍼를 집어넣게된다. 또한,  `findExistingBuffer(blk)`에 성공했을때는 buffer가 hit되었을 때를 의미하므로 hit_cnt를 증가시켜주고 앞서 설명한 `touch()`를 수행하게 된다. `buff.pin()`을 통해 pin 값도 늘려준다.
 
 #### findExistingBuffer() 구현
 ```java
@@ -147,7 +150,7 @@ private Buffer findExistingBuffer(BlockId blk) {
       return null;
    }
 ```
-해당 함수의 경우에는 저번 과제와 크게 달라진점이 없다. 버퍼에 대해 "Must keyed on the block" 를 만족하는 alloc_buffer를 항상 유지하면서, `alloc_buffer.containsKey`를 통해 Map으로 블럭이 버퍼 안에 있는지 판별한다. 만약 있을경우, 해당 버퍼를 찾아서 리턴한다.
+해당 함수의 경우에는 크게 달라진점이 없다. 버퍼에 대해 "Must keyed on the block" 를 만족하는 alloc_buffer를 항상 유지하면서, `alloc_buffer.containsKey`를 통해 Map으로 블럭이 버퍼 안에 있는지 판별한다. 만약 있을경우, 해당 버퍼를 찾아서 리턴한다.
 
 #### chooseFreeBuffer()
 ```java
@@ -173,7 +176,9 @@ private Buffer chooseFreeBuffer() {
       return null;
    }
 ```
-`chooseFreeBuffer()`의 경우 새롭게 추가된 부분이다. 우선 공지 설명 "pin 메소드 호출 시 버퍼를 free list로부터 할당받음. 버퍼가 필요할 때 free buffer list의 head에서 버퍼를 제거 후 사용한다."에 따라 우선 free_list의 크기가 0 이상이라면 제일 앞 버퍼를 poll()을 통해 뽑아낸다. 혹시 free list에 없다면, 설명 "더 이상 free list에서 버퍼를 가져올 수 없을 때는, LRU list의 tail부터 탐색하여 첫번째 unpin된 버퍼를 flush 후, 해당 버퍼를 그대로 사용" 에 따른다. 즉, lru_list를 뒤에서부터 순회하며 !buff.isPinned() 을 만족하는 버퍼를 찾는순간 리스트에서 지워주고 flush한 다음 리턴해주게 된다.
+`chooseFreeBuffer()`의 경우 새롭게 추가된 부분이다. pin 메소드 호출 시 버퍼를 free list로부터 할당받고, 버퍼가 필요할 때 free buffer list의 head에서 버퍼를 제거 후 사용한다.  
+우선 `free_list`의 크기가 0 이상이라면 제일 앞 버퍼를 `poll()`을 통해 뽑아낸다. 혹시 free list에 없다면, LRU list의 tail부터 탐색하여 첫번째 unpin된 버퍼를 flush 후, 해당 버퍼를 그대로 사용한다.  
+즉, `lru_list`를 뒤에서부터 순회하며 `!buff.isPinned()` 을 만족하는 버퍼를 찾는순간 리스트에서 지워주고 flush한 다음 리턴해주게 된다.
 
 #### unpin()
 ```java
@@ -201,7 +206,7 @@ public synchronized void flushAll(int txnum){
       alloc_buffer.clear();
    }
 ```
-해당 함수에서는 우선 과제 명세설명 "LRU list에 있는 버퍼들을 모두 flush하고, free list에 빈 버퍼들을 추가" 에 따라 lru 리스트의 모든 버퍼들에 대해 flush를 진행하고 free_list에 추가했다. 그리고 공지 사항 설명중 "pin되어있는 모든 버퍼들도 강제로 unpin시키고 flush 수행"을 위해 각 버퍼마다 `pin == 0` 이 될때까지 unpin을 진행해 주었다.
+LRU list에 있는 버퍼들을 모두 flush하고, `free list`에 빈 버퍼들을 추가하기 위해 lru 리스트의 모든 버퍼들에 대해 flush를 진행하고 `free_list`에 추가했다. 그리고 pin되어있는 모든 버퍼들도 강제로 unpin시키고 flush 수행"을 위해 각 버퍼마다 `pin == 0` 이 될때까지 unpin을 진행해 주었다.
 
 
 #### printStatus() 구현
@@ -216,7 +221,7 @@ public void printStatus(){
 
    }
 ```
-저번 `printStatus()` 와는 조금 다르게 alloc_buffer가 아닌 LRU 리스트에 대해 정보를 출력하도록 하였다.
+저번 `printStatus()` 와는 조금 다르게 `alloc_buffer`가 아닌 LRU 리스트에 대해 정보를 출력하도록 하였다.
 각 버퍼의 ID, block, pinnedStatus 를 출력하며, BlockId의 `toString()` 메소드를 활용하였다. 자바의 반복문을 사용하면 자동으로 LRU list head부터 버퍼를 순차적으로 출력한다.
 
 #### getHitRatio() 구현
@@ -228,7 +233,7 @@ public float getHitRatio(){
       return hit_ratio_bd_r2.floatValue();
     }
 ```
-`getHitRatio()` 함수는 이전 과제와 크게 다르지 않다. 똑같이 `tryToPin(blk)` 를 했을때 반환되는 buff가 널이 아닌경우, 즉 성공했을 경우에만(에러가 아닌 경우) `reference_cnt++;`가 되고, `findExistingBuffer(blk)` 의 결과값이 널이 아닐때, 즉 원하는 블럭을 찾았을 때만 hit_cnt++가 된다. 최종적으로는 `cnt/reference cnt * 100 (%)` 공식과 BigDecimal과 RoundingMode를 사용해 소숫점 2자리까지 반올림하여 리턴한다.
+`getHitRatio()` 함수는 이전 과제와 크게 다르지 않다. 똑같이 `tryToPin(blk)` 를 했을때 반환되는 buff가 널이 아닌경우, 즉 성공했을 경우에만(에러가 아닌 경우) `reference_cnt++;`가 되고, `findExistingBuffer(blk)` 의 결과값이 널이 아닐때, 즉 원하는 블럭을 찾았을 때만 hit_cnt++가 된다. 최종적으로는 `cnt/reference cnt * 100 (%)` 공식과 `BigDecimal`과 `RoundingMode`를 사용해 소숫점 2자리까지 반올림하여 리턴한다.
 
 ### 테스트
 ```java

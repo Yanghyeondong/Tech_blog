@@ -89,6 +89,8 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       <Introduction profileImage={gatsbyImageData} />
       <Title>🥃 New drinks!</Title>
       <PostList selectedCategory={'all'} posts={edges} maxPostNum={6} />
+      <Title>🍹 Signature drinks!</Title>
+      <PostList selectedCategory={'Choice'} posts={edges} maxPostNum={6} />
       <GoToPostButton to="/post">🥂 더 많은 포스트를 볼래요!</GoToPostButton>
     </Template>
   )

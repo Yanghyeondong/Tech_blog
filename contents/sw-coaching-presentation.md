@@ -1,7 +1,7 @@
 ---
 date: '2023-02-19'
 title: '[SW Coaching - final] CNET 웹사이트 분석 발표'
-categories: ['Python','Web Scraping','SW Coaching']
+categories: ['Python','WebScraping','SW Coaching', 'Choice']
 summary: '파이썬 Web Scraping, TF-IDF, Normalized TF, K-means, LDA, pyLDAvis'
 thumbnail: './sw-coaching-presentation/cnet.png'
 ---

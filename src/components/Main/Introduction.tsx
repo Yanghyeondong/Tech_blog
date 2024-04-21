@@ -182,7 +182,7 @@ const Introduction: FunctionComponent<IntroductionProps> = function () {
           <SubTitleSmall>부담없이 편안한 마음으로 누구나</SubTitleSmall>
           <Title>Hyeondong</Title>
           <TitleColor>Yang</TitleColor>
-          <AboutMe to="https://github.com/Yanghyeondong/tech_blog#readme">about</AboutMe>
+          <AboutMe to="https://github.com/Yanghyeondong">Github</AboutMe>
         </TitleWrapper>
       </Wrapper>
     </Background>

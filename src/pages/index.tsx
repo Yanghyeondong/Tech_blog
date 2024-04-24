@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useState, useEffect } from 'react'
 import styled from '@emotion/styled'
 import Introduction from 'components/Main/Introduction'
 import PostList from 'components/Main/PostList'
@@ -78,6 +78,23 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
+  const [maxPostNum1, setMaxPostNum1] = useState(3);
+  const [maxPostNum2, setMaxPostNum2] = useState(6);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1200) {
+        setMaxPostNum1(2); // Adjust this value as per your requirement
+        setMaxPostNum2(4);
+      } else {
+        setMaxPostNum1(3); // Adjust this value as per your requirement
+        setMaxPostNum2(6);
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <Template
@@ -88,9 +105,9 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     >
       <Introduction profileImage={gatsbyImageData} />
       <Title>🥃 New drinks!</Title>
-      <PostList selectedCategory={'all'} posts={edges} maxPostNum={6} />
+      <PostList selectedCategory={'all'} posts={edges} maxPostNum={maxPostNum1} />
       <Title>🍹 Signature drinks!</Title>
-      <PostList selectedCategory={'Choice'} posts={edges} maxPostNum={6} />
+      <PostList selectedCategory={'Choice'} posts={edges} maxPostNum={maxPostNum2} />
       <GoToPostButton to="/post">🥂 더 많은 포스트를 볼래요!</GoToPostButton>
     </Template>
   )

@@ -172,6 +172,25 @@ heapq.heapify(heap)
 
 # 최대힙 구현
 heapq.heappush(heap , (-item , item))
+
+# 이진탐색
+from bisect import bisect
+from bisect import bisect_left, bisect_right
+
+nums = [0,1,2,3,4,5,6,7,8,9]
+n = 5
+
+bisect_left(nums, n) # 5 삽입할 수 있는 가장 왼쪽 인덱스를 리턴
+bisect_right(nums, n) # 6 삽입할 수 있는 가장 오른쪽 인덱스를 리턴
+
+nums = [4, 5, 5, 5, 5, 5, 5, 5, 5, 6]
+n = 5
+
+bisect_left(nums, n) # 1
+bisect_right(nums, n) # 9
+
+# bisect_right(a) - bisect_left(b) = a~b 범위에 포함되는 데이터의 개수
+# bisect_right(a) - bisect_left(a) = a 데이터의 개수
 ```
 
 ## Source

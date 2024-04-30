@@ -209,7 +209,26 @@ heap <span class="token operator">=</span> <span class="token punctuation">[</sp
 heapq<span class="token punctuation">.</span>heapify<span class="token punctuation">(</span>heap<span class="token punctuation">)</span>
 
 <span class="token comment"># 최대힙 구현</span>
-heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>heap <span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span>item <span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre></div>
+heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>heap <span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span>item <span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 이진탐색</span>
+<span class="token keyword">from</span> bisect <span class="token keyword">import</span> bisect
+<span class="token keyword">from</span> bisect <span class="token keyword">import</span> bisect_left<span class="token punctuation">,</span> bisect_right
+
+nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span>
+n <span class="token operator">=</span> <span class="token number">5</span>
+
+bisect_left<span class="token punctuation">(</span>nums<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token comment"># 5 삽입할 수 있는 가장 왼쪽 인덱스를 리턴</span>
+bisect_right<span class="token punctuation">(</span>nums<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token comment"># 6 삽입할 수 있는 가장 오른쪽 인덱스를 리턴</span>
+
+nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">]</span>
+n <span class="token operator">=</span> <span class="token number">5</span>
+
+bisect_left<span class="token punctuation">(</span>nums<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token comment"># 1</span>
+bisect_right<span class="token punctuation">(</span>nums<span class="token punctuation">,</span> n<span class="token punctuation">)</span> <span class="token comment"># 9</span>
+
+<span class="token comment"># bisect_right(a) - bisect_left(b) = a~b 범위에 포함되는 데이터의 개수</span>
+<span class="token comment"># bisect_right(a) - bisect_left(a) = a 데이터의 개수</span></code></pre></div>
 <h2 id="source" style="position:relative;"><a href="#source" aria-label="source permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Source</h2>
 <ul>
 <li>『파이썬 알고리즘 인터뷰』 <em>-박상길 지음</em><br>

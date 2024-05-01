@@ -18,8 +18,12 @@ thumbnail: './common/python.png'
 import pprint       # pprint.pprint(locals()) 로컬 변수 디버깅
 import re           # 정규식
 import collections  # counter, defaultdict, deque ...
-import sys          # -sys.maxsize
+import sys          # -sys.maxsize, stdin.readline
 import heapq
+
+# 입력 시간 단축 (개행문자까지 받아오므로 주의!)
+input = sys.stdin.readline
+test = input()
 
 # 가능한 메소드 출력
 a = []
@@ -191,9 +195,53 @@ bisect_right(nums, n) # 9
 
 # bisect_right(a) - bisect_left(b) = a~b 범위에 포함되는 데이터의 개수
 # bisect_right(a) - bisect_left(a) = a 데이터의 개수
+
+# 다익스트라 (출처 : velog.io/@tks7205)
+
+# 5 6
+# 1
+# 5 1 1
+# 1 2 1
+# 1 3 3
+# 2 3 1
+# 2 4 5
+# 3 4 2
+
+n, m = map(int, input().split()) # 노드 갯수, 간선 갯수 
+k = int(input())  # 시작 노드
+INF = 1e8
+
+graph = [[] for _ in range(n+1)] # 각 노드에서 갈수 있는 다음 노드와 거리 정보. 
+
+distance = [INF] * (n+1) # 시작 노드에서 각 노드까지 걸리는 거리. 이후 갱신된다.
+
+for _ in range(m):
+  u, v, w = map(int, input().split()) # u: 출발노드, v: 도착노드, w: 연결된 간선의 가중치 
+  graph[u].append((v, w))
+
+def dijkstra(start):
+  q = []
+  heapq.heappush(q, (0, start))
+  distance[start] = 0
+
+  while q:
+    dist, now = heapq.heappop(q) # 출발 노드부터 현재 위치 까지의 거리 (시도해보는 값), 현재 위치
+
+    if distance[now] < dist: # 시도 해보는 값이 이미 distance에 기록된 값보다 크다면 의미가 없음
+      continue
+
+    for i in graph[now]:     # 갈수 있는 모든 노드 탐색
+      if dist+i[1] < distance[i[0]]: 
+        distance[i[0]] = dist+i[1]
+        heapq.heappush(q, (dist+i[1], i[0])) # 새로운 값 시도해보기
+dijkstra(k)
+print(distance)
 ```
 
 ## Source
 
 - 『파이썬 알고리즘 인터뷰』 *-박상길 지음*  
   [https://github.com/onlybooks/algorithm-interview](https://github.com/onlybooks/algorithm-interview)
+
+- 『다익스트라 알고리즘』 *-cyr*  
+  [https://velog.io/@tks7205/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-with-python](https://velog.io/@tks7205/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-with-python)

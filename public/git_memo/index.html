@@ -138,7 +138,11 @@
   hint: To abort and get back to the state before <span class="token string">"git rebase"</span>, run <span class="token string">"git rebase --abort"</span><span class="token builtin class-name">.</span>
   Could not apply 2141f7c<span class="token punctuation">..</span>. 📝 readme 생성
 
-<span class="token comment"># 충돌 발생시 해결</span></code></pre></div></div><style data-emotion="css pit38s">.css-pit38s{height:auto;}</style><div class="css-pit38s etse75s1"><style data-emotion="css v7bn0g">.css-v7bn0g{position:-webkit-sticky;position:sticky;top:50px;display:inline-block;margin:120px 40px;margin-right:0px;height:auto;width:200px;font-size:14.5px;border-left:3px solid #4ccd97;}@media (max-width: 1200px){.css-v7bn0g{display:none;}}.css-v7bn0g li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px;color:gray;}.css-v7bn0g ul{margin-left:10px;padding:7px 5px;list-style:none;}.css-v7bn0g a:hover{-webkit-transition:0.3s;transition:0.3s;font-size:15px;font-weight:700;color:#433E49;}</style><div class="css-v7bn0g etse75s0"><ul>
+<span class="token comment"># 충돌 발생시 해결</span>
+<span class="token comment"># push 할때는 -f로 강제로 올려야 한다! rebase시 기존 커밋 기록도 바뀌는 것이므로.</span>
+<span class="token function">git</span> push <span class="token parameter variable">-f</span> origin feature/k8s-boilerplate
+
+<span class="token comment"># 이후 깃허브 페이지에서 풀리퀘스트</span></code></pre></div></div><style data-emotion="css pit38s">.css-pit38s{height:auto;}</style><div class="css-pit38s etse75s1"><style data-emotion="css v7bn0g">.css-v7bn0g{position:-webkit-sticky;position:sticky;top:50px;display:inline-block;margin:120px 40px;margin-right:0px;height:auto;width:200px;font-size:14.5px;border-left:3px solid #4ccd97;}@media (max-width: 1200px){.css-v7bn0g{display:none;}}.css-v7bn0g li{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:5px;color:gray;}.css-v7bn0g ul{margin-left:10px;padding:7px 5px;list-style:none;}.css-v7bn0g a:hover{-webkit-transition:0.3s;transition:0.3s;font-size:15px;font-weight:700;color:#433E49;}</style><div class="css-v7bn0g etse75s0"><ul>
 <li>
 <p><a href="#vscode%EC%9D%98-git-source-control">vscode의 git source control</a></p>
 <ul>

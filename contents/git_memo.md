@@ -107,4 +107,8 @@ git rebase remotes/origin/develop
   Could not apply 2141f7c... 📝 readme 생성
 
 # 충돌 발생시 해결
+# push 할때는 -f로 강제로 올려야 한다! rebase시 기존 커밋 기록도 바뀌는 것이므로.
+git push -f origin feature/k8s-boilerplate
+
+# 이후 깃허브 페이지에서 풀리퀘스트
 ```

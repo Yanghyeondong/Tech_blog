@@ -1,7 +1,7 @@
 ---
 date: '2023-02-04'
 title: '[SW Coaching - Week 4] 텍스트 데이터 처리'
-categories: ['Python','WebScraping','SW Coaching']
+categories: ['Python','WebScraping','SW-Coaching']
 summary: '파이썬 Web Scraping, PoS Tagging, ngrams, TextBlob'
 thumbnail: './sw-coaching-week-4/title.png'
 ---

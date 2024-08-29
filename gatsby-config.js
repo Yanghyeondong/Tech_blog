@@ -3,7 +3,7 @@ module.exports = {
     title: `프로그래밍에서 컴퓨터 한잔`,
     description: `알고리즘 문제 풀이, Web 개발, 논문리뷰 등을 다루는 기술 블로그입니다`,
     author: `@Yanghyeondong`,
-    siteUrl: `https://yangdongs.web.app/`
+    siteUrl: `https://hyeondong.com/`
   },
   plugins: [
     `gatsby-plugin-advanced-sitemap`,
@@ -16,15 +16,15 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://yangdongs.web.app/',
-        sitemap: 'https://yangdongs.web.app/sitemap-pages.xml',
+        host: 'https://hyeondong.com/',
+        sitemap: 'https://hyeondong.com/sitemap-pages.xml',
         policy: [{ userAgent: '*', allow: '/' }],
       },
     },
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://yangdongs.web.app/',
+        siteUrl: 'https://hyeondong.com/',
         stripQueryString: true,
       },
     },

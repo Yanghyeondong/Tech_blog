@@ -1,6 +1,6 @@
 <br>
 <p align="center">
-    <a href="https://yangdongs.web.app/">
+    <a href="https://hyeondong.com/">
         <img style="border-radius: 10px" width="auto" height="auto" src="https://user-images.githubusercontent.com/37038105/202439323-35317d2a-2964-40ea-9d4b-88eb6d8dc4ea.gif">
     <a>
 </p>
@@ -29,7 +29,7 @@
 모히또를 좋아하는 개발자가 이것저것 모아서 꾸린 기술 블로그입니다.  
 가벼운 마음으로 정보를 가져가세요. 필요한 누군가에게 도움이 되었으면 합니다.  
 
-#### 웹사이트 링크: [yangdongs.web.app](https://yangdongs.web.app/)
+#### 웹사이트 링크: [hyeondong.com](https://hyeondong.com/)
 <br>
 
 ## 📜 게시글 목록  
@@ -49,7 +49,7 @@
 
 ## 👨‍🎓 개발자 소개
 
-[바로가기](https://yangdongs.web.app/about/) - 현재 페이지 제작 중입니다. 😓
+[바로가기](https://hyeondong.com/about/) - 현재 페이지 제작 중입니다. 😓
 
 <br>
 

@@ -10,7 +10,7 @@ thumbnail: './common/leetcode.png'
 [232. Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
 \
 **스택**를 이용하여 **큐**의 기본 연산들을 구현하는 문제입니다.  
-저번 [225. Implement Stack using Queues](https://yangdongs.web.app/leetcode-225-explanation/) 과 정반대 문제입니다. 자세한 조건은 다음과 같습니다.  
+저번 [225. Implement Stack using Queues](https://hyeondong.com/leetcode-225-explanation/) 과 정반대 문제입니다. 자세한 조건은 다음과 같습니다.  
 > **leetcode 설명**  
 > `void push(int x)` Pushes element x to the back of the queue.  
 > `int pop()` Removes the element from the front of the queue and returns it.  
@@ -84,7 +84,7 @@ class MyQueue:
 ## 3. 피드백
 이번에는 **코드 1**과 **코드 2**가 살짝 비슷해 보입니다. 둘 다 스택을 **2개** 활용하기 때문입니다. 하지만 접근법과 시간 복잡도를 따져보면 **코드 2**가 훨씬 더 효율적입니다. 다만 서버에 편차가 있었는지, 혹은 테스트 케이스가 무난해서 그런지 leetcode 처리시간은 서로 비슷합니다.🙄  
 \
-우선 **코드 1**은 저번 [225. Implement Stack using Queues](https://yangdongs.web.app/leetcode-225-explanation/) 문제에서 사용한 아이디어를 응용했습니다. 처음에는 저번 문제의 **코드 2**처럼, 추가  공간없이 1개의 스택만으로 문제를 풀 수 없을까 고민했습니다. ex.) `self.dq2.append(self.dq1.popleft())`. 하지만 스택을 뒤집는 연산을 위해서는 무조건 **추가 공간**이 필요하기 때문에 2개의 스택을 사용했습니다. 아이디어를 간단히 정리하면 다음과 같습니다.  
+우선 **코드 1**은 저번 [225. Implement Stack using Queues](https://hyeondong.com/leetcode-225-explanation/) 문제에서 사용한 아이디어를 응용했습니다. 처음에는 저번 문제의 **코드 2**처럼, 추가  공간없이 1개의 스택만으로 문제를 풀 수 없을까 고민했습니다. ex.) `self.dq2.append(self.dq1.popleft())`. 하지만 스택을 뒤집는 연산을 위해서는 무조건 **추가 공간**이 필요하기 때문에 2개의 스택을 사용했습니다. 아이디어를 간단히 정리하면 다음과 같습니다.  
 > 1. `pop()`, `peek()`의 경우 모든 요소들을 다 뺀 후 집어넣는 기능이 공통으로 필요하다.
 > 2. 위의 기능을 `get_first()`로 구현, 마지막 요소 `pop()`을 상황에 맞게 실행한다.  
 다음으로 **코드 2**입니다. 스택을 2개 사용하긴 하지만, 그 과정이 훨씬 효율적입니다. 정리해보면 다음과 같습니다.  

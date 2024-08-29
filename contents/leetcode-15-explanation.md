@@ -9,7 +9,7 @@ thumbnail: './common/leetcode.png'
 
 [15. 3Sum](https://leetcode.com/problems/3sum/)
 \
-지난번에 풀었던 [1. Two Sum](https://yangdongs.web.app/leetcode-1-explanation/) 문제의 진화 버전입니다. 이번에는 **3**개 숫자의 합이**0**이 되는 조합을 찾는 것입니다. 조합 내부의 순서는 상관없지만 중복되는 조합이 있어서는 안되는 것이 포인트입니다.
+지난번에 풀었던 [1. Two Sum](https://hyeondong.com/leetcode-1-explanation/) 문제의 진화 버전입니다. 이번에는 **3**개 숫자의 합이**0**이 되는 조합을 찾는 것입니다. 조합 내부의 순서는 상관없지만 중복되는 조합이 있어서는 안되는 것이 포인트입니다.
 ## 2. 코드
 
 **코드 1**  
@@ -67,7 +67,7 @@ class Solution:
 ## 3. 피드백
 이번에도 **코드 2**의 시간이 훨씬 더 짧습니다. **코드 1**의 경우 절반 정도는 Time Limit Exceeded 가 떴기 때문에 바람직하지 못한 풀이라고 봅니다.  
 \
-**코드 1**의 경우 저번에 풀었던 [1. Two Sum](https://yangdongs.web.app/leetcode-1-explanation/) 문제의 풀이를 응용했습니다. 다만 차이점이 다음과 같이 있습니다.  
+**코드 1**의 경우 저번에 풀었던 [1. Two Sum](https://hyeondong.com/leetcode-1-explanation/) 문제의 풀이를 응용했습니다. 다만 차이점이 다음과 같이 있습니다.  
 > 1. 숫자가 3개이기 때문에 **이중 반복문**으로 2개의 수를 선택해야 한다. **ex.) x = 0 - 1 + 2**  
 > 2. 총 3개의 숫자 리스트를 만들기 때문에 **중복**이 일어난다. **ex.) [1, 0, -1], [0, 1, -1]**
 

@@ -175,7 +175,7 @@ class MyCircularDeque:
 ```
 
 ## 3. 피드백  
-이번에는 **원형 데크** 라는 **추상적 자료형**(ADT)를 구현하는 문제입니다. 저번 문제 [622. Design Circular Queue](https://yangdongs.web.app/leetcode-622-explanation/)와 매우 유사합니다. 이번에도 **코드 1**과 **코드 2**가 많은 부분을 공유하지만, 몇몇 부분에서 차이를 보입니다.  
+이번에는 **원형 데크** 라는 **추상적 자료형**(ADT)를 구현하는 문제입니다. 저번 문제 [622. Design Circular Queue](https://hyeondong.com/leetcode-622-explanation/)와 매우 유사합니다. 이번에도 **코드 1**과 **코드 2**가 많은 부분을 공유하지만, 몇몇 부분에서 차이를 보입니다.  
 \
 이번 피드백에서도 저번처럼 자세한 풀이는 생략하고 차이점만 짚어보겠습니다. 원형 데크 ADT 자체가 이미 정의되어있기 때문입니다(함수 이름 및 언어만 다를 뿐). 개념 설명은 링크로 대체하겠습니다.  
 [geeksforgeeks.org/implementation-deque-using-circular-array/](https://www.geeksforgeeks.org/implementation-deque-using-circular-array/)  

@@ -61,7 +61,7 @@ class Solution:
 
 이번에는 **코드 1**과 **코드 2**의 시간 차이가 크지 않습니다. 둘 다 **O(n)** 시간 복잡도를 가집니다.  
 \
-우선 **코드 1**의 경우 저번 문제 [238. Product of Array Except Self](https://yangdongs.web.app/leetcode-238-explanation/) 의 아이디어를 사용했습니다. 주요 아이디어를 정리해보면 다음과 같습니다.
+우선 **코드 1**의 경우 저번 문제 [238. Product of Array Except Self](https://hyeondong.com/leetcode-238-explanation/) 의 아이디어를 사용했습니다. 주요 아이디어를 정리해보면 다음과 같습니다.
 > 1. 좌측 최솟값(저점)을 인덱스마다 리스트로 기록  
 > 2. 우측 최댓값(고점)을 인덱스마다 리스트로 기록  
 > 3. 동일한 인덱스에 한해 차이가 가장 큰 값이 최대 이익  

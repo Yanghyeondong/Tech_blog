@@ -10,7 +10,7 @@ thumbnail: './common/python.png'
 - 단, 이러한 행동은 협업 & 보수 측면에서 **지양**하는 것이 좋다.
 
 ## 2. 문제 인식
-알고리즘 문제 [641. Design Circular Deque](https://yangdongs.web.app/leetcode-641-explanation/) 를 풀다가, 다음과 같은 난관에 부딪혔습니다.  
+알고리즘 문제 [641. Design Circular Deque](https://hyeondong.com/leetcode-641-explanation/) 를 풀다가, 다음과 같은 난관에 부딪혔습니다.  
 \
 **코드**
 ```py

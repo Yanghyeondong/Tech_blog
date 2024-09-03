@@ -9,7 +9,7 @@
     "redirects": [
       {
         "source": "/**", 
-        "destination": "https://hyeondong.com/",
+        "destination": "https://hyeondong-blog.web.app/",
         "type": 301
       }
     ],

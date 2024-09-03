@@ -8,7 +8,7 @@
     ],
     "redirects": [
       {
-        "source": "/**", 
+        "source": "https://yangdongs.web/**", 
         "destination": "https://hyeondong.com/",
         "type": 301
       }

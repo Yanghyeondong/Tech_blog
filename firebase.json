@@ -6,13 +6,6 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "redirects": [
-      {
-        "source": "/**", 
-        "destination": "https://hyeondong.com/",
-        "type": 301
-      }
-    ],
     "headers": [
       {
         "source": "**/*",

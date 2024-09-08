@@ -58,6 +58,9 @@
 <span class="token keyword">import</span> collections  <span class="token comment"># counter, defaultdict, deque ...</span>
 <span class="token keyword">import</span> sys          <span class="token comment"># -sys.maxsize, stdin.readline</span>
 <span class="token keyword">import</span> heapq
+<span class="token comment"># 이진탐색</span>
+<span class="token keyword">from</span> bisect <span class="token keyword">import</span> bisect
+<span class="token keyword">from</span> bisect <span class="token keyword">import</span> bisect_left<span class="token punctuation">,</span> bisect_right
 
 <span class="token comment"># 입력 시간 단축 (개행문자까지 받아오므로 주의!)</span>
 <span class="token builtin">input</span> <span class="token operator">=</span> sys<span class="token punctuation">.</span>stdin<span class="token punctuation">.</span>readline
@@ -216,8 +219,6 @@ heapq<span class="token punctuation">.</span>heapify<span class="token punctuati
 heapq<span class="token punctuation">.</span>heappush<span class="token punctuation">(</span>heap <span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token operator">-</span>item <span class="token punctuation">,</span> item<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
 <span class="token comment"># 이진탐색</span>
-<span class="token keyword">from</span> bisect <span class="token keyword">import</span> bisect
-<span class="token keyword">from</span> bisect <span class="token keyword">import</span> bisect_left<span class="token punctuation">,</span> bisect_right
 
 nums <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">]</span>
 n <span class="token operator">=</span> <span class="token number">5</span>

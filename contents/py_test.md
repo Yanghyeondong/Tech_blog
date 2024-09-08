@@ -20,6 +20,9 @@ import re           # 정규식
 import collections  # counter, defaultdict, deque ...
 import sys          # -sys.maxsize, stdin.readline
 import heapq
+# 이진탐색
+from bisect import bisect
+from bisect import bisect_left, bisect_right
 
 # 입력 시간 단축 (개행문자까지 받아오므로 주의!)
 input = sys.stdin.readline
@@ -178,8 +181,6 @@ heapq.heapify(heap)
 heapq.heappush(heap , (-item , item))
 
 # 이진탐색
-from bisect import bisect
-from bisect import bisect_left, bisect_right
 
 nums = [0,1,2,3,4,5,6,7,8,9]
 n = 5

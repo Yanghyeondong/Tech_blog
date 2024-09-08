@@ -9,21 +9,24 @@ import Template from 'components/Common/Template'
 import { Link } from 'gatsby'
 
 const GoToPostButton = styled(Link)`
-  margin: 50px auto;
-  margin-bottom: 0px;
+  margin: 70px auto;
+  margin-bottom: 50px;
   font-size: 30px;
-  padding: 10px;
+  padding: 10px 20px;
   font-weight: 800;
   height: auto;
-  color: #433E49;
-  border-bottom-style: dotted;
+  color: #ffffff;
+  background-color: #433E49;
+  border-radius: 10px;
+
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 
   &:hover {
     transition: 0.5s;
-    background-color: #433E49;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #433E49;
     border-radius: 10px;
-    border-bottom-style: solid;
+
   }
 
   @media (max-width: 768px) {
@@ -108,7 +111,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       <PostList selectedCategory={'all'} posts={edges} maxPostNum={maxPostNum1} />
       <Title>🍹 Signature drinks!</Title>
       <PostList selectedCategory={'Choice'} posts={edges} maxPostNum={maxPostNum2} />
-      <GoToPostButton to="/post">🥂 더 많은 포스트를 볼래요!</GoToPostButton>
+      <GoToPostButton to="/post">🥂 전체 포스트 확인하기</GoToPostButton>
     </Template>
   )
 }

@@ -6,7 +6,7 @@ summary: "K8s pod에서 WeTTY를 구동하고, 외부에서 웹 페이지로 접
 thumbnail: './wetty/3.png'
 ---
 
-졸업작품 [DEVROOM](https://github.com/DEVROOM-OFFICIAL/DEVROOM-backend)을 진행하면서, 학생들의 교육용 컨테이너에 조금 더 쉽게 접근할 방법을 고민했습니다. 그러다가 Web 브라우저로 사용 가능한 SSH 가 편리할 것 같다는 생각이 들어서 한 번 찾아보았습니다. **Apache Guacamole, WeTTY, webssh** 등 여러 후보들이 나왔는데, 전 그중에서도 **WeTTY**로 구축해 보았습니다.
+졸업작품 [DEVROOM](https://github.com/DEVROOM-OFFICIAL)을 진행하면서, 학생들의 교육용 컨테이너에 조금 더 쉽게 접근할 방법을 고민했습니다. 그러다가 Web 브라우저로 사용 가능한 SSH 가 편리할 것 같다는 생각이 들어서 한 번 찾아보았습니다. **Apache Guacamole, WeTTY, webssh** 등 여러 후보들이 나왔는데, 전 그중에서도 **WeTTY**로 구축해 보았습니다.
 
 ## 0. WeTTY란?
 Web + TTY 를 목표로 하는 프로젝트로서,  

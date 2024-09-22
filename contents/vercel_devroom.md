@@ -5,7 +5,7 @@ categories: ['Front-end','Cloud']
 summary: '로컬에서 Next.js로 개발한 DevRoom 프론트엔드를 S3와 Vercel에 배포해 봅니다.'
 thumbnail: './devroom/page.png'
 ---
-졸업작품 [DEVROOM](https://github.com/DEVROOM-OFFICIAL/DEVROOM-backend)을 진행하면서, 기존에 [@Taegon21](https://github.com/Taegon21)님이 개발하시던 프론트엔드를 이어받게 되었습니다. 그래서 이를 재배포하는 과정과 도중에 생긴 문제점을 정리해 보았습니다.
+졸업작품 [DEVROOM](https://github.com/DEVROOM-OFFICIAL)을 진행하면서, 기존에 [@Taegon21](https://github.com/Taegon21)님이 개발하시던 프론트엔드를 이어받게 되었습니다. 그래서 이를 재배포하는 과정과 도중에 생긴 문제점을 정리해 보았습니다.
 
 ## 1. 왜 AWS S3는 안되는가?
 사실 처음에는 AWS의 S3에 정적페이지를 배포하려고 했습니다.  

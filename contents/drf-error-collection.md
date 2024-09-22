@@ -1,7 +1,7 @@
 ---
 date: '2021-10-11'
 title: '[velog 이전] DRF 에러 해결 모음집'
-categories: ['Web', 'Back-end', 'Choice']
+categories: ['Web', 'Back-end']
 summary: 'DRF 에러 중 Heroku static, media file serving, Nested serializers, name already exists, Moved Permanently 등에 대해 알아본다'
 thumbnail: './drf-error-collection/main.png'
 ---

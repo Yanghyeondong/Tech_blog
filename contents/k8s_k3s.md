@@ -1,7 +1,7 @@
 ---
 date: '2024-03-09'
 title: 'K8S와 K3S의 차이점'
-categories: ['K8s', 'Docker','DevOps']
+categories: ['K8s', 'Docker','DevOps', 'Choice']
 summary: 'k8s와 k3s의 차이점을 알아봅니다'
 thumbnail: './k8s/k3s.jpg'
 ---

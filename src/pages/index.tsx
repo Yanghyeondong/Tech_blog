@@ -109,7 +109,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       <Introduction profileImage={gatsbyImageData} />
       <Title>🥃 New drinks!</Title>
       <PostList selectedCategory={'all'} posts={edges} maxPostNum={maxPostNum1} />
-      <Title>🍹 Signature drinks!</Title>
+      <Title>🍹 Hot drinks!</Title>
       <PostList selectedCategory={'Choice'} posts={edges} maxPostNum={maxPostNum2} />
       <GoToPostButton to="/post">🥂 전체 포스트 확인하기</GoToPostButton>
     </Template>

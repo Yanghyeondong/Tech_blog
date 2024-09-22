@@ -47,12 +47,6 @@
 
 <br>
 
-## 👨‍🎓 개발자 소개
-
-[바로가기](https://hyeondong.com/about/) - 현재 페이지 제작 중입니다. 😓
-
-<br>
-
 ## 📦 Source
 
 [[인프런] React 기반 Gatsby로 기술 블로그 개발하기](https://www.inflearn.com/course/gatsby-%EA%B8%B0%EC%88%A0%EB%B8%94%EB%A1%9C%EA%B7%B8)

@@ -1,6 +1,6 @@
 ---
-date: '2024-10-12'
-title: 'Python 실전 압축 정리본 [2024.10.12 보충]'
+date: '2024-10-13'
+title: 'Python 실전 압축 정리본 [2024.10.13 보충]'
 categories: ['Tip','Python', 'Algorithm']
 summary: '코딩테스트에 유용한 Python 라이브러리와 문법을 정리합니다.'
 thumbnail: './common/python.png'
@@ -8,8 +8,8 @@ thumbnail: './common/python.png'
 
 
 *2024.03.23 - 첫 작성*  
-*2024.09.29 - 알고리즘 추가 보충*  
-*2024.10.12 - 이분탐색, 플로이드워셜 추가*  
+*2024.09.29 - 그래프 관련 알고리즘 추가 보충*  
+*2024.10.13 - 이분탐색, 에라토스테네스의 체, gcd, lcm, 플로이드워셜 추가*  
 \
 최근 알고리즘 특강때문에 C++를 오랜만에 복기했습니다.  
 근데 오히려 C++를 장기간 하다보니 본래 Python이 헷갈리게 되었습니다.  
@@ -386,6 +386,30 @@ def binary_search(target, data):
         else:
             start = mid + 1
     return -1
+```
+
+```python
+# 소수 판별
+def is_prime(n):
+    if n < 2: # 0과 1은 소수가 아님
+        return False
+    for i in range(2, int(n ** 0.5) + 1):
+        if n % i == 0:
+            return False
+    return True
+
+# 에라토스테네스의 체
+def sieve_of_eratosthenes(limit):
+    sieve = [True] * (limit + 1)
+    sieve[0] = sieve[1] = False  # 0과 1은 소수가 아님
+    
+    for i in range(2, int(limit ** 0.5) + 1):
+        if sieve[i]:
+            for j in range(i * i, limit + 1, i):
+                sieve[j] = False
+    
+    # 소수만 리스트로 반환
+    return [i for i in range(limit + 1) if sieve[i]]
 ```
 
 ```python

@@ -1,6 +1,6 @@
 ---
-date: '2024-09-29'
-title: 'Python 실전 압축 정리본 [2024.09.29 보충]'
+date: '2024-10-12'
+title: 'Python 실전 압축 정리본 [2024.10.12 보충]'
 categories: ['Tip','Python', 'Algorithm']
 summary: '코딩테스트에 유용한 Python 라이브러리와 문법을 정리합니다.'
 thumbnail: './common/python.png'
@@ -9,6 +9,7 @@ thumbnail: './common/python.png'
 
 *2024.03.23 - 첫 작성*  
 *2024.09.29 - 알고리즘 추가 보충*  
+*2024.10.12 - 이분탐색, 플로이드워셜 추가*  
 \
 최근 알고리즘 특강때문에 C++를 오랜만에 복기했습니다.  
 근데 오히려 C++를 장기간 하다보니 본래 Python이 헷갈리게 되었습니다.  
@@ -23,7 +24,9 @@ import pprint       # pprint.pprint(locals()) 로컬 변수 디버깅
 import re           # 정규식
 import collections  # counter, defaultdict, deque ...
 import sys          # -sys.maxsize, stdin.readline
-import heapq            
+import heapq        # 우선순위 큐, 힙 큐
+import math         # gcd, lcm
+
 from bisect import bisect_left, bisect_right    # 이진탐색
 
 # 입력 시간 단축 (개행문자까지 받아오므로 주의!)
@@ -153,6 +156,24 @@ q.pop()         # 2
 5 // 3	# 1
 int(5/3) # 1
 5 % 3	# 2
+
+# gcd(최대공약수), lcm(최소공배수)
+math.gcd(11, 22, 33)    # 11
+math.lcm(2, 4, 6)       # 12
+
+def gcd(a, b):
+    while b > 0:
+        a, b = b, a % b
+    return a
+
+def gcd(a, b):
+    if b == 0:
+        return a
+    else:
+        return gcd(b, a % b)
+
+def lcm(a, b):
+    return abs(a * b) // gcd(a, b)  # or math.gcd()
 
 # 다중 할당 (우측 값들이 최초로 먼저 정해진다)
 a = 1

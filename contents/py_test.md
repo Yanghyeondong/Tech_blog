@@ -1,6 +1,6 @@
 ---
-date: '2024-10-13'
-title: 'Python 실전 압축 정리본 [2024.10.13 보충]'
+date: '2024-10-14'
+title: 'Python 실전 압축 정리본 [2024.10.14 보충]'
 categories: ['Tip','Python', 'Algorithm']
 summary: '코딩테스트에 유용한 Python 라이브러리와 문법을 정리합니다.'
 thumbnail: './common/python.png'
@@ -9,7 +9,7 @@ thumbnail: './common/python.png'
 
 *2024.03.23 - 첫 작성*  
 *2024.09.29 - 그래프 관련 알고리즘 추가 보충*  
-*2024.10.13 - 이분탐색, 에라토스테네스의 체, gcd, lcm, 플로이드워셜 추가*  
+*2024.10.14 - 이분탐색, 에라토스테네스의 체, gcd, lcm, 플로이드워셜 추가*  
 \
 최근 알고리즘 특강때문에 C++를 오랜만에 복기했습니다.  
 근데 오히려 C++를 장기간 하다보니 본래 Python이 헷갈리게 되었습니다.  
@@ -182,6 +182,13 @@ c = 3
 d = 4
 a, b, c = d, a, b # 4 1 2
 
+# 문자를 아스키 코드로 변환
+ascii_value = ord('A')
+print(ascii_value)  # 65 (int형)
+
+# 아스키 코드를 문자로 변환
+character = chr(65)
+print(character)  # 'A'
 
 # 정렬
 a.sort(key=lambda x: (x[1], x[0]))  # 우선순위 설정 
@@ -368,6 +375,22 @@ kruskal()
 ```
 
 ```python
+# 플로이드-워셜
+
+INF = 1e10
+n = 6 # 노드 수
+cost = [[1, 2, INF, 4],[2, 0, 3, 5],[3, 2, INF, 0 ],[3, 2, 1, 0]]
+
+def FloydWarshall():
+    for k in range(n): # 중간
+        for i in range(n): # 시작
+            for j in range(n): # 끝
+                cost[i][j] = min(cost[i][j], cost[i][k] + cost[k][j])
+
+FloydWarshall()
+```
+
+```python
 # 이분탐색
 
 def binary_search(target, data):
@@ -383,8 +406,10 @@ def binary_search(target, data):
 
         elif data[mid] > target:
             end = mid - 1
+
         else:
             start = mid + 1
+
     return -1
 ```
 
@@ -410,23 +435,6 @@ def sieve_of_eratosthenes(limit):
     
     # 소수만 리스트로 반환
     return [i for i in range(limit + 1) if sieve[i]]
-```
-
-```python
-# 플로이드-워셜
-
-INF = 1e10
-n = 6 # 노드 수
-cost = [[1, 2, INF, 4],[2, 0, 3, 5],[3, 2, INF, 0 ],[3, 2, 1, 0]]
-
-def FloydWarshall():
-    for k in range(n): # 중간
-        for i in range(n): # 시작
-            for j in range(n): # 끝
-                if cost[i][j] > cost[i][k] + cost[k][j]:
-                    cost[i][j] = cost[i][k] + cost[k][j]
-
-FloydWarshall()
 ```
 ## Source
 

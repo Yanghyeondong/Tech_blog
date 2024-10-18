@@ -1,15 +1,16 @@
 ---
-date: '2024-10-14'
-title: 'Python 실전 압축 정리본 [2024.10.14 보충]'
+date: '2024-10-16'
+title: 'Python 실전 압축 정리본 [2024.10.16 보충]'
 categories: ['Tip','Python', 'Algorithm']
 summary: '코딩테스트에 유용한 Python 라이브러리와 문법을 정리합니다.'
 thumbnail: './common/python.png'
 ---
 
-
 *2024.03.23 - 첫 작성*  
 *2024.09.29 - 그래프 관련 알고리즘 추가 보충*  
 *2024.10.14 - 이분탐색, 에라토스테네스의 체, gcd, lcm, 플로이드워셜 추가*  
+*2024.10.16 - combinations, permutations, 벨만포드 추가*
+
 \
 최근 알고리즘 특강때문에 C++를 오랜만에 복기했습니다.  
 근데 오히려 C++를 장기간 하다보니 본래 Python이 헷갈리게 되었습니다.  
@@ -25,8 +26,8 @@ import re           # 정규식
 import collections  # counter, defaultdict, deque ...
 import sys          # -sys.maxsize, stdin.readline
 import heapq        # 우선순위 큐, 힙 큐
-import math         # gcd, lcm
-
+import math         # gcd, lcm, ceil, floor
+import itertools    # permutations, combinations
 from bisect import bisect_left, bisect_right    # 이진탐색
 
 # 입력 시간 단축 (개행문자까지 받아오므로 주의!)
@@ -133,7 +134,9 @@ list(a.keys())    # ['a', 'b']
 list(a.values())  # [100, 200]
 list(a.items())   # [('a', 100), ('b', 200)]
 
-for k,v in a.items():
+# 가능하면 반복문에서는 .items() 대신 .keys() test_dict[key]로 값을 변경할 것. 
+# .items()에서 v는 카피본이라 원본이 바뀌지 않는다.
+for k,v in a.items(): 
 
 # 조회와 값 할당이 동시에 가능
 a = collections.defaultdict(list)
@@ -156,6 +159,33 @@ q.pop()         # 2
 5 // 3	# 1
 int(5/3) # 1
 5 % 3	# 2
+
+# 올림
+math.ceil(3.14)     # 4
+math.ceil(-3.14)    # -3
+
+# 내림
+math.floor(3.14)    # 3
+math.floor(-3.14)   # -4
+math.trunc(-3.14)   # -3 (0으로 향하는 내림)
+
+# 반올림 (5미만 버림, 5초과 올림. 5는 앞자리가 짝수면 버리고, 홀수면 올린다.)
+round(3.1415, 2)    # 3.14
+round(31.415, -1)   # 30.0
+round(4.5)          # 4
+round(3.5)          # 4
+
+arr = ['A', 'B', 'C']
+nPr = itertools.permutations(arr, 2)
+print(list(nPr))    # [('A', 'B'), ('A', 'C'), ('B', 'A'), ('B', 'C'), ('C', 'A'), ('C', 'B')]
+
+arr = ['A', 'B', 'C']
+nCr = itertools.combinations(arr, 2)
+print(list(nCr))    # [('A', 'B'), ('A', 'C'), ('B', 'C')]
+
+arr = ['A', 'B', 'C']
+nCr = itertools.combinations_with_replacement(arr, 2)
+print(list(nCr))    # [('A', 'A'), ('A', 'B'), ('A', 'C'), ('B', 'B'), ('B', 'C'), ('C', 'C')]
 
 # gcd(최대공약수), lcm(최소공배수)
 math.gcd(11, 22, 33)    # 11
@@ -234,6 +264,7 @@ bisect_right(nums, n) # 9
 # 다익스트라 (출처 : velog.io/@tks7205)
 # 단방향, 양방향, 사이클 모두 가능
 # 음의 간선이 있을때는 불가능 (사이클로 인한 무한 반복)
+# O(ElogV)
 import collections as cl
 import heapq 
 
@@ -266,22 +297,90 @@ def dijkstra(start):
     
     # 시도 해보는 값이 이미 distance에 기록된 값보다 크다면 의미가 없음, 이전 어디선가 최솟값을 갱신.
     # 큐에 넣을때 최솟값으로 갱신하고 넣긴 하지만, 그 이전에 큐에서 빠져나온 후 계산된 값이 더 작을수도 있음. 이런 경우 생략.
+    # <=는 안됨. 같은 경우는 계산해야 한다!
     if distance[node] < cost:      
       continue
 
-    for next_node, new_cost in graph[node]:                      # node(현재노드)로 부터 갈 수 있는 모든 노드 탐색
-      if cost+new_cost < distance[next_node]:          # 새롭게 늘어난 거리가 기존에 기록된 값보다 작은 경우에만 시도해볼 가치가 있다.
-        distance[next_node] = cost+new_cost            # 최솟값 갱신하기
-        heapq.heappush(q, (cost+new_cost, next_node))  # 새로운 값 시도해보기
+    for next_node, next_cost in graph[node]:                      # node(현재노드)로 부터 갈 수 있는 모든 노드 탐색
+      new_cost = cost+next_cost
+      if new_cost < distance[next_node]:          # 새롭게 늘어난 거리가 기존에 기록된 값보다 작은 경우에만 시도해볼 가치가 있다.
+        distance[next_node] = new_cost            # 최솟값 갱신하기
+        heapq.heappush(q, (new_cost, next_node))  # 새로운 값 시도해보기
 
 dijkstra(k)
 print(distance)
 ```
 
 ```python
+# 벨만-포드 (출처: https://headf1rst.github.io/algorithm/bellmanford/)
+# 음수 가중치 간선 가능
+# negative cycle이 존재하면 False 반환
+# O(EV)
+ 
+# 노드, 간선의 개수 입력
+v, e = map(int, input().split())
+# 모든 간선에 대한 정보를 담는 리스트
+edges = []
+
+# 최단거리 테이블을 무한대로 초기화
+distance = [INF] * (v + 1)
+
+# 모든 간선의 정보 입력
+for _ in range(e):
+    start, end, cost = map(int, input().split())
+    edges.append((start, end, cost))
+
+# 벨만-포드 알고리즘
+def bf(start):
+    # 시작 노드에 대해서 초기화
+    distance[start] = 0
+    # v번 edge relaxation을 반복.
+    # v - 1번 탐색하고 마지막 한번은 Negative cycle 존재 확인
+    for i in range(v):
+        # 매 반복마다 모든 간선을 확인하며 갱신
+        for now_node, next_node, next_cost in edges:
+            # 현재 간선을 거쳐서 다른 노드로 이동하는 거리가 더 짧은 경우
+            if distance[now_node] == INF:
+                continue
+
+            new_cost = distance[now_node] + next_cost
+            if new_cost < distance[next_node]:
+                distance[next_node] = new_cost
+                # v번째 반복에서 갱신되는 값이 있으면 Negative cycle 존재
+                if i == (v - 1):
+                    return False
+
+    # 벨만-포드 정상종료
+    return True
+
+if bf(1):
+    # 1번 노드를 제외한 다른 모든 노드로 가기 위한 최단거리를 출력
+    print(distance)
+else:
+    print("Negative Cycle Exist")
+```
+
+```python
+# 플로이드-워셜
+# O(V^3)
+
+INF = 1e10
+n = 6 # 노드 수
+cost = [[1, 2, INF, 4],[2, 0, 3, 5],[3, 2, INF, 0 ],[3, 2, 1, 0]]
+
+def FloydWarshall():
+    for k in range(n): # 중간
+        for i in range(n): # 시작
+            for j in range(n): # 끝
+                cost[i][j] = min(cost[i][j], cost[i][k] + cost[k][j])
+
+FloydWarshall()
+```
+
+```python
 # 프림 (출처: https://c4u-rdav.tistory.com/49)
 # 단방향, 사이클 모두 가능. 양방향일때, 방향에 따라 가중치가 다르면 작동하지 않는다!
-
+# O(VlogV)
 import heapq
 
 gp = cl.defaultdict(list) # 각 노드에서 갈수 있는 다음 노드와 거리 정보. 
@@ -318,7 +417,8 @@ prim(0)
 ```python
 # 크루스칼 (출처: https://c4u-rdav.tistory.com/48)
 # 단방향, 양방향, 사이클 모두 가능.
-
+# O(ElogE)
+ 
 # 연결 cost가 작은 간선부터 그리디하게 뽑으므로 정렬
 costs.sort(key = lambda x : x[2])
 total_cost = 0
@@ -372,22 +472,6 @@ def kruskal():
             continue
 
 kruskal()
-```
-
-```python
-# 플로이드-워셜
-
-INF = 1e10
-n = 6 # 노드 수
-cost = [[1, 2, INF, 4],[2, 0, 3, 5],[3, 2, INF, 0 ],[3, 2, 1, 0]]
-
-def FloydWarshall():
-    for k in range(n): # 중간
-        for i in range(n): # 시작
-            for j in range(n): # 끝
-                cost[i][j] = min(cost[i][j], cost[i][k] + cost[k][j])
-
-FloydWarshall()
 ```
 
 ```python
@@ -445,4 +529,7 @@ def sieve_of_eratosthenes(limit):
   [https://velog.io/@tks7205/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-with-python](https://velog.io/@tks7205/%EB%8B%A4%EC%9D%B5%EC%8A%A4%ED%8A%B8%EB%9D%BC-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-with-python)
   
 - 『크루스칼, 프림 알고리즘』 *-씨포유*  
+  [https://c4u-rdav.tistory.com/49](https://c4u-rdav.tistory.com/49)
+
+- 『벨만-포드 알고리즘』 *-Sanha Ko*  
   [https://c4u-rdav.tistory.com/49](https://c4u-rdav.tistory.com/49)

@@ -10,8 +10,8 @@ import { Link } from 'gatsby'
 
 const GoToPostButton = styled(Link)`
   margin: 70px auto;
-  margin-bottom: 50px;
-  font-size: 30px;
+  margin-bottom: 30px;
+  font-size: 40px;
   padding: 10px 20px;
   font-weight: 800;
   height: auto;
@@ -35,7 +35,7 @@ const GoToPostButton = styled(Link)`
 `
 const Title = styled.div`
   margin: auto;
-  margin-top: 100px;
+  margin-top: 80px;
   margin-bottom: 10px;
   font-size: 45px;
   font-weight: 800;
@@ -81,7 +81,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
     },
   },
 }) {
-  const [maxPostNum1, setMaxPostNum1] = useState(3);
+  const [maxPostNum1, setMaxPostNum1] = useState(6);
   const [maxPostNum2, setMaxPostNum2] = useState(6);
 
   useEffect(() => {
@@ -90,7 +90,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
         setMaxPostNum1(2); // Adjust this value as per your requirement
         setMaxPostNum2(4);
       } else {
-        setMaxPostNum1(3); // Adjust this value as per your requirement
+        setMaxPostNum1(6); // Adjust this value as per your requirement
         setMaxPostNum2(6);
       }
     };
@@ -107,11 +107,11 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       image={publicURL}
     >
       <Introduction profileImage={gatsbyImageData} />
-      <Title>🥃 New drinks!</Title>
+      <Title>🥃 새로운 한잔!</Title>
       <PostList selectedCategory={'all'} posts={edges} maxPostNum={maxPostNum1} />
-      <Title>🍹 Hot drinks!</Title>
+      <Title>🍹 인기있는 한잔!</Title>
       <PostList selectedCategory={'Choice'} posts={edges} maxPostNum={maxPostNum2} />
-      <GoToPostButton to="/post">🥂 전체 포스트 확인하기</GoToPostButton>
+      <GoToPostButton to="/post">🥂 최신 포스트 더보기</GoToPostButton>
     </Template>
   )
 }

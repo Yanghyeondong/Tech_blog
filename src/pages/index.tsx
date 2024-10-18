@@ -87,7 +87,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 1200) {
-        setMaxPostNum1(2); // Adjust this value as per your requirement
+        setMaxPostNum1(4); // Adjust this value as per your requirement
         setMaxPostNum2(4);
       } else {
         setMaxPostNum1(6); // Adjust this value as per your requirement

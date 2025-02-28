@@ -67,7 +67,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
           <PostContent html={html} />
           <TableOfContents content={tableOfContents} />
         </PostContainer>
-        <DisqusCommentBox url={href} identifier={id} title={title}/>
+{/*         <DisqusCommentBox url={href} identifier={id} title={title}/> */}
     </Template>
   )
 }

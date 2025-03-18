@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 WORKDIR /blog
 
-Run apt update -y && \
+RUN apt update -y && \
     apt upgrade -y && \
     apt install -y \
     git \
@@ -11,4 +11,4 @@ Run apt update -y && \
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 
 SHELL ["/bin/bash", "-c"]
-RUN source ~/.nvm/nvm.sh && nvm install 16.16.0 && npm install -g yarn
+RUN source ~/.nvm/nvm.sh && nvm install 18.0.0 && npm install -g yarn
